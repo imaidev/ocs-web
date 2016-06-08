@@ -1,0 +1,2438 @@
+﻿@CHARSET "UTF-8";
+
+.wbim_box {
+	font:12px "Microsoft YaHei",Arial,Helvetica, "宋体", sans-serif;
+	color:#888;
+	text-align: left;
+	
+	display: none; 
+	bottom: 20px;
+	right: 20px;
+	height: 502px;
+	position: fixed;
+	z-index:10000;
+	
+	/*IE6*/
+	_position:absolute;
+    _bottom:auto;
+    _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+}
+.wbim_box * {
+	margin:0;
+	*margin:0;
+	_margin:0;
+	padding:0;
+}
+.wbim_box li {
+	list-style:none;
+}
+
+.wbim_box a {
+    color:#0082cd;
+    text-decoration:none;
+}
+.wbim_box a:hover {
+    text-decoration:underline;
+}
+
+/*圆角和边框*/
+.wbim_box .wbim_list_expand,
+.wbim_box .wbim_chat_box{
+    /*
+    border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border: 1px solid #36648B;
+    z-index:2;
+    */
+}
+.wbim_box .wbim_list_expand .wbim_tit,
+.wbim_box .wbim_chat_box .wbim_tit{
+    /*
+	border-top-left-radius:4px;
+    -moz-border-top-left-radius:4px;
+    -webkit-border-top-left-radius:4px;
+    border-top-right-radius:4px;
+    -moz-border-top-right-radius:4px;
+    -webkit-border-top-right-radius:4px;
+    border-bottom: 1px solid #ffffff;
+    */
+}
+.wbim_box .wbim_chat_rt,
+.wbim_box .wbim_chat_btm,
+.wbim_box .wbim_history_box{
+    border-bottom-right-radius:4px;
+    -moz-border-bottom-right-radius:4px;
+    -webkit-border-bottom-right-radius:4px;
+    border-bottom-left-radius:4px;
+    -moz-border-bottom-left-radius:4px;
+    -webkit-border-bottom-left-radius:4px;
+}
+
+.wbim_box .wbim_chat_lf {
+   border-bottom-left-radius:4px;
+   -moz-border-bottom-left-radius:4px;
+   -webkit-border-bottom-left-radius:4px;
+}
+
+.wbim_box .wbim_list_up input{
+    border-radius:10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+}
+
+/*横着的虚线*/
+.wbim_box .wbim_btn_choose li.line, 
+.wbim_box .wbim_btn_choose li.line span, 
+.wbim_box .wbim_btn_choose li.line em,
+.wbim_box .wbim_chat_list dl dd.line {
+    clear:both;
+    height:1px;
+    overflow:hidden;
+    border-bottom: 1px dotted #D8D8D8;
+}
+
+/*=S 右侧整个在线状态+好友框 */
+.wbim_box .wbim_list_expand {
+	width:240px;
+	height:550px;
+	right: 30px;
+	_right: 30px; 
+	bottom: 30px;
+	_bottom:31px;
+	background:#fff;
+	position:absolute;
+	_position:absolute;
+}
+
+
+/*好友框*/
+.wbim_box .wbim_list_box {
+    height:480px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    position:relative;
+    _position:relative;
+}
+/*=E 好友框 */
+
+/*=S 有多个用户时的聊天框 */
+.wbim_box .wbim_chat_box {
+    width:620px;
+    /*bottom:0px;*/
+    /*right: 271px;*/
+    right: 451px;
+    bottom:30px;
+    height:502px;
+    display:none;
+    position: absolute; 
+    _position: absolute;
+}
+
+
+/*S 左侧打开多个聊天窗口后的好友列表*/
+.wbim_box .wbim_chat_lf {
+    float:left;
+    width:120px;
+    height:461px;
+    
+    margin-top:0;
+    *margin-top:0;
+    margin-left:0;
+    *margin-left:0;
+    
+    display:block;
+    position: relative;
+    _position: relative;
+    
+    overflow:hidden;
+    background:url(../images/new/bg_line.png) repeat-y right 0 #f4f4f4;
+}
+
+/*展开的好友列表的高度*/
+.wbim_box .wbim_chat_friend_box {
+    height:420px;
+    overflow:hidden;
+    position:relative;
+    _position:relative;
+}
+
+/*只有一个对话用户时的聊天框*/
+.wbim_box .wbim_chat_box_s {
+    width:500px;
+}
+/*聊天消息框*/
+.wbim_box .wbim_chat_rt {
+    float:left;
+    width:500px;
+    background:#fff;
+    position: relative;
+    _position: relative;
+}
+
+/*消息接收框*/
+.wbim_box .wbim_chat_list {
+    width: 499px;
+    height:300px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    position:relative;
+}
+/*=E 聊天框 */
+
+
+/*好友列表*/
+.wbim_box .wbim_chat_friend_list {
+    position:relative;
+    _position:relative;
+    height:100%;
+    min-height:320px;
+    overflow:hidden;
+    *overflow:hidden;
+}
+.wbim_box .wbim_chat_friend_list li {
+    float:left;
+    cursor:pointer;
+    margin:2px 0 0 3px;
+    *margin:2px 0 0 3px;
+    display:inline;
+    padding:1px 1px 1px 6px;
+    width:120px;
+    height:28px;
+    zoom:1;
+    overflow:hidden;
+    position:relative;
+}
+.wbim_box .wbim_chat_friend_list li.wbim_active {
+    background:#fff;
+    padding:0 0 0 5px;
+    width:120px;
+    font-weight:bold;
+    border:1px solid #A6A6A6;
+    border-right:0;
+    font-weight:bold;
+}
+
+/*来了新消息后好友列表闪动 */
+.wbim_box .wbim_min_chat .wbim_highlight,
+.wbim_box .wbim_chat_friend_list li.wbim_highlight, 
+.wbim_box .wbim_chat_friend_list li.wbim_highlight:hover {
+    background-color:#FE8000;
+    padding:0 0 0 5px;
+    border:1px solid #f6e2ae;
+    color: #FFF;
+    width:120px;
+}
+
+
+/*E 左侧打开多个聊天窗口后的好友列表*/
+
+
+/*=S 顶部显示对方名字和在线状态的一栏 */	
+
+/*右侧*/
+.wbim_box .wbim_list_expand .wbim_tit {
+    width:100%;
+	height:40px;
+	cursor:pointer;
+	position: relative;
+	_position: relative;
+	display:block;
+	z-index: 2;
+	/*overflow:hidden;*/
+	/*background:url(../images/new/bg_1.png) repeat;*/
+	background-color: #e3e3e3;
+}
+/*左侧*/
+.wbim_box .wbim_chat_box .wbim_tit {
+    width: 100%;
+    height:40px;
+    position: relative;
+    _position: relative;
+    display:block;
+    //background:url(../images/new/bg_1.png) repeat;
+    background-color: #e3e3e3;
+}
+.wbim_box .wbim_chat_box .wbim_tit .wbim_tit_bg{
+    float:left;
+    width:100%;
+    height:100%;
+    position: absolute;
+    _position: absolute;
+}
+.wbim_box .wbim_chat_box .wbim_tit .wbim_tit_bg .wbim_tit_bg_left,
+.wbim_box .wbim_chat_box .wbim_tit .wbim_tit_bg .wbim_tit_bg_middle,
+.wbim_box .wbim_chat_box .wbim_tit .wbim_tit_bg .wbim_tit_bg_right{
+    height:100%;
+    position: absolute;
+    _position: absolute;
+}
+.wbim_box .wbim_chat_box .wbim_tit .wbim_tit_bg .wbim_tit_bg_left{
+    width:20px;
+    left: 0px;
+    background:url(../images/new/bg_chat_1.png) no-repeat;
+}
+.wbim_box .wbim_chat_box .wbim_tit .wbim_tit_bg .wbim_tit_bg_middle{
+    width:95%;
+    left: 20px;
+    background:url(../images/new/bg_chat_2.png) repeat-x 0 0;
+}
+.wbim_box .wbim_chat_box .wbim_tit .wbim_tit_bg .wbim_tit_bg_right{
+    width:20px;
+    right:0px;
+    background:url(../images/new/bg_chat_3.png) no-repeat;
+}
+/*=E 顶部显示对方名字和在线状态的一栏 */
+
+/*=S 中间横框，表情、上传文件、聊天记录等*/
+.wbim_box .wbim_chat_toolbar {
+	background: none repeat scroll 0 0 #F2F2F2;
+    height: 25px;
+}
+.wbim_box .wbim_chat_toolbarin {
+	height:25px;
+	border-bottom:1px solid #dfdfdf;
+}
+/*=E 中间横框，表情、上传文件、聊天记录等*/
+
+/*=S 底部一栏*/
+.wbim_box .wbim_chat_btm {
+    height:30px;
+    _overflow:hidden;
+    background-position:0px -195px;
+    background:url(../images/new/bg_3.png) repeat;
+}
+.wbim_box .wbim_chat_btmin_dcp {
+	height:25px;
+	_overflow:hidden;
+	border-top:-1px solid #DEDEDE;
+	/*background:#f3f3f3;*/
+	background-position:0px -103px;
+}
+/*=E 底部一栏*/
+
+/*聊天记录*/
+.wbim_box .wbim_history_box {
+    top:0px;
+    left:0px;
+    width: 500px;
+    position:absolute;
+    _position:absolute;
+    background-color: #FEFEFE;
+}
+.wbim_box .wbim_chat_history_list {
+    height:405px;
+}
+
+
+/*=S 绑定图标*/
+.chooser_close,
+.wbim_box .wbim_list_srch_icon, 
+.wbim_box .wbim_status_online, 
+.wbim_box .wbim_status_disconnected, 
+.wbim_box .wbim_status_busy, 
+.wbim_box .wbim_status_away, 
+.wbim_box .wbim_status_offline, 
+.wbim_box .wbim_status_client_busy, 
+.wbim_box .wbim_status_client_away, 
+.wbim_box .wbim_list_group_tit, 
+.wbim_box .wbim_icon_mini, 
+.wbim_box .wbim_icon_close, 
+.wbim_box .wbim_icon_close_s,
+.wbim_box .wbim_icon_face, 
+.wbim_box .wbim_icon_img, 
+.wbim_box .wbim_icon_ping, 
+.wbim_box .wbim_icon_quick, 
+.wbim_box .wbim_icon_doc, 
+.wbim_box .wbim_icon_chatdoc, 
+.wbim_box .wbim_icon_ask, 
+.wbim_box .wbim_icon_tips, 
+.wbim_box .wbim_icon_arrd, 
+.wbim_box .wbim_icon_msg, 
+.wbim_box .wbim_icon_msg_s, 
+.wbim_box .wbim_icon_setup, 
+.wbim_box .wbim_btn_publish,
+.wbim_box .wbim_btn_choose_a,
+.wbim_box .wbim_scrolltop_n,
+.wbim_box .wbim_scrollbtm_n,
+.wbim_box .wbim_btn_close, 
+.wbim_box .wbim_btn_confirm,
+.wbim_box .wbim_msgr .msg_arr,
+.wbim_box .wbim_status_tit_arrow,
+.wbim_box .wbim_status_tit_arrow_hover,
+.wbim_box .wbim_list_group_tit.wbim_open,
+.wbim_box .wbim_list_group_tit.wbim_close,
+.wbim_box .wbim_list_box .wbim_list_friend .warn_icon,
+.wbim_box .wbim_icon_down, .wbim_box .wbim_icon_fk, 
+.wbim_box .wbim_icon_file, .wbim_box .wbim_icon_err, .wbim_box .wbim_icon_ok, 
+.wbim_box .wbim_btn_pmsg, .wbim_box .wbim_p_arr, .wbim_box .wbim_picview_box .wbim_p_ctrl a,
+.wbim_box .wbim_btn_sysmsg, .wbim_box .wbim_picview_box .wbim_pic_bar_cls,
+.wbim_box .wbim_btn_choose li.curr span i{
+	background:url(../images/new/icons.png) no-repeat;
+	_background:url(../images/new/icons.gif) no-repeat;
+}
+
+
+.wbim_titin_class{
+    float:left;
+}
+
+/*在线状态总容器*/
+.wbim_box .wbim_tit .wbim_tit_lf {
+    float:left;
+    margin: 12px 0 0 8px;
+    *margin: 12px 0 0 8px;
+    _margin: 12px 0 0 8px;
+    position:relative;
+    _position:relative;
+}
+
+/*人物昵称总容器*/
+.wbim_box .wbim_titin_dcp .wbim_tit_lf{
+    float:left;
+    position:relative;
+    _position:relative;
+}
+/*关闭和最小化按钮*/
+.wbim_box .wbim_titin .wbim_tit_rf{
+    float:right;
+    margin: 12px 0 0 0px;
+    *margin: 12px 0 0 0px;
+    -margin: 12px 0 0 0px;
+    
+    position:relative;
+    _position:relative;
+}
+
+
+/*=E 绑定图标*/
+
+/*=S 搜索框*/
+.wbim_box .wbim_list_up {
+    float: left;
+    width: 158px;
+    overflow:hidden;
+    position: relative;
+    _position: relative;
+    padding-top: 10px;
+    padding-left: 10px;
+    display: inline;
+}
+/*搜索输入框*/
+.wbim_box .wbim_list_up input {
+    width:145px;
+    height:18px;
+    color:#999;
+    float: left;
+    border:1px solid #FFFFFF;
+}
+/*搜索图标*/
+.wbim_box .wbim_list_srch_icon {
+    float: left;
+    width: 20px;
+    height: 16px;
+    margin-left: -20px;
+    *margin-left: -20px;
+    _margin-left: -20px;
+    
+    position: relative;
+    _position: relative;
+    background-position: -63px 2px;
+}
+/*=E 搜索框*/
+
+
+
+/*对方头像*/
+.wbim_box .wbim_tit_lf_user_head{
+    float: left;
+    height: 64px;
+    position: relative;
+    width: 60px;
+    margin-top: -30px;
+    margin-left: 15px;
+    
+    _margin-top: -30px;
+    _margin-left: 15px;
+    
+    *margin-top: -30px;
+    *margin-left: 15px;
+    border:1px solid #E3E3E3;
+    border-radius:6px 6px 6px 6px; 
+}
+/*头像图片*/
+.wbim_box .wbim_tit_lf_user_head img{
+    width:60px;
+    height:64px;
+    display:block;
+    border-radius:6px 6px 6px 6px; 
+}
+/*头像的在线状态*/
+.wbim_box .wbim_tit_lf_user_head span {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+}
+
+/*昵称*/
+/*顶部附加字字体，比如：咨询XXX中...*/
+.wbim_box .wbim_tit_lf p .txt {
+    float:left;
+    width: 300px;
+    color:#CD950C;
+}
+/*对方昵称*/
+.wbim_box .wbim_tit_lf p .txt a {
+    color: #333;
+    font-size:14px;
+    font-family: Tahoma,Verdana;
+    font-style: normal;
+    font-weight: bold;
+    word-wrap: break-word;
+    position: relative;
+}
+
+/*聊天框等大的关闭按钮*/
+.wbim_box .wbim_icon_close,.wbim_box .wbim_icon_close:hover{
+    float: right;
+    width: 23px;
+    height: 23px;
+    margin: 0 5px 0 5px;
+    *margin: 0 5px 0 5px;
+    _margin: 0 5px 0 5px;
+}
+.wbim_box .wbim_icon_close {
+    background-position:-1px -40px;
+}
+.wbim_box .wbim_icon_close:hover {
+    background-position:-25px -40px;
+}
+/*聊天框最外面的大关闭按钮*/
+.wbim_box .wbim_tit .wbim_titin_dcp .wbim_tit_rf .wbim_icon_close,.wbim_box .wbim_tit .wbim_titin_dcp .wbim_tit_rf .wbim_icon_close:hover{
+    margin: 10px 5px 0 5px;
+    *margin: 10 5px 0 5px;
+    _margin: 10 5px 0 5px;
+}
+
+/*上拉和下拉按钮*/
+.wbim_box .wbim_scrolltop_n,.wbim_box .wbim_scrolltop_n:hover,
+.wbim_box .wbim_scrollbtm_n,.wbim_box .wbim_scrollbtm_n:hover{
+    width:120px;
+    height:20px;
+    display:block;
+}
+/*上拉按钮*/
+.wbim_box .wbim_scrolltop_n{
+    background-position:0px -154px;
+}
+.wbim_box .wbim_scrolltop_n:hover{
+    background-position:0px -174px;
+}
+/*下拉按钮*/
+.wbim_box .wbim_scrollbtm_n {
+    border-bottom-left-radius:4px;
+    -moz-border-bottom-left-radius:4px;
+    -webkit-border-bottom-left-radius:4px;
+    background-position:0px -194px;
+}
+.wbim_box .wbim_scrollbtm_n:hover {
+    border-bottom-left-radius:4px;
+    -moz-border-bottom-left-radius:4px;
+    -webkit-border-bottom-left-radius:4px;
+    background-position:0px -214px;
+}
+
+
+/*标签页、提醒等小的关闭按钮关闭按钮*/
+.wbim_box .wbim_icon_close_s{
+    width:14px;
+    height:14px;
+    
+    float:right;
+    margin: 5px;
+    *margin: 5px;
+    _margin: 5px;
+    overflow:hidden;
+    _overflow:hidden;
+    background-position:-115px -2px;
+}
+.wbim_box .wbim_icon_close_s:hover {
+    background-position:-130px -2px;
+}
+
+
+/*好友列表界面最小化按钮*/
+.wbim_box .wbim_icon_mini{
+    float:right;
+    margin-top: 2px;
+    *margin-top: 2px;
+    _margin-top: 2px;
+    
+    width:24px;
+    height:24px;
+    overflow:hidden;
+    
+    background-position:-48px -40px;
+}
+.wbim_box .wbim_icon_mini:hover {
+	background-position:-72px -40px;
+}
+.wbim_box .wbim_tit_lf .tit {
+    float:left;
+    height:30px;
+}
+/*布局*/
+.wbim_box .wbim_tit_lf span {
+    float:left;
+}
+/*在线状态字体*/
+.wbim_box .wbim_tit_lf .txt {
+    float:left;
+    margin-left:5px;
+    *margin-left:5px;
+    _margin-left:5px;
+    line-height:16px;
+    color: #333333;
+}
+/*在线状态箭头图标*/
+.wbim_box .wbim_status_tit_arrow,.wbim_box .wbim_status_tit_arrow_hover{
+	float:left;
+	width:12px;
+	height:12px;
+}
+.wbim_box .wbim_status_tit_arrow{
+    background-position:-82px 0px;
+}
+.wbim_box .wbim_status_tit_arrow_hover{
+    background-position:-98px 0px;
+}
+/*在线状态下拉列表*/
+.wbim_box .wbim_tit_lf ul {
+    visibility: hidden;
+    position:absolute;
+    _position:absolute;
+    top:20px;
+    left:-1px;
+    padding:1px;
+    background:#fff;
+    width:55px;
+    border-top:0;
+    overflow:hidden;
+    border: 1px solid #4A708B;
+}
+.wbim_box .wbim_tit_lf_hover ul {
+    visibility: visible;
+    z-index:5;
+}
+.wbim_box .wbim_tit_lf li {
+    float:left;
+    width:64px;
+    height:23px;
+    overflow:hidden;
+    line-height:23px;
+    line-height:25px\9;
+*line-height:23px;
+    color:#888;
+    cursor:pointer;
+    margin:-1px 0 0 -1px;
+    *margin:-1px 0 0 -1px;
+    _margin:-1px 0 0 -1px;
+}
+.wbim_box .wbim_tit_lf li.wbim_status_selected {
+    /*background-color: #5CACEE;*/
+}
+.wbim_box .wbim_tit_lf li a:hover {
+    width:100%;
+    height:100%;
+    display:block;
+    background:#5CACEE;
+}
+
+/*在线状态竖线*/
+.wbim_box .wbim_tit_lf .linert {
+	width:2px;
+	height:30px;
+	background-position:-122px -63px;
+	position:absolute;
+	top:0;
+	left:64px;
+	display:none;
+}
+
+/*绑定发送按钮和选择发送方式按钮*/
+.wbim_box .wbim_btn_send,
+.wbim_box .wbim_btn_choose {
+    float:left;
+}
+.wbim_box .wbim_btn_publish, 
+.wbim_box .wbim_btn_publish:hover,
+.wbim_box .wbim_btn_choose_a, 
+.wbim_box .wbim_btn_choose_a:hover{
+    float:left;
+    height:30px;
+    outline:none;
+    margin-top: 1px;
+    *margin-top: 1px;
+    _margin-top: 1px;
+    overflow:hidden;
+    text-indent:-9999px;
+    cursor: pointer;
+    position: relative;
+    _position: relative;
+}
+.wbim_box .wbim_btn_publish {
+    width:60px;
+	background-position:0 -63px;
+}
+.wbim_box .wbim_btn_publish:hover {
+    width:60px;
+    background-position:0 -93px;
+}
+.wbim_box .wbim_btn_choose_a {
+    width:17px;
+    background-position:-73px -63px;
+}
+.wbim_box .wbim_btn_choose_a:hover {
+    width:17px;
+    background-position:-73px -93px;
+}
+
+/*发送按钮前面剩余可输入的文字个数提示*/
+.wbim_box .wbim_chat_btm .wbim_tips_char {
+	float:left;
+	margin:2px 10px 0 10px;
+	*margin:2px 10px 0 10px;
+	_margin:2px 10px 0 10px;
+	line-height:24px;
+	color:#999;
+}
+/*发送框外容器*/
+.wbim_box .wbim_chat_input {
+	/*height:78px;*/
+	text-align:center;
+	margin:0 1px;
+	*margin:0 1px;
+	_margin:0 1px;
+}
+
+
+/*输入框*/
+.wbim_box .wbim_chat_input textarea {
+	width:100%;
+	border:0;
+	height:80px;
+	margin:2px 0 0;
+	*margin:2px 0 0;
+	_margin:2px 0 0;
+	overflow-x:hidden;
+	overflow-y:auto;
+	font-size:12px;
+	color:#888;
+	font:-webkit-small-control;
+}
+
+/*隐藏的用于文件上传的flash框*/
+.wbim_box .fileUpLoadOfFlash {
+    width:108px;
+    height:20px;
+    display:block;
+    right:325px;
+    *right:320px;
+    bottom:139px;
+    z-index:10;
+	position:absolute;
+    filter:alpha(opacity=50);
+}
+
+
+/*--S 好友、群聊和最近联系人*/
+.wbim_box .wbim_list_tab{
+    width:240px;
+    height:25px;
+    overflow:hidden;
+}
+/*tab页*/
+.wbim_box .wbim_list_tab ul{
+    width:100%;
+    height:100%;
+    //background:url(../images/new/bg_1.png) repeat;
+    background-color:#eeeeee;
+    overflow:hidden;
+}
+.wbim_box .wbim_list_tab li{
+    float:left;
+    width:50%;
+    height:25px;
+    color:#333333;
+    cursor:pointer;
+    text-align:center;
+    line-height: 25px;
+}
+.wbim_box .wbim_list_tab .curr{
+    background-color: #FFFFFF;
+}
+
+
+/*--E 好友、群聊和最近联系人*/
+
+
+.wbim_box em, .wbim_box i {
+	font-style:normal;
+	font-weight:normal;
+}
+.wbim_box fieldset, .wbim_box img {
+	border:0;
+}
+.wbim_box input, .wbim_box textarea {
+	outline-style:none;
+}
+.wbim_box textarea {
+	resize:none;
+}
+.wbim_box table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+.wbim_box .spetxt {
+	color:#c90000;
+}
+
+
+/*警告*/
+.wbim_box .wbim_icon_tips {
+	width:20px;
+	height:20px;
+	display:inline-block;
+	background-position:-96px -43px;
+}
+.wbim_box .wbim_icon_down {
+	width:12px;
+	height:12px;
+	display:inline-block;
+	background-position:-59px -238px;
+}
+.wbim_box .wbim_icon_file {
+	width:32px;
+	height:32px;
+	display:inline-block;
+	background-position:-75px -240px;
+}
+.wbim_box .wbim_icon_err {
+	width:14px;
+	height:14px;
+	display:inline-block;
+	background-position:-145px -60px;
+}
+.wbim_box .wbim_icon_ok {
+	width:14px;
+	height:14px;
+	display:inline-block;
+	background-position:-238px -60px;
+}
+
+/*在线状态*/
+.wbim_box .wbim_status_online, 
+.wbim_box .wbim_status_disconnected, 
+.wbim_box .wbim_status_away, 
+.wbim_box .wbim_status_busy, 
+.wbim_box .wbim_status_offline, 
+.wbim_box .wbim_status_client_busy, 
+.wbim_box .wbim_status_client_away {
+	width:15px;
+	height:15px;
+	display:inline-block;
+	overflow:hidden;
+}
+.wbim_box .wbim_status_online {
+	background-position:0 0;
+}
+.wbim_box .wbim_status_away {
+	background-position:-15px 0;
+}
+.wbim_box .wbim_status_busy {
+	background-position:-48px 0;
+}
+.wbim_box .wbim_status_offline {
+	background-position:-33px 0;
+}
+.wbim_box .wbim_status_mobile {
+	background-position:-40px 0;
+	width:9px;
+	height:12px;
+}
+
+.wbim_box .wbim_status_client {
+	background-position:-50px 0;
+}
+.wbim_box .wbim_status_client_busy {
+	background-position:-100px 0;
+}
+.wbim_box .wbim_status_client_away {
+	background-position:-110px 0;
+}
+.wbim_box .wbim_status_disconnected {
+	background-position:-120px 0;
+}
+
+.wbim_box .wbim_tit_lf p {
+	line-height:14px;
+	overflow:hidden;
+}
+.wbim_box .wbim_tit_lf p span {
+	float:left;
+}
+
+.wbim_box .wbim_tit_lf p .msg_tit {
+	margin-left:8px;
+	*margin-left:8px;
+	_margin-left:8px;
+}
+.wbim_box .wbim_tit_lf p .txt .txtg {
+	color:#888;
+	margin-left:4px;
+	*margin-left:4px;
+	_margin-left:4px;
+}
+.wbim_box .wbim_tit_lf p .txt .txtg a {
+	color:#7AA5B9;
+}
+.wbim_box .wbim_tit_lf .tit .wbim_status_online, .wbim_box .wbim_tit_lf .tit .wbim_status_busy, .wbim_box .wbim_tit_lf .tit .wbim_status_away, .wbim_box .wbim_tit_lf .tit .wbim_status_offline, .wbim_box .wbim_tit_lf .tit .wbim_status_disconnected {
+	float:left;
+}
+
+.wbim_box .wbim_tit_lf li span {
+	float:left;
+	margin: 2px 5px 2px 2px;
+	*margin: 2px 5px 2px 2px;
+	_margin: 2px 5px 2px 2px;
+	cursor:pointer;
+}
+.wbim_box .wbim_tit_lf li span.wbim_status_label {
+	margin-top:-1px;
+	*margin-top:-1px;
+	_margin-top:-1px;
+	color:#333;
+}
+.wbim_box .wbim_icon_fk {
+	background-position:-120px 0;
+}
+.wbim_box .wbim_icon_fk:hover {
+	background-position:-150px 0;
+}
+.wbim_box .wbim_icon_setup {
+	background-position:-180px 0;
+}
+.wbim_box .wbim_icon_setup:hover {
+	background-position:-210px 0;
+}
+
+.wbim_box .wbim_userhead {
+	float:left;
+	width:21px;
+	height:21px;
+	position:relative;
+}
+.wbim_box .wbim_userhead img {
+	width:20px;
+	height:20px;
+	display:block;
+}
+.wbim_box .wbim_userhead span {
+	position:absolute;
+	bottom:0;
+	right:0;
+	_bottom:-1px;
+	_right:-1px;
+}
+.wbim_box .wbim_offline {
+	color:#999;
+}
+.wbim_box .wbim_offline .wbim_userhead img {
+	-moz-opacity:.6;
+	opacity:.6;
+	filter:alpha(opacity=60);
+}
+.wbim_box .wbim_username {
+	float:left;
+	word-wrap:break-word;
+	word-break:break-all;
+	white-space:nowrap;
+	_white-space:normal;
+	overflow:hidden;
+	_font-family:"宋体";
+}
+.wbim_box .wbim_icon_msg_s {
+	width:7px;
+	height:8px;
+	display:inline-block;
+	background-position:-60px 0;
+	position:absolute;
+	top:7px;
+	left:-11px;
+}
+
+.wbim_box .wbim_list_pos {
+	width:100%;
+	height:25px;
+	position:relative;
+	border-top: 1px solid #A6A6A6;
+	border-right: 1px solid #473C8B;
+}
+.wbim_box .wbim_clicknone {
+	display:block;
+	/*width:155px;*/
+	width: 100%;
+	height:24px;
+	text-align:center;
+	-moz-opacity:.6;
+	opacity:.6;
+	filter:alpha(opacity=60);
+	float:left;
+}
+.wbim_box .wbim_clicknone:hover, .wbim_box .wbim_send_pmsg:hover {
+	-moz-opacity:.85;
+	opacity:.85;
+	filter:alpha(opacity=85);
+}
+.wbim_box .wbim_icon_arrd {
+	width:12px;
+    height:16px;
+    display:inline-block;
+    margin:7px 0 0;
+    *margin:7px 0 0;
+    _margin:7px 0 0;
+    background-position:-82px 0px;
+}
+.wbim_box .wbim_list_nof {
+	width:160px;
+	line-height:18px;
+	
+	margin:20px 0 0 26px;
+	*margin:20px 0 0 26px;
+	_margin:20px 0 0 26px;
+}
+.wbim_box .wbim_list_nof .wbim_icon_tips {
+	float:left;
+	margin-bottom:20px;
+	margin-left:50px;
+    _margin-left:50px;
+    *margin-left:50px;
+	margin-right:5px;
+	_margin-right:5px;
+	*margin-right:5px;
+	position: relative;
+}
+.wbim_box .wbim_send_con {
+	float:left;
+	border-left:1px solid #dedede;
+}
+.wbim_box .wbim_send_pmsg {
+	display:block;
+	width:42px;
+	height:24px;
+	background:#f4f4f4;
+	-moz-opacity:.6;
+	opacity:.6;
+	filter:alpha(opacity=60);
+}
+.wbim_box .wbim_btn_pmsg {
+	display:inline-block;
+	height:13px;
+	width:17px;
+	background-position:-204px -240px;
+}
+.wbim_box .wbim_btn_sysbtn {
+	width: 20px;
+	height: 20px;
+	display:inline-block;
+	cursor: pointer;
+}
+
+/*小喇叭*/
+.wbim_box .wbim_btn_sysmsg {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-top: 3px !important;
+    *margin-top: 3px !important;
+    *margin-top: 3px !important;
+    background-position: -144px 0;
+}
+.wbim_box .wbim_gmsging .wbim_btn_pmsg {
+	background-position:-240px -240px;
+}
+.wbim_box .wbim_send_pmsg .wbim_btn_pmsg {
+	margin:6px 0 0 13px;
+	*margin:6px 0 0 13px;
+	_margin:6px 0 0 13px;
+}
+.wbim_box .wbim_gmsging, .wbim_box .wbim_gmsging:hover {
+	background:#FEFFE5;
+	-moz-opacity:1;
+	opacity:1;
+	filter:alpha(opacity=100);
+}
+.wbim_box .wbim_list_group {
+	margin:5px 2px;
+}
+.wbim_box .wbim_list_group_tit {
+	padding-left:18px;
+	cursor:pointer;
+	height:20px;
+	line-height:20px;
+	line-height:22px\9;
+*line-height:20px;
+	zoom:1;
+}
+.wbim_box .wbim_list_group_tit_hover {
+	background-color:#e9e9e9;
+}
+
+/*树状结构的箭头*/
+.wbim_box .wbim_list_group_tit.wbim_open {
+	background-position:-216px -15px;
+}
+.wbim_box .wbim_list_group_tit.wbim_close {
+	background-position:-216px 0px;
+}
+.wbim_box .wbim_list_friend ul li {
+	margin:2px 0 0;
+    *margin:-1px 0 0;
+    _margin:2px 0 0;
+	height:28px;
+	overflow:hidden;
+	cursor:pointer;
+	padding-left:18px;
+	clear:both;
+}
+
+
+
+
+.wbim_box .wbim_list_friend ul li:after {
+	content:"";
+	display:block;
+	overflow:hidden;
+	height:0;
+	clear:both;
+}
+
+.wbim_box .wbim_list_friend ul li:hover, 
+.wbim_box .wbim_list_friend ul li.wbim_hover {
+	background:#e9e9e9;
+}
+.wbim_box .wbim_list_friend .wbim_userhead {
+	margin:4px 9px 0 0;
+}
+.wbim_box .wbim_list_friend .wbim_username {
+	height:28px;
+	width:120px;
+	line-height:28px;
+}
+.wbim_box .wbim_chat_friend_list .wbim_userhead {
+	margin:4px 6px 0 0;
+}
+.wbim_box .wbim_chat_friend_list .wbim_username {
+    color:#333333;
+	height:30px;
+	width:70px;
+	line-height:30px;
+}
+
+/*展开的好友列表关闭按钮*/
+.wbim_box .wbim_chat_friend_list li .wbim_icon_close_s {
+    margin-top:5px;
+    *margin-top:5px;
+    _margin-top:5px;
+    
+    margin-left:0;
+    *margin-left:0;
+    _margin-left:0;
+    
+    display:none;
+    _display:block;
+}
+.wbim_box .wbim_chat_friend_list li:hover .wbim_icon_close_s{
+    display:block;
+    _display:block;
+}
+
+.wbim_box .wbim_chat_up {
+	height:300px;
+	overflow:hidden;
+}
+
+/*对方不在线的提示框*/
+/*背景*/
+.wbim_box .wbim_chat_tips {
+    //background:url(../images/new/bg_2.png) repeat;
+    background-color:#eeeeee;
+    width:500px;
+    height:25px;
+    line-height: 18px;
+    position: absolute;
+    z-index: 3;
+}
+
+/*图标和文字*/
+.wbim_box .wbim_chat_tips .wbim_icon_tips,.wbim_box .wbim_chat_tips .wbim_chat_tips_content {
+    float: left;
+    margin:4px;
+    color: #333333;
+}
+
+
+/*聊天消息内容容器*/
+.wbim_box .wbim_chat_list dd {
+	clear:both;
+    *clear:both;
+}
+
+/*分割线*/
+.wbim_box .wbim_chat_list dl dd.line{
+     line-height: 17px;
+     margin-top: 10px;
+     padding-top: 10px;
+}
+
+.wbim_box .wbim_msgr, 
+.wbim_box .wbim_msgl, 
+.wbim_box .wbim_msg_g, 
+.wbim_box .wbim_msg_err {
+	min-width:200px;
+	max-width:490px;
+	*width:222px;
+	margin-bottom:1px;
+	_margin-bottom:1px;
+	*margin-bottom:1px;
+}
+
+/*消息接收框*/
+.wbim_box .wbim_msgl .msg_box {
+  	border: solid 1px #eaeaea;
+	background: #f3f3f3;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	min-height: 18px;
+	min-width: 40px;
+	max-width:280px;
+	margin-right: 5px;
+	margin-top: 5px;
+	_margin-right: 5px;
+	_margin-top: 5px;
+	color: #272727;
+}
+
+.wbim_box .wbim_msgr {
+	float:right;
+	margin-right:5px;
+	_margin-right:5px;
+	*margin-right:5px;
+	display:inline;
+}
+.wbim_box .wbim_msgl, 
+.wbim_box .wbim_msg_g, 
+.wbim_box .wbim_msg_err {
+	float:left;
+	/*margin-left:5px;
+	_margin-left:5px;*/
+	display:inline;
+}
+.wbim_box .wbim_msgpos {
+	position:relative;
+	margin: 10px 0 0 15px;
+	
+}
+.wbim_box .msg_box {
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius: 5px;
+	padding:5px 9px;
+}
+.wbim_box .wbim_msgr .msg_box {
+	border:1px solid #dff0d8;
+	background:#ebfbe3;
+	white-space: pre-wrap;
+    word-wrap: break-word;
+	
+	min-height: 18px;
+    min-width: 40px;
+    max-width:280px;
+    margin-right: 5px;
+    margin-top: 5px;
+    
+    *margin-right: 5px;
+    *margin-top: 5px;
+    
+    _margin-right: 5px;
+    _margin-top: 5px;
+    color: #272727;
+}
+.wbim_box .wbim_msg_g .msg_box {
+	border:1px solid #d9edfa;
+	background:#f3f9fd;
+}
+.wbim_box .wbim_msg_err .msg_box {
+	border:1px solid #e79898;
+	background:#f0d4d4;
+}
+.wbim_box .msg_box .txt {
+	line-height:14px;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+.wbim_box .wbim_msg_err .msg_box .txt a.a_grey, .wbim_box .wbim_msg_err .msg_box .txt a.a_grey:hover {
+	cursor:default;
+	color:#999;
+	text-decoration:none;
+}
+.wbim_box .msg_box .lr {
+	/*position:relative;
+	zoom:1;*/
+	
+	_font-family:"宋体";
+	clear:both;
+}
+.wbim_box .msg_box .lr .pos {
+	position:absolute;
+	bottom:2px;
+	bottom:0\9;
+	right:-2px;
+	color:#999;
+}
+.wbim_box .msg_box .lr .pos a {
+	margin:0 2px;
+	color: #0082CD;
+}
+.wbim_box .msg_box .lr .picsbox {
+	margin-right:5px;
+	_margin-right:5px;
+	*margin-right:5px;
+	width:32px;
+	height:32px;
+	display:inline-block;
+	overflow:hidden;
+	text-align:center;
+	vertical-align:middle;
+}
+.wbim_box .msg_box .picsbox_n {
+	max-width:120px;
+	max-height:120px;
+}
+
+/*滑过图片的光标*/
+.wbim_box .msg_box .picsbox_n a {
+	cursor:url("http://www.icity365.net/mc/public/im/images/big.cur"), auto;
+}
+.wbim_box .msg_box .lr .picsbox i {
+	display:inline-block;
+	height:100%;
+	vertical-align:middle;
+}
+.wbim_box .msg_box .lr .infos {
+	display:inline-block;
+	line-height:18px;
+	vertical-align:middle;
+	min-width:100px;
+	max-width:159px;
+*width:159px;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+.wbim_box .msg_arr {
+	position:absolute;
+	width:6px;
+	height:9px;
+}
+
+/*发消息的人的昵称和时间*/
+.wbim_box .wbim_msgl .self_name, .wbim_box .wbim_msgl .other_name{
+    padding-left: 10px;
+}
+/*自己的昵称和发消息时间*/
+.wbim_box .wbim_msgl .self_name{
+    color: #888;
+}
+/*对方的昵称和发消息时间*/
+.wbim_box .wbim_msgr .other_name{
+    color: #888;
+}
+
+
+.wbim_box .wbim_msgr .msg_arr {
+    bottom: 10px;
+    height: 15px;
+    
+    right: -1px;
+    width: 10px;
+    background: url("../images/new/webim_icon.png") no-repeat scroll -70px 0 transparent;
+}
+.wbim_box .wbim_msgl .msg_arr {
+	bottom:10px;
+	width: 15px;
+	left:-9px;
+	height: 15px;
+	background: url("../images/new/webim_icon.png") no-repeat scroll -69px -13px transparent;
+}
+.wbim_box .wbim_msg_err .msg_arr {
+	bottom:10px;
+	left:-5px;
+	_left:-15px;
+	background-position:-167px -20px;
+}
+
+
+.wbim_box .wbim_msgr .msg_time {
+	text-align:right;
+	padding-right:10px;
+}
+
+
+
+.wbim_box .wbim_msgl .msg_time, 
+.wbim_box .wbim_msg_g .msg_time, 
+.wbim_box .wbim_msg_err .msg_time {
+	padding-left:10px;
+}
+.wbim_box .msg_disbox1 {
+	position:absolute;
+}
+.wbim_box .msg_disbox1 .msg_dis {
+	position:absolute;
+	left:0;
+	top:0;
+}
+.wbim_box .msg_disbox1 .msg_dis .arru {
+	position:absolute;
+	left:25px;
+	top:0;
+	width:19px;
+	height:10px;
+	background-position:-180px -20px;
+}
+.wbim_box .msg_disbox1 .msg_dis .box_s {
+	position:absolute;
+	left:0;
+	top:9px;
+	width:120px;
+	padding:10px;
+	border:1px solid #A6A6A6;
+	background:#feffe5;
+}
+.wbim_box .msg_disbox2 {
+	position:absolute;
+	right:517px;
+	top:79px;
+}
+
+/*表情、发文件、聊天记录等*/
+.wbim_box .wbim_chat_toolbar div.wbim_face{
+    margin: 4px;
+    float:left;
+    display:block;
+    position:relative;
+}
+
+/*图标*/
+.wbim_box .wbim_icon_face, 
+.wbim_box .wbim_icon_img, 
+.wbim_box .wbim_icon_doc, 
+.wbim_box .wbim_icon_chatdoc, 
+.wbim_box .wbim_icon_ping, 
+.wbim_box .wbim_icon_quick {
+    width:23px;
+    height:23px;
+    float:left;
+    margin-top:-4px;
+}
+
+/*文字*/
+.wbim_box .wbim_chat_toolbar a{
+	_margin-top:1px;
+	display:block;
+	_display:inline;
+	color:#777777;
+	cursor:pointer;
+}
+
+/*表情*/
+.wbim_box .wbim_icon_face {
+    background-position:-1px -17px;
+}
+.wbim_box .wbim_icon_face:hover {
+	background-position:-25px -17px;
+}
+
+/*发送图片*/
+.wbim_box .wbim_icon_img {
+	background-position:-48px -17px;
+}
+.wbim_box .wbim_icon_img:hover {
+	background-position:-72px -17px;
+}
+
+/*评分*/
+.wbim_box .wbim_icon_ping {
+	background-position:-96px -17px;
+	cursor: pointer;
+}
+.wbim_box .wbim_icon_ping:hover {
+	background-position:-120px -17px;
+}
+
+/*快捷回复*/
+.wbim_box .wbim_icon_quick {
+	background-position:-120px -40px;
+	cursor: pointer;
+}
+.wbim_box .wbim_icon_quick:hover {
+	background-position:-144px -40px;
+}
+
+/*发送文件*/
+.wbim_box .wbim_icon_doc {
+	background-position:-144px -17px;
+}
+.wbim_box .wbim_icon_doc:hover {
+	background-position:-168px -17px;
+}
+
+/*聊天记录*/
+.wbim_box .wbim_chat_toolbar a.wbim_history{
+    float:right;
+    margin: 4px 14px;
+    //color: #777777;
+    text-decoration: none;
+}
+.wbim_box .wbim_icon_chatdoc {
+	background-position:-169px -40px;
+}
+.wbim_box .wbim_history:hover .wbim_icon_chatdoc {
+	background-position:-193px -40px;
+}
+
+.wbim_box .wbim_chat_toolbar .wbim_history_cont {
+    float: right;
+    width: 100px;
+    display:block;
+    position:relative;
+    margin:2px 0px 0 0;
+    _margin-top:2;
+}
+
+
+
+/*输入框*/
+.wbim_box .wbim_chat_input_dis textarea {
+    height:100px;
+}
+.wbim_box .wbim_chat_input_tips {
+	height:20px;
+	background:#f6f6f6;
+	text-align:left;
+	position:absolute;
+	width: 480px;
+}
+.wbim_box .wbim_chat_input .wbim_chat_input_tips {
+	display:none;
+}
+.wbim_box .wbim_chat_input_dis .wbim_chat_input_tips {
+	display:block;
+}
+.wbim_box .wbim_chat_input_tips .fl {
+	float:left;
+	line-height:20px;
+	padding-left:30px;
+	width:300px;
+	height:20px;
+	overflow:hidden;
+	word-wrap:break-word;
+	word-break:break-all;
+	position:relative;
+}
+.wbim_box .wbim_chat_input_tips .fl .icon_ing {
+	position:absolute;
+	top:0;
+	left:7px;
+	width:20px;
+	height:20px;
+	background:url(../images/new/loading.gif) no-repeat 2px 2px;
+}
+
+/*上传文件或图片的横框，带有删除的那个*/
+.wbim_box .wbim_chat_input_tips .fl p {
+    float:left;
+    line-height: 18px;
+}
+.wbim_box .wbim_chat_input_tips .fl .wbim_icon_s_photo {
+    width: 20px;
+    height: 20px;
+	float:left;
+}
+
+.wbim_box .wbim_chat_input_tips .fr {
+	float:right;
+}
+.wbim_box .wbim_chat_input_tips .fr a.links {
+	float:left;
+	margin:4px 5px 0;
+	cursor: pointer;
+}
+.wbim_box .wbim_chat_input_tips .fr .wbim_icon_close_s {
+	margin:4px 6px 0 0;
+}
+.wbim_box .wbim_tips_show {
+	float:left;
+	position:relative;
+	display:block;
+}
+.wbim_box .wbim_tips_pos {
+	border:1px solid #27a0d4;
+	position:absolute;
+	width:199px;
+	padding-bottom:4px;
+	background:#fff;
+	bottom:24px;
+	right:-10px;
+}
+.wbim_box .wbim_tips_pos_n {
+	border:1px solid #27a0d4;
+	position:absolute;
+	padding:2px;
+	background:#fff;
+	bottom:24px;
+	left:0;
+}
+.wbim_box .msg_disbox2 .wbim_tips_pos {
+	bottom:auto;
+	right:auto;
+}
+.wbim_box .wbim_tips_tit {
+	height:20px;
+	overflow:hidden;
+}
+.wbim_box .wbim_tips_tit .wbim_icon_down {
+	position:absolute;
+	left:9px;
+	top:4px;
+}
+.wbim_box .wbim_tips_tit .wbim_icon_close_s, .wbim_box .wbim_chat_input_tips .fr .wbim_tips_tit .wbim_icon_close_s {
+	position:absolute;
+	right:5px;
+	top:4px;
+	margin:0;
+}
+.wbim_box .wbim_tips_pic {
+	width:191px;
+	height:127px;
+	overflow:hidden;
+	margin:0 auto;
+	background:#f3f3f3;
+	text-align:center;
+}
+.wbim_box .wbim_tips_pic i {
+	display:inline-block;
+	height:100%;
+	vertical-align:middle;
+}
+.wbim_box .wbim_tips_pic img {
+	vertical-align:middle;
+}
+.wbim_box .wbim_tips_pic_n {
+	max-width:120px;
+	max-height:120px;
+	min-width:30px;
+	overflow:hidden;
+	text-align:center;
+}
+.wbim_box .wbim_tips_pic_n img {
+	max-width:120px;
+}
+.wbim_box .wbim_p_arr {
+	display:inline-block;
+	width:8px;
+	height:5px;
+	background-position:-48px -280px;
+	position:absolute;
+	bottom:-5px;
+	_bottom:-15px;
+	left:13px;
+}
+.wbim_box .wbim_chat_btm_rt {
+	float:right;
+}
+.wbim_box .wbim_face_box, .wbim_box .wbim_ping_box, .wbim_box .wbim_quick_box{
+	border:1px solid #27a0d4;
+	position:absolute;
+	_position:absolute;
+	width:365px;
+	background:#fff;
+	bottom:24px;
+	left:0;
+}
+.wbim_box .wbim_ping_box {
+	width: 260px;
+	height: 120px;
+	left: -20px;
+}
+.wbim_box .wbim_quick_box {
+	left: -30px;
+	width: 312px;
+}
+.wbim_box .wbim_face_tit, 
+.wbim_box .wbim_ping_tit, 
+.wbim_box .wbim_history_tit, 
+.wbim_box .wbim_sys_tit, .wbim_box .wbim_quick_tit {
+	height:26px;
+	line-height: 16px;
+	padding:0 0 0 10px;
+	//background:url(../images/new/bg_2.png) repeat;
+	background-color:#eeeeee;
+	border-bottom:1px solid #473C8B;
+	_overflow:hidden;
+}
+.wbim_box .wbim_face_tit_lf {
+	float: left;
+	margin-top:4px;
+	color:#0082cd;
+	/*
+	background:#fff;
+	display:block;
+	padding:0 10px;
+	border:1px solid #d1e0e7;
+	border-bottom:0;
+	line-height:22px;
+	position:relative;*/
+}
+.wbim_box .wbim_ping_tit_lf, .wbim_box .wbim_history_tit_lf, .wbim_box .wbim_sys_tit_lf, .wbim_box .wbim_quick_tit_lf{
+	float: left;
+	margin-top:4px;
+	color:#333333;
+}
+.wbim_box .wbim_face_tit .wbim_icon_close, .wbim_box .wbim_ping_tit .wbim_icon_close, .wbim_box .wbim_history_tit .wbim_icon_close, .wbim_box .wbim_quick_tit .wbim_icon_close{
+	float:right;
+}
+.wbim_box .msg_disbox2 .wbim_face_arr {
+	width:8px;
+	height:16px;
+	background-position:-140px -240px;
+	left:-8px;
+	top:25px;
+}
+.wbim_box .wbim_face_con, .wbim_box .wbim_quick_con{
+	margin:10px 0 10px 8px;
+}
+.wbim_box .wbim_quick_con {
+	margin-right: 8px;
+}
+.wbim_box .wbim_ping_con {
+	margin:20px 0 10px 8px;
+}
+.wbim_box .wbim_history_con {
+	
+}
+
+/*聊天记录底部一栏*/
+.wbim_box .wbim_history_btns {
+    padding: 0 4px;
+    line-height: 26px;
+	border-top: 1px solid #A6A6A6;
+}
+
+/*输入页数*/
+.wbim_box .wbim_history_btns .wbim_history_ii{
+    height: 20px;
+    overflow: hidden;
+    border: 1px solid #A6A6A6;
+}
+.wbim_box .wbim_history_btns span{
+    float:left;
+    margin-top: 1px;
+}
+
+/*链接*/
+.wbim_box .wbim_history_btns a{
+    float:left;
+    margin: 0 5px;
+    font-weight: bolder;
+}
+.wbim_box .wbim_history_ii input {
+	border:0;
+	width:24px;
+	height:12px;
+	line-height:12px;
+	overflow:hidden;
+	color:#999;
+	text-align: right;
+}
+.wbim_box .wbim_ping_close {
+	margin-left: 80px;
+	margin-top: 16px;
+	float: left;
+}
+.wbim_box .wbim_ping_con ul {
+	margin-left: 16px;
+}
+.wbim_box .wbim_ping_con li {
+	float: left;
+	margin-right:16px;
+}
+.wbim_box .wbim_quick_con ul, .wbim_box .wbim_quick_con li {
+	list-style: none;
+}
+.wbim_box .wbim_quick_con li a{
+	display: block;
+	height: 24px;
+	line-height: 24px;
+	width: 100%;
+	color: #888;
+	overflow:hidden;
+	white-space:nowrap;
+}
+.wbim_box .wbim_quick_con li a:hover{
+	background-color: #EFEFEF;
+	cursor: pointer;
+}
+.wbim_box .wbim_face_list {
+	zoom:1;
+}
+.wbim_box .wbim_face_list:after {
+	content:"";
+	display:block;
+	overflow:hidden;
+	height:0;
+	clear:both;
+}
+.wbim_box .wbim_face_list li {
+	float:left;
+	width:28px;
+	height:28px;
+	text-align:center;
+	overflow:hidden;
+	padding:0 1px 1px 0;
+}
+.wbim_box .wbim_face_list li a {
+	border:1px solid #EDEDED;
+	display:block;
+	width:26px;
+	height:26px;
+}
+.wbim_box .wbim_face_list li a:hover {
+	background:#fff9ec;
+	border-color:#fce0c3;
+}
+.wbim_box .wbim_confirm_box {
+	position:absolute;
+	width:220px;
+	border:1px solid #c6c6c6;
+	background:#fff;
+}
+.wbim_box .wbim_confirm_info {
+	padding:3px 15px 15px;
+	clear:both;
+}
+.wbim_box .wbim_confirm_con .wbim_btn_c {
+	margin:0 5px;
+}
+.wbim_box .wbim_confirm_p {
+	margin:10px auto;
+	line-height:20px;
+}
+.wbim_box .wbim_confirm_p .txt {
+	display:inline-block;
+	width:168px;
+	line-height:16px;
+	vertical-align:top;
+}
+.wbim_box .wbim_confirm_p .wbim_icon_ask {
+	vertical-align:middle;
+}
+.wbim_box .wbim_confirm_p .wbim_icon_tips {
+	vertical-align:middle;
+	margin-right:5px;
+}
+.wbim_box .wbim_confirm_btn {
+	text-align:center;
+}
+.wbim_box .wbim_confirm_btn a {
+	margin:0 5px;
+}
+.wbim_box .wbim_line {
+	border-top:1px solid #ececec;
+	height:0;
+	overflow:hidden;
+}
+
+/*底部最小化的容器*/
+.wbim_box .wbim_min_box_col2, 
+.wbim_box .wbim_min_box_col3 {
+	height:24px;
+	color:#444;
+	overflow:hidden;
+	border:1px solid #c6c6c6;
+}
+.wbim_box .wbim_min_box_col3 {
+	width:540px;
+}
+.wbim_box .wbim_min_box_col2 {
+	width:270px;
+}
+.wbim_box .wbim_min_box_col2 .wbim_min_linefor3, .wbim_box .wbim_min_box_col2 .wbim_min_chat {
+	display:none;
+}
+.wbim_box .wbim_min_box {
+	height:24px;
+	overflow:hidden;
+	background:url(../images/new/bg_rx.png) repeat-x 0 -90px;
+}
+.wbim_box .wbim_min_box_hover {
+	background:url(../images/new/bg_rx.png) repeat-x 0 -120px;
+}
+.wbim_box .wbim_min_status_open {
+	background:url(../images/new/bg_rx.png) repeat-x 0 -180px;
+}
+.wbim_box .wbim_min_chat_msg {
+	background:url(../images/new/bg_rx.png) repeat-x 0 -150px;
+	color:#fff;
+}
+.wbim_box .wbim_min_line {
+	float:left;
+	width:2px;
+	height:25px;
+	background:url(../images/new/bg_line.png) repeat;
+}
+.wbim_box .wbim_min_chat, .wbim_box .wbim_min_friend {
+	float:left;
+	overflow:hidden;
+	width:270px;
+	height:24px;
+	cursor: pointer;
+}
+
+.wbim_box .wbim_min_friend .statuwebim_tag1ox{
+    float: left;
+    margin: 3px;
+    *margin: 3px;
+    _margin: 3px;
+}
+
+.wbim_box .wbim_min_chat {
+	width:268px;
+	line-height:24px;
+	_font-family:"宋体";
+}
+.wbim_box .wbim_min_friend {
+	line-height:24px;
+	line-height:26px\9;
+}
+.wbim_box .wbim_sys_btncon {
+	width:28px;
+	height: 26px;
+	line-height:24px;
+	line-height:26px\9;
+	float: right;
+	text-align: center;
+	margin-top: 2px;
+}
+.wbim_box .wbim_icon_msg {
+	width:20px;
+	height:20px;
+	display:inline-block;
+	background-position:-120px -40px;
+	margin:0 6px;
+	float: left;
+}
+.wbim_box .wbim_min_chat .line {
+	width:10px;
+	height:16px;
+	display:inline-block;
+}
+.wbim_box .wbim_min_friend .statusbox {
+	float:left;
+	width:9px;
+	height:15px;
+	padding-right:7px;
+
+	margin:4px 8px 0 3px;
+	*margin:4px 8px 0 3px;
+
+	margin-right:5px;
+	*margin-right:5px;
+    
+    display:inline;
+	_display:inline;
+	border-right:1px solid #cbcbcb;
+}
+.wbim_box .wbim_box_pop {
+	position:absolute;
+	background:#888;
+	-moz-opacity:.6;
+	opacity:.6;
+	filter:alpha(opacity=60);
+}
+.wbim_box .wbim_nmsg {
+	width:190px;
+}
+.wbim_box .wbim_nmsg .arrow_down {
+	right:10px;
+}
+.wbim_box .wbim_btn_close, 
+.wbim_box .wbim_btn_confirm{
+	float:left;
+	width:80px;
+	height:27px;
+	overflow:hidden;
+	text-indent:-9999px;
+	outline:none;
+	color: #FFF;
+	position:relative;
+	top:-1px;
+	left:-1px;
+	_zoom:1;
+	cursor:pointer;
+	background-position:0 -234px;
+}
+.wbim_box .wbim_btn_close:hover, 
+.wbim_box .wbim_btn_confirm:hover{
+	background-position:0 -261px;
+}
+
+.wbim_box .wbim_btn_choose ul {
+	position:absolute;
+	bottom:28px;
+	right:-160px;
+	width:171px;
+	height:51px;
+	overflow:hidden;
+	background:#fff;
+	border:1px solid #27a0d4;
+	display:none;
+}
+.wbim_box .wbim_btn_choose li {
+	float:left;
+	width:100%;
+	height:25px;
+}
+.wbim_box .wbim_btn_choose li span {
+	float:left;
+	width:20px;
+	height:25px;
+	border-right:1px solid #CCCCCC;
+	background:#f4f4f4;
+}
+.wbim_box .wbim_btn_choose li em {
+	float:left;
+	width:150px;
+	height:25px;
+}
+.wbim_box .wbim_btn_choose li em a {
+	width:128px;
+	padding:0 10px;
+	margin:1px;
+	height:23px;
+	line-height:23px;
+	display:block;
+	color:#888;
+}
+.wbim_box .wbim_btn_choose li em a:hover {
+	color:#888;
+	text-decoration:none;
+	background:#dfdfdf;
+}
+
+.wbim_box .msg_time {
+	padding-bottom:1px;
+}
+.wbim_box .msg_time .t {
+	color:#999;
+	margin:0 0 0 5px;
+	font-size:10px;
+	-webkit-text-size-adjust:none;
+}
+
+/*选中的发送方式*/
+.wbim_box .wbim_btn_choose li.curr span i{
+    float: left;
+    height: 18px;
+    width: 18px;
+    background-position: -192px -16px;
+}
+
+/*搜索好友为空的提示*/
+.wbim_box .wbim_list_friend .noresult_warn {
+	text-align:left;
+	padding:50px 50px 0;
+	margin:100px 0 0;
+}
+.wbim_box .wbim_list_box .wbim_list_friend .warn_icon {
+    width: 20px;
+    height:20px;
+    float:left;
+    margin-left: 50px;
+    *margin-left: 50px;
+    margin-right: 10px;
+    *margin-right: 10px;
+    background-position: -96px -43px;
+}
+
+/*查看图片的大图*/
+.wbim_box .wbim_picview_box {
+	position:absolute;
+	border:1px solid #ababab;
+	width:383px;
+    height:385px;
+	_overflow:hidden;
+	padding:2px;
+}
+.wbim_box .wbim_picview_box:hover {
+	border:1px solid #707070;
+}
+.wbim_box .wbim_pic_zone {
+	overflow-x:hidden;
+	overflow-y:auto;
+	height:360px;
+	width:100%;
+	position:relative;
+	left:0;
+	top:26px;
+}
+.wbim_box .wbim_picview_box .wbim_pic_zone img {
+	cursor:pointer;
+	position:relative;
+}
+.wbim_box .wbim_picview_box .wbim_pic_bar {
+	display:block;
+	_display:block;
+	position:absolute;
+	top:1px;
+	left:2px;
+	width:383px;
+	background:#000;
+	background:rgba(48, 48, 48, .8);
+	height:26px;
+	text-align:center;
+}
+.wbim_box .wbim_picview_box:hover .wbim_pic_bar {
+	display:block;
+}
+.wbim_box .wbim_picview_box .wbim_p_ctrl {
+	float:left;
+	margin:4px 0 0 16px;
+	_display:inline;
+}
+.wbim_box .wbim_picview_box .wbim_p_ctrl * {
+	vertical-align:middle;
+}
+.wbim_box .wbim_picview_box .wbim_p_ctrl a {
+	display:inline-block;
+	width:10px;
+	height:11px;
+	font-size:0;
+}
+.wbim_box .wbim_picview_box .wbim_p_ctrl .wbim_plar {
+	background-position:-72px -280px;
+}
+.wbim_box .wbim_picview_box .wbim_p_ctrl .wbim_plar:hover {
+	background-position:-132px -280px;
+}
+.wbim_box .wbim_picview_box .wbim_p_ctrl .wbim_plft {
+	background-position:-92px -280px;
+}
+.wbim_box .wbim_picview_box .wbim_p_ctrl .wbim_plft:hover {
+	background-position:-152px -280px;
+}
+.wbim_box .wbim_picview_box .wbim_p_ctrl .wbim_prgt {
+	background-position:-112px -280px;
+}
+.wbim_box .wbim_picview_box .wbim_p_ctrl .wbim_prgt:hover {
+	background-position:-172px -280px;
+}
+.wbim_box .wbim_picview_box .wbim_p_ctrl .wbim_vline {
+	margin:0 7px;
+	color:#9b9b9b;
+}
+.wbim_box .wbim_picview_box .wbim_ptit {
+	margin:0 100px;
+	line-height:28px;
+	color:#fff;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	_width:170px;
+}
+.wbim_box .wbim_picview_box .wbim_pic_bar_cls {
+	background-position: -1px -40px;
+    display: inline-block;
+    font-size: 0;
+    height: 24px;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    width: 24px;
+}
+.wbim_box .wbim_picview_box .wbim_pic_bar_cls:hover {
+	background-position:-25px -40px;
+}
+.wbim_box .wbim_picview_box .rotate0 {
+	-webkit-transform:rotate(0deg);
+	-moz-transform:rotate(0deg);
+	-o-transform:rotate(0deg);
+	top:100px;left:100px;width:200px;height:200px;
+filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+}
+.wbim_box .wbim_picview_box .rotate1 {
+	-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
+	-o-transform:rotate(90deg);
+filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+}
+.wbim_box .wbim_picview_box .rotate2 {
+	-webkit-transform:rotate(180deg);
+	-moz-transform:rotate(180deg);
+	-o-transform:rotate(180deg);
+filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}
+.wbim_box .wbim_picview_box .rotate3 {
+	-webkit-transform:rotate(270deg);
+	-moz-transform:rotate(270deg);
+	-o-transform:rotate(270deg);
+filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+/*虚线*/
+.wbim_box .msg_box .line {
+    width: 100%;
+    height: 1px;
+    overflow: hidden;
+    margin: 5px 0 8px;
+    *margin: 5px 0 8px;
+    _margin: 5px 0 8px;
+    background: url("../images/new/bg_line.gif") repeat-x scroll 0 0 transparent;
+}
+/*绑定文件图标*/
+.wbim_box .wbim_icon_b_default, 
+.wbim_box .wbim_icon_b_excel, 
+.wbim_box .wbim_icon_b_exe, 
+.wbim_box .wbim_icon_b_music, 
+.wbim_box .wbim_icon_b_pdf, 
+.wbim_box .wbim_icon_b_photo, 
+.wbim_box .wbim_icon_b_ppt, 
+.wbim_box .wbim_icon_b_rar, 
+.wbim_box .wbim_icon_b_txt, 
+.wbim_box .wbim_icon_b_video, 
+.wbim_box .wbim_icon_b_word,
+.wbim_box .wbim_icon_s_photo {
+    background: url("../images/new/bg_file.png") no-repeat scroll 0 -240px transparent;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+}
+
+/*小图标*/
+.wbim_box .wbim_icon_s_photo {
+    background-position: 0 -100px;
+}
+
+/*文件图标*/
+.wbim_box .wbim_icon_b_txt{
+    background-position: 0 -240px;
+}
+
+/*在线客服图标*/
+.online_service{
+	position: fixed;
+	width: 25px;
+	height: 100px;
+	background-image: url("../images/new/img_online.png");
+	background-repeat: no-repeat;
+	top:200px;
+	right: 0px;
+	overflow: hidden;
+	text-decoration: none !important;
+	outline: none;
+	-moz-outline: none;
+	z-index:99999;
+}
+
+.chooser_box{
+	position: fixed;
+	width: 600px;
+	height: 240px;
+	overflow: hidden;
+	background-color:#F2F2F2;
+	border-style: solid;
+	border-color: #3399cc;
+	border-width: 1px;
+	box-shadow: 0 0 5px 0 #3399cc;
+	-moz-box-shadow: 0 0 5px 0 #3399cc;
+	-webkit-box-shadow: 0 0 5px 0 #3399cc;
+	text-align: left;
+}
+.chooser_title{
+	position: absolute;
+	width: 100%;
+	height: 25px;
+	padding-top:10px;
+	padding-left:20px;
+	font:16px tahoma,arial,宋体,sans-serif;
+	font-weight:bold;
+	color:#FFFFFF;
+	overflow: hidden;
+	letter-spacing: 1px;
+	background-color: #3399cc;
+}
+.chooser_close{
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	top:10px;
+	right: 10px;
+	overflow: hidden;
+	background-position: -117px -2px;
+}
+
+.chooser_content{
+	position: absolute;
+	left:0px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+	overflow:auto;
+}
+
+.chooser_item{
+	position: relative;
+	float:left;
+	width:100px;
+	height:24px;
+	margin-top:10px;
+	margin-left:15px;
+	overflow:auto;
+	outline: none;
+	-moz-outline: none;	
+}
+.chooser_item:hover{
+	background-color: #99ccff;
+}
+
+.item_img{
+	position:relative;
+	width: 15px;
+	height: 20px;
+	vertical-align: middle;
+}
+.item_a{
+	position:relative;
+	padding-left:10px;
+	font:12px/1.5 tahoma,arial,宋体,sans-serif;
+	color:#5382AA;
+	text-decoration: none;
+}
+
+.wbim_sys_msg {
+	position:absolute;
+	width:198px;
+	height:240px;
+	border:1px solid #27a0d4;
+	background:#fff;
+	bottom: 30px;
+	right: 0px;
+}
+.wbim_sys_con {
+	width: 100%;
+	height: 212px;
+	overflow: auto;
+}
+.wbim_sys_btns {
+	padding: 0 10px;
+	background-color: #F9F9F9;
+	border-top: 1px solid #D1E0E7;
+	height: 26px;
+	line-height: 26px;
+}
+
+
+/*模拟淘宝的在线用户图标*/
+.wbim_head_status a{
+	background: url("../images/head_icon.gif") no-repeat scroll 0 0 transparent;
+    height: 20px;
+    width: 67px;
+    margin-top: 4px !important;
+    text-decoration: none !important;
+}
+
+.wbim_head_inline {
+    display: inline-block;
+    vertical-align: text-bottom;
+    cursor:pointer;
+}
+a.wbim_head_offline {
+	cursor:pointer;
+	display: inline-block;
+    vertical-align: text-bottom;
+    background-position:0 -20px; 
+    background-repeat:no-repeat; 
+}
+.webim_head_div{
+	float:left;
+	width:100px;
+	height:24px;
+	margin-top:10px;
+	margin-left:15px;
+}
+
+
+
+/***********tip******************/
+#alertView {
+	position: absolute;
+	width: 300px;
+	height: 150px;
+	border: 1px solid #27A0D4;
+	z-index: 999999;
+	
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	box-shadow:0px 0px 10px #666;
+	-moz-box-shadow:0px 0px 10px #666;
+	-webkit-box-shadow:0px 0px 10px #666;
+}
+#alertView .alertTitle {
+	height: 30px;
+	padding: 0 5px;
+	font-weight: bold;
+	line-height: 30px;
+	background: #27A0D4;
+	text-align: left;
+	font-size: 1.1em;
+	color: #FFF;
+}
+#alertView .alertContent {
+	padding: 5px;
+	height: 70px;
+	text-align: center;
+	background: #FFF;
+}
+#alertView .alertButtons {
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #FFF;
+}
+#alertView .okbtn {
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	width: 60px;
+	cursor: pointer;
+}
+.alertViewModel {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	z-index: 999999;
+}
+/**********OVER***************/
