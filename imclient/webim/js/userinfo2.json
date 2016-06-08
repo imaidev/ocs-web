@@ -1,0 +1,15 @@
+{
+    "friends":
+    [
+        {
+            "id":"01","gname":"同事","type":"slsman",
+            "gmember":
+            [
+                {"icon":"","uname":"张三","userId":"ZS","type":"slsman"},
+                {"icon":"","uname":"管理员","userId":"SUPERADMIN","type":"admin"}
+            ]
+        }
+    ],
+    "extinfo":[{"name":"我的单位","value":"1","type":"com"}],
+    "userinfo":{"icon":"","skill":false,"user_type":"1000","uname":"李四","userId":"LS"}
+}

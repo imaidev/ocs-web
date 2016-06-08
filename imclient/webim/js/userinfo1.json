@@ -1,0 +1,33 @@
+{
+    "userinfo":
+    {"uid":"2","userId":"DLYC777","user_type":"1000","uname":"张连超1","skill":false,"icon":""},
+    "extinfo":
+    [
+        {"value":"11210201","name":"所属公司","type":"com"},
+        {"value":28206,"name":"客户经理","type":"slsman"},
+        {"value":"11210200","name":"营销中心","type":"center_dept"},
+        {"value":"0125","name":"营销部","type":"sale_dept"}
+    ],
+    "friends":
+    [
+        {"id":"slsman","gname":"客户经理分组","type":"slsman",
+            "gmember":[
+                        {"userId":"DLYC1306","uid":28206,"uname":"谢娜","icon":"","type":"slsman"}
+                      ]
+        },
+        {"id":"service","gname":"在线客服分组","type":"service",
+            "gmember":[
+                        {"userId":"11210201","uid":0,"uname":"山东中烟","icon":"","type":"com"},
+                        {"userId":"20370001","uid":0,"uname":"湖北中烟","icon":"","type":"mfr"},
+                        {"userId":"20510001","uid":0,"uname":"大连烟草","icon":"","type":"mfr"}
+                      ]
+        },
+        {"id":"test","gname":"测试用户分组","type":"test",
+            "gmember":[
+                        {"uid":1,"uname":"测试用户1","icon":"","type":"com"},
+                        {"uid":2,"uname":"测试用户2","icon":"","type":"mfr"},
+                        {"uid":3,"uname":"测试用户3","icon":"","type":"mfr"}
+                      ]
+        }
+     ]
+}
