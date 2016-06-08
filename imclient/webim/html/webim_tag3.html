@@ -1,0 +1,470 @@
+<div id="wbim_box" class="wbim_box">
+	<div node-type="wbim_list_expand" class="wbim_list_expand">
+		
+		<!-- 右侧在线状态、好友列表等 -->
+		<div>
+		  <!-- 顶部在线状态、搜索等  -->
+			<div class="wbim_tit" node-type="wbim_titin" id="wbim_titin_id">
+					<!-- 在线状态 -->
+					<div class="wbim_tit_lf">
+						<div node-type="status_manager" class="tit">
+						  <!-- 当前状态 -->
+							<span node-type="wbim_status_tit">
+								 <span class="wbim_status_online"/>
+								 <span class="txt">%{webimtag3_online}</span>
+						    </span>
+						  <!-- 下拉箭头 -->
+						    <span node-type="wbim_status_tit_arrow" class="wbim_status_tit_arrow"/>
+						  <!-- 下拉列表 -->
+						    <ul node-type="wbim_status_list">
+                                <li data-status="1" class="wbim_status_selected">
+                                    <a href="javascript:void(0)"><span class="wbim_status_online"></span>
+                                        <span class="wbim_status_label" node-type="wbim_status_label">%{webimtag3_online}</span>
+                                    </a>
+                                </li>
+                                <li data-status="2">
+                                    <a href="javascript:void(0)"><span class="wbim_status_busy"></span>
+                                        <span class="wbim_status_label" node-type="wbim_status_label">%{webimtag3_bebusy}</span>
+                                    </a>
+                                </li>
+                            </ul>
+						</div>
+					</div>
+					
+					<!-- 搜索 -->
+					<div class="wbim_list_up">
+					   <input id="wbim_search" type="text" /><!-- 搜索框 -->
+					   <div class="wbim_list_srch_icon" /><!-- 图标 -->
+		            </div>
+					
+					<!-- 最小化 -->
+					<a node-type="wbim_icon_mini" title="%{webimtag3_mini}" class="wbim_icon_mini" href="javascript:;"></a>
+			</div>
+			<!-- <div class="wbim_line"></div>  -->
+			
+			<!-- 好友、群聊、最近联系人标签 -->
+			<div class="wbim_list_tab">
+				<ul>
+					<li title="%{webimtag3_mycontact_person}">
+						%{webimtag3_mycontact_person}
+					</li>
+					<!--  
+					<li>
+						<a title="%{webimtag3_group}" href="javascript:;"><span><em class="wbim_tab_group"></em></span></a>
+					</li>
+					-->
+					<li title="%{webimtag3_recent_contact}">
+						%{webimtag3_recent_contact}
+					</li>
+				</ul>
+			</div>
+			<div style="position:absolute;top:74px;left:2px;width:180px;height:31px;background-color:white;z-index:1;display:none;overflow:hidden;" class="wbim_float_group_tit"></div>
+			<div class="wbim_list_box">
+				<div node-type="wbim_list_friendlist" class="wbim_list_friend">
+					<div class="wbim_list_nof"><span class="wbim_icon_tips"></span>%{webimtag3_notget_friends}</div>
+				</div>
+				<!-- 
+				<div node-type="wbim_list_grouplist" class="wbim_list_friend" style="display: none;">
+					<div class="wbim_list_nof"><span class="wbim_icon_tips"></span>%{webimtag3_notjoin_group}</div>
+				</div>
+				-->
+				<div node-type="wbim_list_nearlist" class="wbim_list_friend" style="display: none;">
+					<div class="wbim_list_nof"><span class="wbim_icon_tips"></span>%{webimtag3_norecent_contact}</div>
+				</div>
+				<div node-type="wbim_list_searchlist" class="wbim_list_friend" style="display: none;">
+					<div class="wbim_list_nof"><span class="wbim_icon_tips"></span>%{webimtag3_nomatching_contact}</div>
+				</div>
+			</div>
+			
+			<!-- 底部收起按钮 -->
+			<div class="wbim_list_pos"><a node-type="wbim_clicknone" href="javascript:;" class="wbim_clicknone"><span class="wbim_icon_arrd"></span></a>
+                <!-- <div title="%{webimtag3_send_privateletter}" class="wbim_send_con"><a href="javascript:;" hidefocus="true" class="wbim_send_pmsg"><span class="wbim_btn_pmsg"></span></a></div> -->
+            </div>
+		</div>
+	</div>
+	<div id="wbim_chat_box" node-type="wbim_chat_box" class="wbim_chat_box wbim_chat_box_s">
+		<div node-type="wbim_chat_con">
+			<div id="wbim_chat_box_head" node-type="wbim_tit" class="wbim_tit">
+			 <!-- 九宫格背景 
+			    <div class="wbim_tit_bg">
+				    <div class="wbim_tit_bg_left"/>
+	                <div class="wbim_tit_bg_middle"/>
+	                <div class="wbim_tit_bg_right"/>
+			    </div>
+			 -->
+			 <!-- 对方昵称和关闭按钮 -->
+				<div node-type="wbim_titin" class="wbim_titin">
+					<div class="wbim_tit_lf">
+						<!-- 私聊  -->
+						<p node-type="wbim_single_user" >
+							<!-- 普通用户 -->
+                            <span id="wbim_tit_lf_user_name_id" class="txt">
+                                <a node-type="wbim_tit_lf_user_name" title="">&nbsp;</a>
+                            </span>
+                            <!-- 在线客服 -->
+                            <span id="wbim_tit_lf_service_name_id" class="txt">
+                                %{webimtag3_and}&nbsp;<label node-type="wbim_tit_lf_service_name" title="">&nbsp;</label>&nbsp;%{webimtag3_dialoguing}...
+                            </span>
+						</p>
+						<!-- 群聊  -->
+						<p node-type="wbim_group" style="display:none;">
+							<span class="wbim_icon_group_tit"></span>
+							<span class="txt">
+								<a node-type="wbim_tit_lf_gname" target="_blank"></a>
+								<em class="txtg">%{webimtag3_online_contact}(<a target="_blank" node-type="group_num" title="%{webimtag3_view_online}">
+									</a>)
+								</em>
+							</span>
+						</p>
+					</div>
+					
+					<!-- 关闭聊天框 -->
+					<div class="wbim_tit_rf">
+					   <a node-type="wbim_btn_close" title="%{webimtag3_close}" hidefocus="true" class="wbim_icon_close" href="javascript:;"></a>
+						<a node-type="wbim_icon_mini" title="%{webimtag3_mini}" hidefocus="true" class="wbim_icon_mini" href="javascript:;"></a>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 左侧好友列表 -->
+			<div node-type="wbim_chat_lf" style="display:none;" class="wbim_chat_lf">
+				<a href="javascript:;" node-type="wbim_scrolltop" class="wbim_scrolltop_n"></a>
+				<div node-type="wbim_chat_friend_box" class="wbim_chat_friend_box">
+					<ul id="wbim_chat_friend_list" node-type="wbim_chat_friend_list" class="wbim_chat_friend_list">
+					</ul>
+				</div>
+				<a href="javascript:;" node-type="wbim_scrollbtm" class="wbim_scrollbtm_n"></a>
+			</div>
+			
+			<div class="wbim_chat_rt">
+			<div class="wbim_chat_up">
+			 <!-- 对方不在线提醒 -->
+                <div node-type="wbim_chat_tips" class="wbim_chat_tips" style="display: none;">
+                    <span class="wbim_icon_tips"></span>
+                    <span node-type="wbim_chat_tips_content" class="wbim_chat_tips_content"></span>
+                    <a class="wbim_icon_close_s" node-type="wbim_icon_close_s" href="javascript:;" hidefocus="true"></a>
+                </div>
+			 <!-- 消息接收框 -->
+				<div node-type="wbim_chat_list" class="wbim_chat_list"></div>
+			</div>
+
+				<!-- 中间一栏(表情、上传图片和上传文件等) -->
+				<div node-type="wbim_chat_toolbar" class="wbim_chat_toolbar">
+					<div node-type="wbim_chat_toolbarin" class="wbim_chat_toolbarin">
+					
+						<!-- 基本表情 -->
+						<div node-type="wbim_face" class="wbim_face">
+							<a  node-type="wbim_icon_face" title="%{webimtag3_general_expression}"> 
+								<i class="wbim_icon_face"/>%{webimtag3_expression}
+							</a>
+							<div node-type="wbim_face_box" style="display:none;" class="wbim_face_box">
+								<div class="wbim_face_tit">
+									<!-- <div class="wbim_face_arr" style="top:221px;left:8px;"></div> -->
+									<div class="wbim_face_tit_lf">%{webimtag3_chat_expression}</div>
+									<a node-type="wbim_icon_face_close" class="wbim_icon_close"/>
+								</div>
+								<div class="wbim_face_con">
+									<ul node-type="wbim_face_list" class="wbim_face_list">
+										<li><a href="javascript:;" title="[%{webimtag3_smile}]"><img imgsrc="images/face/1.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_pie}]"><img imgsrc="images/face/2.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_color}]"><img imgsrc="images/face/3.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_frighten}]"><img imgsrc="images/face/4.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_complacent}]"><img imgsrc="images/face/5.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_shed_tears}]"><img imgsrc="images/face/6.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_pudency}]"><img imgsrc="images/face/7.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_shutup}]"><img imgsrc="images/face/8.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_sleep}]"><img imgsrc="images/face/9.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_cry}]"><img imgsrc="images/face/10.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_embarrassed}]"><img imgsrc="images/face/11.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_angry}]"><img imgsrc="images/face/12.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_naughty}]"><img imgsrc="images/face/13.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_bared_teeth}]"><img imgsrc="images/face/14.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_surprised}]"><img imgsrc="images/face/15.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_sorry}]"><img imgsrc="images/face/16.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_cool}]"><img imgsrc="images/face/17.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_cold_sweat}]"><img imgsrc="images/face/18.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_crazy}]"><img imgsrc="images/face/19.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_spit}]"><img imgsrc="images/face/20.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_laughing}]"><img imgsrc="images/face/21.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_lovely}]"><img imgsrc="images/face/22.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_roll_eyes}]"><img imgsrc="images/face/23.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_arrogant}]"><img imgsrc="images/face/24.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_hungry}]"><img imgsrc="images/face/25.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_tired}]"><img imgsrc="images/face/26.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_terrified}]"><img imgsrc="images/face/27.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_perspire}]"><img imgsrc="images/face/28.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_gelasmus}]"><img imgsrc="images/face/29.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_soldier}]"><img imgsrc="images/face/30.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_struggle}]"><img imgsrc="images/face/31.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_curse}]"><img imgsrc="images/face/32.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_doubt}]"><img imgsrc="images/face/33.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_hush}]"><img imgsrc="images/face/34.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_giddy}]"><img imgsrc="images/face/35.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_torture}]"><img imgsrc="images/face/36.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_decline}]"><img imgsrc="images/face/37.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_skeleton}]"><img imgsrc="images/face/38.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_beat}]"><img imgsrc="images/face/39.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_bye}]"><img imgsrc="images/face/40.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_sweat}]"><img imgsrc="images/face/41.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_pull_nose}]"><img imgsrc="images/face/42.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_applause}]"><img imgsrc="images/face/43.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_big_qiu}]"><img imgsrc="images/face/44.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_bad_smile}]"><img imgsrc="images/face/45.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_zuo_hengheng}]"><img imgsrc="images/face/46.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_you_hengheng}]"><img imgsrc="images/face/47.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_yawn}]"><img imgsrc="images/face/48.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_despise}]"><img imgsrc="images/face/49.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_grievance}]"><img imgsrc="images/face/50.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_gonna_cry}]"><img imgsrc="images/face/51.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_sinister}]"><img imgsrc="images/face/52.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_kiss}]"><img imgsrc="images/face/53.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_stupefied}]"><img imgsrc="images/face/54.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_poor}]"><img imgsrc="images/face/55.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_strong}]"><img imgsrc="images/face/56.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_weak}]"><img imgsrc="images/face/57.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_ok}]"><img imgsrc="images/face/58.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_handshake}]"><img imgsrc="images/face/59.gif"></a></li>
+										<li><a href="javascript:;" title="[%{webimtag3_victory}]"><img imgsrc="images/face/60.gif"></a></li>
+									</ul>
+									<div class="tsina_loading cter">
+										<span class="tsina_ico_ldg"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- 上传图片 -->
+						<div class="wbim_face" title="%{webimtag3_upload_pic}">
+							<a hidefocus="true" node-type="wbim_icon_img"> 
+								<i class="wbim_icon_img"/>%{webimtag3_pic}
+							</a>
+						</div>
+						
+						<!-- 上传文件 -->
+						<div class="wbim_face" title="%{webimtag3_upload_file}">
+							<a hidefocus="true" node-type="wbim_icon_doc"> 
+								<i class="wbim_icon_doc"/>%{webimtag3_file}
+							</a>
+						</div>
+						
+						<!-- 提示音 -->
+						<div class="wbim_face" title="%{webimtag3_sound_cue}">
+							<a  node-type="wbim_icon_voice"> 
+								<i class="wbim_icon_voice"/>%{webimtag3_sound_cue}
+							</a>
+						</div>
+						
+						<!-- 常用语 -->
+						<div node-type="wbim_quick" class="wbim_face">
+							<a title="%{webimtag3_common_language}" style="display: none;" node-type="wbim_icon_quick">
+							     <i class="wbim_icon_quick"/>%{webimtag3_common_language}
+							</a>
+							<div node-type="wbim_quick_box" style="display: none;" class="wbim_quick_box">
+								<div class="wbim_quick_tit">
+									<div node-type="wbim_quick_tit_lf" class="wbim_quick_tit_lf">%{webimtag3_common_language}</div>
+									<a node-type="wbim_icon_quick_close" class="wbim_icon_close"/>
+								</div>
+								<div node-type="wbim_quick_con" class="wbim_quick_con">
+								</div>
+							</div>
+						</div>
+						
+						<!-- 打分邀请 -->
+						<div node-type="wbim_ping" class="wbim_face">
+							<a title="%{webimtag3_scoring_invitation}" style="display: none;" node-type="wbim_icon_ping">
+							     <i class="wbim_icon_ping"/>%{webimtag3_invitation_score}
+							</a>
+							<div node-type="wbim_ping_box" style="display: none;" class="wbim_ping_box">
+								<div class="wbim_ping_tit">
+									<div node-type="wbim_ping_tit_lf" class="wbim_ping_tit_lf">%{webimtag3_service_score}</div>
+									<a node-type="wbim_icon_ping_close" class="wbim_icon_close"/>
+								</div>
+								<div class="wbim_ping_con">
+									<ul>
+										<li>
+											<input type="radio" name="pingscore" value="1" id="wbim_ping_bumanyi">
+											<label for="wbim_ping_bumanyi">&nbsp;%{webimtag3_dissatisfied}</label>
+										</li>
+										<li>
+											<input type="radio" name="pingscore" value="2" checked="checked" id="wbim_ping_manyi">
+											<label for="wbim_ping_manyi">&nbsp;%{webimtag3_satisfied}</label>
+										</li>
+										<li>
+											<input type="radio" name="pingscore" value="3" id="wbim_ping_fcmanyi">
+											<label for="wbim_ping_fcmanyi">&nbsp;%{webimtag3_very_satisfied}</label>
+										</li>
+									</ul>
+									<p class="wbim_ping_close">
+										<a title="%{webimtag3_confirm}" class="wbim_btn_confirm" node-type="wbim_btn_confirm">%{webimtag3_confirm}</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- 订单查询 -->
+						<div node-type="wbim_chaxun" class="wbim_face">
+							<a title="%{webimtag3_order_query}" style="display: none;" node-type="wbim_icon_chaxun">
+							     <i class="wbim_list_srch_icon"/>%{webimtag3_order_query}
+							</a>
+						</div>
+						 
+						<!-- 聊天记录 -->
+						<div node-type="wbim_history_cont"> 
+							<!-- 聊天记录按钮 -->
+							<a title="%{webimtag3_dialogue_log}" node-type="wbim_history" class="wbim_history">
+								<i class="wbim_icon_chatdoc" />%{webimtag3_dialogue_log}
+							</a>
+							<!-- 聊天记录窗体 -->
+							<div node-type="wbim_history_box" class="wbim_history_box" style="display: none;z-index:1000;">
+								<div class="wbim_history_tit">
+									<!-- <div class="wbim_face_arr" style="top:221px;left:8px;"></div> -->
+									<div class="wbim_history_tit_lf" node-type="wbim_history_tit_lf"/>
+									<a node-type="wbim_icon_history_close" href="javascript:;" class="wbim_icon_close"/>
+								</div>
+								<div node-type="wbim_history_con"/>
+								<div class="wbim_history_btns">
+									<p style="float:left;">
+										<a node-type="wbim_history_refresh" href="javascript:void(0)">%{webimtag3_refresh}</a>
+									</p>
+									<p style="float: right;">
+										<a node-type="wbim_history_next" href="javascript:void(0)">%{webimtag3_previous_page}</a>
+										<a node-type="wbim_history_prev" href="javascript:void(0)">%{webimtag3_next_page}</a>
+										<span class="wbim_history_ii">
+											<input type="text" id="wbim_history_ii" value="0"/>
+										</span>
+										<span>/</span>
+										<span node-type="wbim_history_max">0</span>
+										<a node-type="wbim_history_query_btn" href="javascript:void(0)">%{webimtag3_confirm}</a>
+									</p>
+								</div>
+							</div>
+						</div> 
+						<!---->  
+						
+					</div>
+				</div>
+
+				<!-- 输入框、删除上上传的文件按钮等 -->
+				<div style="margin-top:1px;" node-type="wbim_chat_input" class="wbim_chat_input wbim_chat_input_dis">
+					<!-- 删除上上传的文件按钮  -->
+					<div node-type="root" class="wbim_chat_input_tips" style="display: none;">
+						<div style="display: none;" node-type="wbim_tips_pic" class="wbim_tips_pos_n">
+							<div class="wbim_tips_pic_n"><a href="javascript:;">
+								<a href="javascript:;">
+									<img style="cursor:pointer" action-type="wbim_img_preview" node-type="img_preview">
+								</a>
+							</div>
+							<span class="wbim_p_arr"/>
+						</div>
+						<div id="fls" node-type="fl" class="fl">
+							<span class="icon_ing" style="display:none;"/>
+							<span class="wbim_icon_s_photo" style="display:none;"/>
+							<p id="upFileNameId"/>
+						</div>
+						<div node-type="fr" class="fr">
+							<a id="vdiskId" href="http://vdisk.weibo.com/file/list#3" target="_blank" class="links" style="display:none;" suda-uatrack="key=tblog_webim_behavior&amp;value=view_vdisk" node-type="vdisk">%{webimtag3_mymicro_disk}</a>
+							<a id="deleteFileId" style="display:none;" node-type="deleteFile" class="links">%{webimtag3_delete}</a>
+						</div>
+					</div>
+					<!-- 输入框 -->
+					<textarea node-type="wbim_chat_input_ta"/>
+					<textarea id="fileUpTextId" style="display:none;"/>
+				</div>
+				
+				<!-- 最底下一栏(结束对话、发送等) -->
+				<div node-type="wbim_chat_btm" class="wbim_chat_btm">
+					<div node-type="wbim_chat_btmin" class="wbim_chat_btmin">
+						<p class="wbim_tips_char">
+						      %{webimtag3_input}<span style="font-size:22px" node-type="wbim_tips_char">200</span>%{webimtag3_word}
+						</p>
+						<div class="wbim_chat_btm_rt">
+							<div node-type="wbim_btn_send" id="webimBtnSendDivId" class="wbim_btn_send wbim_btn_send_disable"><a id="webimBtnSendId" class="wbim_btn_publish" node-type="wbim_btn_publish">%{webimtag3_send}</a>
+								<div class="wbim_btn_choose">
+									<a class="wbim_btn_choose_a" node-type="wbim_btn_choose_a">%{webimtag3_choice}</a>
+									<ul node-type="wbim_btn_choose" style="display: none;">
+										<li node-type="wbim_enter_send_li" class="curr"><span><i></i></span><em><a node-type="wbim_enter_send" href="javascript:;">%{webimtag3_enter}</a></em></li>
+										<li class="line"><span></span><em></em></li>
+										<li class="" node-type="wbim_ctrlenter_send_li"><span><i></i></span><em><a node-type="wbim_ctrlenter_send" href="javascript:;">%{webimtag3_ctrl_enter}</a></em></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		
+		<div id="im_sidebar_container" style="float:left;">
+			<div class="im-right-sidebar">
+		  		<div class="im-shop-service">
+		 	  		 <ul id="im-tab" class="im-tab">
+		 	  			  <li class="current" id="im-tab-li_0" onclick="ChangeDiv('im-tab-li_','0','id_',2)"><span>%{webimtag3_archives_info}</span></li>
+		 	  			  <li id="im-tab-li_1" onclick="ChangeDiv('im-tab-li_','1','id_',2)"><span>%{webimtag3_order_info}</span></li>
+		  	  		 </ul>
+		 	  	 	 <div id="im-tab-contents" class="im-tab-contents">
+		 	   			<div id="id_0" class="im-tab-content">
+							<!----档案信息：im-product-info---->
+		 	   				<div class="im-product-info marginT10 marginLR10" id="sidebar_baseInfo"></div>
+		 	   			</div>
+		 	   			<div id="id_1" class="im-tab-content" style="display:none;">
+							<!----订单信息-im-shop-info---->
+		 	   				<div class="im-shop-info marginT10 marginLR10" id="sidebar_orderInfo"></div>
+		 	   			</div>
+		  	 	     </div>
+		 		 </div>
+			</div>
+		</div>
+
+	</div>
+    </div>
+	
+	
+	<div node-type="wbim_min_box_col" class="wbim_min_box_col2" style="position: absolute; bottom: 0px; right: 0px;z-index:1;">
+		<div class="wbim_min_box">
+			
+			<!-- 打开的聊天框最小化  -->
+			<div node-type="wbim_min_chat" class="wbim_min_chat"><span class="wbim_icon_msg"></span><span node-type="wbim_min_tipbar" style="display:none;">%{webimtag3_new_msg}</span><span node-type="wbim_min_chatuserbar"><span class="wbim_min_text_pre" style="display: inline;">%{webimtag3_and} </span><span node-type="wbim_min_nick" class="wbim_min_nick">&nbsp;</span><span class="line"></span><span class="wbim_min_text">%{webimtag3_dialoguing}</span></span></div>
+		    <!-- 分割线 -->
+		    <div class="wbim_min_line wbim_min_linefor3"></div>
+		    <!-- 最小化图标 -->
+		    <div node-type="wbim_min_friend" class="wbim_min_friend">
+                <div node-type="wbim_sys_btncon" class="wbim_sys_btncon" title="%{webimtag3_sys_msg}"><a node-type="wbim_sys_btn" class="wbim_btn_sysbtn" href="javascript:;"><span node-type="wbim_btn_sysmsg" class="wbim_btn_sysmsg"></span></a></div>
+                <p node-type="wbim_statusbox" class="statusbox"><span class="wbim_status_online" style="float:left;"></span></p>
+                %{webimtag3_dialogue} [ <span node-type="wbim_online_count" class="wbim_online_count" title="%{webimtag3_online_contact}">0</span> ]
+            </div>
+            
+		</div>
+	</div>
+	<div node-type="wbim_sys_msg" style="display: none;" class="wbim_sys_msg">
+		<div class="wbim_sys_tit">
+			<div class="wbim_sys_tit_lf" node-type="wbim_sys_tit_lf">%{webimtag3_sys_msg}</div>
+			<a node-type="wbim_icon_sys_close" style="float:right;" href="javascript:;" class="wbim_icon_close"></a>
+		</div>
+		<div class="wbim_sys_con" node-type="wbim_sys_con">
+			<dl node-type="wbim_sys_dl"></dl>
+		</div>
+	</div>
+	<div class="wbim_picview_box" node-type="wbim_tips_pos" style="bottom: auto; position: absolute; z-index: 1200; right: 300px; background-color: rgb(243, 243, 243); display: none;">
+		<div class="wbim_img_con">
+			<div class="wbim_pic_bar" node-type="wbim_pic_bar">
+				<!-- 
+				<div class="wbim_p_ctrl">
+					<a class="wbim_plft" node-type="turn_left" title="向左转" href="javascript:void(0)" hidefocus="true"></a>
+					<span class="wbim_vline">|</span>
+					<a class="wbim_prgt" node-type="turn_right" title="向右转" href="javascript:void(0)" hidefocus="true"></a>
+				</div>
+				-->
+				<div class="wbim_ptit">
+						<span id="wbim_ptit_id"></span>
+				</div>
+				<a class="wbim_pic_bar_cls" node-type="wbim_icon_close_s" title="%{webimtag3_close}" href="javascript:closeImgZone();" hidefocus="true"></a>
+			</div>
+			<div id="wbim_pic_zoneId" class="wbim_pic_zone" />
+		</div>
+	</div>
+	<!-- 
+		<div style="position: absolute; z-index: 1500; overflow: hidden; width: 95px; height: 18px; bottom: 119px; right: 360px;">
+			<embed id="swf_8575" width="95" height="18" flashvars="swfid=1747004125&maxSumSize=50&maxFileSize=50&maxFileNum=1&multiSelect=0&uploadAPI=http%3A%2F%2Fupload.api.weibo.com%2F2%2Fmss%2Fupload.json%3Fsource%3D209678993%26tuid%3D1887188824&initFun=STK.wbim.ui.Upload.initFun&sucFun=STK.wbim.ui.Upload.sucFun&errFun=STK.wbim.ui.Upload.errFun&beginFun=STK.wbim.ui.Upload.beginFun&areaInfo=0-40|10-40&fExt=*.jpg;*.gif;*.jpeg;*.png|*&fExtDec=选择图片|选择文件" data="upload.swf" wmode="transparent" bgcolor="" allowscriptaccess="always" allowfullscreen="true" scale="noScale" menu="false" type="application/x-shockwave-flash" src="http://service.weibo.com/staticjs/tools/upload.swf?v=ef8070fdd05ab2a8">
+		</div>
+	-->
+	 
+</div>
