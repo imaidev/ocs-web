@@ -1,0 +1,51 @@
+      <!-- 顶部 -->
+      <div class="header" node-type="header">
+        <div class="appinfo">
+          <div class="header_box"><img node-type="head"></div>
+          <h1><a node-type="title" href="#"></a></h1>
+          <p class="welcomemsg" node-type="welcome"></p>
+        </div>
+        <a title="%{robottag_close}" class="robot_icon_close" node-type="close_btn"></a>
+        <a title="%{robottag_adjust_window}" node-type="max_btn"></a>
+        <a title="%{robottag_manual_work}" class="robot_icon_service" node-type="service_btn"></a>
+      </div>
+        
+      <!-- 内容-->
+      <div class="robot_chat_layout">
+      
+        <!-- 聊天框 -->
+        <div class="chat_box" node-type="chat_box">
+          <div class="main_wrap">
+            <!--聊天面板-->
+            <div class="chatpanel" node-type="chatpanel"></div>
+            <!--输入面板-->
+            <div class="inputpanel" node-type="inputpanel">
+              <textarea class="input_text" type="text" node-type="input_text" placeholder="%{robottag_describe_problem}"/>
+              <div class="input_count_box">
+                <i class="ask_icon"></i>%{robottag_enter}<em node-type="input_count">30</em>%{robottag_word}
+              </div>
+              <a class="robot_icon_send" node-type="send_btn"></a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 右侧 -->
+        <div class="col_sub appside" node-type="attach_box">
+          <div class="skin_side">
+                <!--热点问题-->
+                <div class="box">
+                  <div class="hd hdext" node-type="ext_hot_head"><h3>%{robottag_hot_issues}</h3></div>
+                  <div class="bd" node-type="ext_hot_box"><div class="exthot" node-type="ext_hot"><ul></ul></div></div>
+                </div>
+                <!--相关内容-->
+                <div class="box">
+                  <div class="hd" node-type="ext_about_head"><h3>%{robottag_related_issues}</h3></div>
+                  <div class="bd extabout" node-type="ext_about_box"><div class="exthot" node-type="ext_about">
+                  	<ul><p style='text-align:center;'>%{robottag_norelated_issues}</p></ul>
+                  </div></div>
+                </div>
+         </div>
+       </div>
+       
+       <!-- <div class="drag_icon" name="drag_icon"></div> -->
+    </div>
