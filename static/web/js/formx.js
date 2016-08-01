@@ -9396,7 +9396,7 @@ $.fn.enableButton=function(){
 var buttonTextArray = new Array();
 var buttonTextArrayContent=0;
 var obj=new Image();
-obj.src="/static/web/skin2/loading/buttonLoading.gif";
+obj.src="/ocs-web/static/web/skin2/loading/buttonLoading.gif";
 //点击按钮正在加载中
 $.fn.buttonIsLoading=function(){
 	var nowButton= $(this);
