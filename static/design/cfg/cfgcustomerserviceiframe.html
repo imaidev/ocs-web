@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="tab">
+	<div class="panels content">
+	<div class="content-set">
+	<div class="sersetting">
+	<table class="custly" id="custly">
+		<tbody class="eservice-title">
+		<tr>
+			<td class="col4" colspan="4">
+	             <label style="float:left;font-weight: 100;">模块标题：</label>
+	             <div class="control show-title">
+					<input name="showTitle" style="border: 0;" class="input-radio J_TNotShowTitle" type="radio" value="0" onchange="changeIsTitle('0')">不显示
+					<input name="showTitle" style="border: 0;" class="input-radio J_TShowTitle" type="radio"  value="1" onchange="changeIsTitle('1')"> 显示 
+					<input name="title" id="J_Title" type="text" value="在线客服" maxlength="30">
+					<input name="showTitleService" id="showTitleService" type="hidden" value="">
+				</div>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td class="col2" colspan="2">
+	            <h4 style="font-weight:100">工作时间：</h4>
+	        </td>
+	        <td class="col2" colspan="2"></td>
+	    </tr>
+	    <tr>
+	        <td class="col4" colspan="4"><span>日期 </span><span style="padding-left: 204px;">时间 </span><span style="padding-left: 195px;">显示 </span>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td class="col4" colspan="4">
+	            <select name="fromDate1" id="fromDate1">
+	                <option value="周一" selected="">周一</option>
+	                <option value="周二">周二</option>
+	                <option value="周三">周三</option>
+	                <option value="周四">周四</option>
+	                <option value="周五">周五</option>
+	                <option value="周六">周六</option>
+	                <option value="周日">周日</option>
+	
+	            </select>
+	            至
+	            <select name="toDate1" id="toDate1">
+	                <option value="周一">周一</option>
+	                <option value="周二">周二</option>
+	                <option value="周三">周三</option>
+	                <option value="周四">周四</option>
+	                <option value="周五" selected="">周五</option>
+	                <option value="周六">周六</option>
+	                <option value="周日">周日</option>
+	            </select> : 
+	            <select name="fromTime1" id="fromTime1">
+						<option value="0:00">0:00</option>
+						<option value="0:30">0:30</option>
+						<option value="1:00">1:00</option>
+						<option value="1:30">1:30</option>
+						<option value="2:00">2:00</option>
+						<option value="2:30">2:30</option>
+						<option value="3:00">3:00</option>
+						<option value="3:30">3:30</option>
+						<option value="4:00">4:00</option>
+						<option value="4:30">4:30</option>
+						<option value="5:00">5:00</option>
+						<option value="5:30">5:30</option>
+						<option value="6:00">6:00</option>
+						<option value="6:30">6:30</option>
+						<option value="7:00">7:00</option>
+						<option value="7:30">7:30</option>
+						<option value="8:00">8:00</option>
+						<option value="8:30">8:30</option>
+						<option value="9:00" selected="">9:00</option>
+						<option value="9:30">9:30</option>
+						<option value="10:00">10:00</option>
+						<option value="10:30">10:30</option>
+						<option value="11:00">11:00</option>
+						<option value="11:30">11:30</option>
+						<option value="12:00">12:00</option>
+						<option value="12:30">12:30</option>
+						<option value="13:00">13:00</option>
+						<option value="13:30">13:30</option>
+						<option value="14:00">14:00</option>
+						<option value="14:30">14:30</option>
+						<option value="15:00">15:00</option>
+						<option value="15:30">15:30</option>
+						<option value="16:00">16:00</option>
+						<option value="16:30">16:30</option>
+						<option value="17:00">17:00</option>
+						<option value="17:30">17:30</option>
+						<option value="18:00">18:00</option>
+						<option value="18:30">18:30</option>
+						<option value="19:00">19:00</option>
+						<option value="19:30">19:30</option>
+						<option value="20:00">20:00</option>
+						<option value="20:30">20:30</option>
+						<option value="21:00">21:00</option>
+						<option value="21:30">21:30</option>
+						<option value="22:00">22:00</option>
+						<option value="22:30">22:30</option>
+						<option value="23:00">23:00</option>
+						<option value="23:30">23:30</option>
+						<option value="24:00">24:00</option>
+				</select> 
+	至 
+				<select name="toTime1" id="toTime1">
+						<option value="0:00">0:00</option>
+						<option value="0:30">0:30</option>
+						<option value="1:00">1:00</option>
+						<option value="1:30">1:30</option>
+						<option value="2:00">2:00</option>
+						<option value="2:30">2:30</option>
+						<option value="3:00">3:00</option>
+						<option value="3:30">3:30</option>
+						<option value="4:00">4:00</option>
+						<option value="4:30">4:30</option>
+						<option value="5:00">5:00</option>
+						<option value="5:30">5:30</option>
+						<option value="6:00">6:00</option>
+						<option value="6:30">6:30</option>
+						<option value="7:00">7:00</option>
+						<option value="7:30">7:30</option>
+						<option value="8:00">8:00</option>
+						<option value="8:30">8:30</option>
+						<option value="9:00">9:00</option>
+						<option value="9:30">9:30</option>
+						<option value="10:00">10:00</option>
+						<option value="10:30">10:30</option>
+						<option value="11:00">11:00</option>
+						<option value="11:30">11:30</option>
+						<option value="12:00">12:00</option>
+						<option value="12:30">12:30</option>
+						<option value="13:00">13:00</option>
+						<option value="13:30">13:30</option>
+						<option value="14:00">14:00</option>
+						<option value="14:30">14:30</option>
+						<option value="15:00">15:00</option>
+						<option value="15:30">15:30</option>
+						<option value="16:00">16:00</option>
+						<option value="16:30">16:30</option>
+						<option value="17:00">17:00</option>
+						<option value="17:30">17:30</option>
+						<option value="18:00">18:00</option>
+						<option value="18:30">18:30</option>
+						<option value="19:00">19:00</option>
+						<option value="19:30">19:30</option>
+						<option value="20:00">20:00</option>
+						<option value="20:30">20:30</option>
+						<option value="21:00" selected="">21:00</option>
+						<option value="21:30">21:30</option>
+						<option value="22:00">22:00</option>
+						<option value="22:30">22:30</option>
+						<option value="23:00">23:00</option>
+						<option value="23:30">23:30</option>
+						<option value="24:00">24:00</option>
+				</select> 
+				<input name="showWorkTime1" type="checkbox" checked="checked" value="" id="showWorkTime1" onchange="changesatus('showWorkTime1')">
+	        </td>
+	    </tr>
+	    <tr>
+	        <td class="col4" colspan="4">
+	            <select name="fromDate2" id="fromDate2">
+	                <option value="周一">周一</option>
+	                <option value="周二">周二</option>
+	                <option value="周三">周三</option>
+	                <option value="周四">周四</option>
+	                <option value="周五">周五</option>
+	                <option value="周六" selected="">周六</option>
+	                <option value="周日">周日</option>
+	            </select>
+	            至
+	            <select name="toDate2" id="toDate2">
+	                <option value="周一">周一</option>
+	                <option value="周二">周二</option>
+	                <option value="周三">周三</option>
+	                <option value="周四">周四</option>
+	                <option value="周五">周五</option>
+	                <option value="周六">周六</option>
+	                <option value="周日" selected="">周日</option>
+	            </select>
+	            :           
+	     <select name="fromTime2" class="select" id="fromTime2">
+				<option value="0:00" selected="">0:00</option>
+				<option value="0:30">0:30</option>
+				<option value="1:30">1:30</option>
+				<option value="2:00">2:00</option>
+				<option value="2:30">2:30</option>
+				<option value="3:00">3:00</option>
+				<option value="3:30">3:30</option>
+				<option value="4:00">4:00</option>
+				<option value="4:30">4:30</option>
+				<option value="5:00">5:00</option>
+				<option value="5:30">5:30</option>
+				<option value="6:00">6:00</option>
+				<option value="6:30">6:30</option>
+				<option value="7:00">7:00</option>
+				<option value="7:30">7:30</option>
+				<option value="8:00">8:00</option>
+				<option value="8:30">8:30</option>
+				<option value="9:00">9:00</option>
+				<option value="9:30">9:30</option>
+				<option value="10:00">10:00</option>
+				<option value="10:30">10:30</option>
+				<option value="11:00">11:00</option>
+				<option value="11:30">11:30</option>
+				<option value="12:00">12:00</option>
+				<option value="12:30">12:30</option>
+				<option value="13:00">13:00</option>
+				<option value="13:30">13:30</option>
+				<option value="14:00">14:00</option>
+				<option value="14:30">14:30</option>
+				<option value="15:00">15:00</option>
+				<option value="15:30">15:30</option>
+				<option value="16:00">16:00</option>
+				<option value="16:30">16:30</option>
+				<option value="17:00">17:00</option>
+				<option value="17:30">17:30</option>
+				<option value="18:00">18:00</option>
+				<option value="18:30">18:30</option>
+				<option value="19:00">19:00</option>
+				<option value="19:30">19:30</option>
+				<option value="20:00">20:00</option>
+				<option value="20:30">20:30</option>
+				<option value="21:00">21:00</option>
+				<option value="21:30">21:30</option>
+				<option value="22:00">22:00</option>
+				<option value="22:30">22:30</option>
+				<option value="23:00">23:00</option>
+				<option value="23:30">23:30</option>
+				<option value="24:00">24:00</option>
+		</select> 
+	至 
+		<select name="toTime2" class="select" id="toTime2">
+				<option value="0:00">0:00</option>
+				<option value="0:30">0:30</option>
+				<option value="1:00">1:00</option>
+				<option value="1:30">1:30</option>
+				<option value="2:00">2:00</option>
+				<option value="2:30">2:30</option>
+				<option value="3:00">3:00</option>
+				<option value="3:30">3:30</option>
+				<option value="4:00">4:00</option>
+				<option value="4:30">4:30</option>
+				<option value="5:00">5:00</option>
+				<option value="5:30">5:30</option>
+				<option value="6:00">6:00</option>
+				<option value="6:30">6:30</option>
+				<option value="7:00">7:00</option>
+				<option value="7:30">7:30</option>
+				<option value="8:00">8:00</option>
+				<option value="8:30">8:30</option>
+				<option value="9:00">9:00</option>
+				<option value="9:30">9:30</option>
+				<option value="10:00">10:00</option>
+				<option value="10:30">10:30</option>
+				<option value="11:00">11:00</option>
+				<option value="11:30">11:30</option>
+				<option value="12:00">12:00</option>
+				<option value="12:30">12:30</option>
+				<option value="13:00">13:00</option>
+				<option value="13:30">13:30</option>
+				<option value="14:00">14:00</option>
+				<option value="14:30">14:30</option>
+				<option value="15:00">15:00</option>
+				<option value="15:30">15:30</option>
+				<option value="16:00">16:00</option>
+				<option value="16:30">16:30</option>
+				<option value="17:00">17:00</option>
+				<option value="17:30">17:30</option>
+				<option value="18:00">18:00</option>
+				<option value="18:30">18:30</option>
+				<option value="19:00">19:00</option>
+				<option value="19:30">19:30</option>
+				<option value="20:00">20:00</option>
+				<option value="20:30">20:30</option>
+				<option value="21:00">21:00</option>
+				<option value="21:30">21:30</option>
+				<option value="22:00">22:00</option>
+				<option value="22:30">22:30</option>
+				<option value="23:00">23:00</option>
+				<option value="23:30">23:30</option>
+				<option value="24:00" selected="">24:00</option>
+		</select> <input name="showWorkTime2" type="checkbox" checked="checked" value="" id="showWorkTime2" onchange="changesatus('showWorkTime2')">
+	    </td>
+	    </tr>
+	    </tbody>
+	    <tbody class="eservice-title">
+	    <tr>
+	        <td class="col2" colspan="2">
+	            <h4 style="font-weight:100">联系方式：</h4>
+	        </td>
+	        <td class="col2" colspan="2">&nbsp;</td>
+	    </tr>
+	    </tbody>
+	    <tbody class="connect-tel">
+	    <tr>
+	        <td class="col2" colspan="2">
+	            <span style="color: #2d2d2d;">联系电话:</span> <input name="tel" id="J_Tel" type="text" value="">
+	            <input name="showTel" class="connect-display" id="J_BTel" type="checkbox" value="" onchange="changesatus('J_BTel')">
+	        </td>
+	        <td class="col2" colspan="2">
+	            <span style="color: #2d2d2d;">联系手机:</span> <input name="mobilePhone" id="J_Phone" type="text" value="">
+	            <input name="showMobilePhone" class="connect-display" id="J_BPhone" type="checkbox" value="" onchange="changesatus('J_BPhone')">
+	        </td>
+	    </tr>
+	     
+	    </tbody>
+	</table>
+	<div style="margin-top:10px; width:90%" id="showKEFU">
+	</div>
+	</div>
+	</div>
+	<p class="opt-footer">
+	    <a class="btn-ok J_SubmitButton" onclick="cfgSet();">保存</a>
+	    <a class="btn-cancel J_CancelButton" onclick="cancel();">取消</a>
+	</p>
+	</div>
+	<input name="widgetId" type="hidden" value="13253418358"><input name="sid" type="hidden" value="349843308"><input name="pageId" type="hidden" value="1182237098"><input name="_tb_token_" type="hidden" value="zMc1ixRpAUqfXX1"></form>
+	</p>
+</div>
+</body>
+
+<script>
+$(document).ready(function(){
+	serviceNum=new Array();
+	var userChecklist = parent.$customermodule.find("#checkeduser").val();
+	var checkArr="";
+	if(null!=userChecklist&&""!=userChecklist){
+		checkArr= userChecklist.split(",");
+	}
+	//从数据库中读取该商家的所有店铺客服
+	$.get(parent.ctx+"/im/serviceuser/QueryServiceUser.do?method=getServiceUserList"+"&vendId="+parent.g_vendid,
+        function(data){
+			 var str = "";
+			 for(var i=0;i<data.length;i++){
+				str = str + "<span><input type='hidden' id='serviceStatus"+i+"' value='"+data[i].STATUS+"'></input><input type='checkbox' name='serviceUser' id='serviceUser"+i+"' value='"+data[i].USER_ID+"' ";
+				for(var j=0;j<checkArr.length;j++){
+					if(data[i].USER_ID==checkArr[j]){
+						str = str +" checked='checked'";
+					}
+				}
+				str = str+"> <span class='serviceUser"+i+"'>"+data[i].NICK_NAME+"</span></span> ";
+			 }
+			$("#showKEFU").append(str);
+			serviceNum = data;
+	  },'json');
+	//从dom结构中读取数据 
+	$("#J_Title").val(parent.$customermodule.find(".showCustomerTitle")[0].innerHTML);
+	if("true"==parent.$customermodule.find("#checkTitleIsShow").val()){
+		$("#showTitleService").val("true");
+		$("input[name='showTitle']").eq(1).attr("checked","checked");
+	}else{
+		$("#showTitleService").val("false");
+		$("input[name='showTitle']").eq(0).attr("checked","checked");
+	}
+	$("#fromDate1").val(parent.$customermodule.find("#dateFrom1").val());
+	$("#toDate1").val(parent.$customermodule.find("#dateEnd1").val()); 
+	$("#fromTime1").val(parent.$customermodule.find("#timeFrom1").val()); 
+	$("#toTime1").val(parent.$customermodule.find("#timeEnd1").val()); 
+	$("#fromDate2").val(parent.$customermodule.find("#dateFrom2").val());
+	$("#toDate2").val(parent.$customermodule.find("#dateEnd2").val()); 
+	$("#fromTime2").val(parent.$customermodule.find("#timeFrom2").val()); 
+	$("#toTime2").val(parent.$customermodule.find("#timeEnd2").val());
+	if("true"==parent.$customermodule.find("#datetimeShow1").val()){
+		$("#showWorkTime1").val("true");
+		$("#showWorkTime1")[0].checked=true;
+	}else{
+		$("#showWorkTime1").val("false");
+		$("#showWorkTime1")[0].checked=false;
+	}
+	if("true"==parent.$customermodule.find("#datetimeShow2").val()){
+		$("#showWorkTime2").val("true");
+		$("#showWorkTime2")[0].checked=true;
+	}else{
+		$("#showWorkTime2").val("false");
+		$("#showWorkTime2")[0].checked=false;
+	}
+	$("#J_Tel").val(parent.$customermodule.find("#customerContactTel").val());
+	$("#J_Phone").val(parent.$customermodule.find("#customerContactPhone").val()); 
+	if("true"==parent.$customermodule.find("#isShowContactTel").val()){
+		$("#J_BTel").val("true");
+		$("#J_BTel")[0].checked=true;
+	}else{
+		$("#J_BTel").val("false");
+		$("#J_BTel")[0].checked=false;
+	}
+	if("true"==parent.$customermodule.find("#isShowContactPhone").val()){
+		$("#J_BPhone").val("true");
+		$("#J_BPhone")[0].checked=true; 
+	}else{
+		$("#J_BPhone").val("false");
+		$("#J_BPhone")[0].checked=false;
+	}
+});
+
+function cfgSet(){
+	//记录选择的客服 
+	var kefuString = "";
+	var kefuString1 = "";
+	parent.$customermodule.find(".kefu").remove();
+	var appKefu = "";
+	if(parent.$customermodule.find(".horServs").length!=0){//横向排版 
+		appKefu = appKefu + "<ul class='serv-lists-hor ml10 kefu'>";
+	}else{//纵向排版 
+		appKefu = appKefu + "<ul class='serv-lists-ver ml10 kefu'>";
+	}
+	for(var i=0;i<serviceNum.length;i++){
+		var valUser = $("#serviceUser"+i)[0].checked;
+		if(true==valUser){
+			kefuString=kefuString+$("#serviceUser"+i).val()+",";
+			appKefu=appKefu+
+			"<li><p><a target='_blank' href='/im/index.jsp?vendId="+parent.g_vendid+"&userId="+$("#serviceUser"+i).val()+"'title='"+$(".serviceUser"+i)[0].innerHTML
+			+"'>"; 
+			if($("#serviceStatus"+i).val()=='3'){
+				appKefu = appKefu+"<i class='icon-serv serv-off'></i>";
+			}else{
+				appKefu = appKefu+"<i class='icon-serv serv-on'></i>";
+			}
+			appKefu = appKefu+"<span class='serv-name'>"+$(".serviceUser"+i)[0].innerHTML+"</span></a></p></li>";
+		}
+	}
+	appKefu = appKefu + "</ul>";
+	parent.$customermodule.find(".kefuappend").append(appKefu);
+	if(""!=kefuString){
+		kefuString1=kefuString.substring(0,kefuString.length-1);
+	}
+	parent.$customermodule.find("#checkeduser").val(kefuString1);
+	parent.$customermodule.find("#checkTitleIsShow").val($("#showTitleService").val());
+	parent.$customermodule.find("#dateFrom1").val($("#fromDate1").val());
+	parent.$customermodule.find("#dateEnd1").val($("#toDate1").val());
+	parent.$customermodule.find("#timeFrom1").val($("#fromTime1").val());
+	parent.$customermodule.find("#timeEnd1").val($("#toTime1").val());
+	parent.$customermodule.find("#dateFrom2").val($("#fromDate2").val());
+	parent.$customermodule.find("#dateEnd2").val($("#toDate2").val());
+	parent.$customermodule.find("#timeFrom2").val($("#fromTime2").val());
+	parent.$customermodule.find("#timeEnd2").val($("#toTime2").val());
+	parent.$customermodule.find("#datetimeShow1").val($("#showWorkTime1").val());
+	parent.$customermodule.find("#datetimeShow2").val($("#showWorkTime2").val());
+	parent.$customermodule.find("#customerContactTel").val($("#J_Tel").val());
+	parent.$customermodule.find("#customerContactPhone").val($("#J_Phone").val());
+	parent.$customermodule.find("#isShowContactTel").val($("#J_BTel").val());
+	parent.$customermodule.find("#isShowContactPhone").val($("#J_BPhone").val());
+	
+	//模块标题显示与否 
+	if("true"==$('#showTitleService').val()){
+		parent.$customermodule.find(".showCustomerTitle")[0].innerHTML=$('#J_Title').val();
+		parent.$customermodule.find(".title-box").css("display","block"); 
+	}else{
+		parent.$customermodule.find(".title-box").css("display","none"); 
+	}
+	//工作时间显示与否  
+	if("false"==$('#showWorkTime1').val()&&"false"==$('#showWorkTime2').val()){ 
+		parent.$customermodule.find(".servicetime").css("display","none"); 
+	}else if("false"==$('#showWorkTime1').val()&&"true"==$('#showWorkTime2').val()){
+		parent.$customermodule.find(".servicetime").css("display","block"); 
+		parent.$customermodule.find(".datetime1")[0].innerHTML=$("#fromDate2").val()+"至"+$("#toDate2").val()+"："+$("#fromTime2").val()+"-"+$("#toTime2").val();
+		parent.$customermodule.find(".datetime2")[0].innerHTML=$("#fromDate2").val()+"至"+$("#toDate2").val()+"："+$("#fromTime2").val()+"-"+$("#toTime2").val();
+		parent.$customermodule.find(".datetime2").hide();
+		parent.$customermodule.find(".datetime1").show();
+	}else if("true"==$('#showWorkTime1').val()&&"false"==$('#showWorkTime2').val()){
+		parent.$customermodule.find(".servicetime").css("display","block");
+		parent.$customermodule.find(".datetime2")[0].innerHTML=$("#fromDate2").val()+"至"+$("#toDate2").val()+"："+$("#fromTime2").val()+"-"+$("#toTime2").val();
+		parent.$customermodule.find(".datetime2").hide();
+		parent.$customermodule.find(".datetime1")[0].innerHTML=$("#fromDate1").val()+"至"+$("#toDate1").val()+"："+$("#fromTime1").val()+"-"+$("#toTime1").val(); 
+		parent.$customermodule.find(".datetime1").show();
+	}else{
+		parent.$customermodule.find(".servicetime").css("display","block");
+		parent.$customermodule.find(".datetime1")[0].innerHTML=$("#fromDate1").val()+"至"+$("#toDate1").val()+"："+$("#fromTime1").val()+"-"+$("#toTime1").val(); 
+		parent.$customermodule.find(".datetime2")[0].innerHTML=$("#fromDate2").val()+"至"+$("#toDate2").val()+"："+$("#fromTime2").val()+"-"+$("#toTime2").val();
+		parent.$customermodule.find(".datetime1").show();
+		parent.$customermodule.find(".datetime2").show();
+	}
+	
+	//联系方式显示与否 
+	if("false"==$('#J_BTel').val()&&"false"==$('#J_BPhone').val()){ 
+		parent.$customermodule.find(".servicecontact").css("display","none"); 
+	}else if("false"==$('#J_BTel').val()&&"true"==$('#J_BPhone').val()){
+		parent.$customermodule.find(".servicecontact").css("display","block"); 
+		parent.$customermodule.find(".shopphoneshow")[0].innerHTML=$("#J_Phone").val();
+		parent.$customermodule.find(".shoptelshow")[0].innerHTML=$("#J_Phone").val();
+		parent.$customermodule.find(".shoptelshow").show();
+		parent.$customermodule.find(".shopphoneshow").hide();
+	}else if("true"==$('#J_BTel').val()&&"false"==$('#J_BPhone').val()){
+		parent.$customermodule.find(".servicecontact").css("display","block");
+		parent.$customermodule.find(".shopphoneshow")[0].innerHTML=$("#J_Phone").val();
+		parent.$customermodule.find(".shoptelshow")[0].innerHTML=$("#J_Tel").val(); 
+		parent.$customermodule.find(".shoptelshow").show();
+		parent.$customermodule.find(".shopphoneshow").hide();
+	}else{
+		parent.$customermodule.find(".servicecontact").css("display","block");
+		parent.$customermodule.find(".shoptelshow")[0].innerHTML=$("#J_Tel").val(); 
+		parent.$customermodule.find(".shopphoneshow")[0].innerHTML=$("#J_Phone").val();
+		parent.$customermodule.find(".shoptelshow").show();
+		parent.$customermodule.find(".shopphoneshow").show();
+	}
+    parent.cfgClose();
+}
+
+function cancel(){
+	 parent.cfgClose();
+}
+
+function changesatus(opt){
+	var optval = $("#"+opt).val();
+	if("true"==optval){
+		$("#"+opt).val("false");
+	}else{
+		$("#"+opt).val("true");
+	}
+}
+function changeIsTitle(str){
+	if("0"==str){
+		$("#showTitleService").val("false");
+	}else{
+		$("#showTitleService").val("true");
+	}
+}
+</script>

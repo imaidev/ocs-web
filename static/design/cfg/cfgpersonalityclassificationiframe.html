@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>分类模块编辑</title>
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+    <link href="/static/design/module/personalityclassification.css" rel="stylesheet" />
+    <script type="text/javascript" src="//g.alicdn.com/kissy/k/1.4.2/seed-min.js" charset="utf-8"></script>
+</head>
+<body>
+    <div id="item-cates-edit">
+        <div class="panels">
+            <form method="post" id="J_TCatForm" class="form-default" action="">
+                <input type="hidden" id="J_TCatTreeInfo" name="catTreeInfo">
+                <input type="hidden" name="isDefault" value="false">
+                 <div class="control-group">
+                            <label class="control-label w75" for="">显示标题：</label>
+                            <!--表单域-->
+                            <div class="control show-title ml80 Lh28">
+                                <input type="radio" class="J_TNotShowTitle  input-radio" name="showTitle" id="Audio_NoTitle" value="false">不显示<input type="radio" class="J_TShowTitle  show-title-true input-radio"  id="Audio_HasTitle" name="showTitle" value="true">显示<input class="J_TTitleInput input-box title-input" type="text" id="gexingfenlei_titleName" maxlength="30" name="title" >
+                            </div>
+                        </div>
+                <span class="edit-tips">此操作只对当前模块生效，不影响宝贝分类数据。</span>
+                <div class="self-define-cats">
+                    <div class="menu">
+                        <span class="is-show menu-item"><span id="J_TShowAllCat" class="show-opt cat-checkbox show-cat"><span class="hook"></span></span>显示</span><span class="separate-line"></span>
+                        <span class="name menu-item"></span>
+                        <span class="move-opt menu-item">移动子分类</span>
+                        <span class="is-expand-sub menu-item">
+                            <!-- 展开子分类<i class="opt-tips" title="勾选之后，子分类的显示将默认展开"></i> -->
+                        </span>
+                    </div>
+                    <ul class="cat-list J_TCatRegion" id="J_TSelfdefineCatList" style="height: 250px">
+                    </ul>
+                </div>
+               <!-- <a href="" class="item-classify-link" target="_blank">编辑宝贝分类</a> -->
+                <!-- J_TCatRegion 是分类拖拽时可存放的区域 -->
+                <p class="opt-footer">
+                    <button class="btn-ok" onclick="cfgSet();">保存</button>
+                    <button class="btn-cancel" onclick="parent.cfgClose();">取消</button>
+                    <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                </p>
+            </form>
+        </div>
+        <!-- </div> -->
+    </div>
+    <!--</div> -->
+    <script>
+        KISSY.config({
+            packages: [{
+                name: "modules",
+                tag: "20120412",
+                path: '//g.alicdn.com//shop/modules/0.2.0/',
+                charset: "utf-8",
+                ignorePackageNameInUri: true
+            }]
+        });
+        KISSY.use("modules/shop/item-cates/edit/index");
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //加载标题栏数据
+            $('#gexingfenlei_titleName').val(parent._$module.find('.title-box span').text().trim());
+            if (parent._$module.find('.title-box').is(":hidden")) {
+                $('input[name="showTitle"]').eq(0).attr("checked", true);
+            }
+            else {
+                $('input[name="showTitle"]').eq(1).attr("checked", true);
+            }
+
+            $('#J_TSelfdefineCatList').children().remove();
+            var str = [];
+
+            $("#J_TCatForm").find(".item-classify-link").attr("href", parent.ctx + "/lyscitem/itemcatagory/ShowVendCatagoryList.htm");
+					
+            $.get(parent.ctx + "/design/dataAPI/itemCategory/ItemCategoryDataApi.do?method=getVendCataByVendId&VEND_ID=" + parent.g_vendid,
+                    function (data) {
+                        var dataval = parent._$module.personalityclassification("config");
+                        if (dataval.f_array == undefined) {
+                            for (var i = 0; i < data.length; i++) {
+                                str.push('<li data-id="' + data[i].CATAGORY_ID + '" class="cat fst-cat">');
+                                str.push('<h4 class="cat-hd fst-cat-hd">');
+                                str.push('<span class="show-opt cat-checkbox J_TShowCat J_TShowFstCat show-cat">');
+                                str.push('<span class="hook"></span>');
+                                str.push('</span>');
+                                str.push('<span class="separate-line"></span>');
+                                str.push('<i class="cat-icon collapse J_TAcrdTrigger"></i>');
+                                str.push('<span class="cat-name fst-cat-name" title="">' + data[i].CATAGORY_NAME + '</span>');
+                                /* str.push('<span class="expand-sub-opt cat-checkbox J_TExpandSubCats expand-sub-cats"><span class="hook"></span></span>'); */
+                                str.push('<span class="move-act">');
+                                top_up_down_bottom(str, i, data.length);
+                                str.push('</span>');
+                                str.push('</h4>');
+                                str.push('<ul class="fst-cat-bd J_TCatRegion">');
+                                var chile_catagory = data[i].CHILD_CATAGORY;
+                                for (var j = 0; j < chile_catagory.length; j++) {
+                                    str.push('<li data-id="' + chile_catagory[j].CATAGORY_ID + '" class="cat snd-cat">');
+                                    str.push('<h4 class="cat-hd snd-cat-hd">');
+                                    str.push('<span class="show-opt cat-checkbox J_TShowCat J_TShowSndCat show-cat"><span class="hook"></span></span><span class="separate-line"></span>');
+                                    str.push('<span class="cat-name snd-cat-name" title="">' + chile_catagory[j].CATAGORY_NAME + '</span>');
+                                    str.push('<span class="move-act">');
+                                    top_up_down_bottom(str, j, chile_catagory.length);
+                                    str.push('</span>');
+                                    str.push('</h4>');
+                                    str.push('</li>');
+                                }
+                                str.push('</ul>');
+                                str.push('</li>');
+                            }
+                        } else {
+                            var f_array = dataval.f_array;
+
+                            if (!dataval.showAllCat) {
+                                $("#J_TShowAllCat").removeClass('show-cat');
+                            }
+
+                            for (var i = 0; i < f_array.length; i++) {
+                                var f_data_id = f_array[i].data_id;
+                                var f_show_cat = f_array[i].show_cat;
+                                var s_array = f_array[i].s_array;
+                                for (var j = 0; j < data.length; j++) {
+                                    if (data[j].CATAGORY_ID == f_data_id) {
+                                        str.push('<li data-id="' + f_data_id + '" class="cat fst-cat">');
+                                        str.push('<h4 class="cat-hd fst-cat-hd">');
+                                        if (f_show_cat) {
+                                            str.push('<span class="show-opt cat-checkbox J_TShowCat J_TShowFstCat show-cat">');
+                                        } else {
+                                            str.push('<span class="show-opt cat-checkbox J_TShowCat J_TShowFstCat">');
+                                        }
+                                        str.push('<span class="hook"></span>');
+                                        str.push('</span>');
+                                        str.push('<span class="separate-line"></span>');
+                                        str.push('<i class="cat-icon collapse J_TAcrdTrigger"></i>');
+                                        str.push('<span class="cat-name fst-cat-name" title="一级分类1">' + data[i].CATAGORY_NAME + '</span>');
+                                        /* str.push('<span class="expand-sub-opt cat-checkbox J_TExpandSubCats expand-sub-cats"><span class="hook"></span></span>'); */
+                                        str.push('<span class="move-act">');
+                                        top_up_down_bottom(str, i, f_array.length);
+                                        str.push('</span>');
+                                        str.push('</h4>');
+                                        str.push('<ul class="fst-cat-bd J_TCatRegion">');
+                                        var url_s_data = data[j].CHILD_CATAGORY;
+                                        for (var m = 0; m < s_array.length; m++) {
+                                            for (var n = 0; n < url_s_data.length; n++) {
+                                                if (s_array[m].data_id == url_s_data[n].CATAGORY_ID) {
+                                                    str.push('<li data-id="' + url_s_data[n].CATAGORY_ID + '" class="cat snd-cat">');
+                                                    str.push('<h4 class="cat-hd snd-cat-hd">');
+                                                    if (s_array[m].show_cat) {
+                                                        str.push('<span class="show-opt cat-checkbox J_TShowCat J_TShowSndCat show-cat"><span class="hook"></span></span><span class="separate-line"></span>');
+                                                    } else {
+                                                        str.push('<span class="show-opt cat-checkbox J_TShowCat J_TShowSndCat"><span class="hook"></span></span><span class="separate-line"></span>');
+                                                    }
+                                                    str.push('<span class="cat-name snd-cat-name" title="一级分类1">' + url_s_data[n].CATAGORY_NAME + '</span>');
+                                                    str.push('<span class="move-act">');
+                                                    top_up_down_bottom(str, n, url_s_data.length);
+                                                    str.push('</span>');
+                                                    str.push('</h4>');
+                                                    str.push('</li>');
+                                                }
+                                            }
+                                        }
+                                        str.push('</ul>');
+                                        str.push('</li>');
+                                    }
+                                }
+                            }
+                        }
+
+                        $('#J_TSelfdefineCatList').html(str.join(''));
+                    }, 'json');
+
+        });
+
+        function cfgSet() {
+            var firstList = $('#J_TSelfdefineCatList').children();
+
+            var showAllCat = $('#J_TShowAllCat').hasClass("show-cat");
+
+            var f_array = [];
+            for (var i = 0; i < firstList.length; i++) {
+                var li_list = firstList[i];
+                //data-id值
+                console.log($(li_list).attr('data-id'));
+                var s_list = li_list.childNodes;
+                var h4_children = s_list[0];
+                var h4_c_c = h4_children.childNodes;
+                var show_cat = $(h4_c_c[0]).hasClass("show-cat");
+                var s_array = [];
+                if (s_list[1] != null || s_list[1] != '') {
+                    var secontList = s_list[1].childNodes;
+                    for (var j = 0; j < secontList.length; j++) {
+                        var s_data = {};
+                        s_data.data_id = $(secontList[j]).attr('data-id');
+                        var s_h4_children = secontList[j].childNodes;
+                        var s_h4_c_c = s_h4_children[0].childNodes;
+                        var s_show_cat = $(s_h4_c_c[0]).hasClass("show-cat");
+                        s_data.show_cat = s_show_cat;
+                        console.log($(secontList[j]).attr('data-id'));
+                        s_array.push(s_data);
+                    }
+                }
+
+                var f_data = {
+                    data_id: $(li_list).attr('data-id'),
+                    show_cat: show_cat,
+                    s_array: s_array
+                }
+                f_array.push(f_data);
+            }
+
+            //组件标题
+            parent._$module.find('.title-box span').text($('#gexingfenlei_titleName').val());
+            if ($('input[name="showTitle"]:checked').val() == "true") {
+                parent._$module.find('.title-box').show();
+            }
+            else {
+                parent._$module.find('.title-box').hide();
+            }
+
+            var o = {
+                showAllCat: showAllCat,
+                f_array: f_array
+            };
+            parent._$module.personalityclassification('reset', o);
+            parent.cfgClose();
+        }
+
+        function top_up_down_bottom(add_str, i, data_length) {
+            if (data_length == 1) {
+                add_str.push('<s class="opt-act act-top no-act-top"></s>');
+                add_str.push('<s class="opt-act act-up no-act-up"></s>');
+                add_str.push('<s class="opt-act act-down no-act-down"></s>');
+                add_str.push('<s class="opt-act act-bottom no-act-bottom"></s>');
+            } else
+                if (i == 0) {
+                    add_str.push('<s class="opt-act act-top no-act-top"></s>');
+                    add_str.push('<s class="opt-act act-up no-act-up"></s>');
+                    add_str.push('<s class="opt-act act-down "></s>');
+                    add_str.push('<s class="opt-act act-bottom "></s>');
+                } else
+                    if (i == (data_length - 1)) {
+                        add_str.push('<s class="opt-act act-top "></s>');
+                        add_str.push('<s class="opt-act act-up "></s>');
+                        add_str.push('<s class="opt-act act-down no-act-down"></s>');
+                        add_str.push('<s class="opt-act act-bottom no-act-bottom"></s>');
+                    } else {
+                        add_str.push('<s class="opt-act act-top "></s>');
+                        add_str.push('<s class="opt-act act-up "></s>');
+                        add_str.push('<s class="opt-act act-down"></s>');
+                        add_str.push('<s class="opt-act act-bottom"></s>');
+                    }
+        }
+    </script>
+</body>
+</html>

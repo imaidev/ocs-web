@@ -1,0 +1,116 @@
+.error{
+		margin-left: 2px;
+		color: red;
+		font-size: 12px;
+		text-align: left;
+		background-color: #FFE7E7;
+	}
+label.error{
+	background: transparent;
+}
+.form-body dd {
+	float: left;
+	text-align: left;
+	font-weight: normal;
+}
+.form-body .input{
+	width:220px;
+}
+.form-body dl{
+	padding-left:110px;
+}
+.form-signup-body .dd-input{
+	width:auto;
+}
+.form-submit{
+	width:87%;
+}
+
+.m_form .fm_slect{
+	font: 12px/1.5 "Microsoft YaHei",Arial,Helvetica,sans-serif,Simsun;
+	color: #666;
+	width:228px;
+	padding:0px;
+}
+.form-signup-body dd.check_rule{
+	line-height: 23px;
+	height: 21px;
+}
+
+/*********小贴士提示信息样式***begin******/
+.m_tip {
+	margin: 0px 15px 15px; 
+	padding: 0px 18px; 
+	border-top:1px solid #bad0db;
+	font-size: 14px;
+}
+.m_tip .title {
+	font-weight:bold;
+	padding: 18px 0px 6px; 
+	font-size-adjust: none; font-stretch: normal;
+}
+.m_tip .tip_text {
+	line-height: 20px; 
+	padding-bottom: 18px; 
+}
+/*********小贴士提示信息样式*****end****/
+
+
+/********绑定手机几步骤样式***begin******/
+.m_step {
+	 height:90px;
+	position:relative;
+	padding-left:50px;
+	margin-bottom:10px;
+}
+.m_step ol{
+	height:100%;
+	overflow:hidden;
+}
+.m_step li{
+	background-image: url(/static/resource/images/step_bg.png);
+	_background-image: url(/static/resource/images/step_bg.gif);
+	background-repeat: no-repeat;
+	height:100%;
+	float:left;
+}
+.m_step li.start{
+	background-position:0px 30px;
+	width:220px;
+}
+.m_step li.end{
+	background-position:right 5px;
+	width:440px;
+}
+.m_step li div{
+	height:100%;
+	background-image: url(/static/resource/images/step_icon.png);
+	_background-image: url(/static/resource/images/step_icon.gif);
+	background-repeat: no-repeat;
+}
+.m_step li div span{
+	display:block;width:100%;text-align:center;
+	font-weight:bold;
+}
+.m_step li div span.desc{
+	font-size:13px;
+	color:#838383;
+	padding-top:20px;
+}
+.m_step li div span.index{
+	font-size:18px;
+	color:#fff;
+	padding-top:22px;
+}
+.m_step li.start div{
+	background-position:85px 10px;
+}
+.m_step li.end div{
+	float:left;
+	width:50%;
+	background-position:85px -190px;
+}
+.m_step li.end div.middle{
+	background-position:85px -90px;
+}
+/********绑定手机几步骤样式***end******/

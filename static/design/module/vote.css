@@ -1,0 +1,39 @@
+/***在线投票 ***/
+.voteOnline{overflow:hidden;}
+.voteOnline .voteSubject {font-weight:bold; padding:20px 0 0 5px;}
+.voteOnline .voteItembox{padding:10px 0px 0px 5px; text-align:left; width:100%;}
+.voteOnline .voteItembox ul li{ float:left;}
+.voteOnline .voteItemSpan {float:left;zoom:1; cursor:pointer;padding-bottom:10px;}
+.voteOnline .voteItemName {cursor:default; float:left; margin-right:30px; line-height:20px;}
+.voteOnline .voteItemName input{float:left;margin-top:4px; *margin-top:0px; margin-top:2px \0;margin-right:10px;}
+.voteOnline .voteItemImgPanel {width:auto;border:1px solid #eee;padding:10px;margin-right:20px;float:left;margin-bottom:15px;}
+.voteOnline .voteItemImgName {cursor:pointer;margin-top:10px;}
+.voteOnline .voteItemImgName input{float:left;margin-top:4px; *margin-top:0px; margin-top:0px \0; }
+.voteOnline .voteItemImgName .voteItemSpans{float:left;width:130px;word-wrap:break-word;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.voteOnline .voteItemImgBox{width:150px;height:150px;}
+.voteOnline .voteOperate{padding-top:10px;padding-bottom:20px;width:100%;overflow:hidden;text-align:center;}
+.voteOnline .s_ibutton {margin-right:10px; padding:0 20px;height:32px;line-height:32px;text-align:center;display:inline-block;cursor:pointer;border-radius:3px;color:#fff; font-size:14px;}
+.voteOnline .t_ibutton {display:inline-block;padding:0 20px;height:32px;line-height:32px;border:1px solid #d5d5d5; background-color:#efefef;border-radius:3px;font-size:14px;vertical-align:top;cursor:pointer;overflow:hidden;}
+.voteOnline .s_ibutton:hover,.t_ibutton:hover {filter:alpha(opacity=80);opacity:0.8;text-decoration:none;}
+.voteOnline .btn_red{background-color:#F5504F; border:#BF3B3A solid 1px;}
+.voteOnline .btn_orange{background-color:#FFAD2B; border:#F19A10 solid 1px;}
+.voteOnline .btn_blue{background-color:#5AB4FF; border:#4F96D2 solid 1px;}
+.voteOnline .btn_green{background-color:#85C200; border:#6EA000 solid 1px;}
+.voteOnline .btn_rosered{background-color:#E13E8D; border:#D22177 solid 1px;}
+.voteOnline .btn_darkgrey{background-color:#8E8E8E; border:#717171 solid 1px;}
+.voteResult{overflow:hidden;}
+.voteResult .voteSubject {font-weight:bold;padding:8px 0 18px 5px;text-align:center;}
+.voteResult .voteItems {width:100%;margin-bottom:30px;}
+.voteResult .voteItems .vi-name {text-align:right;padding-bottom:12px;}
+.voteResult .voteItems .voteItemImg {width:38px;height:38px;text-align:right;display:inline-block;vertical-align: top;}
+.voteResult .voteItems .vi-percent {margin-bottom:12px;padding-bottom:12px;}
+.voteResult .voteItems .vi-percent .voteVfm {line-height:38px;height:38px;width:100%;display:block;zoom:1;background-color:#f3f3f3;}
+.voteResult .voteItems .vi-percent .voteVpd {height:100%;width:100px;display:block;zoom:1;font-size:1px;}
+.voteResult .voteItems .vi-count {text-align:left;padding-bottom:12px;}
+.voteResult .voteItems .vi-count .voteItemCount {line-height:38px;padding-left:12px;}
+.voteResult .voteItems .vi-percent .btn_red{background-color:#F5504F;}
+.voteResult .voteItems .vi-percent .btn_orange{background-color:#FFAD2B;}
+.voteResult .voteItems .vi-percent .btn_blue{background-color:#5AB4FF;}
+.voteResult .voteItems .vi-percent .btn_green{background-color:#85C200;}
+.voteResult .voteItems .vi-percent .btn_rosered{background-color:#E13E8D;}
+.voteResult .voteItems .vi-percent .btn_darkgrey{background-color:#8E8E8E;}

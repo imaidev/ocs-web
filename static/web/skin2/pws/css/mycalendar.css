@@ -1,0 +1,58 @@
+
+#calendar {
+	font-size: 14px;
+	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+	width: 260px;
+	margin: 0 auto;
+
+}
+.floatMsg{
+	width:300px;
+	position:absolute;
+	z-index:9999;
+	border: 1px #5bb1e8 solid;
+}
+.floatMsg .clostBtn{
+	position:absolute;
+	background:url(../img/calendar/close.png);
+	width:22px;
+	height:22px;
+	right:0px;
+	cursor:pointer;
+}
+.floatMsg .clostBtn:hover{
+	background:url(../img/calendar/closea.png);
+}
+.floatMsg .content{
+	background:#F3F3F3;
+}
+.floatMsg #fm_title{
+	font-size:13px;
+	padding:10px;
+	word-wrap:break-word;
+	min-height:60px;
+	background: #fff;
+}
+.floatMsg #fm_date{
+	font-size:13px;
+	padding-top:5px;
+	padding-left:10px;
+	word-wrap:break-word;
+	color:#fff;
+  background:#5bb1e8;
+}
+.floatMsg .option{
+	height:20px;
+	background:#fff;
+}
+.floatMsg .option span{
+	font-size:13px;
+	float:right;
+	color:#3366CC;
+	margin-right:10px;
+	cursor:pointer;
+}
+.floatMsg .option span:hover{
+	color:#6A6AFF;
+}
+

@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+/***栏目导航 ***/
+.floatBar-left{z-index:999;display:none;position:fixed;left:50%;top:50%;margin-left:-650px;font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.floor-guide{position:relative;overflow:hidden;}
+.floor-guide li {position:relative;width:38px;height:40px;line-height:40px;overflow:hidden;cursor:pointer;border-top:1px solid #fff;}
+.floor-guide li a:hover {text-decoration:none;}
+.floor-guide li a.floormenu{display:block;height:40px;font-size:14px;color:#fff;text-decoration:none;cursor:pointer;}
+.floor-guide li span{display:none;width:100%;height:40px;line-height:20px;text-align:center;overflow:hidden;}
+.floor-guide li.hover{z-index:100001;}
+.floor-guide li:first-child,.floor-guide li:first-child.hover,.floor-guide li:first-child.current{border-top:none !important;}
+.floor-guide li.hover a,.floor-guide li.on a{display:none;}
+.floor-guide li.hover span,.floor-guide li.on span{display:block;}
+
+.navMenu-left{z-index:999;display:none;position:fixed;left:50%;top:50%;margin-left:-650px;font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.nav-menu{width: 66px; height: auto; border: 1px solid #CCCCCC;border-radius:4px;}
+.nav-menu ul{list-style: none;margin: 0px;padding: 5px;}
+.nav-menu ul li{height: 36px;border-bottom: 1px solid #e9e9e9;position: relative;}
+.nav-menu ul li div{height: 36px;width: auto; border-radius: 4px;text-align: center;}       
+.nav-menu ul li div em{background-image: url(img/goods-pic.png);background-position: 0 -3px; height: 20px;width: 20px;position: absolute;left: 3px;top: 70%;margin-top:-15px ;}
+.nav-menu ul li div p{font-family: "microsoft yahei";font-size:small;color: #666666;position:relative;top: 8px;left: 25px;text-align: left;}        
+/*.nav-menu ul li a:hover div{background-color:#f10081;}*/
+.nav-menu ul li a:hover p{color: #FFFFFF;}
+.nav-menu ul li a:hover em{background-image: url(img/goods-pic.png);background-position: 0 -40px;}
+
+.edit .stuckfloorview { height: 50px; }
+.edit .stuckfloorview:before { /*background-color:#F5F5F5;*/ border: 1px dashed #DDDDDD; border-radius: 4px 0 4px 0; /*color:#9DA0A4;*/ content: ""; width: 100%; height: 100%; font-size: 12px; font-weight: bold; left: 0px; padding: 3px 7px; position: absolute; top: 0px; }
+.edit .stuckfloorview:after { color: #9DA0A4; content: "栏目导航占位符"; font-size: 12px; font-weight: bold; display: block; text-align: center; line-height: 50px; }

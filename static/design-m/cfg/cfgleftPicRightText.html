@@ -1,0 +1,132 @@
+<h3 class="edit-tit">左文右图模块</h3>
+<div class="toolTips">
+	<p class="tipsTit">
+		模块使用小贴士 <a class="closeTip">X</a>
+	</p>
+	<p class="tipsMain">
+		图片建议尺寸：608*160
+		<br />建议图片与图片上的文字颜色要区分开来，让消费者更容易看清楚文字。
+	</p>
+</div>
+<div class="mb15 mt15 overH">
+	<label class="linkTit">图片</label>
+	<div class="linkMain w90p">
+		<div class="linkInfo w100p">
+			<div class="addImgOut">
+				<div class="addImgInfo">
+					<div class="addIcon" rel='uploadImg'></div>
+				</div>
+				<div class="addImgMain" style="display: none;">
+					<img id="modImg" src="" height="100%" />
+					<div class="ImgHover" rel='uploadImg'>重新上传</div>
+				</div>
+				<p class="addTips">建议选择608*160尺寸的图片，类型：jpg、png</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="mb15 mt25 overH">
+	<label class="linkTit">内容</label>
+	<div class="linkMain w90p">
+		<div class="linkInfo w100p">
+			<div class="pr">
+				<input id="modTxt" class="modularTit fm1" type="text" onchange="obInputLength(this)" onkeyup="obInputLength(this)" placeholder="请输入文本" />
+				<div class="titNumber">0/10</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="mb15 mt25 overH">
+	<label class="linkTit">链接</label>
+	<div class="linkMain w90p">
+		<div class="linkInfo w100p">
+			<input class="fm1" type="text" placeholder="请输入网址" id="modUrl" />
+			<div class="linkAddress">
+				<span rel='getlink'> <a></a> </span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function() {
+			//链接选择
+			$("span[rel='getlink']").on("click", function(e) {
+				showLinkWin("afterLinkSelected");
+				afterLinkSelected.$selectedInput = $(this).parent().siblings();
+			})
+
+			//图片上传
+			$("div[rel='uploadImg']").on("click", function(e) {
+				showPicWin("afterImgSelected");
+				afterImgSelected.$selectedPic = $(this).parents(".addImgOut").find("img");
+			})
+
+			//关闭小贴士
+			$(".closeTip").click(function() {
+				$(".toolTips").css('display', 'none');
+			})
+
+			//读取文本内容
+			$("#modTxt").val(_$module.find(".characters a").text());
+			obInputLength($("#modTxt")[0]);
+
+			//读取url
+			$("#modUrl").val(_$module.find(".characters a").attr("href") || "");
+
+			//读取图片
+			var picurl = _$module.find(".photoAddress img").attr("src") || "";
+			if (picurl) {
+				$("#modImg").attr("src", picurl);
+				$(".addImgInfo").hide();
+				$(".addImgMain").show();
+			}
+
+		})
+		//组件保存方法
+	function cfgset() {
+		//文本
+		var txtCon = $("#modTxt").val();
+		if (txtCon.length > 10) {
+			layer.msg("长度超过限制范围！", {
+				offset: 80,
+				shift: 5,
+				time: 2500
+			});
+			return;
+		}
+
+		//设置文本内容
+		_$module.find(".characters a").text($("#modTxt").val());
+
+		//设置url
+		var url = $("#modUrl").val().trim()
+		if (url) {
+			_$module.find(".characters a").attr("href", url);
+			_$module.find(".photoAddress a").attr("href", url);
+		} else {
+			_$module.find(".characters a").removeAttr('href');
+			_$module.find(".photoAddress a").removeAttr('href');
+		}
+
+		//设置图片
+		var picsrc = $("#modImg").attr("src");
+		if (picsrc) {
+			_$module.find(".photoAddress img").attr("src", picsrc);
+		} else {
+			_$module.find(".photoAddress img").removeAttr("src");
+		}
+
+		hideEdit();
+	}
+
+	function afterLinkSelected(url) {
+		afterLinkSelected.$selectedInput.val(url);
+	}
+
+	function afterImgSelected(path) {
+		afterImgSelected.$selectedPic.attr("src", path);
+		afterImgSelected.$selectedPic.parent().prev().hide();
+		afterImgSelected.$selectedPic.parent().show();
+	}
+</script>

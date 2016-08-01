@@ -1,0 +1,23 @@
+/****宝贝排行榜****/
+.shop-top-list{overflow:hidden;}
+.tabCon{width:240px;}
+.shop-top-list .tabHd{height:36px;border-right:1px solid #ddd;vertical-align:middle;overflow:hidden;font-size:14px;}
+.shop-top-list .tabHd li{float:left;width:119px;height:34px;line-height:34px;border:1px solid #ddd;border-right:0;text-align:center;cursor:pointer;}
+.shop-top-list .tabHd li:first-child{width:118px;}
+.shop-top-list .tabHd li.on{height:34px;border-top:2px solid #04A1E6;border-bottom:0;background:#fff;color:#FF5F3D;}
+.shop-top-list .tabBd{overflow:hidden;border:1px solid #E4E4E4;border-top:0;}
+.shop-top-list .top-list li{margin:0;padding:10px;border-bottom:1px dotted #ebebeb;}
+.shop-top-list .item{overflow:hidden;}
+.shop-top-list .top-list .item .img{float:left;font-size:0;border:1px solid #ddd;}
+.shop-top-list .top-list .item .img img{width:60px;height:60px;}
+.shop-top-list .top-list .item .detail{margin-left:70px;}
+.shop-top-list .top-list .item .detail-item {height:18px;line-height:18px;overflow:hidden;}
+.shop-top-list .top-list .item .detail .price{margin:0;font-size:14px;font-weight:700;}
+.shop-top-list .top-list .item .detail .sale{color:#999;}
+.shop-top-list .top-list .item .detail .sale-count{color:#c97;font-weight:700;}
+.shop-top-list .control-group{margin-top:10px;margin-bottom:10px;text-align:center;}
+.shop-top-list  .top-list02{overflow:hidden;}
+.shop-top-list .top-list02 li{float:left;width:50%;padding:5px 0;border-bottom:1px dotted #ebebeb;}
+.shop-top-list .top-list02 .item{margin:0 5px;}
+.shop-top-list .top-list02 .item .img{float:none;width:60px;height:60px;margin:0 auto;font-size:0;border:1px solid #ddd;}
+.shop-top-list .top-list02 .item .detail{margin-left:0px;margin-top:5px;}

@@ -1,0 +1,24 @@
+/*******客服：纵向横向排列*******/
+.verServs-hd{height:40px;padding-left:15px;line-height:40px;vertical-align:middle;}
+.verServs-bd{margin-top:10px;margin-bottom:10px;}
+.servItem{margin:0 10px;padding-bottom: 10px;}
+.serv-tit{color:#333;font-size:14px;}
+.serv-time .item{margin:5px 0;}
+.serv-lists-ver{margin-top:5px;overflow:hidden;}
+.serv-lists-ver li{float:left;width:50%;margin-bottom:5px;}
+.icon-serv{display:inline-block;width:20px;height:20px;background:url(../img/icon/icon-serv.gif) no-repeat;vertical-align: middle;}
+.serv-on{background-position:-110px -3px;}
+.serv-off{background-position:-110px -23px;}
+.serv-name{display:inline-block;width:75px;height:20px;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;margin-left:5px;vertical-align: middle;}
+.serv-lists-ver a:hover{text-decoration:none;}
+.horServs{overflow:hidden;}
+.horServs .serv-tit{float:left;*margin-top:-3px;}
+.horServs .ovH{overflow:hidden;}
+.serv-lists-hor{float:left;overflow:hidden;}
+.serv-lists-hor li{float:left;margin-left:20px;}
+.serv-lists-hor li:first-child{margin-left:0;}
+.serv-lists-hor .serv-name{width:auto;}
+.serv-lists-hor a{text-decoration:none;}
+
+
+.bg3{background-color:#fafafa;}/****暗橙色****/

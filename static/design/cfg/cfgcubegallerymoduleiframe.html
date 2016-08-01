@@ -1,0 +1,747 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+    
+    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+    <script src='/static/design/js/layer/layer.js'></script>
+    
+    <link href="/static/design/js/spectrum/spectrum.css" rel="stylesheet" />
+    <script src="/static/design/js/spectrum/spectrum.js"></script>
+    
+    
+    <script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+    <script>
+        function setSquence() {
+            var divlist = $('#EditorBox').children();
+            var len = divlist.length;
+            divlist.each(function (i,item) {
+                if (i == 0) {
+                    $(this).addClass('first')
+                    if(len>1) $(this).removeClass('last');
+                }
+                if (i == len - 1) {
+                    $(this).addClass('last');
+                    if(len>1) $(this).removeClass('first');
+                }
+                if (i>0 && i < len - 1) {
+                    $(this).removeClass('last').removeClass('first');
+                }
+                if (i % 2 == 0) {
+                    $(this).addClass('even').removeClass('odd');
+                }
+                else {
+                    $(this).addClass('odd').removeClass('even');
+                }
+            })
+            
+            setValidate();
+            setReplacePic();
+        }
+    	
+    	// 就将此元素插到下一个元素之后，从而实现互换顺序
+    	function actDown(Obj) {
+    		$(Obj).parent().parent().next().after($(Obj).parent().parent());
+    		// 重新设置排序规则
+    		setSquence();
+    	}
+    	
+    	// 就将此元素插到上一个元素之后，从而实现互换顺序
+    	function actUp(Obj) {
+    		$(Obj).parent().parent().after($(Obj).parent().parent().prev());
+    		// 重新设置排序规则
+    		setSquence();
+    	}
+        function addRow(picurl,url,imgtitle,imgdesc,imgreplace){
+        	var arr=[];
+        	arr.push("<div class='edit-item J_TEditItem' style='position:relative;'>");
+        	arr.push("    <div class='column column1 magicAlbum1'>");
+        	arr.push("        <input class='J_ImgUrl magicPhoto' type='text' name='picture' value='",picurl,"'>");
+        	arr.push("        <a class='sys-images sys-magicImages' onclick='selectPic()' title='选择图片'></a><span class='J_TMsg msg disappear'><i class='msg-icon'></i><span class='text'></span></span>");
+        	arr.push("    </div>");
+        	arr.push("    <div class='column column2 magicAlbum2'>");
+        	arr.push("        <input class='J_LinkUrl magicPhoto' type='text' name='urlAddress' value='",url,"'><span class='J_TMsg msg disappear'><i class='msg-icon'></i><span class='text'></span></span>");
+        	arr.push("    </div>");
+        	arr.push("    <div class='column column4 magicAlbum2'>");
+        	arr.push("        <input class='J_LinkUrl magicPhoto' type='text' name='imgtitle' value='",imgtitle,"'><span class='J_TMsg msg disappear'><i class='msg-icon'></i><span class='text'></span></span>");
+        	arr.push("    </div>");
+        	arr.push("    <div class='column column5 magicAlbum2 tc'>");
+        	//arr.push("        <input class='J_LinkUrl magicPhoto' type='text' name='imgdesc' value='",imgdesc,"'><span class='J_TMsg msg disappear'><i class='msg-icon'></i><span class='text'></span></span>");
+        	arr.push("    <a onclick='editImgDesc()'>[点击编辑描述]</a><div style='display:none' class='desccontainer'>",imgdesc,"</div>");
+        	arr.push("    </div>");
+        	arr.push("    <div class='tc column column3 J_Control magicAlbum2'>");
+        	arr.push("        <input type='hidden' name='replace' value='",imgreplace,"'>");
+        	arr.push("        <a title='上移' class='up magicPic' href='javascript:void(0);' onclick='actUp(this)'></a>");
+        	arr.push("        <a title='下移' class='down magicPic' href='javascript:void(0);' onclick='actDown(this)'></a>");
+        	arr.push("        <a title='删除' class='delete magicPic' href='javascript:void(0);'></a>");
+        	arr.push("    </div>");
+        	arr.push("</div>"); 
+			var $div=$(arr.join(''));
+			$('#EditorBox').append($div);
+			
+			setSquence();
+        }
+        var $RichtextContainer;
+        function editImgDesc(){
+        	var event=window.event || arguments.callee.caller.arguments[0];
+        	$RichtextContainer=$(event.srcElement ? event.srcElement:event.target).siblings('div.desccontainer');
+        	
+        	layer.open({
+    	        type : 2,
+    	        content : "/static/design/cfg/cfgKindEditor.html",
+    	        title : "编辑描述",
+    	        shadeClose: true,
+    	        area : ['750px','600px'],
+    	        btn: ['确定', '取消'],
+	            yes: function(index, layero){ //或者使用btn1
+	            	$RichtextContainer.html(window.frames[0].editor1.html());
+	            	layer.close(index);
+	            },cancel: function(index){ //或者使用btn2
+	            }
+    	    });
+        }
+        
+        $(function () {
+        	
+        	//tab页切换
+        	$('#titleOne').click(function() {
+				$(this).addClass('selected');
+				$(this).siblings().removeClass('selected');
+				$("#tabOne").show();
+				$("#tabTwo").hide();
+				$("#tabThree").hide();
+			})
+			$('#titleTwo').click(function() {
+				$(this).addClass('selected');
+				$(this).siblings().removeClass('selected');
+				$("#tabTwo").show();
+				$("#tabOne").hide();
+				$("#tabThree").hide();
+			})
+			$('#titleThree').click(function() {
+				$(this).addClass('selected');
+				$(this).siblings().removeClass('selected');
+				$("#tabThree").show();
+				$("#tabOne").hide();
+				$("#tabTwo").hide();
+			})
+			//点击删除相册图片
+            $(".panels").delegate("a.delete", "click", function(e) {
+                $(this).closest('div.edit-item').remove();
+                setSquence();
+            })
+			//点击添加相册图片
+            $('#btnAdd').click(function () {
+                if ($('#EditorBox').children().length >= 7) {
+                    layer.msg("最多只能添加七张图片", {
+						offset : 80,
+						shift : 5,
+						time : 3000
+					});
+                    return false;
+                }
+                addRow('','','','','');
+            })
+            //点击图册类型
+            $('#cubetype').find('.cardStyleItem').click(function() {
+				var $target = $(this);
+				$target.siblings().removeClass('cardStyleChoice');
+				$target.addClass('cardStyleChoice');
+				
+				$("#type").val($target.attr("data-type"));
+				$("#picnum").val($target.attr("data-picnum"));
+			})
+			//点击图册特效
+			$('#mouseCover').find('.cardStyleItem').click(function() {
+				var $target = $(this);
+				$target.siblings().removeClass('cardStyleChoice');
+				$target.addClass('cardStyleChoice');
+				
+				$("#effect").val($target.attr("data-effect"));
+				
+				if ($target.hasClass('mouseCover1')) {
+					$("#mouseCover1").show();
+				} else {
+					$("#mouseCover1").hide();
+				}
+				if ($target.hasClass('mouseCover3') || $target.hasClass('mouseCover4')) {
+					$("#mouseCover3").show();
+				} else {
+					$("#mouseCover3").hide();
+				}
+				if ($target.hasClass('mouseCover7')) {
+					$("#mouseCover7").show();
+				} else {
+					$("#mouseCover7").hide();
+				}
+			})
+			//点击特效(边框)
+			$('#radioBorderDefault').click(function() {
+				$("#mousecoverSet1").hide();
+			})
+			$('#radioBorderCustom').click(function() {
+				$("#mousecoverSet1").show();
+			})
+			//点击特效(遮罩)
+			$('#radioBgDefault').click(function() {
+				$("#mousecoverSet3").hide();
+			})
+			$('#radioBgCustom').click(function() {
+				$("#mousecoverSet3").show();
+			})
+			$('#radioTitleFontDefault').click(function() {
+				$("#mousecoverSet4").hide();
+			})
+			$('#radioTitleFontCustom').click(function() {
+				$("#mousecoverSet4").show();
+			})
+			$('#radioNotShowDesc').click(function() {
+				$("#mousecoverSet5").hide();
+			})
+			$('#radioShowDesc').click(function() {
+				$("#mousecoverSet5").show();
+			})
+			$('#radioDescFontDefault').click(function() {
+				$("#mousecoverSet6").hide();
+			})
+			$('#radioDescFontCustom').click(function() {
+				$("#mousecoverSet6").show();
+			})
+            //加载数据(图册图片)
+            $(parent._cfg.imgs).each(function(){
+            	addRow(this.src,this.href,this.title,decodeURI(decodeURI(this.desc)),this.replace);
+            })
+            $('#picHight').val(parent._cfg.height);//加载数据(图册高度)
+            $('#picSpace').val(parent._cfg.cellspacing);//加载数据(图册间距)
+            $('#picTarget').val(parent._cfg.target);//加载数据(图片打开方式)
+          	$('#mouseCover').find("div[data-effect="+parent._cfg.effect+"]").click();//加载数据(图册特效)
+            $("#cubetype").find("div[data-type="+parent._cfg.type+"]").click();//加载数据(图册展示类型)
+            
+            //加载数据(图册边框)
+            if(parent._cfg.custBorder!="0"){
+            	$('#radioBorderCustom').click();
+            }
+            else{
+            	$('#radioBorderDefault').click();
+            }
+            $("#borderColor").val(parent._cfg.borderColor);
+            $("#borderColor").spectrum({
+	            color: parent._cfg.borderColor,
+	            preferredFormat: "hex6",
+	            showInput: true
+	        });
+            $('#borderWidth').val(parent._cfg.borderWidth);
+            $('#borderStyle').val(parent._cfg.borderStyle);
+            //加载数据(遮罩层)
+            if(parent._cfg.custBg!="0"){
+            	$('#radioBgCustom').click();
+            }
+            else{
+            	$('#radioBgDefault').click();
+            }
+            $("#bgColor").val(parent._cfg.bgColor);
+            $("#bgColor").spectrum({
+	            color: parent._cfg.bgColor,
+	            preferredFormat: "hex6",
+	            showInput: true
+	        });//背景色
+            $('#bgOp').val(parent._cfg.bgOp);//背景透明度
+            
+            if(parent._cfg.custTitF!="0"){
+            	$('#radioTitleFontCustom').click();
+            }
+            else{
+            	$('#radioTitleFontDefault').click();
+            }
+            $("#tfColor").val(parent._cfg.tfColor);
+            $("#tfColor").spectrum({
+	            color: parent._cfg.tfColor,
+	            preferredFormat: "hex6",
+	            showInput: true
+	        });//文字颜色
+            if(parent._cfg.tfBold!=""){
+            	$("#tfBold").click();
+            }//文字粗体
+            if(parent._cfg.tfAlign=="center"){
+            	$("#radioTFM").click();
+            }
+            else if(parent._cfg.tfAlign=="left"){
+            	$("#radioTFL").click();
+            }
+            else if(parent._cfg.tfAlign=="right"){
+            	$("#radioTFR").click();
+            }//文字对齐
+	        
+            if(parent._cfg.showDesc!="0"){
+            	$('#radioShowDesc').click();
+            }
+            else{
+            	$('#radioNotShowDesc').click();
+            }
+            if(parent._cfg.custDescF!="0"){
+            	$('#radioDescFontCustom').click();
+            }
+            else{
+            	$('#radioDescFontDefault').click();
+            }
+            $("#descColor").val(parent._cfg.descColor);
+            $("#descColor").spectrum({
+	            color: parent._cfg.descColor,
+	            preferredFormat: "hex6",
+	            showInput: true
+	        });//描述文字颜色
+            if(parent._cfg.descAlign=="center"){
+            	$("#radioDFM").click();
+            }
+            else if(parent._cfg.descAlign=="left"){
+            	$("#radioDFL").click();
+            }
+            else if(parent._cfg.descAlign=="right"){
+            	$("#radioDFR").click();
+            }//描述文字对齐
+            
+            
+            //加载标题栏数据
+            $('#title').val(parent._$module.find('.title-box span').text().trim());
+            if(parent._$module.find('.title-box').is(":hidden")){
+            	$('input[name="showTitle"]').eq(0).attr("checked",true);	
+            }
+            else{
+            	$('input[name="showTitle"]').eq(1).attr("checked",true);
+            }
+            
+            //设置验证规则
+            setValidate();
+        })
+        function setValidate(){
+        	$('#displaySetForm').validate({
+	            onkeyup: function(element) {$(element).valid()},
+	            rules:{
+	            	height:{required:true,max:600,min:100},
+	            	cellspacing:{required:true,max:20,min:0},
+	            	picture:{required:true,maxlength:100},
+	            	urlAddress:{maxlength:100},
+	            	imgtitle:{maxlength:30}
+	           	},
+	            showErrors: function(errorMap, errorList) {
+	            	
+	            	if(errorList.length>0){
+	            		$.each(errorList,function(index,error){
+		            		var element=$(errorList[index].element);
+		            		var msgContainer=element.parent().find('.J_TMsg');
+		            		if(msgContainer.length>0){
+		            			msgContainer.find('span').text(error.message);
+		            			if(error.message!="")
+		            				msgContainer.removeClass('disappear').addClass('failure');
+		            			else
+		            				msgContainer.removeClass('failure').addClass('disappear');
+			           		}
+		            	})
+	            	}
+	            	else{
+	            		this.currentElements.parent().find('.J_TMsg').each(function(){
+	            			$(this).removeClass('failure').addClass('disappear');
+	            		})
+	            	}
+	            	
+	           	}
+            });
+        }
+        function cfgSet(){
+        	if(!$('#displaySetForm').valid()){
+        		return;
+        	}
+        	else{
+        		var otherTab=$("#navul>.selected").siblings();
+        		for(i=0;i<otherTab.length;i++){
+        			otherTab.click();
+        			if(!$('#displaySetForm').valid())
+        				return;
+        		}
+        	}
+        	
+        	var arr=$('#displaySetForm').serializeArray();
+        	var opt={
+        			imgs:[]
+        	}
+        	
+        	currimgIndex=0;
+        	arr.forEach(function(obj){
+        		if(obj.name=="showTitle") return;
+        		if(obj.name=="title") return;
+        		if(obj.name=="picture") return;
+        		if(obj.name=="urlAddress") return;
+        		if(obj.name=="imgtitle") return;
+        		//if(obj.name=="desccontainer") return;
+        		
+        		opt[obj.name]=obj.value;
+        	})
+        	if(opt.tfBold==undefined) opt.tfBold="";//checkbox特殊处理
+        
+        	$('#EditorBox').children().each(function(i){
+        		if($(this).find('input[ name="picture"]').val().trim()!=""){
+        			opt.imgs[i]={};
+        			opt.imgs[i].src=$(this).find('input[ name="picture"]').val();
+        			opt.imgs[i].href=$(this).find('input[ name="urlAddress"]').val();
+        			opt.imgs[i].title=$(this).find('input[ name="imgtitle"]').val();
+        			opt.imgs[i].desc=encodeURI(encodeURI($(this).find('div.desccontainer').html()));
+        			opt.imgs[i].replace=$(this).find('input[ name="replace"]').val();
+        		}
+        	})
+        	
+        	if($("#picnum").val()>opt.imgs.length){
+        		layer.msg("当前选择的图册类型至少要求有"+$("#picnum").val()+"张图片", {
+					offset : 80,
+					shift : 5,
+					time : 3000
+				});
+        		$('#titleOne').click();
+        		return;
+        	}
+        	
+        	parent._$module.cubegallerymodule('reset',opt);
+        	
+        	//组件标题
+        	parent._$module.find('.title-box span').text($('#title').val());
+        	if($('input[name="showTitle"]:checked').val()=="true"){
+        		parent._$module.find('.title-box').show();
+        	}
+        	else{
+        		parent._$module.find('.title-box').hide();
+        	}
+        	
+        	//关闭配置框
+        	parent.cfgClose(); 
+        }
+        
+        var $curImgInput;
+        function selectPic() {
+        	var event=window.event || arguments.callee.caller.arguments[0];
+        	$curImgInput=$(event.srcElement ? event.srcElement:event.target).siblings('input.J_ImgUrl');
+			
+        	opt ={"dir":"shop", "maxuploadsize":"2M", "callBack":"selectPicCallBack"};
+    		layer.open({
+    	        type : 2,
+    	        content :  parent.ctx+"/res/tu/ResSelect.htm?dir="+opt.dir+"&maxuploadsize="+opt.maxuploadsize+"&callback="+opt.callBack,
+    	        title : "图片选取",
+    	        shadeClose: true,
+    	        area : ['750px','660px']
+    	    });
+    	}
+        function selectPicCallBack(path){
+        	$curImgInput.val(path);
+        }
+		
+        var $curImgReplace;
+        var curImgReplaceIndex;
+        function selectReplacePic(){
+        	var event=window.event || arguments.callee.caller.arguments[0];
+        	$curImgReplace=$(event.srcElement ? event.srcElement:event.target).parent().parent().find("td:eq(1) img");
+        	curImgReplaceIndex=$(event.srcElement ? event.srcElement:event.target).parent().parent().find("td:eq(0) input").val();
+        	opt ={"dir":"shop", "maxuploadsize":"2M", "callBack":"selectReplacePicCallBack"};
+    		layer.open({
+    	        type : 2,
+    	        content :  parent.ctx+"/res/tu/ResSelect.htm?dir="+opt.dir+"&maxuploadsize="+opt.maxuploadsize+"&callback="+opt.callBack,
+    	        title : "图片选取",
+    	        shadeClose: true,
+    	        area : ['750px','660px']
+    	    });
+        }
+        function selectReplacePicCallBack(path){
+        	$curImgReplace.attr("src",path);
+        	$('#EditorBox').find("div.edit-item:eq("+curImgReplaceIndex+") input[name=replace]").val(path);
+        }
+        function setReplacePic(){
+        	$("#replacetable").empty();
+        	
+        	var arr=[];
+        	$('#EditorBox').children().each(function(i){
+        		if($(this).find('input[ name="picture"]').val().trim()!=""){
+        			var index=i;
+        			var srcPic=$(this).find('input[ name="picture"]').val();
+        			var replacePic=$(this).find('input[ name="replace"]').val();
+        			
+        			arr.push("<tr>");
+        			arr.push("    <td>");
+        			arr.push("    	  <input type='hidden' name='index' value='",index,"'>");
+        			arr.push("        <img src='",srcPic,"' width='70' height='70'></td>");
+        			arr.push("    <td>");
+        			arr.push("        <img src='",replacePic,"' width='70' height='70'></td>");
+        			arr.push("    <td>");
+        			arr.push("        <a onclick='selectReplacePic()'>选择图片</a>");
+        			arr.push("    </td>");
+        			arr.push("</tr>");
+        		}
+        	})
+        	
+        	$("#replacetable").append(arr.join(''));
+        }
+    </script>
+</head>
+<body>
+		<!-- <div id='desc_editor' style='width:100%;height:400px;display: none;'>
+			<textarea id="editContent" name='editContent' rows='30' cols='105' style='width:100%; height:400px;'></textarea>
+		</div> -->
+		<div class="content fm1">
+			<div class="tab">
+				<ul class="nav clear-fix" id="navul">
+					<li class="ks-switchable-trigger-internal6 selected" id="titleOne"><span>常规</span></li>
+					<li class="ks-switchable-trigger-internal6" id="titleTwo"><span>图片特效</span></li>
+					<li class="ks-switchable-trigger-internal6" id="titleThree"><span>展示设置</span></li>
+				</ul>
+				<form class="main-slide-form form-default" id="displaySetForm">
+					<div class="panels">
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabOne" style="display: block;">
+							<div class="edit-module">
+								<div class="control-group">
+		                            <label class="control-label w70">显示标题:</label>
+		
+		                            <div class="control show-title ml75 Lh28">
+		                                <input type="radio" class="J_TNotShowTitle  input-radio" name="showTitle" value="false">不显示
+		                                <input type="radio" class="J_TShowTitle  show-title-true input-radio" name="showTitle" value="true" checked="checked">显示
+		                                <input class="J_TTitleInput input-box title-input" id="title" type="text" maxlength="30" name="title" value="魔方图册">
+		                            </div>
+		                        </div>
+								<div class="clearfloat"></div>
+								<div class="selectCardStyleWarp edit-item overChose ba h240 mt15" style="width: 650px;">
+									<div class="photoCartContainer" id="cubetype" style="width: auto;">
+										<div class="cardStyleItem itemCard14 " data-type="14" data-picnum="5"></div>
+										<div class="cardStyleItem itemCard15 " data-type="15" data-picnum="7"></div>
+										<div class="cardStyleItem itemCard0 " data-type="1" data-picnum="4"></div>
+										<div class="cardStyleItem itemCard1 " data-type="2" data-picnum="4"></div>
+										<div class="cardStyleItem itemCard2 " data-type="3" data-picnum="5"></div>
+										<div class="cardStyleItem itemCard3 " data-type="4" data-picnum="5"></div>
+										<div class="cardStyleItem itemCard4 " data-type="5" data-picnum="5"></div>
+										<div class="cardStyleItem itemCard5 " data-type="6" data-picnum="5"></div>
+										<div class="cardStyleItem itemCard6 " data-type="7" data-picnum="7"></div>
+										<div class="cardStyleItem itemCard7 " data-type="8" data-picnum="5"></div>
+										<div class="cardStyleItem itemCard8 " data-type="9" data-picnum="5"></div>
+										<div class="cardStyleItem itemCard9 " data-type="10" data-picnum="3"></div>
+										<div class="cardStyleItem itemCard10 " data-type="13" data-picnum="3"></div>
+										<div class="cardStyleItem itemCard11 " data-type="11" data-picnum="4"></div>
+										<div class="cardStyleItem itemCard12 " data-type="12" data-picnum="6"></div>
+										<input type="hidden" id="type" name="type">
+										<input type="hidden" id="picnum" >
+									</div>
+								</div>
+
+								<div class="edit-module" style="margin-top: 20px;">
+									<div class="edit-item  tabTit w650">
+										<div class="column column1 magicAlbum1"><span>图片地址</span></div>
+										<div class="column column2 magicAlbum2"><span>链接地址</span></div>										
+										<div class="column column4 magicAlbum2"><span>图片名称</span></div>
+										<div class="column column5 magicAlbum2"><span>图片描述</span></div>
+										<div class="column column3 magicAlbum2"><span>操作</span></div>
+									</div>
+									<div id="EditorBox" class="pic-list ml20 pb0" style="overflow-y: auto;height: 180px;width: 650px;">
+									</div>
+									<div class="bottom w650">
+										<a class="add-one btn-style-1" href="javascript:void(0);" id="btnAdd">添加</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabTwo" style="display: none;">
+							<div class="edit-module">
+								<div class="edit-item  edit-head">
+									<span>鼠标悬停效果：</span>
+								</div>
+								<div class="clearfloat"></div>
+								<div class="selectCardStyleWarp edit-item">
+									<div class="photoCartContainer" id="mouseCover" style="width: auto;">
+										<div class="cardStyleItem mouseCover0" data-effect=""></div>
+										<div class="cardStyleItem mouseCover1" data-effect="album-border"></div>
+										<div class="cardStyleItem mouseCover3" data-effect="album-mask"></div>
+										<div class="cardStyleItem mouseCover4" data-effect="album-mask-half"></div>
+										<div class="cardStyleItem mouseCover6" data-effect="album-moveL"></div>
+										<div class="cardStyleItem mouseCover7" data-effect="album-change"></div>
+										<input type="hidden" id="effect" name="effect">
+									</div>
+								</div>
+								<div id="mouseCover1" style="display: none;">
+									<div class="mouseCoverMain fb">特效设置</div>
+									<div  class="selectCardStyleWarp edit-item">
+										<div class="photoCartContainer">
+											<div class="Mainset">
+												<div>
+													<p class="h30">
+														<span class="fr mr10 pr65">
+															<input type="radio" id="radioBorderCustom"  name="custBorder" value="1"><label for="radioBorderCustom">自定义</label>
+														</span>
+														<span class="fr mr10">
+															<input type="radio" id="radioBorderDefault"  name="custBorder" value="0"><label for="radioBorderDefault">默认</label>
+														</span>
+														<span class="fl ml60">边框：</span>
+													</p>
+													<div id="mousecoverSet1" style="display: none;">
+														<p class="h30">
+															<span class="fl ml60">颜色：</span>
+															<span class="fl ColorSet">
+															<input type="text" class="CSS_colorPicker" id="borderColor" name="borderColor">
+															</span>
+														</p>
+														<p class="h30">
+															<span class="fl ml60">宽度：</span><span class="fl">
+																<select class="selectWidth" id="borderWidth" name="borderWidth">
+																	<option value="1">1</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																</select>
+															</span>
+														</p>
+														<p class="h30">
+															<span class="fl ml60">样式：</span>
+															<span class="fl">
+																<select class="selectWidth" id="borderStyle" name="borderStyle">
+																	<option value="solid">实线</option>
+																	<option value="dotted">点状</option>
+																	<option value="dashed">虚线</option>
+																</select>
+															</span>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="mouseCover3" style="display: none;">
+									<div class="mouseCoverMain fb">特效设置</div>
+									<div class="selectCardStyleWarp edit-item" style="height: 210px;overflow-y: auto;width: 680px;">
+										<div class="photoCartContainer" id="mouseCover2">
+											<div class="Mainset">
+												<div>
+													<p class="h30"><span class="fr mr10 pr65"><input type="radio" id="radioBgCustom"  name="custBg" value="1"><label for="radioBgCustom">自定义</label></span>
+														<span class="fr mr10"><input type="radio" id="radioBgDefault"  name="custBg" value="0"><label for="radioBgDefault">默认</label></span>
+														<span class="fr">背景：</span></p>
+													<div id="mousecoverSet3" style="display: none;">
+														<p class="h30"><span class="fl ml60">颜色：</span><span class="fl ColorSet"><input type="text" class="CSS_colorPicker" id="bgColor" name="bgColor"></span></p>
+														<p class="h30"><span class="fl ml50">透明度：</span>
+															<select class="selectWidth" id="bgOp" name="bgOp">
+																	<option value="1">0%</option>
+																	<option value="0.9">10%</option>
+																	<option value="0.8">20%</option>
+																	<option value="0.7">30%</option>
+																	<option value="0.6">40%</option>
+																	<option value="0.5">50%</option>
+																	<option value="0.4">60%</option>
+																	<option value="0.3">70%</option>
+																	<option value="0.2">80%</option>
+																	<option value="0.1">90%</option>
+																	<option value="0">100%</option>
+															</select>
+													</div>
+												</div>
+												<div>
+													<p class="h30"><span class="fr mr10 pr65"><input type="radio" id="radioTitleFontCustom"  name="custTitF" value="1"><label for="radioTitleFontCustom">自定义</label></span>
+														<span class="fr mr10"><input type="radio" id="radioTitleFontDefault"  name="custTitF" value="0"><label for="radioTitleFontDefault">默认</label></span>
+														<span class="fr">图片名称：</span></p>
+													<div id="mousecoverSet4" style="display: none;">
+														<p class="h30"><span class="fl ml60">加粗：</span>
+															<input type="checkbox" id="tfBold" name="tfBold">
+														</p>
+														<p class="h30"><span class="fl ml60">颜色：</span><span class="fl ColorSet"><input type="text" class="CSS_colorPicker" id="tfColor" name="tfColor"></span></p>
+													</div>
+												</div>
+												<div>
+													<p class="h30">
+														<span class="fr mr10"><input type="radio" id="radioTFR" name="tfAlign" value="right"><label for="radioTFR">右对齐</label></span>
+														<span class="fr mr10"><input type="radio" id="radioTFL" name="tfAlign" value="left"><label for="radioTFL">左对齐</label></span>
+														<span class="fr mr10"><input type="radio" id="radioTFM" name="tfAlign" value="center"><label for="radioTFM">居中</label></span>
+														<span class="fr">图片名称对齐：</span>
+													</p>
+												</div>
+												<div>
+													<p class="h30"><span class="fr mr10 pr90"><input type="radio" id="radioNotShowDesc"  name="showDesc" value="0"><label for="radioNotShowDesc">否</label></span>
+														<span class="fr mr10 pr10"><input type="radio" id="radioShowDesc"  name="showDesc"value="1"><label for="radioShowDesc">是</label></span>
+														<span class="fr">显示基本描述：</span></p>
+													<div id="mousecoverSet5" style="display: block;">
+														<p class="h30">
+															<span class="fl ml45">基本描述：</span>
+															<span class="fl mr10"><input type="radio" id="radioDescFontDefault"  name="custDescF" value="0"><label for="radioDescFontDefault">默认</label></span>
+															<span><input type="radio" id="radioDescFontCustom"  name="custDescF" value="1"><label for="radioDescFontCustom">自定义</label></span>
+														</p>
+														<div id="mousecoverSet6" style="display: none;">
+															<p class="h30">
+																<span class="fl ml65">颜色：</span>
+																<span class="fl ColorSet"><input type="text" class="CSS_colorPicker" id="descColor" name="descColor"></span>
+															</p>
+														</div>
+														<p class="h30">
+															<span class="fl ml25">基本描述对齐：</span>
+															<span class="fl mr10"><input type="radio" id="radioDFM" name="descAlign" value="center"><label for="radioDFM">居中</label></span>
+															<span class="fl mr10"><input type="radio" id="radioDFL" name="descAlign" value="left"><label for="radioDFL">左对齐</label></span>
+															<span class="fl mr10"><input type="radio" id="radioDFR" name="descAlign" value="right"><label for="radioDFR">右对齐</label></span>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="mouseCover7" style="display: none;">
+									<div class="mouseCoverMain fb">替换图片</div>
+									<div class="selectCardStyleWarp edit-item" style="margin: 0 auto;overflow-y:auto;height: 210px;width: 680px">
+										<table border="1" style="margin-left:65px;border: 1px solid #A7A7A7;width: 500px; text-align: center;BORDER-COLOR: #A7A7A7;" cellpadding="0" cellspacing="0">
+										    <thead>
+										        <tr>
+										            <td width="200">原图片</td>
+										            <td width="200">替换图片</td>
+										            <td>操作</td>
+										        </tr>
+										    </thead>
+										    <tbody id="replacetable">
+										    </tbody>
+										</table>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabThree" style="display: none;">
+							<div class="edit-module">
+								<div class="mouseCoverMain fb">特效设置</div>
+								<div class="edit-item mainShow">
+									<div class="mainShowTab">详情打开方式：</div>
+									<select id="picTarget" name="target">
+										<option value="_blank">新窗口</option>
+										<option value="_top">当前窗口</option>
+									</select>
+								</div>
+								<div class="mouseCoverMain fb mt15">图片设置</div>
+								<div class="edit-item mainShow">
+									<div class="mainShowTab">图片间距：</div>
+									<div class="mainShowTabText">
+										<input type="text" value="" id="picSpace" name="cellspacing"/><span style="color:#999"> px</span>
+										<span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+									</div>
+								</div>
+								<div class="edit-item mainShow">
+									<div class="mainShowTab">图册高度：</div>
+									<div class="mainShowTabText">
+										<input type="text" value="" id="picHight" name="height"/><span style="color:#999"> px</span>
+										<span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p class="opt-footer ctset-opt-footer">
+						<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+						<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

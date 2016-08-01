@@ -1,0 +1,171 @@
+<h3 class="edit-tit">店铺招牌模块</h3>
+                        <div class="leftInfo">
+                            <label class="mt5" style="width:25%;">店铺名称：</label>
+                            <div class="rightInfo mt5">
+                            	<span id="shopName">u[901152850]</span>
+								<!--<a onclick="changeShopName(this)">修改名称</a></div>-->
+                        </div>
+                        <div class="leftInfo">
+                            <label class="mt5" style="width:25%;">无线地址：</label>
+                            <div class="rightInfo linkAdd mt5">
+                                http://shop155107010.com
+                            </div>
+                        </div>
+                        <div class="leftInfo">
+                            <label class="w100P">设置店招基本信息：</label>
+                            <div class="w100P storeFace">
+                                <div class="faceMain">
+                                    <div class="pr">
+                                        <div class="addImg">
+                                            <img src="/static/design-m/img/storeSign.jpg" />
+                                            <div class="addBtn" style="display: none;">+</div>
+                                            <div class="addMask" onclick="selectPic()">重新上传</div>
+                                        </div>
+                                    </div>
+                                    <div class="storePortrait">
+                                        <img src="/static/design-m/img/storeSign.jpg" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="changeSign">
+                            <a class="changeBtn">修改店铺标志</a>
+                        </p>
+                        <p class="signInfo">店招规格: 642x200, 类型：jpg，jpeg，png</p>
+                        <div class="mb15">
+                            <label class="linkTit">无线店铺链接地址</label>
+                            <div class="linkMain w90p">
+                                <div class="linkInfo w100p">
+                                    <input class="fm1" type="text" id="link" name="link" placeholder="请输入网址" />
+                                    <div class="linkAddress">
+                                        <span onclick="showLinkWin('callBackLink')">
+                                            <a></a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+<script>
+	
+	$(function(){
+		 var dataVar = _cfg;
+		$(".linkAdd").html(dataVar.url);
+        $("#link").val(dataVar.url);
+		$(".addImg").find("img").attr("src",dataVar.img);
+		ajaxGetShopInfo();//获取店铺基本信息
+		
+	});
+	
+	
+	
+	//店铺名称 点击修改名称
+	function changeShopName(obj) {
+		var shopName = $(obj).prev().text();
+		var domstr = [];
+        domstr.push("<input type='text'  onblur='setShopName(this);' onkeyup='titleUrlShow(this);' style='height: 25px;'>");
+		var str = domstr.join("");
+	    var parent = $(obj).parent();
+        $(parent).html(str);
+		$(parent).find("input").val("").focus().val(shopName);
+		$(parent).removeClass("mt5");
+	}
+	//名称修改失去焦点时的处理
+	function setShopName(obj) {
+		var shopName = $(obj).val();
+		var parent = $(obj).parent();
+		var domstr = [];
+		domstr.push("<span id='shopName'>",shopName,"</span>");
+		domstr.push("<a onclick='changeShopName(this)'>修改名称</a></div>");
+		var str = domstr.join("");
+		 $(parent).html(str);
+		$(parent).addClass("mt5");
+	}
+	
+	//文本框相关js
+    function titleUrlShow(obj){
+        var title = $(obj).val();
+        
+        if (title.length > 10) {
+            $(obj).addClass("beyond");
+        }
+        else {
+            $(obj).removeClass("beyond");
+        }
+        $(obj).next().text(title.length + "/10");
+    }
+	
+	 function selectPic(obj){
+        selObj = obj;
+        opt = {
+            "dir": "shop",
+            "maxuploadsize": "2M",
+            "callBack": "selectPicCallBack"
+        };
+        layer.open({
+            type: 2,
+            content: parent.ctx + "/res/tu/ResSelect.htm?dir=" + opt.dir + "&maxuploadsize=" + opt.maxuploadsize + "&callback=" + opt.callBack,
+            title: "图片选取",
+            shadeClose: true,
+            area: ['1050px', '500px']
+        });
+    }
+	function selectPicCallBack(path){
+    		$(".addImg").find("img").attr("src",path);
+
+    }
+	    //连接小工具回调函数
+    function callBackLink(url){
+        $(".linkAdd").html(url);
+        $("#link").val(url);
+    }
+	
+	function ajaxGetShopInfo(){
+		var url = "" + ctx + "/design/dataAPI/vend/vendShop/AjaxVendShopDataApi.do?method=getVendShopInfo&vendId=" + g_vendid;
+		$.ajax({
+			url:url,
+			type: "POST",
+			success: function(data){
+             if(typeof data.shopInfo!="undefined"){
+			   	$("#shopName").text(data.shopInfo.SHOP_NAME);
+				$(".storePortrait").find("img").attr("src",data.shopInfo.LOGO);
+			   }
+			   if(typeof data.noSearch !="undefined"){
+			   	        layer.msg(data.noSearch, {
+                            offset: 80,
+                            shift: 5,
+                            time: 2500
+                        });
+			   }
+            },
+            error: function(){
+                alert("error");
+            },
+            dataType: "json"
+		})
+	}
+    //组件保存方法
+    function cfgset(){
+		
+        var shopName = $("#shopName").text();
+		var parent = $("#shopName").parent();
+      if (shopName.length > 100) {
+            layer.msg("店铺名称长度超过限制范围！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+			changeShopName($("#shopName").next());
+			$(parent).find("input").addClass("beyond");
+            return;
+        }
+        var dataval = {
+            shopName: shopName,
+			url: $("#link").val(),
+            img: $(".addImg").find("img").attr("src")
+        };
+        _$module.storeSign('reset', dataval);
+		hideEdit();
+    }	
+</script>					

@@ -1,0 +1,46 @@
+.adsBanner{position:relative;width:100%;overflow:hidden;}
+.adsBanner .adsBannerBd{position:relative;}
+.adsBanner .adsBannerBd ul{height:100%;padding:0px;overflow:hidden;}
+/****宝贝推荐****/
+.recGood-tit{height:40px;padding-left:15px;line-height:40px;vertical-align:middle;}
+.goodLists,.goodLists ul{overflow:hidden;}
+.goodLists li.goodList a:hover{text-decoration:none;}
+.goodList .good-name{height:24px;line-height:24px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.goodList .good-item{margin:0 auto;margin-top:5px;}
+.recGoods-240{width:238px;border:1px solid #ddd;}
+.recGoods-240 .goodLists ul{padding-bottom:10px;}
+.recGoods-240 .goodLists li{width:200px;margin:0 auto;margin-top:10px;border-top:1px dashed #ddd;padding-top:10px;}
+.recGoods-240 .goodLists li:first-child{padding-top:0;border-top:none;}
+.recGoods-240 .goodList .good-pic{width:200px;height:200px;margin:0 auto;}
+.recGoods-240 .goodList .good-item{width:200px;}
+.recGoods-960{width:958px;border:1px solid #ddd;}
+.recGoods-960 .goodLists-three ul{padding-bottom:25px;} 
+.recGoods-960 .goodLists-three li{float:left;width:240px;padding:15px 20px;margin-left:26px;margin-top:25px;border:1px solid #ddd;}
+.recGoods-960 .goodLists-three .good-pic{width:240px;height:240px;margin:0 auto;}
+.recGoods-960 .goodLists-three .good-item{width:240px;}
+.recGoods-960 .goodLists-four ul{padding-bottom:21px;} 
+.recGoods-960 .goodLists-four li{float:left;width:180px;padding:15px;margin-left:21px;margin-top:21px;border:1px solid #ddd;}
+.recGoods-960 .goodLists-four .good-pic{width:180px;height:180px;margin:0 auto;}
+.recGoods-960 .goodLists-four .good-item{width:180px;}
+.recGoods-1210{width:1208px;border:1px solid #ddd;}
+.recGoods-1210 .goodLists-three ul{padding-bottom:30px;} 
+.recGoods-1210 .goodLists-three li{float:left;width:320px;padding:15px 20px;margin-left:30px;margin-top:30px;border:1px solid #ddd;}
+.recGoods-1210 .goodLists-three .good-pic{width:320px;height:320px;margin:0 auto;}
+.recGoods-1210 .goodLists-three .good-item{width:320px;}
+.recGoods-1210 .goodLists-four ul{padding-bottom:23px;} 
+.recGoods-1210 .goodLists-four li{float:left;width:240px;padding:15px;margin-left:23px;margin-top:23px;border:1px solid #ddd;}
+.recGoods-1210 .goodLists-four .good-pic{width:240px;height:240px;margin:0 auto;}
+.recGoods-1210 .goodLists-four .good-item{width:240px;}
+.recGoods-1210 .goodLists-five ul{padding-bottom:15px;} 
+.recGoods-1210 .goodLists-five li{float:left;width:190px;padding:15px;margin-left:15px;margin-top:15px;border:1px solid #ddd;}
+.recGoods-1210 .goodLists-five .good-pic{width:190px;height:190px;margin:0 auto;}
+.recGoods-1210 .goodLists-five .good-item{width:190px;}
+.recGoods-1210 .goodLists-six ul{padding-bottom:15px;} 
+.recGoods-1210 .goodLists-six li{float:left;width:160px;padding:10px;margin-left:15px;margin-top:15px;border:1px solid #ddd;}
+.recGoods-1210 .goodLists-six .good-pic{width:160px;height:160px;margin:0 auto;}
+.recGoods-1210 .goodLists-six .good-item{width:160px;}
+.recGoods-1210 .goodLists-seven ul{padding-bottom:9px;} 
+.recGoods-1210 .goodLists-seven li{float:left;width:140px;padding:10px;margin-left:9px;margin-top:9px;border:1px solid #ddd;}
+.recGoods-1210 .goodLists-seven .good-pic{width:140px;height:140px;margin:0 auto;}
+.recGoods-1210 .goodLists-seven .good-item{width:140px;}
+.recGoods  .good-pic img{width:100%;height:100%;}

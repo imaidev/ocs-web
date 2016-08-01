@@ -1,0 +1,283 @@
+<style>
+	.add-layout-list {
+	  position: relative;
+	  z-index: 1;
+	  padding: 10px;
+	  /* height: 220px; */
+	}
+	.add-layout-list .extra {
+	  position: absolute;
+	  z-index: 1;
+	  right: 12px;
+	  top: 8px;
+	}
+	.add-layout-list div{
+		margin-bottom: 10px;
+	}
+	.add-layout-list a {
+	  background: url(/static/design/img/block.png) no-repeat 1px 1px;
+	  border: 1px solid #FFF;
+	  display: inline-block;
+	  height: 41px;
+	  margin-right: 20px;
+	  padding: 1px;
+	  width: 151px;
+	  -webkit-box-sizing: content-box;
+	  -moz-box-sizing: content-box;
+	  box-sizing: content-box;	
+	}
+	.add-layout-list a:hover{
+		border-color: orange;
+	}
+	
+	.add-layout-list .g240960 {
+	  background-position: 1px -48px;
+	}
+	.add-layout-list .g960240 {
+	  background-position: -156px -48px;
+	}
+	.add-layout-list .g240710240 {
+	  background-position: 1px -99px;
+	}
+	.add-layout-list .g240240710 {
+	  background-position: -156px 1px;
+	}
+	.add-layout-list .g710240240 {
+	  background-position: -156px -99px;
+	}
+	.add-layout-list .gfull {
+	  background-position: 1px -148px;
+	  width: 307px;
+	}
+</style>
+<script type="text/javascript" src="/static/design/js/baiduTemplate.js"></script>
+<script id="tfull" type="text/html">
+<div class="lyrow ui-draggable">
+  <div class="button-box">
+											<span href="javascript:void(0);" class="remove label label-danger">
+												<i class="glyphicon-remove glyphicon"></i><span>删除</span>
+											</span> 
+											<span class="drag label label-default"> 
+												<i class="glyphicon glyphicon-move"></i><span>拖动</span>
+											</span>
+											
+											<span class="cfg label label-default" onclick="cfg('row')">
+												<i class="glyphicon glyphicon-pencil"></i><span>配置</span>
+											</span>
+		                    			</div>
+  <div class="preview IconFullLay">
+    <div class='draghandle'>
+    </div>
+    <span class='draghandle'>
+      通栏布局
+    </span>
+  </div>
+  <div class="view">
+    <div class="row wfullscr clearfix">
+      <div class="column">
+      </div>
+    </div>
+  </div>
+</div> 
+</script>
+<script id="t1" type="text/html">
+<div class="lyrow wm1210 ui-draggable">
+ <div class="button-box">
+											<span href="javascript:void(0);" class="remove label label-danger">
+												<i class="glyphicon-remove glyphicon"></i><span>删除</span>
+											</span> 
+											<span class="drag label label-default"> 
+												<i class="glyphicon glyphicon-move"></i><span>拖动</span>
+											</span>
+											
+											<span class="cfg label label-default" onclick="cfg('row')">
+												<i class="glyphicon glyphicon-pencil"></i><span>配置</span>
+											</span>
+		                    			</div>
+  <div class="preview IconSingleLay">
+    <div class='draghandle'>
+    </div>
+    <span class='draghandle'>
+      单列布局
+    </span>
+  </div>
+  <div class="view">
+    <div class="row wm1210 clearfix">
+      <div class="column">
+        <div class="showwidth">
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+</script>
+<script id="t2" type="text/html">
+<div class="lyrow wm1210 ui-draggable">
+ <div class="button-box">
+											<span href="javascript:void(0);" class="remove label label-danger">
+												<i class="glyphicon-remove glyphicon"></i><span>删除</span>
+											</span> 
+											<span class="drag label label-default"> 
+												<i class="glyphicon glyphicon-move"></i><span>拖动</span>
+											</span>
+											
+											<span class="cfg label label-default" onclick="cfg('row')">
+												<i class="glyphicon glyphicon-pencil"></i><span>配置</span>
+											</span>
+  </div>
+  <div class="preview IconTwoLay">
+    <div class='draghandle'>
+    </div>
+    <span class='draghandle'>
+     两列布局
+    </span>
+  </div>
+  <div class="view">
+    <div class="row wm1210 clearfix">
+      <div class="column freewidthCol screenL" style="width: <%=lwidth%>px; float: left;">
+        <div class="showwidth">
+        </div>
+      </div>
+      <div class="column freewidthCol screenR" preset-marginl="<%=lmargin%>" style="width: auto; margin-left: <%=lmargin%>px;">
+        <div class="showwidth">
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+</script>
+<script id="t3" type="text/html">
+<div class="lyrow wm1210 ui-draggable">
+  <div class="button-box">
+											<span href="javascript:void(0);" class="remove label label-danger">
+												<i class="glyphicon-remove glyphicon"></i><span>删除</span>
+											</span> 
+											<span class="drag label label-default"> 
+												<i class="glyphicon glyphicon-move"></i><span>拖动</span>
+											</span>
+											
+											<span class="cfg label label-default" onclick="cfg('row')">
+												<i class="glyphicon glyphicon-pencil"></i><span>配置</span>
+											</span>
+  </div>
+  <div class="preview IconThreeLay">
+    <div class='draghandle'>
+    </div>
+    <span class='draghandle'>
+      三列布局
+    </span>
+  </div>
+  <div class="view">
+    <div class="row  wm1210 clearfix">
+      <div class="column freewidthCol screenL" style="width: <%=lwidth%>px; float: left;">
+        <div class="showwidth">
+        </div>
+      </div>
+      <div class="freewidthCol screenR" preset-marginl="<%=lmargin%>" style="width: auto; margin-left: <%=lmargin%>px; padding: 0px;">
+        <div class="column freewidthCol screenL" style="width: <%=mwidth%>px; float: left; margin: 0px;">
+          <div class="showwidth">
+          </div>
+        </div>
+        <div class="column freewidthCol screenR" preset-marginl="<%=mmargin%>" style="width: auto; margin: 0 0 0 <%=mmargin%>px;">
+          <div class="showwidth">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+
+<div class="modal-dialog" role="document" >
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h4 class="modal-title" id="H2">添加布局单元</h4>
+		</div>
+		<div class="alert alert-warning"  style="margin-top: 10px" role="alert" id="msg">系统检测到内容区为空，请至少添加一个布局</div>
+		<div class='add-layout-list'>
+				<span class="extra">单位：像素</span>
+				<div>
+					<a></a>
+					<a class='gfull'></a>
+				</div>
+				<div>
+					<a class="g240960"></a>
+					<a class="g960240"></a>
+				</div>
+				<!-- <div>
+					<a class="g240710240"></a>
+					<a class="g240240710"></a>
+					<a class="g710240240"></a>
+				</div> -->
+		</div>
+	</div>
+</div>
+
+<script>
+	var bt=baidu.template;
+	
+	function cfgRead() {
+		if($(".demo_c").children().length==0){
+			$("#msg").show();
+		}
+		else{
+			$("#msg").hide();
+		}
+		
+		$('.add-layout-list a').click(function(){
+			var $a=$(this);
+			var tpl;
+			if($a.hasClass('gfull')){
+				tpl={templateid:'tfull',data:{}};
+			}
+			else if($a.hasClass('g240960')){
+				tpl={templateid:'t2',data:{
+					lwidth:240,
+					lmargin:250
+				}};
+			}
+			else if($a.hasClass('g960240')){
+				tpl={templateid:'t2',data:{
+					lwidth:960,
+					lmargin:970
+				}};
+			}
+			else if($a.hasClass('g240710240')){
+				tpl={templateid:'t3',data:{
+					lwidth:240,
+					lmargin:250,
+					mwidth:710,
+					mmargin:720
+				}};
+			}
+			else if($a.hasClass('g240240710')){
+				tpl={templateid:'t3',data:{
+					lwidth:240,
+					lmargin:250,
+					mwidth:240,
+					mmargin:250
+				}};
+			}
+			else if($a.hasClass('g710240240')){
+				tpl={templateid:'t3',data:{
+					lwidth:710,
+					lmargin:720,
+					mwidth:240,
+					mmargin:250
+				}};
+			}
+			else{
+				tpl={templateid:'t1',data:{}};
+			}
+			
+			var html=bt(tpl.templateid,tpl.data);
+			$('.demo_c').append(html);
+			
+			$("#msg").hide();
+			afterLyrowDrag();
+		})
+	}
+</script>

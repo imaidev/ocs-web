@@ -1,0 +1,95 @@
+@charset "utf-8";
+/* CSS Document */
+.priceFont1 {
+	font-size: 24px;
+	font-family:"Microsoft Yahei","\5b8b\4f53", Arial, sans-serif;
+	color: #ff4200;
+}
+
+.priceFont2 {
+	font-size: 14px;
+	font-family:"Microsoft Yahei","\5b8b\4f53", Arial, sans-serif;
+	color: #ff4200;
+}
+
+.preCon {
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding-bottom: 20px;
+}
+
+.preCon .head {
+	width: 1200px;
+	overflow: hidden;
+}
+
+.preCon .part {
+	margin-top: 15px;
+	overflow: hidden;
+	padding-bottom: 20px;
+	width: 1200px;
+	background-color: #CCC;
+}
+
+.part .title {
+	width: 1200px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.part .itemList {
+	width: 1190px;
+	padding-left: 10px;
+	overflow: hidden;
+}
+
+.part .itemList li {
+	width: 252px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 15px;
+	overflow: hidden;
+	padding: 15px;
+}
+
+.part .itemList li .pic {
+	width: 250px;
+	height: 250px;
+	overflow: hidden;
+	margin: 0 auto;
+	border: 1px solid #dddddd;
+}
+
+.part .itemList li .name {
+	line-height: 20px;
+	height: 40px;
+	overflow: hidden;
+	margin-top: 10px;
+	font-size: 16px;
+	font-family:"Microsoft Yahei","\5b8b\4f53", Arial, sans-serif;
+	color: #333333;
+}
+
+.part .itemList li .price {
+	text-align: left;
+	overflow: hidden;
+	height: 30px;
+}
+
+.part .itemList li .btn {
+	overflow: hidden;
+	text-align: center;
+	height: 40px;
+	margin-top: 10px;
+}
+
+.part .itemList li .stock {
+	height: 20px;
+	line-height: 20px;
+	vertical-align: middle;
+	text-align: center;
+	font-family: "\5B8B\4F53", "SimSun";
+	font-size: 14px;
+	color: #F00;
+}

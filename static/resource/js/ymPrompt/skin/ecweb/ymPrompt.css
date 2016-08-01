@@ -1,0 +1,63 @@
+﻿/*container*/
+#ym-window{
+	background:#ffffff;overflow:hidden;
+	font-size:12px;font-family:'宋体';
+	border:2px solid #d7940f;
+}
+
+/*header*/
+ 
+/*头信息中间平铺部分*/
+.ym-tc{background:#CFD7EC url(images/title_bg_center.jpg) repeat-x 0 0;overflow:hidden;height:44px;line-height:44px;}
+ 
+/*头信息字体样式*/
+.ym-header-text{font-size:16px;font-weight:bold;margin-left:15px;float:left;
+	font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";
+	color:#6a430f;}
+/*头信息X号（关闭按钮）的位置*/
+.ym-header-tools{float:right;margin-top:11px; margin-right:10px;}
+/*头信息X号（关闭按钮）隐藏的一个关闭按钮*/
+.ym-header-tools strong{display:none;}
+
+/*body*/
+ 
+.ym-body{overflow:hidden;padding:0;font-size:14px;}
+
+/*button*/
+.ym-btn{text-align:center}
+
+/*footer*/
+ 
+
+/*icon*/
+.ymPrompt_alert{
+	padding-left:90px;
+	background:url(images/info.gif) no-repeat 20px 50%
+}
+.ymPrompt_succeed{
+	padding-left:90px;
+	background: url(images/right.gif) no-repeat 20px 50%
+}
+.ymPrompt_error{
+	padding-left:90px;
+	background:url(images/err.gif) no-repeat 20px 50%
+}
+.ymPrompt_confirm{
+	padding-left:90px;
+	background:url(images/ask.gif) no-repeat 20px 50%
+}
+.ymPrompt_alert .ym-content,.ymPrompt_succeed .ym-content,.ymPrompt_error .ym-content,.ymPrompt_confirm .ym-content{padding:50px 0 0}
+
+.ymPrompt_close{
+	cursor:pointer;
+	background:url(images/close.jpg) no-repeat 0 0;
+	width:20px;height:20px;
+}
+
+/*取消确认按钮样式*/
+input.btnStyle{
+	background:url(images/btn_bg.jpg) no-repeat;
+	width:94px;height:30px;line-height:30px;
+	font-size:16px;font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";
+	color:#6a430f;border:0;margin:10px 0
+}

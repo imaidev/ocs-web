@@ -1,0 +1,466 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="/static/design-m/css/base.css" />
+	<link rel="stylesheet" href="/static/design-m/css/operate_center.css" />
+	<link rel="stylesheet" href="/static/design/css/mricode.pagination.css" />
+	<link rel="stylesheet" href="/static/design/js/layer/skin/layer.css" />
+	<script type="text/javascript" src="/static/design/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="/static/design/js/jquery.SuperSlide.2.1.1.js"></script>
+	<script type="text/javascript" src="/static/design/js/layer/layer.js"></script>
+	<script type="text/javascript" src="/static/design/js/baiduTemplate.js"></script>
+	<script type="text/javascript" src="/static/design/js/mricode.pagination.js"></script>
+	<script id="turl" type="text/html">
+		<div class="item">
+			<div class="linkModular" title="<%=title%>">
+				<%=title%>
+			</div>
+			<div class="chooseBtn">
+				<input type="hidden" value="<%=value%>">
+				<a>选择链接</a>
+			</div>
+		</div>
+	</script>
+	<title>新增页面</title>
+</head>
+
+<body>
+	<div class="fm1 f14">
+		<div class="smallTool">
+			<div class="toolNav">
+				<ul>
+					<li>常用链接</li>
+					<li>宝贝链接</li>
+					<li id="liCat">商城分类链接</li>
+					<li>页面链接</li>
+					<li>文章分类列表链接</li>
+					<li>文章详情页链接</li>
+				</ul>
+				<div style="padding: 6px 15px;float: right;">
+					<span>站点:</span>
+					<select id="siteSel" onchange="getLinks()">
+
+					</select>
+				</div>
+			</div>
+			<div class="toolMain">
+				<div>
+					<div class="item">
+						<div class="linkModular" title="店铺首页">商城首页</div>
+						<div class="chooseBtn">
+							<input type="hidden" id="indexUrl">
+							<a>选择链接</a>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="fm1" style="height: 40px;">
+						<form id="form1">
+							<input class="keyword" type="text" name="keyWordSearch" placeholder="请输入关键字">
+							<span class="fb f16 pl10">价格：</span>
+							<input class="price" type="text" name="beginPrice" />－
+							<input class="price" type="text" name="endPrice" />
+							<a class="searchLinkBtn" onclick="ajaxItemPage(true)">搜索</a>
+						</form>
+					</div>
+					<table class="goodsLink" id="itemList">
+					</table>
+					<div id="pagin_btm" class="m-pagination"></div>
+				</div>
+				<div id="catUrl"></div>
+				<div id="customUrl"></div>
+				<div id="ArticalCatUrl"></div>
+				<div id="ArticalUrl">
+					<div class="fm1" style="height: 40px;">
+						<form id="form2">
+							<input class="keyword" type="text" name="articleTitle" placeholder="请输入文章标题">
+							<span class="fb f16 pl10">文章分类：</span>
+							<select class="keyword" id="articleCatSel" name="catagoryId">
+
+							</select>
+							<a class="searchLinkBtn" onclick="ajaxArticlePage(true)">搜索</a>
+						</form>
+					</div>
+					<table class="goodsLink" id="articleList">
+					</table>
+					<div id="pagin_btm_article" class="m-pagination"></div>
+				</div>
+			</div>
+			<div class="linkBottom">* 这个小工具帮你获取页面的链接</div>
+		</div>
+		<script>
+			jQuery(".smallTool").slide({
+				titCell: ".toolNav li",
+				mainCell: ".toolMain",
+				effect: "fade",
+				autoPlay: false,
+				trigger: "click",
+				easing: "swing",
+				delayTime: 500,
+				pnLoop: false
+			});
+			var bt = baidu.template;
+			var FRAME_INDEX;
+
+
+			var load_state = {
+				itempageloaded: 0,
+				articalpageloaded: 0,
+				otherloaded: 0
+			}
+
+			function showLoading() {
+				layer.load(1, {
+					shade: [0.1, '#fff'] //0.1透明度的白色背景
+				});
+			}
+
+			function hideLoading(prop) {
+				load_state[prop] = 1;
+				if (load_state.itempageloaded == 1 && load_state.articalpageloaded == 1 && load_state.otherloaded == 1) {
+					layer.closeAll()
+				}
+			}
+
+			$(function() {
+				var showtype=getUrlParam("showtype");
+				if(showtype=="siteCat"){
+					$("#liCat").click();
+					$("#liCat").siblings().hide();
+				}
+
+				showLoading();
+				$(".toolMain").delegate(".chooseBtn a", "click", function(e) {
+					e.preventDefault();
+					var callback = getUrlParam("callback");
+
+					try {
+						if(showtype=="siteCat"){
+							var obj={};
+							obj.catId=$(this).siblings().val().substring($(this).siblings().val().indexOf("catId=")+6);
+							obj.catName=$(this).parent().siblings().text();
+							obj.comId=$("#siteSel").val();
+							obj.comName=$("#siteSel").find("option:selected").text();
+
+							parent[callback](obj);
+						}
+						else{
+							parent[callback]($(this).siblings().val());
+						}
+					} catch (e) {
+
+					}
+					parent.layer.close(FRAME_INDEX);
+				})
+
+				FRAME_INDEX = parent.layer.getFrameIndex(window.name);
+
+				$.get(parent.ctx + "/design/dataAPI/site/AjaxSiteDataApi.do?method=getAllSite",
+					function(data) {
+						if (data.siteList) {
+							//加载站点信息
+							var str = ""
+
+							if (parent.g_comid == parent.g_sub_comid) {
+								str += "<option selected='selected' value='" + parent.g_sub_comid + "'>主站</option>";
+							} else {
+								str += "<option  value='" + parent.g_sub_comid + "'>主站</option>";
+							}
+							data.siteList.forEach(function(site) {
+
+								if (site.SITE_ID == parent.g_sub_comid) {
+									str += "<option selected='selected' value='" + site.SITE_ID + "'>" + site.SITE_NAME + "</option>";
+								} else {
+									str += "<option value='" + site.SITE_ID + "'>" + site.SITE_NAME + "</option>";
+								}
+							});
+							$("#siteSel").html(str);
+
+							//加载选定站点的链接
+							getLinks();
+						}
+					}, 'json').error(
+					function(xhr, errorText, errorType) {
+						layer.msg("获取站点信息错误");
+						return;
+					});
+			})
+
+			function getLinks() {
+				load_state = {
+					itempageloaded: 0,
+					articalpageloaded: 0,
+					otherloaded: 0
+				}
+				showLoading();
+
+				var selComId = $("#siteSel").val();
+
+				//获取不分页的数据
+				$
+					.get(
+						parent.ctx + "/design/dataAPI/link/AjaxMallLinkDataApi.do?method=getMobileShopPackedUrl&comId=" + selComId,
+						function(data) {
+							//商城首页
+							$("#indexUrl").val(data.MallIndexUrl || "");
+
+							//商城分类
+							if (data.CatUrlList) {
+								var arr = [];
+								$.each(data.CatUrlList, function() {
+									tpl = {
+										templateid: 'turl',
+										data: {
+											title: this.CAT_NAME,
+											value: this.CAT_URL
+										}
+									};
+									var html = bt(tpl.templateid,
+										tpl.data);
+									arr.push(html)
+								})
+
+								$('#catUrl').html(arr.join(""));
+							} else {
+								$('#catUrl').html("");
+							}
+
+							//文章分类 ArticalCatUrl
+							if (data.ArticalCatUrlList) {
+								var arr = [];
+								var catsel = ["<option value='' selected='selected'>全部</option>"];
+								$
+									.each(
+										data.ArticalCatUrlList,
+										function(item, i) {
+											tpl = {
+												templateid: 'turl',
+												data: {
+													title: this.CATAGORY_NAME,
+													value: this.CATAGORY_URL
+												}
+											};
+											var html = bt(
+												tpl.templateid,
+												tpl.data);
+											arr.push(html)
+
+											catsel
+												.push("<option value='" + this.CATAGORY_ID + "'>" + this.CATAGORY_NAME + "</option>");
+
+										})
+
+								$('#ArticalCatUrl').html(arr.join(""));
+								$("#articleCatSel").html(
+									catsel.join(""));
+							} else {
+								$('#ArticalCatUrl').html("");
+								$("#articleCatSel").html(
+									catsel.join(""));
+							}
+
+							//频道页和自定义
+							if (data.ChannelUrlList || data.CustomUrlList) {
+								var arr = [];
+								$.each(data.ChannelUrlList, function() {
+									tpl = {
+										templateid: 'turl',
+										data: {
+											title: this.PAGE_NAME,
+											value: this.PAGE_URL
+										}
+									};
+									var html = bt(tpl.templateid,
+										tpl.data);
+									arr.push(html)
+								})
+
+								$.each(data.CustomUrlList, function() {
+									tpl = {
+										templateid: 'turl',
+										data: {
+											title: this.PAGE_NAME,
+											value: this.PAGE_URL
+										}
+									};
+									var html = bt(tpl.templateid,
+										tpl.data);
+									arr.push(html)
+								})
+
+								$('#customUrl').html(arr.join(""));
+							} else {
+								$('#customUrl').html("");
+							}
+
+							hideLoading("otherloaded");
+						}, 'json').error(
+						function(xhr, errorText, errorType) {
+							hideLoading("otherloaded");
+						});
+
+				//获取宝贝链接
+				ajaxItemPage(false);
+
+				//获取文章详情页链接
+				ajaxArticlePage(false);
+			}
+
+			//ajax 文章链接翻页
+			function ajaxArticlePage(isSearch) {
+				load_state.articalpageloaded = 0;
+				showLoading();
+
+				var selComId = $("#siteSel").val();
+				var url = "" + parent.ctx + "/design/dataAPI/link/AjaxMallLinkDataApi.do?method=getArticleListUrl&comId=" + selComId;
+
+				try {
+					$("#pagin_btm_article").pagination('destroy');
+				} catch (e) {
+
+				}
+
+				var data={
+						articleTitle:encodeURIComponent($("input[name=articleTitle]").val()),
+						catagoryId:$("input[name=catagoryId]").val()
+				 }
+
+				$("#pagin_btm_article")
+					.pagination({
+						pageSize: 6,
+						showInfo: false,
+						showJump: true,
+						showPageSizes: false,
+						showPageSizes: false,
+						prevBtnText: "上一页",
+						nextBtnText: "下一页",
+						firstBtnText: "|<",
+						lastBtnText: ">|",
+						jumpBtnText: "确定",
+						remote: {
+							url: url,
+							params: isSearch ? data : "",
+							success: function(data) {
+								if (data.list.length > 0) {
+									Items = new Array();
+									var domstr = [];
+									for (var i = 0; i < data.list.length; i++) {
+										Items.push(data.list[i]);
+
+										domstr.push("<tr>");
+										domstr
+											.push("<td width='85%'>");
+										domstr
+											.push(
+												"<a class='goodsInfo' title='", data.list[i].ARTICLE_TITLE, "'>",
+												data.list[i].ARTICLE_TITLE,
+												"</a>");
+										domstr.push("</td>");
+										domstr
+											.push("<td width='15%'><div class='chooseBtn'><input type='hidden' value='", data.list[i].Article_URL, "'><a>选择链接</a></div></td>");
+										domstr.push("</tr>");
+									}
+									var str = domstr.join("");
+									$("#articleList").html(str);
+								} else {
+									$("#articleList").html("");
+								}
+
+								hideLoading("articalpageloaded");
+							},
+							totalName: 'total'
+						}
+
+					});
+			}
+
+			//ajax 宝贝链接翻页
+			function ajaxItemPage(isSearch, catId) {
+				load_state.itempageloaded = 0;
+				showLoading();
+
+				var selComId = $("#siteSel").val();
+				var url = "" + parent.ctx + "/design/dataAPI/link/AjaxLinkDataApi.do?method=getItemListUrl&comId=" + selComId;
+
+				try {
+					$("#pagin_btm").pagination('destroy');
+				} catch (e) {
+
+				}
+
+				var data={
+						 keyWordSearch:encodeURIComponent($("input[name=keyWordSearch]").val()),
+						 beginPrice:$("input[name=beginPrice]").val(),
+						 endPrice:$("input[name=endPrice]").val()
+				 }
+
+				$("#pagin_btm")
+					.pagination({
+						pageSize: 6,
+						showInfo: false,
+						showJump: true,
+						showPageSizes: false,
+						showPageSizes: false,
+						prevBtnText: "上一页",
+						nextBtnText: "下一页",
+						firstBtnText: "|<",
+						lastBtnText: ">|",
+						jumpBtnText: "确定",
+						remote: {
+							url: url,
+							params: isSearch ? data : "",
+							success: function(data) {
+								if (data.list.length > 0) {
+									Items = new Array();
+									var domstr = [];
+									for (var i = 0; i < data.list.length; i++) {
+										Items.push(data.list[i]);
+
+										domstr.push("<tr>");
+										domstr
+											.push("<td width='75%'>");
+										domstr
+											.push("<span class='goodsPic'><img src='", data.list[i].IMG_URL, "' /></span>");
+										domstr
+											.push(
+												"<a class='goodsInfo' title='", data.list[i].ITEM_TITLE, "'>",
+												data.list[i].ITEM_TITLE,
+												"</a>");
+										domstr.push("</td>");
+										domstr
+											.push(
+												"<td width='10%'><span class='fc60'>¥",
+												data.list[i].PRICE,
+												"</span></td>");
+										domstr
+											.push("<td width='15%'><div class='chooseBtn'><input type='hidden' value='", data.list[i].ITEM_URL, "'><a>选择链接</a></div></td>");
+										domstr.push("</tr>");
+									}
+									var str = domstr.join("");
+									$("#itemList").html(str);
+								} else {
+									$("#itemList").html("");
+								}
+
+								hideLoading("itempageloaded");
+							},
+							totalName: 'total'
+						}
+
+					});
+			}
+
+			function getUrlParam(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+				var r = window.location.search.substr(1).match(reg); //匹配目标参数
+				if (r != null)
+					return unescape(r[2]);
+				return null; //返回参数值
+			}
+		</script>
+	</div>
+</body>
+
+</html>

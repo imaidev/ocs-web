@@ -1,0 +1,12 @@
+input[type="text"] {
+	width: 150px;
+	height: 24px;
+	border: 1px;
+	border-style: double solid solid solid;
+	border-color: #CCC;
+	cursor: default;
+	display: inline;
+	font-family: "Microsoft Yahei", "SimSun", sans-serif !important;
+	color: #747474;
+	font-size: 13px;
+}

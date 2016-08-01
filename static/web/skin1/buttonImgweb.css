@@ -1,0 +1,18 @@
+.buttonImg {
+							left: auto;
+							right: 4px;
+							display: block;
+							padding: 0;
+							color: white;
+							top: 6px;
+							margin: 0;
+							white-space: nowrap;
+							overflow: hidden;
+							
+							text-decoration: none;
+							max-width: 15%;
+							height: 32px;
+							line-height: 32px;
+							font-size: 13px;
+							-webkit-border-image: url("/v6web/skin/skin1/button/bg.png")10;
+			}

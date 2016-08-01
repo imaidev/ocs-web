@@ -1,0 +1,320 @@
+/* CSS Document */
+/*头部*/
+#login{
+ height:122px;
+ background-color:#0650b3;
+ font-family:'黑体','微软雅黑','宋体';
+}
+#login .login-content{
+  margin:0 auto;
+  width:86%;
+  height:122px;
+}
+#login .welcome{
+  float:right;
+  margin-top:8px;
+}
+#login .welcome span{
+ font-size:12px;
+ color:#009cff;
+ margin-left:14px;
+}
+#login .welcome .mobile{ 
+ background: url() left no-repeat;
+ padding-left:18px;
+}
+#login .logo{
+ margin-top:45px;
+ float:left;
+}
+#login .logo .logo-img{
+ height:66px;
+ width:160px;
+ border:1px solid #CCCC33;
+ float:left;
+ margin-right:10px;
+}
+
+#login .logo .logo-title{
+ padding-left:10px;
+ border-left:1px solid #08408b;
+ float:left;
+ color:#d5e9f4;
+ font-size:13px;
+ width:75px;
+ height:66px;
+ font-weight:700;
+}
+#login .search{
+  height:40px;
+  float:left;
+  margin-right:14px;
+}
+#login .search input{
+ width:400px;
+ height:34px;
+ line-height:34px;
+ margin:0px;
+ border:0px;
+ float:left;
+ background-color:#deecf7;
+ color:#999999;
+ padding-left:8px;
+}
+#login .search .search-button{
+ width:47px;
+ height:34px;
+ line-height:34px;
+ background:;
+ margin:0px;
+ border:1px solid #FF0066;
+ float:left;
+}
+#login .buy{
+ width:138px;
+ height:34px;
+ background-color:#ff8800;
+ float:right;
+}
+
+#login .login-right{
+ height:100%;
+ width:620px;
+ float:right;
+}
+#login .login-right .login-right-bottom{
+ height:34px;
+ margin-top:40px;
+ float:right;
+ border:1px solid #000000;
+ width:620px;
+}
+#login .buy .buy-car{
+ float:left;
+ width:87px;
+ height:34px;
+ border-right:1px solid #ec7c00;
+
+}
+#login .buy .buy-content{
+ float:left;
+ width:48px;
+ height:34px;
+ border-left:1px solid #f59200;
+}
+
+
+
+
+/*菜单*/
+#menu{
+ background-color:#03387e;
+ height:36px;
+}
+#menu .menu-content{
+  margin:0 auto;
+  width:80%;
+  height:36px;
+} 
+#menu ul{
+ margin-left:210px;
+}
+#menu ul li{
+ float:left;
+ padding-left:20px;
+ padding-right:20px;
+ height:36px;
+ line-height:36px;
+ color:#ffffff;
+ font-size:14px;
+ cursor:pointer;
+}
+#menu ul li:hover{
+ background-color:#032250;
+}
+#menu ul li.active{
+ background-color:#032250;
+}
+/*位置*/
+#detail{
+ background-color:#bf3f94;
+ height:57px;
+ color:#ffffff;
+}
+#detail .detail-content{
+  margin:0 auto;
+  width:80%;
+  height:57px;
+  line-height:57px;
+}
+#detail .detail-title{
+ font-size:20px;
+ font-weight:900;
+ float:left;
+
+}
+#detail ul li{
+ float:left;
+ font-size:14px;
+ margin-left:5px;
+ background:url() left no-repeat;
+ font-weight:600;
+}
+#detail ul li span{
+ margin-left:8px;
+}
+/*内容*/
+#content{
+  margin-top:5px;
+  margin-left:auto;
+  margin-right:auto;
+  width:80%;
+  font-weight:700;
+}
+#content .content-left-menu{
+  width:196px;
+  margin-left:-196px;
+  float:left;
+}
+#content .content-box{
+  margin-left:196px;
+  height:500px;
+  
+}
+
+#content .content-left-menu .ul-head-div{
+  height:43px;
+  color:#ffffff;
+  font-size:16px;
+  background:url('') #00a2ff 10px center no-repeat;
+  padding-left:40px;
+  line-height:43px;
+}
+#content .content-left-menu ul li{
+  height:36px; 
+  line-height:36px;
+  padding-left:40px;
+  background-color:#f9f9f9;
+}
+#content .content-left-menu ul li.add{
+ background-color:#f1f1f1;
+}
+#content .content-left-menu ul li.end{
+ background-color:#00a2ff;
+}
+#content .content-box .right-content{
+ margin-left:10%;
+}
+#content .content-box .right-content .every-content-head{
+  height:42px;
+  position:relative;
+  margin-left:160px;
+}
+#content .content-box .right-content div.every-content-head-title{
+ height:42px;
+ line-height:42px;
+ background-color:#f9f3f7;
+ color:#c4acbc;
+ font-weight:700;
+ width:104px;
+ position:absolute;
+ left:-160px;
+ padding-left:50px;
+}
+#content .content-box .right-content div.every-content-head-ti{
+ width:100%;
+ height:42px;
+ line-height:42px;
+ background-color:#f9f3f7; 
+}
+#content .content-box .right-content .every-content .every-content-body{
+   margin-top:15px;
+   margin-bottom:15px;
+   width:100%;
+}
+#content .content-box .right-content .every-content .every-content-body td{
+   height:35px;
+   color:#666666;
+}
+#content .content-box .right-content .every-content .every-content-body td:first-child{
+  text-align:right;
+  width:50%;
+}
+#content .content-box .right-content .every-content .every-content-body td input{
+   height:25px;
+   border:1px solid #838383;
+   width:250px;
+}
+
+#content .content-box .right-content .every-content-extend{
+ width:100%;
+ height:42px;
+ line-height:42px;
+}
+#content .content-box .right-content .every-content-extend div{
+  margin-left:150px;
+  float:left;
+  color:#23a3e0;
+  font-size:14px;
+ 
+}
+#content .content-box .right-content .right-content-bottom{
+  margin-top:15px;
+  border-top:5px solid #f9f3f7;
+}
+#content .content-box .right-content .right-content-bottom .isagree{
+  float:right;
+  margin-right:15%;
+  margin-top:10px;
+}
+#content .content-box .right-content .right-content-bottom .isagree .isagree-check{
+ margin-top:5px;
+ float:left;
+ font-size:14px;
+ color:#414141;
+ height:40px;
+ width:180px;
+}
+#content .content-box .right-content .right-content-bottom .isagree .isagree-check div{
+  float:right;
+  color:#009dde;
+  font-size:12px;
+  height:20px;
+  line-height:20px;
+}
+#content .content-box .right-content .right-content-bottom .isagree .isagree-check div input{
+  margin-right:5px;
+  margin-top:2px;
+  background-color:#ffffff;
+  width:17px;
+  height:17px;
+  float:left;
+}
+#content .content-box .right-content .right-content-bottom .isagree .isagree-check div span{
+  float:right;
+  color:#009dde;
+  font-size:12px;
+  height:20px;
+  line-height:20px;
+  height:20px;
+  line-height:20px;
+  display:inline-block;
+}
+#submitApply{
+ padding-left:32px;
+ padding-right:32px;
+ padding-top:10px;
+ padding-bottom:10px;
+ font-size:18px;
+ font-weight:800;
+ float:left;
+ margin-left:20px;
+ background-color:#bf3f94;
+ -webkit-border-radius: 4px;
+ -moz-border-radius: 4px;
+ border-radius: 4px;
+ border:0px;
+ color:#ffffff;
+ cursor:pointer;
+}
+

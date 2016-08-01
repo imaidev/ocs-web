@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+    <script src="/static/design/js/layer/layer.js"></script>  
+    <script src="/static/design/js/spectrum/spectrum.js" ></script>    
+    <link href="/static/design/js/spectrum/spectrum.css" rel="stylesheet" />
+</head>
+<style>
+#J_PreviewBox1{
+	margin-right: 50px; 
+	margin-left:70px;
+	margin-bottom:10px;
+	width:605px;
+	height:60px;
+	border:1px solid #ddd;
+	position: relative;
+	background:white;
+	margin-bottom:10px;
+	line-height: 60px;
+	text-align: center
+}
+</style>
+<body>
+        <div class="panels content">
+         <form name="customSetForm" class="custom-set-form form-default" action="" method="post">
+         	 <input name="action" type="hidden" value="module/ModuleAction">
+        	 <input name="event_submit_do_SaveParam" type="hidden" value="true">
+       		 <input name="printInModule" type="hidden" value="true">
+        	 <input name="isDefault" type="hidden" value="false">
+             <input name="color1" id="color1" value="" type="hidden"/>
+             <input class="ischecktitle" name="ischecktitle" type="hidden">
+         
+            <div class="panel custom-set" style="height:240px;overflow-y: auto;">
+                <div class="J_DefaultType ">
+                     <div class="control-group">
+                         <label class="control-label title" style="width:65px;">店招标题:</label>
+                         <div class="control show-title" style="margin-left: 70px;">
+							<input name="isShopTitle" style="border: 0;" class="input-radio J_TNotShowTitle" type="radio" value="0">不显示
+							<input name="isShopTitle" style="border: 0;" class="input-radio J_TShowTitle" type="radio" value="1"> 显示 
+							<input name="shopTitle" id="shopTitle" type="text" placeholder="指定店铺标题" value="" maxlength="30">
+							<input name="isShopTitle" style="border: 0;" class="input-radio J_TShowTitle2" type="radio" value="2"> 显示默认店铺名称 
+						</div>
+                    </div>
+                    <div style="padding-left:70px;margin-bottom:10px;" >
+                    	<select name="fontSize" id="fontSize">
+                    		<option value="12">12px</option>
+                    		<option value="14">14px</option>
+                    		<option value="18">18px</option>
+                    		<option value="24">24px</option>
+                    		<option value="36">36px</option>
+                    		<option value="48">48px</option>
+                    		<option value="60">60px</option>
+                    	</select>
+                    	<select name="fontStyle" id="fontStyle">
+                    		<option value="SimSun">宋体</option>
+                    		<option value="SimHei">黑体</option>
+                    		<option value="LiSu">隶书</option>
+                    		<option value="KaiTi">楷书</option>
+                    		<option value="Microsoft YaHei">微软雅黑</option>
+                    		<option value="Georgia">Georgia</option>
+                    		<option value="Times New Roman">Times New Roman</option>
+                    		<option value="Impact">Impact</option>
+                    		<option value="Courier New">Courier New</option>
+                    		<option value="Arial">Arial</option>
+                    		<option value="Verdana">Verdana</option>
+                    		<option value="Tahoma">Tahoma</option>
+                    	</select>
+                    	<input type="text" class="boardColorPicker" onchange="changeColor()">
+                    	&nbsp;
+                    	&nbsp;
+                    	<input type="checkbox" id="isbold" name="isbold" class="checkbox">是否加粗
+                    	
+					</div>
+                    <div class="control-group">
+                        <label class="control-label" style="width:65px;">背景图:</label>
+
+                        <div class="control" style="margin-left: 70px;">
+                            <a title="" class="btn-style-1 J_TadgetSelect" href="javascript:void(0);" data-spm-anchor-id="0.0.0.0" onclick="selectPic()">选择文件</a>
+                            <a title="" class="back-default J_BackDefaultImg back-default-live" onclick="callBackPic('/static/design/img/shopboard.jpg')" data-default-img="">使用默认图片</a> 
+
+                            <input name="picture" id="J_TadgadImage" type="hidden" value="true">
+                        </div>
+                    </div>
+                    <div id="J_TadgetUploaderBox" style="margin-right: 50px; margin-left: 50px;"></div>
+                    <div class="preview-box" id="J_PreviewBox1">
+                    <!-- <img id="pic" class="shopboardimgurl" style="width:1210;height:120px;" src=""> -->	
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" style="width:65px;">高度:</label>
+
+                    <div class="control" style="margin-left: 70px;">
+                        <input name="contentHight" class="input-box short J_Height" type="text" value="120" onkeyup="changeImageHeight()">px&nbsp;&nbsp;&nbsp;<span style="color: rgb(153, 153, 153); padding-left: 15px;">宽度为1210像素，高度建议不超过120像素，否则导航显示可能异常</span>
+                        <input name="navHight" class="J_TNavHeight" type="hidden" value="">
+                    </div>
+                </div>
+            </div>
+             </form>
+	    	<p class="opt-footer ctset-opt-footer">
+				<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+				<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose()">取消</a>
+			</p>
+      </div>
+</body>
+
+ <script>
+ $(document).ready(function(){
+    	$('#J_PreviewBox1').css("backgroundImage",parent._cfg.bgimg);
+    	$('#J_PreviewBox1').css("backgroundRepeat","repeat");
+    	$('#J_PreviewBox1').css("backgroundSize","contain");
+    	
+    	var height = parent._cfg.height
+    	$("#J_PreviewBox1").css("height",Math.round(height/2)+"px");
+    	$('.J_Height').val(height);
+    	
+    	$('#shopTitle').val(parent._cfg.assignTitle);
+    	$('#fontSize').val(Math.floor(parent._cfg.boardfontsize));
+    	
+    	$('#fontStyle').val(decodeURIComponent(parent._cfg.boardfontfamily));
+    	
+    	$('#color1').val(parent._cfg.boardcolor);
+    	$(".boardColorPicker").val(parent._cfg.boardcolor);
+    	
+    	var isshowtitle = parent._cfg.isshowtitle;
+    	if("2"==isshowtitle){
+    		$("input[name='isShopTitle']").eq(2).attr("checked","checked");
+    	}
+    	else if("1"==isshowtitle){
+    		$("input[name='isShopTitle']").eq(1).attr("checked","checked");
+    	}else{
+    		$("input[name='isShopTitle']").eq(0).attr("checked","checked");
+    	}
+    	
+    	if (parent._cfg.isbold == '1') {
+            $('#isbold').attr("checked", 'checked');
+        }
+    	loadColor();
+    });
+
+    function cfgSet(){
+    	var o={
+        	bgimg:$("#J_PreviewBox1").css("backgroundImage"),
+        	height:$('.J_Height').val(),
+        	assignTitle:$('#shopTitle').val(),
+        	boardfontsize:$('#fontSize').val(),
+        	boardfontfamily:encodeURIComponent($('#fontStyle').val()),
+        	boardcolor:$('#color1').val(),
+        	isbold:$('#isbold').is(':checked')?"1":"0",
+        	isshowtitle:$('input[name="isShopTitle"]:checked').val()
+        };
+    	
+    	parent._$module.shopSignBoard('reset',o);
+    	parent.cfgClose();
+    }
+
+    function callBackPic(path){
+    	$("#J_TadgadImage").val(path);
+    	$("#J_PreviewBox1").css("backgroundImage","url('"+path+"')");
+    	$('#J_PreviewBox1').css("backgroundRepeat","repeat-x");
+    	$('#J_PreviewBox1').css("backgroundSize","contain");
+    }
+
+    function selectPic(){
+    		layer.open({
+    	        type : 2,
+    	        content :  parent.ctx+"/res/tu/ResSelect.htm?dir=shop&maxuploadsize=2M&callback=callBackPic", 
+    	        title : "图片选取",
+    	        shadeClose: true,
+    	        area : ['750px','350px']
+    	    });
+    }
+
+
+    function changeImageHeight(){
+    	var heigh = $(".J_Height").val();
+    	if(heigh==""){
+			 alert("高度不能为空");
+			 return;
+		 }
+    	 var reg = new RegExp("^[0-9]*$");  
+		 if(!reg.test(heigh)){
+			 alert("高度只能是数字");
+			 return;
+		 }
+    	$("#J_PreviewBox1").css("height",Math.round(heigh/2)+"px");
+    }
+
+    function loadColor(initColor){
+    	$(".boardColorPicker").spectrum({
+    	       color: initColor,
+    	       preferredFormat: "hex6",
+    	       showInput: true
+    	   });
+    }
+
+    function changeColor(){ 
+    	var color = $(".boardColorPicker").val(); 
+    	$("#color1").val(color);
+    }
+    </script>

@@ -1,0 +1,239 @@
+/*弹出窗口的样式开始*/
+#announcementContent{
+   border:3px solid #0c83dd;
+   width:900px;
+   height:450px;
+   position:absolute;
+   z-index:999999999;
+   background-color:#ffffff;
+}
+#annShareAllScreen{
+   background:  url(maskBG.png) repeat;
+   position:fixed;
+   left:0px;
+   top:0px;
+   z-index:1000;
+}
+#announcementHead{
+  background-color:#f3f3f3;
+  height:40px;
+  font-size:16px;
+  font-weight:700;
+  line-height:40px;
+}
+#announcementHead .annAnnouncement{
+  float:left;
+  margin-left:20px;
+}
+#announcementHead .close{
+  float:right;
+  margin-right:10px;
+  cursor:pointer;
+  position:relative;
+  z-index:300;
+}
+#announcementBody{
+  background-color:#ffffff;
+  height:260px;
+}
+/*弹出窗口的样式结束*/
+/*框内页面样式开始*/
+  body{
+  margin:0px;
+  padding:0px;
+  }
+.allAnnHead{
+   height:90px;
+   width:100%; 
+  }
+.allAnnHead .annHeadLab{
+   width:100px;
+   height:90px;
+   background:url(announcementLab.png) center no-repeat;
+   float:left;
+}
+.allAnnHead .annHeadName{
+   width:680px;
+   height:60px;
+   line-height:60px;
+   padding-left:20px;
+   float:left;
+   font-size:16px;
+   font-weight:800;
+   word-spacing:2px;
+   color:#0d85dc;
+   border-bottom:1px  dotted  #0d85dc;
+   size:1;
+}
+.allAnnHead  .close{
+  width:100px;
+  height:60px;
+  float:left;
+  background:url(closeHover.png) center no-repeat;
+  cursor:pointer;
+  position:relative;
+  z-index:300;  
+}
+.allAnnHead .close:hover{
+  background:#d9d9d9 url(closeHover.png) center no-repeat;
+}
+ .annBottom{
+  width:100%;
+  height:60px;
+  border-top:1px solid #aac4df;
+  background-color:#c1d9f3;
+  line-height:60px;
+ }
+ #upAnn{
+   height:30px;
+   line-height:30px;
+   float:right;
+   color:#285081;
+   width:50px;
+   font-size:12px;
+   font-weight:500;
+   cursor:pointer;
+ }
+ #nextAnn{
+   height:30px;
+   line-height:30px;
+   float:right;
+   color:#285081;
+   width:50px;
+   font-size:12px;
+   font-weight:500;
+   cursor:pointer;
+ }
+ #upAnn:hover{
+   font-weight:700;
+ }
+ #nextAnn:hover{
+   font-weight:700;
+ }
+ .allAnnContent{
+  position:relative;
+  height:380px;
+  width:802px;
+  margin-left:50px;
+  top:-30px;
+  overflow:hidden;
+  /*border:1px solid #000;*/
+ }
+ .allAnn{
+  width:100%;
+  heght:100%;
+  margn-top:0px;
+  position:absolute;
+  top:0px;
+ }
+ .annBoxTop{
+   height:80px;
+   width:100%;
+ }
+ .annTitle{
+  height:50px;
+  line-height:50px;
+  width:100%;
+  backgound-color:#e4edfa;
+  text-align:center;
+  font-size:24px;
+  color:#0d83dd;
+ }
+ .annType{
+  width:auto;
+  width:100%;
+  color:#0d83dd;
+  height:29px;
+  line-height:29px;
+  font-size:13px;
+  text-align:center;
+ }
+ .setStatueMail{
+   line-height:30px;
+   width:30px;
+   height:12px;
+   background:url(mail01.png) center no-repeat;
+   margin-left:10px;
+   display:inline-block;   
+ }
+ .setStatueMail.activeMail{
+   background:url(mail02.png) center no-repeat;
+ }
+ .annBox{
+  width:100%;
+  height:380px;
+  visibility:hidden;
+  backgournd-color:#f6f8fa;
+ }
+ .annBox.active{
+  visibility:visible;
+  }
+ .annBox .annChoice{
+  width:100%;
+  height:30px;
+  color:#0d83dd;
+  line-height:30px;
+  font-size:13px;
+  text-align:center; 
+ }
+ .oneAnnContent{
+   height:245px;
+   overflow-y:auto;
+   overflow-x:hidden;
+   font-size:14px;
+   border:1px solid #0c83dd;
+   padding-left:5px;
+   padding-right:5px;
+ }
+ .allAnnFoot{
+   width:120px;
+   height:30px;
+   position:fixed;
+   top:410px;
+   left:730px;
+ }
+ .annAttachement{
+  height:25px;
+  line-height:25px;
+  background-color:#f9fbfd;
+  border-left:1px solid #f1f3f5;
+  border-right:1px solid #f1f3f5;
+  width:100%;
+ }
+.annAttachement span{
+  font-size:14px;
+  color:#0d85dc;
+  float:left;
+}
+ .annAttachement a{
+  font-size:13px;
+  height:25px;
+  line-height:25px;
+  float:left;
+ } 
+ .everyAnnAttachement{
+   padding-left:4px;
+   padding-right:4px;
+   margin-left:8px;
+   float:left;
+   
+   height:25px;
+   line-height:25px;
+   -webkit-border-radius:4px 4px 4px 4px;
+   -moz-border-radius:4px 4px 4px 4px;
+   border-radius:4px 4px 4px 4px;
+   
+ }
+ .annAttachementSize{
+  margin-left:2px;
+  height:25px;
+  line-height:25px; 
+  font-size:12px;
+  float:left;
+  color:#bbb;
+ }
+ .nowAnnIndex{
+  margin-left:8px;
+ }
+ 
+ /*框内页面样式结束*/

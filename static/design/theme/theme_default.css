@@ -1,0 +1,36 @@
+.title-box {
+  border-width: 0;
+  border-bottom: 1px solid #DDD;
+  background-image: none;
+  position: relative;
+  margin-bottom: 5px;
+  border-color: #ccc;
+  border-style: solid;
+  background-color: #fff;
+  height: 28px;
+  line-height: 28px !important; 
+}
+.title-box h3{
+	line-height: 23px !important; 
+}
+
+.title-box h3 span {
+  display: inline-block;
+  border-bottom: 4px solid #f4c41c;
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(244, 196, 28);
+  margin-left: 5px;
+  padding: 0 10px 0 5px;
+  font-weight: 700;
+  font-size: 12px;
+  color: #666;
+  position: relative;
+  bottom: -1px;
+}
+
+.title-box-act {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

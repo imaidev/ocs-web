@@ -1,0 +1,613 @@
+@charset "utf-8";
+/* CSS Document */
+
+.lf_mainNav{
+	width:100%;
+	height:50px;
+	background:url(../images/lf_mainNavBg.jpg) repeat-x top;
+	position:relative;
+	z-index:100;
+	clear:both;
+	}
+.lf_mainNavCon{
+	width:1200px;
+	margin:0 auto;
+	height:65px;
+	clear:both;
+	background:url(../images/lf_mainNavConBg.png) no-repeat center top;
+	 font-family:"Microsoft Yahei","\5b8b\4f53", Arial, sans-serif;
+	 font-size:16px;
+	 color:#0b45b0;
+	 position:relative;
+	}
+.lf_mainNavCon h1{
+	display:block;
+	height:115px;
+	width:255px;
+	margin:0 auto;
+	}
+.lf_mainNavCon .lf_navConList{
+	height:20px;
+	line-height:20px;
+	vertical-align:middle;
+	width:450px;
+	top:22px;
+	position:absolute;
+	}
+.lf_mainNavCon .lf_mainNavConLeft{
+	left:45px;
+	}
+.lf_mainNavCon .lf_mainNavConLeft a{
+	padding:0 15px;
+	letter-spacing:1px;
+	color:#0b45b0;
+	}
+.lf_mainNavCon .lf_mainNavConRight{
+	right:10px;
+	}
+ .lf_mainNavCon .lf_mainNavConRight a{
+	padding:0 15px;
+	letter-spacing:1px;
+	color:#0b45b0;
+	}
+	
+.lf_topBanner{
+	width:100%;
+	margin:0 auto;
+	overflow:hidden;
+	height:390px;
+	position:relative;
+	z-index:50;
+	}
+ .flash{ position:absolute; z-index:3;  left:50%; margin-left:-720px;}
+ 
+ .lf_topBanner .bannerBd{
+	 height:100%;
+	 position:relative;
+	 }
+.lf_topBanner .bannerBd ul{
+		height:100%;
+		}
+.lf_topBanner .bannerBd ul li{
+	display:block;
+	width:100%;
+	height:100%;
+	}
+.lf_topBanner .bannerBd ul li a{
+	width:1200px;
+	margin:0 auto;
+	height:100%;
+	display:block;
+	}
+.lf_topBanner .bannerHd{
+	position:absolute;
+	width:230px;
+	height:20px;
+	left:50%;
+	margin-left:300px;
+	top:320px;
+	z-index:52;
+	}
+.lf_topBanner .bannerHd ul{
+	display:inline-block;
+	position:absolute;
+	right:0;
+	}
+.lf_topBanner .bannerHd li{
+	 float:left; 
+	 margin-right:5px;  
+	 width:20px; 
+	 height:20px;
+	 font-size:14px;
+	 line-height:20px;
+	 font-weight:bold;
+	 text-align:center; 
+	 background:#fff; 
+	 cursor:pointer;
+	 color:#0b45b0;
+	}
+.lf_topBanner .bannerHd li.on{
+	color:#fff;
+	background-color:#0b45b0;
+	}
+	
+.lf_message{
+	height:40px;
+	width:1200px;
+	margin:0 auto;
+	background:url(../images/noticeBg.png) center top no-repeat;
+	overflow:hidden;
+	position:absolute;
+	bottom:0;
+	left:50%;
+	margin-left:-600px;
+	z-index:5;
+	}
+.lf_message_left{
+	width:580px;
+	overflow:hidden;
+	position:relative;
+	float:left;
+	height:25px;
+	margin-top:8px;
+	font-size:12px;
+	letter-spacing:1px;
+	font-weight:bold;
+	}
+.lf_message_title{
+	float:left;
+	height:25px;
+	line-height:25px;
+	vertical-align:middle;
+	width:100px;
+	text-align:right;
+	color:#0b45b0;
+	}
+.lf_message_left .lf_message_left_bd{ width:435px; height:25px; overflow:hidden; float:left;line-height:25px;vertical-align:middle;}
+.lf_message_left .lf_message_left_bd .tempWrap{ width:425px !important; }/* 用 !important覆盖SuperSlide自动生成的宽度，这样就可以手动控制可视宽度。 */
+.lf_message_left .lf_message_left_bd ul{ overflow:hidden; zoom:1; }
+.lf_message_left .lf_message_left_bd ul li{
+	color:#666666;
+	margin-right:20px;
+float:left; height:24px; line-height:24px;  
+text-align:left; _display:inline; width:auto !important;  }/* 用 width:auto !important 覆盖SuperSlide自动生成的宽度，解决文字不衔接问题 */
+
+
+.lf_message_right{
+	width:580px;
+	overflow:hidden;
+	position:relative;
+	float:right;
+	margin-right:25px;
+	height:25px;
+	margin-top:8px;
+	font-size:12px;
+	letter-spacing:1px;
+	font-weight:bold;
+	}
+ 
+.lf_message_right .lf_message_right_bd{ width:435px; height:25px; overflow:hidden; float:left;line-height:25px;vertical-align:middle;}
+.lf_message_right .lf_message_right_bd .tempWrap{ width:425px !important; }/* 用 !important覆盖SuperSlide自动生成的宽度，这样就可以手动控制可视宽度。 */
+.lf_message_right .lf_message_right_bd ul{ overflow:hidden; zoom:1; }
+.lf_message_right .lf_message_right_bd ul li{
+	color:#666666;
+	margin-right:20px;
+	float:left; height:24px; line-height:24px;  
+	text-align:left; _display:inline; width:auto !important;  }/* 用 width:auto !important 覆盖SuperSlide自动生成的宽度，解决文字不衔接问题 */
+
+.lf_message .hd{ overflow:hidden;  height:20px;  width:40px; float:right; margin-top:3px;}
+.lf_message .hd .prev,.lf_message .hd .next{ display:block;  width:12px; height:15px; float:right; margin-right:3px;  overflow:hidden; cursor:pointer;  cursor:pointer; background:url("../images/arrow.png") no-repeat;}
+.lf_message .hd .next{ background-position:-30px 1px;}
+.lf_message .hd .prev{ background-position:0 1px;}
+
+
+
+.content{
+	width:1200px;
+	margin:0 auto;
+	overflow:hidden;
+	}
+/*类目、滚动banner图、采购信息展示*/
+.lf_content_top{
+	margin-top:15px;
+	overflow:hidden;
+	width:100%;
+	height:542px;
+	}
+.lf_content_top_right{
+	width:965px;
+	height:542px;
+	float:right;
+	overflow:hidden;
+	}
+ 
+	
+.adsBanner{
+	width:728px;
+	float:left;
+	overflow:hidden;
+	height:338px;
+	position:relative;
+	z-index:10;
+	border:1px solid #cdcdcd;
+	}
+ 
+ .adsBanner .adsBannerBd{
+	 height:100%;
+	 position:relative;
+	 }
+.adsBanner .adsBannerBd ul{
+		height:100%;
+		overflow:hidden;
+		}
+.adsBanner .adsBannerBd ul li{
+	display:block;
+	width:100%;
+	height:100%;
+	}
+.adsBanner .adsBannerBd ul li a{
+	width:100%;
+	margin:0 auto;
+	height:100%;
+	display:block;
+	}
+.adsBanner .adsBannerHd{
+	position:absolute;
+	width:230px;
+	height:20px;
+	right:20px;
+	top:300px;
+	z-index:52;
+	}
+.adsBanner .adsBannerHd ul{
+	display:inline-block;
+	position:absolute;
+	right:0;
+	}
+.adsBanner .adsBannerHd li{
+	 float:left; 
+	 margin-right:5px;  
+	 width:20px; 
+	 height:20px;
+	 font-size:14px;
+	 line-height:20px;
+	 font-weight:bold;
+	 text-align:center; 
+	 background:#fff; 
+	 cursor:pointer;
+	 color:#0b45b0;
+	}
+.adsBanner .adsBannerHd li.on{
+	color:#fff;
+	background-color:#0b45b0;
+	}
+
+#purchase{
+	width:223px;
+	height:339px;
+	border:1px solid #cdcdcd;
+	border-top:none;
+	overflow:hidden;
+	float:right;
+	letter-spacing:1px;
+	}
+#purchase ul{
+	width:207px;
+	margin:0 auto;
+	margin-top:15px;
+	height:270px;
+	overflow:hidden;
+	}
+#purchase ul li{
+	white-space:nowrap;
+	height:25px;
+	}
+#purchase ul li a{ color:#666666; font-size:12px;}
+#purchase ul li a span{color:#0b45b0;}
+
+.lf_content_mid{
+	overflow:hidden;
+	margin-top:10px;
+	}
+.lf_content_mid_list{
+	width:228px;
+	float:left;
+	height:190px;
+	border:1px solid #cdcdcd;
+	border-top:none;
+	overflow:hidden;
+	letter-spacing:1px;
+	margin-left:10px;
+	}
+.lf_content_mid_list ul{
+	width:212px;
+	margin:0 auto;
+	margin-top:3px;
+	height:155px;
+	overflow:hidden;
+	}
+.lf_content_mid_list ul li{
+	white-space:nowrap;
+	height:25px;
+	font-size:12px;
+	}
+
+.lf_content_mid_list ul li a{ color:#666666;}
+.lf_content_mid_list ul li a span{color:#0b45b0;}
+
+/*供应商加盟展示、热卖商品*/
+.lf_content_bottom{
+	height:192px;
+	overflow:hidden;
+	width:100%;
+	margin-top:10px;
+	}
+.hotSale{
+	position:relative;
+	z-index:1;
+	width:728px;
+	height:190px;
+	overflow:hidden;
+	float:left;
+	border:1px solid #cdcdcd;
+	}
+.hotSale h2{
+	height:29px;
+	line-height:29px;
+	border-bottom:1px solid #cdcdcd;
+	color:#022879;
+	letter-spacing:1px;
+	padding-left:10px;
+	font-size:14px;
+	font-weight:900;
+	}
+.hotSale .prev,.hotSale .next{
+	position:absolute;
+	width:41px;
+	height:160px;
+	overflow:hidden;
+	top:30px;
+	cursor:pointer;
+	}
+.hotSale .prev{ background:url(../images/leftBg1.png) center center no-repeat #F6F6F6; left:0;}
+.hotSale .next{ background:url(../images/rightBg1.png) center center no-repeat #F6F6F6; right:0;}
+.hotSale .prevStop{ background:url(../images/leftBg2.png) center center no-repeat;  }
+.hotSale .nextStop{ background:url(../images/rightBg2.png) center center no-repeat; }
+.hotSale .hotSaleBd{
+	position:absolute;
+	left:41px;
+	height:160px;
+	overflow:hidden;
+	width:645px;
+	}
+.hotSale .hotSaleBd ul{ height:100%;}
+.hotSale .hotSaleBd ul li{margin:5px; float:left; overflow:hidden; text-align:center; width:151px; height:150px; overflow:hidden; position:relative; z-index:2;}
+.hotSale .hotSaleBd ul li .itemName,.hotSale .hotSaleBd ul li .itemPrice{
+	width:150px;
+	z-index:20;
+	height:15px;
+	line-height:15px;
+	vertical-align:middle;
+	overflow:hidden;
+	padding:0 5px;
+	filter:alpha(Opacity=50);
+	-moz-opacity:0.5;
+	opacity: 0.5;
+	background-color:#000;
+	position:absolute;
+	left:0;
+	color:#ffffff;
+	}
+
+.hotSale .hotSaleBd ul li a{
+	color:#ffffff;
+	}
+
+.hotSale .hotSaleBd ul li .itemName{
+	bottom:15px;
+	}
+ 
+.hotSale .hotSaleBd ul li .itemPrice{
+	bottom:0;
+	}
+
+
+.supplier{
+	width:223px;
+	float:right;
+	height:190px;
+	border:1px solid #cdcdcd;
+	border-top:none;
+	overflow:hidden;
+	letter-spacing:1px;
+	}
+.supplier ul{
+	width:207px;
+	margin:0 auto;
+	margin-top:3px;
+	height:155px;
+	overflow:hidden;
+	}
+.supplier ul li{
+	white-space:nowrap;
+	height:25px;
+	font-size:12px;
+	}
+
+.supplier ul li a{ color:#666666;}
+.supplier ul li a span{color:#0b45b0;}
+	
+	
+.infoTitle{
+	position:relative;
+	height:35px;
+
+	border-top:3px solid #0b45b0;
+	background:url(../images/lf_titleBg.jpg) repeat-x center;
+	display:block;
+	line-height:35px;
+	vertical-align:middle;
+	font-size:14px;
+	color:#022879;
+	font-family:"Microsoft Yahei","\5b8b\4f53", Arial, sans-serif;
+	overflow:hidden;
+	padding-left:10px;
+	}
+.infoTitle a{ display:block; color:#666666; position:absolute; right:10px; height:20px; width: auto; font-size:12px; top:0; z-index:1;}
+
+
+
+/*广告横幅*/
+.lf_ads{
+	margin-top:10px;
+	overflow:hidden;
+	width:100%;
+	height:70px;
+	}
+.floor{
+	width:1198px;
+	border:1px solid #cdcdcd;
+	border-top:none;
+	overflow:hidden;
+	margin-top:10px;
+	}
+.floorDt{
+	width:100%;
+	height:36px;
+	line-height:36px;
+	vertical-align:middle;
+	clear:both;
+	background:url(../images/lf_titleBg.jpg) repeat-x top;
+	border-top:3px solid #0b45b0;
+	position:relative;
+	}
+.floorDt h2{
+	display:block;
+	position:absolute;
+	z-index:3;
+	top:-3px;
+	left:-1px;
+	width:170px;
+	height:39px;
+	overflow:hidden;
+	background:url(../images/floorTitleBg.png) top left no-repeat;
+	font-size:16px;
+	color:#ffffff;
+	 font-family:"Microsoft Yahei","\5b8b\4f53", Arial, sans-serif;
+	 padding-left:20px;
+	 letter-spacing:1px;
+	}
+.floorDt p{
+	display:inline-block;
+	float:right;
+	overflow:hidden;
+	height:35px;
+	}
+.floorDt p a{
+	margin-left:8px;
+	color:#0b45b0;
+	}
+	
+	
+.floorDd{
+	padding:0 10px 5px 10px;
+	overflow:hidden;
+	height:405px;
+	}
+ 
+.floorDd_left{
+	overflow:hidden;
+	margin-top:5px;
+	width:215px;
+	float:left;
+	height:405px;
+	}
+.floorDd_mid{
+	width:741px;
+	float:left;
+	overflow:hidden;
+	height:410px;
+	}
+.floorDd_mid li{
+	margin-top:5px;
+	width:175px;
+	float:left;
+	margin-left:10px;
+	letter-spacing:1px;
+	}
+.floorDd_mid li .itemPic{
+	display:block;
+	width:140px;
+	height:140px;
+	margin:0 auto;
+	overflow:hidden;
+	}
+.floorDd_mid li .itemName{
+	display:block;
+	height:36px;
+	line-height:18px;
+	overflow:hidden;
+	width:170px;
+	margin:0 auto;
+	vertical-align:middle;
+	color:#666666;
+	margin-top:4px;
+	}
+.floorDd_mid li .itemPrice{
+	height:20px;
+	line-height:20px;
+	vertical-align:middle;
+	overflow:hidden;
+	color:#FE661B;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:8px;
+	}
+.floorDd_right{
+	width:215px;
+	float:right;
+	height:405px;
+	overflow:hidden;
+	margin-top:5px;
+	background-color:#F6F6F6;
+	}
+.floorDd_right h2{
+	padding-left:10px;
+	display:block;
+	height:30px;
+	overflow:hidden;
+	line-height:30px;
+	vertical-align:middle;
+	font-size:14px;
+	color:#ffffff;
+	font-weight:normal;
+	background-color:#093d89;
+	}
+.floorDd_right ul{
+	width:215px;
+	
+	}
+.floorDd_right ul li{
+	letter-spacing:1px;
+	width:165px;
+	margin:0 auto;
+	border-bottom:1px dotted #cdcdcd;
+	position:relative;
+	padding-left:25px;
+	}
+.floorDd_right ul li .span1,.floorDd_right ul li .span2{
+	display:block;
+	height:15px;
+	line-height:16px;
+	width:15px;
+	text-align:center;
+	font-size:12px;
+	font-family: "Arial";
+	color:#ffffff;
+	top:3px;
+	left:0;
+	position:absolute;
+	}
+.floorDd_right ul li .span1{
+	background-color:#fe661b;
+	}
+.floorDd_right ul li .span2{
+	background-color:#8E8E8E;
+	}	
+.floorDd_right ul li a{
+	display:block;
+	height:20px;
+	line-height:20px;
+	vertical-align:middle;
+	font-weight:bold;
+	color:#000;
+	margin-top:8px;
+	}
+.floorDd_right ul li p{
+	height:20px;
+	line-height:20px;
+	vertical-align:middle;
+	padding-bottom:4px;
+	color:#666666;
+	
+	}

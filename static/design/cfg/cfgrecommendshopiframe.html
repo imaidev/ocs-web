@@ -1,0 +1,449 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+<link href='/static/design/js/spectrum/spectrum.css' rel="stylesheet" />
+<script src="/static/design/js/jquery.min.js"></script>
+<script src='/static/design/js/layer/layer.js'></script>
+<script src='/static/design/js/spectrum/spectrum.js'></script>
+<script
+	src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+<script
+	src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+<link href="/static/design/css/editor.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="content">
+		<div class="tab">
+			<ul class="nav clear-fix mt10">
+				<li class="ks-switchable-trigger-internal6 selected" id="titleContent"><span>内容设置</span></li>
+				<li class="ks-switchable-trigger-internal6" id="titleDisplay"><span>显示设置</span></li>
+			</ul>
+			<form class="main-slide-form form-default" method="post"
+				id="displaySetForm" novalidate="novalidate">
+				<div class="panels">
+					<div class="panel display-set ks-switchable-panel-internal7"
+						id="tabDisplay" style="display: none;">
+						<div class="control-group">
+							<!--control-label 表单域的相应标题-->
+							<label class="control-label" for="">显示标题：</label>
+							<!--表单域-->
+							<div class="control show-title">
+								<span><input name="showTitle" id="showNoTitle" class="J_TNotShowTitle  input-radio" type="radio" value="0">&nbsp;<label>不显示</label></span>
+								<span><input name="showTitle" id="showTitle" class="J_TShowTitle  show-title-true input-radio" type="radio" value="1">&nbsp;<label>显示</label></span> 
+								<span class="ml20"><input name="title" id="title" class="J_TTitleInput input-box title-input w140" type="text" maxlength="30" value="宝贝推荐"></span>
+							</div>
+						</div>
+						<div class="control-group">
+							<!--control-label 表单域的相应标题-->
+							<label class="control-label" for="">是否显示价格：</label>
+							<!--表单域-->
+							<div class="control show-title">
+								<span><input id="showNoPrice" name="showPrice" class="J_TNotShowTitle  input-radio" type="radio" value="0">&nbsp;<label>不显示</label></span>
+								<span class="ml20"><input id="showPrice" name="showPrice" class="J_TShowTitle  show-title-true input-radio" type="radio" value="1">&nbsp;<label>显示</label></span>
+							</div>
+						</div>
+						<div class="control-group">
+							<!--control-label 表单域的相应标题-->
+							<label class="control-label" for="">是否显示商品编号：</label>
+							<!--表单域-->
+							<div class="control show-title">
+								<span><input id="showNoCode" name="showCode" class="J_TNotShowTitle  input-radio" type="radio" value="0">&nbsp;<label>不显示</label></span>
+								<span class="ml20"><input id="showCode" name="showCode" class="J_TShowTitle  show-title-true input-radio" type="radio" value="1">&nbsp;<label>显示</label></span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="">展现方式：</label>
+							<div class="control show-title">
+								<select name="showType" class="input-box w140" id="showType">
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="panel content-set ks-switchable-panel-internal7" id="tabContent" style="display: block;">
+						
+							<div class="control-group rec-type">
+      							<!--control-label 表单域的相应标题-->
+        					<label class="control-label" for="">推荐方式：</label>
+        							<!--表单域-->
+        					<div class="control">
+            					<span><input id="promoteAutoType" name="promoteType" class="J_TRecType input-radio auto-rec" type="radio" value="01" onclick="objTypeChg(this.value)">&nbsp;<label>自动推荐</label></span>
+            					<span class="ml20"><input id="promoteManualType" name="promoteType" class="J_TRecType input-radio manual-rec" type="radio" value="02" onclick="objTypeChg(this.value)">&nbsp;<label>手工推荐</label></span>
+       	 					</div>
+    					</div>
+    					<div class="auto-rec-content" id="linediv1" style="display:block">
+						<div class="control-group">
+							<label class="control-label">宝贝分类: </label> 
+							<div class="control">
+								<select name="classify" id="classify"></select>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="">关键字：</label>
+							<div class="control">
+								<input name="keyword" id="keyword" class="input-box" type="text" value="" autocomplete="off">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="">价格范围：</label>
+							<div class="control">
+								<input name="lowerLimitPrice" id="lowerLimitPrice" class="input-box short J_TPriceInput" type="text" value="">
+								<span>-</span>
+								<input name="upperLimitPrice" id="upperLimitPrice" class="input-box short J_TPriceInput" type="text" value=""> <span>元</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="">自动推荐排序：</label>
+					     	<div class="control ml115">
+                                <select id="sortOrder" name="sortOrder" class="input-box" style="z-index: 1;">
+                                    <option value="hotsell_desc">热卖宝贝在前</option>
+            						<option value="newOn_desc">最新发布在前</option>
+                                    <option value="price_asc">价格最低在前</option>
+                                    <option value="price_desc">价格最低在后</option>
+                                </select>
+                            </div>
+						</div>
+					</div>
+					 <div class="clear-fix ba"  id="linediv2" style="display: none">
+					  <div class="edit-module">
+                            <div class="edit-item shareTittle ml0 w760">
+                                <div class="column column1"><span>宝贝名称</span></div>
+                                <div class="column column2"><span>宝贝图片</span></div>
+                                <div class="column column3"><span>执行操作</span></div>
+                            </div>
+                            <div id="EditorBox" class="pic-list pb0 w760 oveFlowY">
+                                
+                            </div>
+                             <div class="bottom">
+                                 <a class="add-one btn-style-1" href="javascript:selectItem();" id="btnAdd">选择商品</a>
+                            </div>
+                        </div>
+                        <div id="J_Tadget" class="tadget-box"></div>
+                      </div>
+				</div>
+				</div>
+				 <p class="opt-footer ctset-opt-footer">
+                    <a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+                    <a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick='parent.cfgClose();'>取消</a>
+                </p>
+			</form>
+		</div>
+	</div>
+</body>
+<script>
+function cfgRead(obj,wit){
+	var result=JSON.parse(JSON.stringify(obj));
+	
+	//parent.ctx+ "/lyscitem/itemcatagory/ShowVendCatagoryForNew.do?method=getVendCatagory&VEND_ID="+parent.g_vendid
+	$.get(parent.ctx + "/design/dataAPI/itemCategory/ItemCategoryDataApi.do?method=getVendCataByVendId&VEND_ID=" + parent.g_vendid,
+			function(data_classify) {
+				$("#classify").append("<option value=''>全部分类</option>");
+				for ( var i = 0; i < data_classify.length; i++) {
+					$("#classify").append("<option value=" + data_classify[i].CATAGORY_ID + ">"+ data_classify[i].CATAGORY_NAME+ "</option>");
+				}
+				var category=result.category;
+			    if (category == null || category == '') {
+                    $("#classify").val('');
+                } else {
+                    $("#classify").val(category);
+                }
+			}, 'json');
+	
+	defaultTent(obj)                 ;
+	defaultCfg(obj,wit)
+}
+function defaultTent(obj){
+	if(obj!='' && obj != undefined && obj !='{}'){
+		var result=JSON.parse(JSON.stringify(obj));
+		 var promoteType=result.promoteType;
+		 var category=result.category;
+		 var keyword=result.keyword;
+		 var lowerLimitPrice=result.lowerLimitPrice;
+		 var upperLimitPrice=result.upperLimitPrice;
+		 var sortOrder=result.sortOrder;
+			if(promoteType=="01"||""==promoteType){
+				$('#promoteAutoType').attr("checked","checked");
+				objTypeChg(promoteType);
+			}else{
+				$('#promoteManualType').attr("checked","checked");
+				objTypeChg(promoteType);
+			}
+			$('#keyword').val(keyword);
+			$('#lowerLimitPrice').val(lowerLimitPrice);
+			$('#upperLimitPrice').val(upperLimitPrice);
+			$('#sortOrder').val(sortOrder);
+	}	
+}
+function defaultCfg(obj,wit){
+	var result=JSON.parse(JSON.stringify(obj));
+	var showPrice=result.showPrice;
+	var showCode=result.showCode;
+	var showType=result.showType;
+    $('#title').val(parent._$module.find('.title-box span').text().trim());
+    if(parent._$module.find('.title-box').is(":hidden")){
+    	$('#showNoTitle').attr("checked","checked");
+    }
+    else{
+    	$('#showTitle').attr("checked","checked");
+    }
+	if(showPrice=="1"||""==showPrice){
+		$('#showPrice').attr("checked","checked");
+	}else{
+		$('#showNoPrice').attr("checked","checked");	
+	}
+	if(showCode=="1"||""==showCode){
+		$('#showCode').attr("checked","checked");
+	}else{
+		$('#showNoCode').attr("checked","checked");	
+	}
+
+	 if (showType == null || showType == '') {
+			if("240"==wit){
+				$("#showType").append("<option value='01'>240px</option>");
+			}else if(wit=="960"){
+				$("#showType").append("<option value='02'>每行3个</option>");	
+				$("#showType").append("<option value='03'>每行4个</option>");
+			}else if(wit=="1210"){
+				$("#showType").append("<option value='04'>每行3个</option>");	
+				$("#showType").append("<option value='05'>每行4个</option>");
+				$("#showType").append("<option value='06'>每行5个</option>");	
+				$("#showType").append("<option value='07'>每行6个</option>");
+				$("#showType").append("<option value='08'>每行7个</option>");
+			}else{
+				$("#showType").append("组件没有对应宽度");	
+			}
+     } else {
+    		if("240"==wit){
+    			$("#showType").append("<option value='01'>240px</option>");
+    			$('#showType').val(showType);
+    		}else if(wit=="960"){
+    			$("#showType").append("<option value='02'>每行3个</option>");	
+    			$("#showType").append("<option value='03'>每行4个</option>");
+    			$('#showType').val(showType);
+    		}else if(wit=="1210"){
+    			$("#showType").append("<option value='04'>每行3个</option>");	
+    			$("#showType").append("<option value='05'>每行4个</option>");
+    			$("#showType").append("<option value='06'>每行5个</option>");	
+    			$("#showType").append("<option value='07'>每行6个</option>");
+    			$("#showType").append("<option value='08'>每行7个</option>");
+    			$('#showType').val(showType);
+    		}else{
+    			$("#showType").append("组件没有对应宽度");	
+    		}
+     }
+	
+	
+	
+}
+		$(function() {
+			$('#titleContent').click(function () {
+		        $(this).addClass('selected');
+		        $(this).siblings().removeClass('selected');
+		        $("#tabContent").show();
+		        $("#tabDisplay").hide();
+		    })
+		    $('#titleDisplay').click(function () {
+		        $(this).addClass('selected');
+		        $(this).siblings().removeClass('selected');
+		        $("#tabDisplay").show();
+		        $("#tabContent").hide();
+		        
+		    })
+		    cfgRead(parent._cfg,parent._wit);
+			
+		    $(".panels").delegate("a.delete", "click", function(e) {
+		      	$(this).closest('div.edit-item').remove();
+		      })
+		      
+		 $('#btnAdd').click(function () {
+        	if ($('#EditorBox').children().length == 14) {
+            	alert('最多只能添加14个');
+            	return false;
+        	}
+    		})
+		});
+		var itemIdAy = new Array();
+			function objTypeChg(obj){
+				if(obj=="01"||obj==""){
+					$("#linediv1").css("display","block");
+					$("#linediv2").css("display","none");
+					$("#EditorBox").html("");
+					itemIdAy.length = 0; 
+					
+				}else{
+					$("#linediv1").css("display","none");
+					$("#linediv2").css("display","block");
+					 var itemVal=new Array();
+					 var outStr="[";
+						var str="";
+					   $(parent._cfg.item).each(function(){
+						   str+=JSON.stringify(this)+",";
+				         })
+				         if(str.length>0){
+				        	 strs=str.substring(0,str.length-1);
+							}
+				         itemVal+=outStr+strs+"]";
+					   addRow(itemVal,2);
+					 
+				}
+			}
+			function selectItem(){//---OK---
+				layer.open({
+			        type : 2,
+			        content :  parent.ctx+"/base/promotion/design/checkboxItem.htm?callback=callBackItem", 
+			        title : "选择推荐宝贝",
+			        shadeClose: true,
+			        area : ['700px','500px']
+			    });
+			}
+			
+			function hary(ary){
+				var nary=ary.sort(sortNumber);
+				for(var i=0;i<ary.length;i++){
+					if (nary[i]==nary[i+1]){
+				        return 1;
+				    }
+				}
+			}
+			function sortNumber(a,b){
+				return a - b
+			}
+		
+			function callBackItem(val){
+				addRow(val,1);
+			}
+			function addRow(objArr,type){
+				if(objArr == '' || objArr == undefined){return;}
+				var win ;
+				if(type==1){
+					win=eval(objArr); 
+				}else if(type==2){
+					win=eval(objArr); 
+				}
+				var itemId="", itemName="", skuId="", img="", price="", qty="",imgurl="",itemUrl="";
+				if(win != null && win != undefined ){
+					for(var i=0;i<win.length;i++){
+						
+						var win1=win[i];
+						if(type==1){
+							itemId=win1.itemId;	itemName=win1.itemName; img=win1.img;	price=win1.price;
+						}else if(type==2){
+							itemId=win1.item_id;	itemName=win1.item_name; img=win1.imgurl;	price=win1.price;
+						}
+						itemIdAy.push(itemId);
+						if(hary(itemIdAy)==1){itemIdAy.pop(); alert('此商品已经选择,请检查!');return;} 
+						
+						
+						if(itemName.length>10){itemName=itemName.substr(0,10)+'***';}
+						var tmp=(itemIdAy.length % 2==0)?'even':'odd';
+						var str = '<div class="edit-item J_TEditItem borderb ' + tmp + '" style="width:744px">' +
+					    '<div class="column column1 goodslisthg ellipsis"><input type="hidden" name=\"ITEM_ID\" value=\"'+itemId+'\"/>' +
+					        '<span name=\"itemname\">'+ itemName+'</span><input type="hidden" name=\"price\" value=\"'+price+'\"/>'
+					    +'</div>' 
+					    + '<div class="column column2">' +
+					        '<span><img name=\"imgUrl\" src=\"'+img+'\" width=\"40\" height=\"40\"/></span>' +
+					    '</div>' +
+					    '<div class="column column3 J_Control goodslisthg"><a title="删除" class="delete" href="javascript:del(\''+itemId+'\');"></a></div>' +
+						'</div>';
+						$('#EditorBox').append(str);
+					}
+				}
+			}
+			function del(itemId){
+				itemIdAy.splice(1,1);
+			}
+			var itemArr = new Array();
+			
+			function cfgSet(){
+				var $obj=parent._$module.find('#recommendItemContent');
+				var wit=parent._wit;
+				var itemO = new Object();
+				 var title=$('#title').val();
+				 var showPrice=$("input[name='showPrice']:checked").val();
+				 var showCode=$("input[name='showCode']:checked").val();
+				 var showType=$('#showType').val();
+				 var ShowEffect=$("input[name='ShowEffect']:checked").val();
+				 var promoteType=$("input[name='promoteType']:checked").val();
+			    	//组件标题
+		        	parent._$module.find('.title-box span').text($('#title').val());
+		        	if($('input[name="showTitle"]:checked').val()=="1"){
+		        		parent._$module.find('.title-box').show();
+		        	}
+		        	else{
+		        		parent._$module.find('.title-box').hide();
+		        	}
+		        	
+				 itemO.wit=wit;
+				 itemO.title=title;
+				 itemO.showPrice=showPrice;
+				 itemO.showCode=showCode;
+				 itemO.showType=showType;
+				 itemO.ShowEffect=ShowEffect;
+				 itemO.promoteType=promoteType;
+				 var itemHtml="";
+				 var itemHtml2="";
+				 if(promoteType=="01"||""==promoteType){
+					 var keyword=$('#keyword').val();
+					 var itemNum=$('#itemNum').val();
+					 var lowerLimitPrice=$('#lowerLimitPrice').val();
+					 var upperLimitPrice=$('#upperLimitPrice').val();
+					 var category=$('#classify').val();
+					 var sortOrder=$('#sortOrder').val();
+					 itemO.keyword=keyword;
+					 itemO.itemNum=itemNum;
+					 itemO.category=category;
+					 itemO.lowerLimitPrice=lowerLimitPrice;
+					 itemO.upperLimitPrice=upperLimitPrice;
+					 itemO.sortOrder=sortOrder;
+/* 					 $.get(parent.ctx+"/design/shop/ShopRecommend.do?method=queryRecommend",{KEYWORD:keyword, ITEMNUM:itemNum, CATEGORY:category,SORTORDER:sortOrder,lowerLimitPrice:lowerLimitPrice,upperLimitPrice:upperLimitPrice },
+						function(recommendResult){
+						 var itemIds="";
+					for(var i = 0; i < recommendResult.length; i++){
+							 var itemObj = recommendResult[i];
+				    			itemAutoId=itemObj.ITEM_ID;
+				    			itemIds+=itemAutoId+",";
+						 }
+					if(itemIds.length>0){
+						itemIds=itemIds.substring(0,itemIds.length-1);
+					}
+					itemO.itemIdArr=itemIds;
+					},'json'); */	
+			 }else{
+						readItem();
+						var itemIds="";
+						if(itemArr.length==0){
+							alert("请选择商品!");
+							return false;
+						}
+						for(var i in itemArr){
+							itemId=itemArr[i].item_id; 
+							itemIds+=itemId+",";
+						 }
+						if(itemIds.length>0){
+							/* itemIds=itemIds.substr(0,itemIds.lastIndexOf(",")); */
+							itemIds=itemIds.substring(0,itemIds.length-1);
+						}
+						itemO.itemIdArr=itemIds;
+						itemO.item=itemArr;
+				 }
+					/* $obj.html(itemHtml); */
+					parent._$module.recommenditemmodule('reset',itemO);
+					parent.cfgClose();
+			}
+			
+			function readItem(){//---OK---//读取选择的商品,添加到数组中,以便进行展示
+				var eb = $('#EditorBox').children().length;
+				if (eb == 0) {return ;}
+				var items=$('.J_TEditItem');
+				items.each(function(i){
+				    var item={};
+					var $this=$(this);
+					item.item_id=$this.find("[name='ITEM_ID']").val();
+					item.item_name=$this.find("span[name='itemname']").text();
+					item.price=$this.find("input[name='price']").val();
+					item.imgurl=$this.find("img[name='imgUrl']").attr('src');
+					itemArr.push(item);
+				});
+			}
+</script>
+</html>

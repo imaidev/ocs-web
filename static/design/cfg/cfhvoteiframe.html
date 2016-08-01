@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+    <script src='/static/design/js/layer/layer.js'></script>
+    <script src='/static/design/module/vote.js'></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+     
+    <!--<link href="/static/design/css/base.css" rel="stylesheet" /> -->
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="content fm1" style="margin-top:0px;">
+		<form class="main-slide-form form-default" name="VoteOptionForm" method="post" action="" style="margin-top:0px;">
+					<div>
+						<div id="tabOne">
+							<div class="edit-module">
+								  <!--<div class="edit-item  edit-head">
+									<span>模块标题：</span>
+									<input type="text" value="在线投票">
+								</div>-->
+								<div class="edit-item  edit-head">
+									<span class="fl">按钮样式：</span>
+									<div class="fl vote">
+										<div class="voteBtnChoose">
+										<label>
+											<input type="radio" name="voteColor" value="btn_red">
+											<div class="btn_all btn_red"></div>
+										</label>
+										</div>
+										<div class="voteBtnChoose">
+										<label>
+											<input type="radio" name="voteColor" value="btn_orange">
+											<div class="btn_all btn_orange"></div>
+										</label>
+										</div>
+										<div class="voteBtnChoose">
+										<label>
+											<input type="radio" name="voteColor" value="btn_blue">
+											<div class="btn_all btn_blue"></div>
+										</label>
+										</div>
+										<div class="voteBtnChoose">
+										<label>
+											<input type="radio" name="voteColor" value="btn_green">
+											<div class="btn_all btn_green"></div>
+										</label>
+										</div>
+										<div class="voteBtnChoose">
+										<label>
+											<input type="radio" name="voteColor" value="btn_darkgrey">
+											<div class="btn_all btn_darkgrey"></div>
+										</label>
+										</div>
+										<div class="voteBtnChoose">
+										<label>
+											<input type="radio" name="voteColor" value="btn_rosered">
+											<div class="btn_all btn_rosered"></div>
+										</label>
+										</div>
+									</div>
+								</div>
+								<div class="edit-item  edit-head">
+									<span class="fl">投票主题：</span>
+									<div class="fl vote oveflowSet voteChooseOut">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p class="opt-footer ctset-opt-footer">
+						<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+						<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+					</p>
+				</form>
+		</div>
+	
+	
+</body>
+</html>	
+<script>
+	$(function(){
+		debugger;getVoteOption();
+		$("input[name='voteColor']")[0].click();
+		var dataVar = parent._$module.data('dataVal');
+		var voteColor = dataVar.voteColor;
+		
+		$("input[value='"+voteColor+"']").click();
+		
+		
+					
+	});
+	
+			//获取投票设置 
+  		function getVoteOption(){
+  		
+  			var url =  parent.ctx+"/base/vote/Vote.do?method=getVoteOption";
+  			$.ajax({
+				url : url,
+				type :"POST",
+				success:function(data){
+					var domstr=[];
+					for(var i=0;i<data.length;i++){
+						domstr.push("<div class='voteChoose'>");
+    						domstr.push("<input type='radio' name='voteName' value='",data[i].INVEST_ID,"'>");
+    						domstr.push(" <label  title='",data[i].INVEST_NAME,"'>",data[i].INVEST_NAME,"</label>");
+						domstr.push("</div>");
+					}
+					var str=domstr.join("");
+					$(".voteChooseOut").html(str);
+					$("input[name='voteName']")[0].click();
+					var dataVar = parent._$module.data('dataVal');
+					
+					var voteId = dataVar.voteId;
+					
+					$("input[value='"+voteId+"']").click();
+					},
+				error:function(e){
+				
+				},
+				dataType : "json"
+  			});
+				
+  		}
+		function cfgSet(){
+			parent.cfgClose();
+			
+			var votecfg ={
+						voteColor:$("input[name='voteColor']:checked").val(),
+						voteId:$("input[name='voteName']:checked").val()
+			};
+			
+			parent._$module.vote('reset',votecfg);
+			
+			
+		}
+
+</script>
+	
+	

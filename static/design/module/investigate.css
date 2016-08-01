@@ -1,0 +1,20 @@
+/***调查问卷 ***/
+.questionaireOnline{overflow:hidden;}
+.questionaireOnline .questionaireSubject {font-weight:bold; padding:10px 0 0 5px;}
+.questionaireOnline .questionaireItembox{padding:10px 0px 0px 5px; text-align:left; width:100%;}
+.questionaireOnline .questionaireItembox ul li{float:left;}
+.questionaireOnline .questionaireItemSpan {float:left;zoom:1; cursor:pointer;padding-bottom:10px;}
+.questionaireOnline .questionaireItemName {cursor:default; float:left; margin-right:30px; line-height:20px;}
+.questionaireOnline .questionaireItemName input{float:left;line-height:22px;height:22px;margin-right:12px;}
+.questionaireOnline .questionaireOperate{padding-top:10px;padding-bottom:20px;width:100%;overflow:hidden;text-align:center;}
+.questionaireOnline .questionaireItembox input[type="text"]{height: 22px;line-height: 22px;padding: 0 5px;outline-style: none;color: #333;border: 1px solid #ccc;}
+.questionaireOnline .questionaireItembox textarea {outline: none;border: 1px solid #ccc; padding:5px;}
+.questionaireOnline .s_ibutton {margin-right:10px; padding:0 20px;height:32px;line-height:32px;text-align:center;display:inline-block;cursor:pointer;border-radius:3px;color:#fff; font-size:14px;}
+.questionaireOnline .s_ibutton:hover{filter:alpha(opacity=80);opacity:0.8;text-decoration:none;}
+.questionaireOnline .btn_red{background-color:#F5504F; border:#BF3B3A solid 1px;}
+.questionaireOnline .btn_orange{background-color:#FFAD2B; border:#F19A10 solid 1px;}
+.questionaireOnline .btn_blue{background-color:#5AB4FF; border:#4F96D2 solid 1px;}
+.questionaireOnline .btn_green{background-color:#85C200; border:#6EA000 solid 1px;}
+.questionaireOnline .btn_rosered{background-color:#E13E8D; border:#D22177 solid 1px;}
+.questionaireOnline .btn_darkgrey{background-color:#8E8E8E; border:#717171 solid 1px;}
+

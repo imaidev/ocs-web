@@ -1,0 +1,7 @@
+.ueditor-detail{ padding:20px; overflow:hidden;color:#000;padding-bottom: 0px;font-size: 16px;}
+.ueditor-detail table{margin-bottom: 10px;display: table;border-collapse:collapse; font-size: 16px; width:auto !important;}
+.ueditor-detail table td{padding: 5px 10px; border: 1px solid #ddd;}
+.ueditor-detail em{font-style: italic;font-weight: inherit;}
+.ueditor-detail em strong{font-style: italic;}
+.ueditor-detail strong em{font-style: italic;}
+.ueditor-detail strong{font-weight: bold;}

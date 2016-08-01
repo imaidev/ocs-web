@@ -1,0 +1,5 @@
+@charset "utf-8";/* CSS Document */
+.video-player .videoWapper {
+	width: 100%;
+	overflow: hidden;
+}

@@ -1,0 +1,29 @@
+#custFilterConditionTd{
+	border:0px;
+	background-color:#f4f4f4;
+	-webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+	}   
+.unitBox{
+	float:left;
+	margin-left:5px;
+	margin-bottom:5px;
+	}
+#custFilterCondition{
+	margin-top:10px;
+	margin-left:15px;
+	float:left;
+	}	
+.unitHead{
+	color:#535353;
+	}
+.unitCount{
+	color:#0196fd;
+	}
+	
+.unitArrow{
+    background: url("unitArrow.png") no-repeat;
+	width:9px;
+	height:5px;;
+	}

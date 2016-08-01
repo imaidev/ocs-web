@@ -1,0 +1,59 @@
+/* reset */
+html, body, div, span, applet, object, iframe, 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, 
+big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, 
+strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, 
+article, aside, canvas, details, embed, figure, figcaption, footer, header, 
+hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0 none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+    padding:0px !important;
+}
+ol, ul {
+    list-style: none outside none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*公共样式*/
+body, input, select, button, textarea { font-size: 12px; font-family:"Microsoft Yahei","\5b8b\4f53", Arial, sans-serif;  }
+.arial{ font-family:arial, sans-serif;}
+.song{font-family:"\5b8b\4f53", serif;}
+button { cursor: pointer; }
+body { background: #fff; color: #707070; line-height: 1.2; }
+html{-webkit-text-size-adjust:none;}
+a{ color: #333; text-decoration: none; }
+a{blr:expression(this.onFocus=this.blur());}
+a:hover { text-decoration:none; color:#055196;  }
+a:focus { outline: none; }
+.fixed:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+.fixed { display: block; min-height: 1%; }
+*html .fixed { height: 1%; }
+.clear { diplay: block!important; float: none!important; clear: both; overflow: hidden; width: auto!important; height: 0!important; margin: 0 auto!important; padding: 0!important; font-size: 0; line-height: 0; }
+.fl, .fr { display: inline; float: left; }
+.fr { float: right;  }
+ul,li{ list-style:none;}
+.hidden{ display:none;}
+.show{ display:block;}
+.headt_con ul li,.nav li{list-style:none;}
+em { font-style: normal; }
+/*去除float的类*/
+.clearfloat {clear:both;height:0 !important;font-size: 1px;line-height: 0px;}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="tab" id="shopsearchkk">
+			<div class="panels content">
+				<div class="panel display-set">
+					<form class="form-default J_TDisplaySetForm display-set-form" action="" method="post">
+						<div class="control-group">
+							<label class="control-label w72" for="">显示标题：</label>
+							<div class="control show-title ml75 Lh28">
+								<input name="showTitle" style="border: 0;" class="input-radio J_TNotShowTitle" type="radio" value="" onchange="changeTitleShow('0')">不显示
+								<input name="showTitle" style="border: 0;" class="input-radio J_TShowTitle" type="radio" checked="checked"  value="" onchange="changeTitleShow('1')"> 显示 
+								<input name="title" class="J_TTitleInput input-box title-input" style="display: inline-block;" type="text" maxlength="12" value="店内搜索" autocomplete="off">
+								<span class="tips">建议10个汉字、20个字母</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label w72" for="">预置关键字：</label>
+							<div class="control ml75">
+								<input name="presetKeyword" class="input-box middle keyword-input J_TKeywordInput" type="text" maxlength="10" value="" autocomplete="off">
+								<span class="tips">预置在搜索框中，建议5个汉字、10个字母</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label w72" for="">推荐关键字：</label>
+							<div class="control ml75">
+								<input id="keyword1" class="input-box middle keyword-input J_TKeywordInput" type="text" maxlength="10" value="" autocomplete="off">
+								<input id="keyword2" class="input-box middle keyword-input J_TKeywordInput" type="text" maxlength="10" value="" autocomplete="off">
+								<input id="keyword3" class="input-box middle keyword-input J_TKeywordInput" type="text" maxlength="10" value="" autocomplete="off">
+								<span class="tips">搜索按钮后推荐，建议5个汉字、10个字母</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label w72" for="">是否显示：</label>
+							<!--表单域-->
+							<div class="control Lh28 ml75">
+								<input name="showPriceFilter" style="border: 0;width:16px;height:16px; position:relative;top:-2px;" class="input-checkbox" type="checkbox" checked="checked" value="" onchange="changeShowTitle()">价格筛选
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="opt-footer">
+				<button class="J_TDisplaySetSmt btn-ok J_SubmitButton" type="button" onclick="cfgSet()">保存</button>
+				<button class="btn-cancel J_CancelButton" type="button" onclick="cancel()">取消</button>
+				<span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+$(document).ready(function(){
+	$(".title-input").val(parent._$shopsearchmodule.find(".showShopSearchTitle")[0].innerHTML);
+	if(parent._$shopsearchmodule.find("#shopSearchKeyWord240").length!=0){
+		$(".J_TKeywordInput").val(parent._$shopsearchmodule.find("#shopSearchKeyWord240").val());
+	}else if(parent._$shopsearchmodule.find("#shopSearchKeyWord960").length!=0){
+		$(".J_TKeywordInput").val(parent._$shopsearchmodule.find("#shopSearchKeyWord960").val());
+	}else{
+		$(".J_TKeywordInput").val(parent._$shopsearchmodule.find("#shopSearchKeyWord1210").val());
+	}
+	$("#keyword1").val(parent._$shopsearchmodule.find(".searchkey1")[0].innerHTML);
+	$("#keyword2").val(parent._$shopsearchmodule.find(".searchkey2")[0].innerHTML);
+	$("#keyword3").val(parent._$shopsearchmodule.find(".searchkey3")[0].innerHTML);
+	
+	//是否显示价格删选   
+	var isShowPrice = parent._$shopsearchmodule.find("#showShopSearchPrice").val(); 
+	$(".input-checkbox").val(isShowPrice);
+	if("true"==isShowPrice){
+		$(".input-checkbox")[0].checked=true;
+	}else{
+		$(".input-checkbox")[0].checked=false;
+	}
+	//是否显示标题
+	var isShowTitle = parent._$shopsearchmodule.find("#showShopSearchTitle").val();  
+	if("true"==isShowTitle){
+		$(".J_TShowTitle").val("true");
+		$(".J_TShowTitle")[0].checked=true;
+		$(".J_TNotShowTitle").val("false");
+		$(".J_TNotShowTitle")[0].checked=false;
+	}else{
+		$(".J_TNotShowTitle").val("true");
+		$(".J_TNotShowTitle")[0].checked=true;
+		$(".J_TShowTitle").val("false");
+		$(".J_TShowTitle")[0].checked=false;
+	}
+	
+});
+function cfgSet(){
+	parent._$shopsearchmodule.find(".showShopSearchTitle")[0].innerHTML=$(".title-input").val();
+	parent._$shopsearchmodule.find(".searchkey1")[0].innerHTML = $("#keyword1").val();
+	parent._$shopsearchmodule.find(".searchkey2")[0].innerHTML = $("#keyword2").val();
+	parent._$shopsearchmodule.find(".searchkey3")[0].innerHTML = $("#keyword3").val();
+	parent._$shopsearchmodule.find("#showShopSearchPrice").val($(".input-checkbox").val()); 
+	if(parent._$shopsearchmodule.find("#shopSearchKeyWord240").length!=0){
+		parent._$shopsearchmodule.find("#shopSearchKeyWord240").val($(".J_TKeywordInput").val());
+	}else if(parent._$shopsearchmodule.find("#shopSearchKeyWord960").length!=0){
+		parent._$shopsearchmodule.find("#shopSearchKeyWord960").val($(".J_TKeywordInput").val());
+	}else{
+		parent._$shopsearchmodule.find("#shopSearchKeyWord1210").val($(".J_TKeywordInput").val());
+	}
+	
+	if("true"==$(".input-checkbox").val()){
+		if(parent._$shopsearchmodule.find(".srh1210").length!=0){
+			parent._$shopsearchmodule.find(".srh1210").css("width","460");
+			parent._$shopsearchmodule.find(".keyWords1210").css("marginLeft","420px");
+		}
+		if(parent._$shopsearchmodule.find(".srh960").length!=0){
+			parent._$shopsearchmodule.find(".srh960").css("width","460");
+			parent._$shopsearchmodule.find(".keyWords960").css("marginLeft","420px");
+		}
+		parent._$shopsearchmodule.find(".price_show").show();
+	}else{
+		if(parent._$shopsearchmodule.find(".srh1210").length!=0){
+			parent._$shopsearchmodule.find(".srh1210").css("width","300");
+			parent._$shopsearchmodule.find(".keyWords1210").css("marginLeft","300px"); 
+		}
+		if(parent._$shopsearchmodule.find(".srh960").length!=0){
+			parent._$shopsearchmodule.find(".srh960").css("width","300");
+			parent._$shopsearchmodule.find(".keyWords960").css("marginLeft","300px"); 
+		}
+		parent._$shopsearchmodule.find(".price_show").hide();
+	}
+	if("true"==$(".J_TShowTitle").val()){
+		parent._$shopsearchmodule.find("#showShopSearchTitle").val("true");
+		parent._$shopsearchmodule.find(".title-box").css("display","block");
+	}else{
+		parent._$shopsearchmodule.find("#showShopSearchTitle").val("false");
+		parent._$shopsearchmodule.find(".title-box").css("display","none");
+	}
+	parent.cfgClose();
+}
+function cancel(){
+	parent.cfgClose();
+}
+
+function changeTitleShow(opt){
+	if("1"==opt){
+		$(".J_TShowTitle").val("true");
+		$(".J_TNotShowTitle").val("false");
+	}else{
+		$(".J_TNotShowTitle").val("true");
+		$(".J_TShowTitle").val("false");
+	}
+}
+
+function changeShowTitle(){
+	var priceShow = $(".input-checkbox").val();
+	if("true"==priceShow){
+		$(".input-checkbox").val("false")
+	}else{
+		$(".input-checkbox").val("true")
+	}
+}
+</script>

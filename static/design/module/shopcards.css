@@ -1,0 +1,50 @@
+/****店铺顶部（名称、在线客服）****/
+.picCon li{float:left;overflow:hidden;}
+.shopInfo{overflow:hidden;background-color:#FFFFFF;}
+.shopInfo .onlineC{position:relative;padding-left:30px;margin-top:5px;}
+.shopInfo .onlineC b{display:block;width:16px;height:12px;background-position:-20px -110px;position:absolute;top:6px;left:7px;}
+.shopInfo table{width:90%;overflow:hidden;line-height:20px;margin:10px auto 0 auto;table-layout:fixed;}
+#shopExtra{background:#f8f8f8;min-width:1210px;}
+.shopExtra{height:30px;line-height:30px;}
+.shopExtra .shopName{display:inline-block;position:relative;}
+.shopExtra .hideCon{display:none;position:absolute;top:28px;left:0;width:220px;padding:10px;height:auto;min-height:100px;border:1px solid #e5e5e5;background:#fff;font-size:12px;}
+.shopName:hover  .hideCon{display:block;}
+.shopExtra .hideCon table{margin:0 auto;}
+.hideCon .hideCon-item{border-top:1px dotted #ddd;padding-bottom:5px;}
+.hideCon .hideCon-item:first-child{border-top:none;}
+.wordWB{word-wrap:break-word;}
+.hideCon-btns{padding:10px 0;overflow:hidden;}
+.hideCon-btns .btn-item{position:relative;display:block;width:81px;height:28px;float:left;margin-left:10px;text-align:center;} 
+.hideCon-btns .btn-item:hover{text-decoration:none;}
+.hideCon-btns .btn-goShop{border:1px solid #e5e5e5;padding:0 0 0 17px;background:#f2f2f2;color:#333;}
+.hideCon-btns .btn-favShop{border:1px solid #c40001;padding:0 0 0 17px;background:#c40001;color:#fff;}
+.hideCon-btns .btn-item b{position:absolute;top:7px;left:14px;display:inline-block;width:16px;height:16px;vertical-align:middle;}
+.hideCon-btns .btn-goShop b{background:url(../img/icon-goShop.png) center center no-repeat;}
+.hideCon-btns .btn-favShop b{background:url(../img/icon-favShop.png) center center no-repeat;}
+
+
+.pagin-btm a.prew-page b,.pagin-btm a.prew-page:hover b,.pagin-btm a.next-page b,.pagin-btm a.next-page:hover b,
+.l0,.l1,.l2,.l3,.l4,.l5,.lh0,.lh1,.lh2,.lh3,.lh4,.lh5,.lh6,.lh7,.lh8,.lh9,.lh10{background:url(../img/sprite201411.png) no-repeat;}
+/******五星级评价：样式类starLevel名不能更改，其他地方对齐样式有重写，微调其位置********/
+.starLevel{display:inline-block;*display:inline;*zoom:1;width:84px;height:16px;overflow:hidden;}
+.l0{background-position: -85px -240px;}
+.l1{background-position: -68px -240px;}
+.l2{background-position: -51px -240px;}
+.l3{background-position: -34px -240px;}
+.l4{background-position: -17px -240px;}
+.l5{background-position: 0 -240px;}
+/******半颗星******/
+.lh0{background-position: -85px -240px ;}
+.lh1{background-position: -85px -260px ;}
+.lh2{background-position: -68px -240px ;}
+.lh3{background-position: -68px -260px ;}
+.lh4{background-position: -51px -240px;}
+.lh5{background-position: -51px -260px ;}
+.lh6{background-position: -34px -240px ;}
+.lh7{background-position: -34px -260px ;}
+.lh8{background-position: -17px -240px ;}
+.lh9{background-position: -17px -260px ;}
+.lh10{background-position: 0 -240px ;}
+
+.fm1{font-family: "\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+

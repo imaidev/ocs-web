@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* CSS Document */
+
+.largeScreen{
+	width:1360px;
+	height:768px;
+	overflow:hidden;
+	margin:0 auto;
+	background:url(../images/largeScreen.jpg) no-repeat center center;
+	position:relative;
+	}
+.largeScreen .largeScreenCon{
+	height:595px;
+	overflow:hidden;
+	margin:0 auto;
+	width:1228px;
+	filter:alpha(Opacity=20);
+	-moz-opacity:0.2;
+	opacity: 0.2;
+	background-color:#06edfa;
+	margin-top:120px;
+	}
+.largeScreenConTitle{
+	height:50px;
+	width:1230px;
+	position:absolute;
+	z-index:15;
+	background:url(../images/title.png) no-repeat center center;
+	top:-2px;
+	position:absolute;
+	top:120px;
+	left:50%;
+	margin-left:-615px;
+	line-height:50px;
+	text-align:center;
+	vertical-align:middle;
+	font-size:18px;
+	font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";
+	color:#ffffff;
+	font-weight:900;
+	letter-spacing:1px;
+	}
+.largeScreenConTitle a{color:#fff;}
+.iframeB{
+	position:absolute;
+	z-index:5;
+	width:1190px;
+	top:120px;
+	overflow:hidden;
+	left:50%;
+	margin-left:-595px;
+	background-color:#ffffff;
+	}
+.iframeH{
+	position:absolute;
+	z-index:5;
+	width:1190px;
+	top:200px;
+	overflow:hidden;
+	left:50%;
+	margin-left:-595px;
+	}
+.iframeH li{
+	width:383px;
+	float:left;
+	margin-left:10px;
+	overflow:hidden;
+	height:475px;
+	}
+#bdtj{
+	width:1190px;
+	margin:0 auto;
+	overflow:hidden;
+	height:575px;
+	}
+	
+	
+.containerBg{width:1360px;height:768px;margin:0 auto;position:relative;background:url(../images/largeScreen.jpg) no-repeat;}
+.processDiv{width:1250px;height:265px;position:absolute;top:100px;left:55px;}
+.content{position:absolute;top:390px;left:56px;}
+
+.registerDiv{float:left;width:438px;height:357px;background:url(../images/register_bg.png) no-repeat;}
+.registerDiv h4,.siteInfoDiv h4,.countDiv h4{height:38px;line-height:38px;text-align:center;overflow:hidden;}
+.registerDiv h4 a,.siteInfoDiv h4 a,.countDiv h4 a{font-size:16px;font-weight:bold;color:#fff;}
+.columnChart{width:418px;height:299px;overflow:hidden;margin:10px;}
+
+.siteInfoDiv{float:left;width:333px;height:357px;margin-left:10px;background:url(../images/site_bg.png) no-repeat;}
+.siteInfoDiv .detailInfo{width:313px;height:299px;overflow:hidden;margin:10px;}
+.banner_scroll{position:relative;}
+.flexslider .hd ul { position:absolute; right:10px; bottom:5px; z-index:10;}
+.flexslider .hd ul li { float: left; margin-right:7px; display: block; width:12px; height:10px; background:url(../images/in_menu_sprite.png) no-repeat -15px 0; cursor:pointer; text-indent: -100em; overflow: hidden;  }
+.flexslider .hd ul li.on { background:url(../images/in_menu_sprite.png) no-repeat 0 0;}
+.banner_scroll .banner_info{width:313px;height:299px;overflow-y:auto;overflow-x:hidden;text-shadow:0px 1px 1px #000000;font-family:"Microsoft YaHei";font-weight:900;font-size:12px;}
+.banner_scroll .banner_info p{text-indent:2em;padding:0 1em;line-height:26px;color:#fff;}
+
+.countDiv{float:left;width:436px;height:357px;margin-left:10px;background:url(../images/count_bg.png) no-repeat;}
+.countDiv .lineChart{width:416px;height:299px;overflow:hidden;margin:10px;}

@@ -1,0 +1,223 @@
+@charset "utf-8";
+/* CSS Document */
+/*****顶部******/
+#ypfHeader{width: 100%;background-color:#eee;border-bottom: 1px solid #3b3b3b;}
+.ypfHeader{height:120px;position: relative;z-index:33;}
+.ypfHeader>a{display:inline-block;width:220px;height:120px;}
+
+/*****宇培付导航******/
+.ypfNav{position:absolute;height:50px;bottom:1px;right:0;font-family: "\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.ypfNav li{float:left;width:90px;margin-left:20px;text-align: center;}
+.ypfNav li:first-child{margin-left:0px;}
+.ypfNav li.curr,.ypfNav li:hover{border-bottom:3px solid #ff5f3d;}
+.ypfNav li a{display:inline-block;height:50px;line-height:50px;font-size:16px;color:#666;}
+.ypfNav li.curr a,.ypfNav li:hover a{font-weight:700;text-decoration:none;}
+
+#content{background:#eee;}
+
+/*****用户帐号信息******/
+#userInfo{width:100%;background:#2cada9;}
+.userInfo{min-height:100px;color:#333;}
+.userInfo p{height:32px;line-height:32px;}
+.userInfo span{display:inline-block;}
+/***首页快捷小图标部分**/
+.shortcut{display:inline-block;position:relative;}
+.hideCon{position:absolute;bottom:25px;left:-30px;z-index:99;min-height:20px;line-height:20px;min-width:160px;padding:5px 10px;background:#fff;border:2px solid #FF5F3D;}
+.hideCon p{height:20px;line-height:20px;}
+.hideCon em{position:absolute;bottom:-8px;left:30px;z-index: 9998;display:block;width:0px; height:0px;border-color: #fff transparent;border-width: 8px 8px 0px 8px;border-style: solid;}
+.hideCon i{position: absolute;bottom: -10px;left: 28px;z-index: 9990;display: block;width: 0px;height: 0px;border-color: #FF5F3D transparent;border-width: 10px 10px 0px 10px;border-style: solid;}
+
+/*****公共样式******/
+.fixed:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+.fixed { display: block; min-height: 1%; }
+*html .fixed { height: 1%; }
+.ypfBtn1{background: #FF5F3D;height: 25px;line-height: 25px;vertical-align: middle;padding: 0 15px;display: inline-block;cursor: pointer;color: #FFFFFF;}
+.ypfBtn2{border:1px solid #FF5F3D;height: 23px;line-height: 23px;vertical-align: middle;padding: 0 14px;display: inline-block;cursor: pointer;color: #333;}
+.ypfBtn3{background: #FF5F3D;height: 25px;line-height: 25px;vertical-align: middle;width:74px;text-align:center;display: inline-block;cursor: pointer;color: #FFFFFF;font-size:12px;}
+.ypfBtn4{border:1px solid #FF5F3D;height: 23px;line-height: 23px;vertical-align: middle;width:74px;text-align:center;display: inline-block;cursor: pointer;color: #FF5F3D;font-size:12px;}
+.ypfBtn1:hover,.ypfBtn2:hover,.ypfBtn3:hover,.ypfBtn4:hover{filter:alpha(opacity:90); opacity:0.9;text-decoration:none;}
+.dottedBTop{border-top:1px dotted #e5e5e5;}
+.dottedBBtm{border-bottom:1px dotted #e5e5e5 !important;}
+p.dottedBBtm{height:10px !important;line-height:10px !important;border-bottom:1px dotted #e5e5e5 !important;}
+.bBN{border-bottom:none !important;}
+.verticalT{vertical-align:top;}
+.vt{vertical-align:top;}
+.mt10{margin-top:10px !important;}
+.mt40{margin-top:40px !important;}
+.marginR100{margin-right: 100px;}
+#gn table td{min-height: 40px;height: 40px;word-break: break-all;word-wrap: break-word;}
+
+/*****首页账户余额部分样式******/
+.ypfCount{height:93px;background:#fff;border:1px solid #e5e5e5;}
+.ypfCount p{height:45px;line-height:45px;}
+
+/*****表格部分******/
+.ypfTableCon{background:#fff;border:1px solid #e5e5e5;color:#333;font-size:14px;font-family: "\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.tableTitle{height:54px;line-height:54px;border-bottom:1px solid #e5e5e5;}
+/*****表格***行高60*单行表格***/
+.ypfTable{width:100%;table-layout:fixed;}
+.ypfTable td{min-height:60px;line-height:60px;word-break:break-all;word-wrap:break-word;border-bottom:1px solid #e5e5e5;}
+.ypfTable th{height:60px;line-height:60px;border-bottom:1px solid #e5e5e5;font-weight:bold;}
+.ypfTable .nowrap{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;-o-text-overflow: ellipsis;word-wrap: normal;}
+/**操作列**/
+.downOpt{display:inline-block;height:100%;line-height: 60px;*z-index:99;font-size:12px;}
+.downList{position:absolute;width:73px;z-index:100;background:#fff;border:1px solid #eee;}
+.downList li{height:25px;line-height:25px;text-align:center;}
+.downList li:hover{background:#FF5F3D;}
+.downList li:hover a{color:#fff;}
+/*****表格***30*两行表格***/
+.ypfTable02  td{height:60px;line-height:30px;border-bottom:1px solid #e5e5e5;}
+.ypfTable02  td div{height:60px;overflow:hidden;padding-right:10px;}
+.ypfTable02 .singleLine{height: 60px;line-height: 60px;}
+
+/****交易记录等页头部快捷链接*****/
+#quickLinks{width:100%;background:#666;}
+.quickLinks{height:58px;line-height: 58px;vertical-align: middle; color: #FFFFFF;}
+
+/****查询部分样式*****/
+.srhCon,.srhCon02{padding:0px 20px 20px 20px;background:#fff;border: 1px solid #e5e5e5;color:#333;font-family: "\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.srhCon02{padding:30px 120px 35px 120px;}
+.srhCon p{height:32px;line-height:32px;}
+.srh-tit{display:block;height:35px;line-height:35px;vertical-align:middle;padding-top:10px;font-size:16px;border-bottom: 1px solid #e5e5e5;}
+.srh-tit02{border-bottom: 2px solid #e5e5e5;}
+
+/***************图标样式***************/
+b{position: absolute;display: inline-block;overflow: hidden;}
+#subNav b{display:inline-block;*display:inline;*zoom:1; overflow:hidden; position:absolute;}
+.emailIcon{position:relative;display:inline-block;width:20px;height:20px;background:url(../images/ypfIcons.png) -80px 0 no-repeat;top: 5px;*top:3px;*margin-left:4px;cursor:pointer;}
+.phoneIcon{position:relative;display:inline-block;width:20px;height:20px;background:url(../images/ypfIcons.png) -110px 0 no-repeat;top: 5px;*top:3px;*margin-left:4px;cursor:pointer;}
+.tvIcon{position:relative;display:inline-block;width:20px;height:20px;background:url(../images/ypfIcons.png) -140px 0 no-repeat;top: 5px;*top:3px;*margin-left:4px;cursor:pointer;}
+/***账户信息****/
+.srh-tit-account{display:inline-block;position:relative;padding-left:35px;}
+.srh-tit-account b{position: absolute;top:5px;left:0px;width: 25px;height: 25px;background:url(../images/ypfIcons.png) -200px 0 no-repeat;}
+/***已认证****/
+.certified{position:relative;padding-left:30px;}
+.certified b{position: absolute;top:3px;left:0px;width:25px;height:25px;background:url(../images/ypfIcons.png) -170px 0 no-repeat;}
+/***提现银行****/
+.srh-tit-bank{display:inline-block;position:relative;padding-left:30px;}
+.srh-tit-bank b{position: absolute;top:4px;left:0px;width:25px;height:25px;background:url(../images/ypfIcons.png) -230px 0 no-repeat;}
+/***各银行****/
+.gsBank,.jsBank{position:relative;padding-left:20px;}
+.gsBank b{position: absolute;top:10px;left:0px;width:11px;height:11px;background:url(../images/ypfIcons.png) 0 -40px no-repeat;}
+.jsBank b{position: absolute;top:10px;left:0px;width:11px;height:11px;background:url(../images/ypfIcons.png) 0 -40px no-repeat;}
+.gsBank02 b{position:relative;display:inline-block;width:11px;height:11px;*vertical-align:middle;background:url(../images/ypfIcons.png) 0 -40px no-repeat;margin-left:10px;margin-right:10px;}
+.jsBank02 b{position:relative;display:inline-block;width:11px;height:11px;*vertical-align:middle;margin-left:10px;margin-right:10px;}
+.squareIcon-blue b{display:inline-block;width:15px;height:15px;position:relative;margin-right:10px;background:#EAA228;}
+.squareIcon-red b{display:inline-block;width:15px;height:15px;position:relative;margin-right:10px;background:#4BB2C5;}
+/***提示****/
+.tipIcon{display:inline-block;position:relative;padding-left:30px;}
+.tipIcon b{position: absolute;top:7px;left:0px;width:18px;height:18px;background:url(../images/ypfIcons.png) -170px 0 no-repeat;}
+
+/********/
+.tableCon{margin:15px 0px 0px 0px;font-size:14px;overflow: hidden;}
+.tableCon span{display:inline-block;}
+.tableCon label{display: inline-block;min-width:60px;text-align: right;}
+.srh-btn{border:0;outline-style:none;display:inline-block;width:25px;height:25px;position: relative;cursor:pointer;background-image: url(../images/ypfIcons.png);background-position: -20px 0;}
+.srh-btn b{width:25px;height:25px;background:url(../images/ypfIcons.png) -20px 0 no-repeat;position: absolute;top:0;left:0;}
+
+/****tab切换样式*****/
+.comTab{overflow:hidden;padding-bottom:10px;border: 1px solid #e5e5e5;}
+.comTab .comTabHd{ height:54px;line-height:54px;vertical-align:middle;border-bottom:1px solid #e5e5e5;}
+.comTab .comTabHd li{float:left;height:54px;line-height:54px;padding:0 20px;cursor:pointer;text-align:center;font-weight: bold;}
+.comTab .comTabHd li.on{height:52px;margin-left: -1px;border-top:3px solid #FF5F3D;border-left: 1px solid #ddd;border-right: 1px solid #ddd;background: #fff;}
+.comTab .comTabBd{overflow:hidden;}
+.comTab .comTabBd .tabCon{overflow:hidden; }
+
+/*****账户资料比例部分样式*******/
+.ratioCon{width:150px;height:150px;}
+
+/*****价格下拉部分样式****/
+.downCon{position:relative;display: inline-block;}
+.downCon b.fold{width:4px;height:7px;background:url(../images/ypfIcons.png) -70px 0 no-repeat;position: absolute;top: 26px;right: -10px;cursor:pointer;}
+.downCon b.unfold{width:7px;height:4px;background:url(../images/ypfIcons.png) -70px -10px no-repeat;position: absolute;top:28px;right:-13px;cursor:pointer;}
+.unfoldCon{position:absolute;z-index:200;width:360px;min-height:160px !important;height:auto !important;padding-right:0px !important;border:1px solid #ddd;background:#fff;}
+.unfoldCon em{position:absolute;top:0px;left:30px;display:inline-block;width:0px;height:0px;border-style: solid;border-color: #a70000 #F5F4FA;border-width: 0px 6px 6px 6px;}
+.expandTable{table-layout:fixed;width:95%;margin:10px auto;}
+.expandTable th{height:30px;line-height:30px;text-align:center;border:1px solid #e5e5e5;background:#eee}
+.expandTable td{min-height:24px;line-height:24px;padding:5px;height:auto;text-align:center;word-break:break-all;word-wrap:break-word;border:1px solid #e5e5e5;}
+
+/*****修改邮箱密码页样式****/
+.bind_email{padding: 20px 0;font-size: 14px;}
+/******
+.flowsteps{width: 950px;height: 48px;margin: 0 auto 40px;*zoom:1;}
+.flowsteps ul {position: relative;overflow: hidden;}
+.flowsteps ul  li{float: left;display: inline;height: 48px;font-size: 14px;color: #8b8b8b;background: url(http://img01.taobaocdn.com/tps/i1/T18mEDXn0fXXXUMwbr-5-3.png) repeat-x 0 13px;}
+.flowsteps .num4 li, .flowsteps .num4 .last {width: 33.3%;}
+.flowsteps .num3 li {width: 50%;}
+.flowsteps span {float: left;width: auto;}
+.flowsteps b{position: relative;left: -17px; display: block;width: 34px;height: 30px;line-height: 28px;color: #FFF;text-align: center;font-size: 16px;font-style: normal;font-weight: bold;background: url(http://img03.taobaocdn.com/tps/i3/T1zrgRXoFdXXbWsmfd-34-30.png) no-repeat 50% 50%;}
+.flowsteps em {position: relative;left: -50%;display: block;text-align: center;}
+.flowsteps .first span {*width: 0;*white-space: nowrap;}
+.flowsteps .first b{width: 100%;margin: 0 auto;}
+.flowsteps .first b {*width: 34px;}
+.flowsteps .first b,.flowsteps .first em,.flowsteps .last b,.flowsteps .last em {left: 0;}
+.flowsteps .current,.flowsteps .current span {color: #ff6824;}
+.flowsteps .current span b{background-image: url(http://img03.taobaocdn.com/tps/i3/T1sR3QXalfXXcSgITo-197-30.png);}
+.flowsteps .last {width: auto!important;position: absolute;right: 0;background: #FFF;}
+.flowsteps .last span {width: 36px;}
+.flowsteps .last b{margin: 0 auto;text-indent: -9999em;background: url(http://img03.taobaocdn.com/tps/i3/T17JERXk0eXXbWsmfd-34-30.png) no-repeat 50% 50%;}
+.flowsteps .done {background-image: url(http://img02.taobaocdn.com/tps/i2/T1QBARXXxcXXXUMwbr-5-3.png);}
+.flowsteps .done span b{background-image: url(http://img04.taobaocdn.com/tps/i4/T1VAQRXoRaXXcSgITo-197-30.png);}
+ ******/
+
+.kv_list{min-width: 860px;_width:860px;margin-left: 260px;}
+.kv_list label{display: inline-block;width:100px;text-align:right;}
+.msg-icon {position: relative;display: inline-block;width: 20px;height: 20px;background:url(../images/ypfIcons.png) -20px 0;vertical-align: middle;}
+.kv_list .nextA{margin-left:110px;}
+/*****友情提示列表*******/
+.tipList{width: 760px;margin: 0 auto;margin-top:80px;border-top:1px dotted #ddd;padding: 10px 0;}
+.tipList dt{font-size: 14px;margin-bottom: 5px;}
+.tipList dd{padding: 5px 0 5px 20px;background: url(http://img03.taobaocdn.com/tps/i3/T1OB1CXh8bXXXXXXXX-13-13.png) no-repeat 0 8px;font-size: 12px;}
+.stat_msg {width:680px;margin: 0 auto;padding: 30px 0;}
+
+/*****充值页面*******/
+.charge{position:relative;padding-left:45px;}
+.charge b{position:absolute;top:2px;left:0;display:inline-block;width:38px;height:38px;background:url(../images/ypfIcons.png) -20px -30px no-repeat;}
+.rankCon{margin:30px 80px;}
+.rankCon ul{display:block;overflow:hidden;margin:20px 0px;}
+.rankCon ul li{padding:10px 0px;float:left;width:180px;}
+
+/*******支付页面*******/
+.order{height: 89px;margin:20px 40px;position: relative;zoom:1;z-index: 101;overflow: visible;}
+.order p{height:auto;line-height:32px;}
+.order-wrapper{position: relative;padding:20px 40px;z-index: 10;border-bottom: 3px solid #bbb;min-height: 66px;_height: 66px;padding-bottom:10px;background:gainsboro;}
+.order-ext-trigger {position: absolute;right: 20px;bottom: -28px;height: 22px;padding: 2px 10px 1px;font-weight: 700;border: 3px solid #bbb;border-top: 0;background: #eff0f1;}
+.order-title{width: 600px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.order-expanded .order-title {white-space: normal;}
+.order-expanded .order-ext{display: block;}
+.fn-hide {display: none;}
+.order-ext table tr{line-height:21px;}
+.order-ext table th.sub-th {vertical-align: top;text-align: left;}
+.order-ext table td {vertical-align: top;width: 800px;}
+
+.main-container {margin-top: 50px;padding:20px 40px;}
+.payList{border-top:1px solid #ddd;}
+.row-container {position: relative;padding:2px 2px 1px 2px;line-height: 55px;border-bottom: 1px solid #d9d9d9;}
+.row-container-focus {border: 2px solid #728EC9;padding: 0;margin-bottom: 2px;}
+.payList li:hover {border: 2px solid #CAD6EF;padding: 0;cursor:pointer;}
+.row-container-hover  {border: 2px solid #CAD6EF;padding: 0;margin-bottom: 2px}
+.row-basic{position:relative;padding-left: 15px;}
+.pay-amount {position: absolute;right:50px;top: 0;}
+.row-container input[type="radio"]{vertical-align: middle;}
+.icon-debitCard {background-color: #738FCB;padding: 1px 3px 2px;border-radius: 2px;color: #fff;cursor:pointer;}
+.bank-icon-container {position: relative;display: inline-block;height: 36px;line-height: 36px;width: 126px;margin-right: 10px;}
+.bank-icon-container .bank-icon {position: relative;display: inline-block;width: 126px;height: 36px;line-height: 36px;vertical-align: middle;z-index: 1;text-indent: 0!important;background-image: url("https://i.alipayobjects.com/combo.jpg?d=cashier&t=BOC,ICBC,SPABANK&timestamp=2014/12/19");}
+.icon-cashier-ICBC {background:url(../images/ypfIcons.png) 0px -36px no-repeat;}
+.bank-showName {position: absolute;top: 0;left: 5px;height: 36px;width: 121px;overflow: hidden;z-index: 0;}
+
+/*******快捷支付页面*******/
+.zf-con{width: 950px;margin:0 auto 40px;}
+.zf-con-tit{height:40px;line-height:40px;position:relative;padding-left:40px;}
+.zf-con-tit b{position:absolute;top:12px;left:17px;display:inline-block;width:16px;height:16px;background: url(../images/sprite201411.png) -150px -70px no-repeat;}
+.bankList{width:600px;overflow:hidden;}
+.bankList li{position:relative;display:inline-block;width:142px;height:32px;float:left;border:1px solid #eee;margin-right:30px;margin-bottom:20px;cursor:pointer;}
+.bankList li img{border:1px solid #fff;}
+.bankList li.checked{display:inline-block;border:1px solid #e60012;}
+.bankChecked{display:inline-block;width:142px;height:32px;border:1px solid #e60012;position:relative;}
+.bankList li.checked img,.bankChecked img{border:1px solid #e60012;}
+.bankList li.checked b,.bankChecked b{display:inline-block;width:10px;height:10px;position:absolute;bottom:1px;right:1px;background:url(../images/ypfIcons.png) -0px -30px no-repeat;}
+
+/*******开户银行弹出框--银行列表******/
+.selBankList{margin-left:65px;width:500px;height:280px;overflow-x:hidden;overflow-y:auto;}
+.selBankList ul{padding:10px 5px;}
+.selBankList ul li{line-height:30px;height:30px;}

@@ -1,0 +1,167 @@
+HTML {
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px;
+}
+
+BODY {
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+BODY {
+	FONT-FAMILY: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica,
+		STHeiti;
+	FONT-SIZE: 15px;
+	_font-family: Tahoma, Arial, Helvetica, STHeiti
+}
+
+BODY {
+	WIDTH: 100%;
+	HEIGHT: 100%;
+}
+
+DIV {
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+H1 {
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+H3 {
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+P {
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+A {
+	COLOR: #3fa7cb;
+	TEXT-DECORATION: none;
+	outline: none;
+	hidefocus: true;
+}
+
+A:hover {
+	COLOR: #3cbce7;
+	CURSOR: pointer;
+	-webkit-transition: color .15s linear, background-color .3s linear;
+	-moz-transition: color .15s linear, background-color .3s linear;
+	-o-transition: color .15s linear, background-color .3s linear;
+	-ms-transition: color .15s linear, background-color .3s linear;
+	transition: color .15s linear, background-color .3s linear
+}
+
+.container {
+	width: 100%;
+	min-height: 700px;
+}
+
+.nav {
+	position: relative;
+	margin: auto;
+	width: 90%;
+	height: 50px;
+	top: 30px;
+	background-color: #fafafa;
+	border: 1px solid;
+	border-color: #b9b9b9;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+}
+
+.tableContainer {
+	position: relative;
+	margin: auto;
+	width: 90%;
+	min-height: 350px;
+	background-color: #fafafa;
+	top: 50px;
+	border: 1px solid;
+	border-color: #b9b9b9;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+}
+
+table th,td {
+	font-size: 13px;
+	height: 30px;
+}
+
+.navHeader {
+	position: relative;
+	margin: auto;
+	width: 30%;
+	height: 20px;
+}
+
+.navHeaderText {
+	position: relative;
+	float: 30%;
+	width: 200%;
+	font-size: 16px;
+	font-weight: 600;
+	font-family: "楷体";
+	margin-top: 5px;
+}
+
+.navAContainer {
+	position: relative;
+	width: 100%;
+	bottom: -5px;
+	height: 20px;
+}
+
+.navA {
+	font-size: 13px;
+	position: relative;
+	float: right;
+	margin-right: 20px;
+}
+
+.failureContainer {
+	position: relative;
+	margin: auto;
+	width: 90%;
+	min-height: 400px;
+	top: 30px;
+	background-color: #fafafa;
+	border: 1px solid;
+	border-color: #b9b9b9;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+}
+
+.faileureTitle {
+	position: relative;
+	margin: auto;
+	width: 90%;
+	top: 30px;
+	font-size: 13px;
+}

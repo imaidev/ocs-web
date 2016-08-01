@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+.fullBar_pay,.fullBar_payResult {
+	background: url("images/pay_ui.png");
+	height: 38px;
+	line-height: 40px;
+}
+
+.fullBar_pay {
+	background-position: 0 0px;
+}
+
+.fullBar_payResult {
+	background-position: 0 -38px;
+}
+
+#flow0 {
+	float: left;
+	width: 130px;
+	margin-left: 60px;
+}
+
+#flow1 {
+	float: left;
+	width: 110px;
+	margin-left: 240px;
+}
+
+#flow2 {
+	float: left;
+	width: 110px;
+	margin-left: 240px;
+}

@@ -1,0 +1,27 @@
+<div class="modal-dialog" role="document">
+	<div class="modal-content" style="width: 770px;height: 625px;padding: 5px;">
+		<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">栏目导航</h4>
+		</div>
+		<iframe id="listsIframe" name="listsIframe" scrolling="no" frameborder="0"
+				width="750px;" height="560px;" src='/static/design/cfg/cfgfloorguideiframe.html'></iframe>
+	</div>
+</div>
+
+<script>
+		// 栏目导航配置信息
+		var _$module;
+		var _cfg;
+		function cfgRead($selEl) {
+			_$module = $selEl;
+			_cfg = _$module.floorguide('config');
+		}
+		
+        function cfgClose(){
+        	$("#CfgModal").modal('hide');
+        }
+</script>

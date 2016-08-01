@@ -1,0 +1,60 @@
+/*container*/
+#ym-window{
+	background:#dddddd;overflow:hidden;
+	font-size:14px;  padding-bottom:5px;font-family:"\5B8B\4F53","SimSun";
+	filter:progid:DXImageTransform.Microsoft.Shadow(Color=#ff666666, Strength=5, Direction=135);
+}
+
+.ym-tl{padding-left:4px;background-color:#dddddd;}
+.ym-tr{padding-right:4px;background-color:#dddddd;}
+.ym-tc{background-color:#eeeeee;overflow:hidden;height:45px;line-height:45px; margin-top:5px;}
+.ym-ttc{height:3px; }
+.ym-header-text{font-weight:bold;color:#666;margin-left:15px;float:left}
+.ym-header-tools{float:right;margin-top:5px}
+
+/*body*/
+.ym-ml{background:#dddddd;padding-left:5px}
+.ym-mr{background:#dddddd;padding-right:5px}
+.ym-mc{background:#fafafa;padding:0}
+.ym-body{overflow:hidden;padding:0;}
+
+/*button*/
+.ym-btn{text-align:center;background:#FFFFFF;}
+
+/*footer*/
+.ym-bl{background:#dddddd;padding-left:5px}
+.ym-br{background:#dddddd;padding-right:5px}
+.ym-bc{background:#dddddd;height:5px;font-size:2px}
+
+.ymPrompt_alert{
+	padding-left:90px;
+	background:url(images/info.gif) no-repeat 20px 50%
+}
+.ymPrompt_succeed{
+	padding-left:90px;
+	background:url(images/right.gif) no-repeat 20px 50%
+}
+.ymPrompt_error{
+	padding-left:90px;
+	background:url(images/err.gif) no-repeat 20px 50%
+}
+.ymPrompt_confirm{
+	padding-left:90px;
+	background:url(images/ask.gif) no-repeat 20px 50%
+}
+.ymPrompt_close{
+	cursor:pointer;
+	background:url(images/close.png) no-repeat 0 0;
+	width:30px;height:30px;
+	margin-right:8px;
+	margin-top:2px;
+}
+.ymPrompt_close:hover{background:url(images/close_hover.png) no-repeat 0 0;}
+.ymPrompt_alert .ym-content,.ymPrompt_succeed .ym-content,.ymPrompt_error .ym-content,.ymPrompt_confirm .ym-content{padding:50px 3px 0}
+
+/*取消确认按钮样式*/
+input.btnStyle{
+	background-color:#000;
+	width:80px;height:30px;line-height:30px;
+	color:#fff;border:0;margin:10px 0
+}

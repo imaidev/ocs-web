@@ -1,0 +1,147 @@
+/* CSS Document */
+body{
+   padding:0;
+   margin:0;
+   
+}
+#header{
+	
+}
+#uploadpage{
+	width:1000px;
+	margin:0 auto;
+}
+#uploadbox{
+   width:1000px;
+   background-color:#FFFFFF;
+   font:normal;
+   font-size:   15px; 
+   margin-top:20px;
+   padding: 20px 0 20px 0;
+   }
+#uploadbox-name{
+	margin-top:20px;
+}
+#declare{
+	width:1000px;
+	heigh:80px;
+	border:#d8e3ea 1px solid;
+}
+#uploadfirstwrapper{
+	width:115px;
+	height: 29px;
+	margin-top:0 auto;
+}
+#button{
+	background-image:url(../../img/upload/submitupload.png) no-repeat;
+	
+}
+#folder{
+	height: 30px;
+}
+ #log {
+            margin: 0;
+            padding: 0;
+            width: 500px;
+        }
+
+        #log li {
+            list-style-position: inside;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 0 10px 0 10px;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            background: #fff;
+            position: relative;
+            line-height: 39px;
+            height: 39px;
+        }
+		#log li .upico{
+		position: absolute;
+		top: 0px;
+		left: 25px;
+		}
+		.statu{
+		color: red;float: right;
+		}
+        #log li .progressbar {
+            border: 1px solid #333;
+            height: 18px;
+            background: #fff;
+        }
+
+        #log li .progress {
+            background: red;  
+            width: 0%;
+            height: 18px;
+        }
+
+        #log li p {
+            margin: 0;
+            line-height: 18px;
+        }
+        #log li div{
+        	position: absolute;
+        	top: 0px;
+        	left: 55px;
+        }
+
+        #log li.success {
+            border: 1px solid #339933;
+            background: #ccf9b9;
+        }
+
+        #log li span.stopUpload {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            background: url(../../img/upload/cancel.png) no-repeat;
+            cursor: pointer;
+        }
+
+        #img span.cancel {
+           background: url(../../img/upload/cancel.png) no-repeat;
+        }
+        #updatabutton{
+        	background: url(../../img/upload/act_btn.png) no-repeat;
+        	height: 35px;
+        	width: 106px;
+        	cursor: pointer;
+        }
+        #updatabutton:hover{
+        	background-position: 0px -35px;
+        }
+        #uploadtb{
+        margin-left: 20px;
+        }
+        #uploadtb  td{
+        height: 50px;
+        width: 50px;
+        }
+        #choosefolder{
+        color: red;
+        }
+        .foot{
+	height: 100px;
+	width:100%;
+	background:url(../../img/upload/loginbg.jpg) repeat-x;
+	position: absolute;
+	bottom: 0px;
+}
+#updatedocbutton{
+    background: url(../../img/upload/act_btn.png) no-repeat;
+    height: 35px;
+    width: 106px;
+    cursor: pointer;
+}
+#uploaddiv{
+	max-height: 230px;overflow: auto;
+}
+.upload-buttonpane{
+	height: 50px;
+	width: 150px;
+}

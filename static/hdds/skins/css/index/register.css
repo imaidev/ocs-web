@@ -1,0 +1,43 @@
+@charset "utf-8"; 
+/* CSS Document */
+
+.re-header{ height:120px; overflow:hidden; position:relative; }
+.re-header a.logo{width: 153px;height: 71px;overflow: hidden;display: inline-block;position: absolute;top: 45%;margin-top: -35px;left: 87px;}
+.re-header a img{height: 100%;width: 100%;}
+.re-header h2{ height:35px; width:90px; line-height:35px; vertical-align:middle;  position:absolute; top:50%; margin-top: -17px; left:250px; padding-left:15px;}
+.re-header p{ height:35px; width:100px; line-height:35px; vertical-align:middle;  position:absolute; bottom:0; right:30px;}
+.register{overflow:hidden; border:1px solid #E4E4E4; border-top:0;border-right:0;}
+.register .registerHd{height:40px;line-height:40px;vertical-align:middle;border-bottom:1px solid #E4E4E4;}
+.register .registerHd li{cursor:pointer;text-align:center;float:left;border-right:1px solid #E4E4E4; height:40px; line-height:40px; vertical-align:middle;
+border-top:1px solid #E4E4E4; padding:0 25px;}
+.register .registerHd li.on{background-color:#ffffff;border-top:3px solid #FF5F3D; height:38px;}
+.register .registerBd { padding-bottom:20px;}
+.register .registerBd div{overflow:hidden; padding:0 5px;border-right:1px solid #E4E4E4;}
+.register .registerBd table{ width:70%; float:left; border:0; table-layout:fixed;}
+#mailbox td,#phone td{ height:50px;}
+#mailbox,#phone{ width:100%; margin-top:30px;}
+.register .registerBd ul{ width:250px; float:right; margin-right:80px; margin-top:30px;}
+.register .registerBd ul li{ overflow:hidden; margin-top:10px; padding:10px;}
+.register .registerBd ul table{table-layout:fixed; width:100%; line-height:25px;}
+
+#phone{ display:none;}
+.register input[type="text"]{display:inline-block;*display:inline;*zoom:1; height:25px; vertical-align:middle; line-height:20px; padding:0 5px; outline-style:none; color:#333;border:1px solid #cccccc;}
+.register input[type="radio"],.buyerCon input[type="checkbox"]{ display:inline-block;*display:inline;*zoom:1;}
+.register select{display:inline-block;*display:inline;*zoom:1; height:25px; vertical-align:middle; line-height:20px; outline-style:none; color:#333;border:1px solid #cccccc;}
+.register input[type="password"]{display:inline-block;*display:inline;*zoom:1; height:25px; vertical-align:middle; line-height:20px; padding:0 5px; outline-style:none; color:#333;border:1px solid #cccccc;}
+.register input[type="text"]:focus,.register input[type="password"]:focus{border:1px solid #04A1E6;}
+
+.re-footer{ line-height:30px; text-align:center; padding:20px 0;}
+
+/******提交成功或失败提示信息******/
+.msg h2 b{background:url(../img/sprite201411.png) no-repeat; height:48px; width:48px;display:inline-block;*display:inline;*zoom:1; overflow:hidden; position:absolute; left:0; top:0;}
+.msg{margin:10px auto; overflow:hidden; padding:30px 0;}
+.msg table{width:100%;  overflow:hidden;table-layout:fixed;}
+.msg table td{ text-align:center;}
+.msg  h2{ color:#3B3B3B; height:48px; line-height:48px; vertical-align:middle;display:inline-block;*display:inline;*zoom:1; overflow:hidden; position:relative; padding-left:50px; padding-bottom:20px;}
+.msg .sucMsg b{ background-position:-90px -30px;}
+.msg .sucMsg p{ padding:15px 0 0 15px;}
+.msg .failMsg b{ background-position:-90px -80px;}
+.msgTitle{ height:60px; overflow:hidden; padding:10px 0;}
+.msgTitle .logo{ float:left;}
+.agreement{margin-bottom: 20px;border: 1px solid #e4e4e4 !important;}

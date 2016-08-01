@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+    <script src="/static/resource/js/jquery.SuperSlide.2.1.1.js"></script>
+    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+    <script src="/static/resource/js/layer/layer.min.js" ></script>    
+    <script src="/static/design/js/spectrum/spectrum.js" ></script>    
+    <link href="/static/design/js/spectrum/spectrum.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+    <style type="text/css">
+	    .div-fix-height{height: 340px;overflow-x: hidden;overflow-y: auto;}
+	    #tabThree select{width:85px;}
+	    #xubox_layer1{top:0px;}
+    </style>
+    <script>
+    
+	$(document).ready(function(){
+		//加载配置
+	    $('#mainTitle').val(parent._cfg.mainTitle);
+	    var mainFontF = document.getElementById("mainFontF");  
+        for(var i=0;i<mainFontF.options.length;i++){
+    	   if(mainFontF.options[i].value==parent._cfg.mainFontF){
+    		   mainFontF.options[i].selected=true;
+    		   break;
+    	   }
+        }
+        var mainFontS = document.getElementById("mainFontS");  
+        for(var i=0;i<mainFontS.options.length;i++){
+    	   if(mainFontS.options[i].value==parent._cfg.mainFontS){
+    		   mainFontS.options[i].selected=true;
+    		   break;
+    	   }
+        }
+        if(parent._cfg.mainBold=="1"){
+        	$("#mainStyBold").addClass("active");
+        }
+        if(parent._cfg.mainItalic=="1"){
+        	$("#mainStyItalic").addClass("active");
+        }
+        if(parent._cfg.mainUnderline=="1"){
+        	$("#mainStyUnderline").addClass("active");
+        }
+        $(".mainColorPicker").val(parent._cfg.mainColor);
+        
+        
+        $('#subTitle').val(parent._cfg.subTitle);
+	    var subFontF = document.getElementById("subFontF");  
+        for(var i=0;i<subFontF.options.length;i++){
+    	   if(subFontF.options[i].value==parent._cfg.subFontF){
+    		   subFontF.options[i].selected=true;
+    		   break;
+    	   }
+        }
+        var subFontS = document.getElementById("subFontS");  
+        for(var i=0;i<subFontS.options.length;i++){
+    	   if(subFontS.options[i].value==parent._cfg.subFontS){
+    		   subFontS.options[i].selected=true;
+    		   break;
+    	   }
+        }
+        if(parent._cfg.subBold=="1"){
+        	$("#subStyBold").addClass("active");
+        }
+        if(parent._cfg.subItalic=="1"){
+        	$("#subStyItalic").addClass("active");
+        }
+        if(parent._cfg.subUnderline=="1"){
+        	$("#subStyUnderline").addClass("active");
+        }
+        $(".subColorPicker").val(parent._cfg.subColor);
+        
+        //是否显示logo
+        if(parent._cfg.isLogo=="1"){
+        	$("#logoy").click();
+        	$("#logoImg").show();
+			$("#addPic").show();
+			$("#logoIsShow").show();
+        }else{
+        	$("#logon").click();
+        	$("#logoImg").hide();
+			$("#addPic").hide();
+			$("#logoIsShow").hide();
+        }
+        
+        $("#pictureUrl").val(parent._cfg.pictureUrl);
+        $('#showImage').attr("src",parent._cfg.pictureUrl);
+    	$('#seeMore').attr("href",parent._cfg.pictureUrl);
+        
+    	if(parent._cfg.jumpMode=="1"){
+    		$("#jumpMode1").click();
+    		$(".picDisSet1").show();
+			$(".picDisSet2").hide();
+    	}else{
+    		$("#jumpMode2").click();
+    		$(".picDisSet2").show();
+			$(".picDisSet1").hide();
+    	}
+    	$("#titleUrl").val(parent._cfg.titleUrl);
+    	 var titleOpenWay = document.getElementById("titleOpenWay");  
+         for(var i=0;i<titleOpenWay.options.length;i++){
+     	   if(titleOpenWay.options[i].value==parent._cfg.titleOpenWay){
+     		  titleOpenWay.options[i].selected=true;
+     		   break;
+     	   }
+         }
+        /* if(parent._cfg.titleFix=="1"){
+        	 $("#titleFix")[0].checked=true;
+         }else{
+        	 $("#titleFix")[0].checked=false;
+         }*/
+         
+    	if(parent._cfg.logojumpMode=="1"){
+    		$("#logojumpMode1").click();
+    		$(".logoDisSet1").show();
+			$(".logoDisSet2").hide();
+    	}else{
+    		$("#logojumpMode2").click();
+    		$(".logoDisSet2").show();
+			$(".logoDisSet1").hide();
+    	}
+    	var logoOpenWay = document.getElementById("logoOpenWay");  
+        for(var i=0;i<logoOpenWay.options.length;i++){
+    	   if(logoOpenWay.options[i].value==parent._cfg.logoOpenWay){
+    		   logoOpenWay.options[i].selected=true;
+    		   break;
+    	   }
+        }
+        $("#logoUrl").val(parent._cfg.logoUrl);
+        /*if(parent._cfg.logoFix=="1"){
+       	 $("#logoFix")[0].checked=true;
+        }else{
+       	 $("#logoFix")[0].checked=false;
+        }*/
+        //显示logo时
+        if(parent._cfg.isLogo=="1"){
+        	$("#logoLeft").val(parent._$logomodule.parent().parent().parent().parent().parent().parent().parent().parent().find(".demo_h_free #siteLogo")[0].style.left.replace("px",""));
+     		$("#logoTop").val(parent._$logomodule.parent().parent().parent().parent().parent().parent().parent().parent().find(".demo_h_free #siteLogo")[0].style.top.replace("px",""));
+        }else{
+        	$("#logoLeft").val(parent._cfg.logoLeft);
+     		$("#logoTop").val(parent._cfg.logoTop);
+        }
+		$("#logoWidth").val(parent._cfg.logoWidth);
+		$("#logoHeight").val(parent._cfg.logoHeight);
+		$("#logoDesc").val(parent._cfg.logoDesc);
+		
+		$("#titleLeft").val(parent._$logomodule.parent().parent().parent().parent().parent().parent().parent().parent().find(".demo_h_free #siteTitleC")[0].style.left.replace("px",""));
+	    $("#titleTop").val(parent._$logomodule.parent().parent().parent().parent().parent().parent().parent().parent().find(".demo_h_free #siteTitleC")[0].style.top.replace("px",""));
+		loadColor();
+	});
+	
+	function cfgSet(){
+		 var isLogo="0";
+         $("input[name=logo]").each(function () { 
+      	   if ($(this)[0].checked == true) {    
+      		 isLogo =$(this)[0].value;
+	        	}    
+	      });
+		if(isLogo!="0"&&(!checkLogoWidth()||!checkLogoHeight()||!checkLogoLeft()||!checkLogoTop())){
+			return;
+		}
+		cfgSet1();
+		//关闭配置框
+     	parent.cfgClose();
+	}
+	 //保存配置
+	 function cfgSet1(){
+		 //LOGO是否显示
+		 var isLogo="";
+         $("input[name=logo]").each(function () { 
+      	   if ($(this)[0].checked == true) {    
+      		 isLogo =$(this)[0].value;
+	        	}    
+	      });
+	      //标题的跳转方式
+	      var jumpMode="";
+	      $("input[name=jumpMode]").each(function () { 
+	      	   if ($(this)[0].checked == true) {    
+	      		 jumpMode =$(this)[0].value;
+		        	}    
+		  });
+	      //LOGO的跳转方式    
+          var logojumpMode="";
+          $("input[name=logojumpMode]").each(function () { 
+      	   if ($(this)[0].checked == true) {    
+      		 logojumpMode =$(this)[0].value;
+	        	}    
+		  });
+          //主标题样式
+          var mainBold = "0";
+          var tt = $("#mainStyBold").className;
+          if($("#mainStyBold")[0].className=="active"){
+        	  mainBold="1";
+          }
+          var mainItalic = "0";
+          if($("#mainStyItalic")[0].className=="active"){
+        	  mainItalic="1";
+          }
+          var mainUnderline = "0";
+          if($("#mainStyUnderline")[0].className=="active"){
+        	  mainUnderline="1";
+          }
+          
+          //副标题样式
+          var subBold = "0";
+          if($("#subStyBold")[0].className=="active"){
+        	  subBold="1";
+          }
+          var subItalic = "0";
+          if($("#subStyItalic")[0].className=="active"){
+        	  subItalic="1";
+          }
+          var subUnderline = "0";
+          if($("#subStyUnderline")[0].className=="active"){
+        	  subUnderline="1";
+          }
+          
+          /* var titleFix = "0";
+          if($("#titleFix")[0].checked==true){
+        	  titleFix="1";
+          }
+          
+          var logoFix = "0";
+          if($("#logoFix")[0].checked==true){
+        	  logoFix="1";
+          }*/
+     	 var o={
+         			mainTitle:$('#mainTitle').val(),
+         			mainFontF:$('#mainFontF').val(),
+         			mainFontS:$('#mainFontS').val(),
+         			mainBold:mainBold,
+         			mainItalic:mainItalic,
+         			mainUnderline:mainUnderline,
+         			mainColor:$(".mainColorPicker").val(),
+         			subTitle:$('#subTitle').val(),
+         			subFontF:$('#subFontF').val(),
+         			subFontS:$('#subFontS').val(),
+         			subBold:subBold,
+         			subItalic:subItalic,
+         			subUnderline:subUnderline,
+         			subColor:$(".subColorPicker").val(),
+         			isLogo:isLogo,
+         			pictureUrl:$("#pictureUrl").val(),
+         			jumpMode:jumpMode,
+         			titleUrl:$("#titleUrl").val(),
+         			titleOpenWay:$("#titleOpenWay").val(),
+         		//	titleFix:titleFix,
+         			logojumpMode:logojumpMode,
+         			logoUrl:$("#logoUrl").val(),
+         			logoOpenWay:$("#logoOpenWay").val(),
+         		//	logoFix:logoFix,
+         			logoLeft:$("#logoLeft").val(),
+         			logoTop:$("#logoTop").val(),
+         			titleLeft:$("#titleLeft").val(),
+         			titleTop:$("#titleTop").val(),
+         			logoWidth:$("#logoWidth").val(),
+         			logoHeight:$("#logoHeight").val(),
+         			logoDesc:$("#logoDesc").val()
+         	}
+         	parent._$logomodule.logoconfiguration('reset',o);
+     }
+	 
+	 function callBackPic(path){
+	    	$("#pictureUrl").val(path);
+	    	$('#showImage').attr("src",path);
+	    	$('#seeMore').attr("href",path);
+	    }
+		//上传图片
+	    function selectPic(){
+	    	$.layer({
+		        type : 2,
+		        iframe : {
+		            src :  parent.ctx+"/res/tu/ResSelect.htm?dir=design&maxuploadsize=2M&callback=callBackPic"
+		        },
+		        title : "图片选取",
+		        shadeClose: true,
+		        offset:['' , ''],
+		        area : ['750px','450px']
+		    });
+	    }
+		
+	    function loadColor(initColor){
+	    	$(".mainColorPicker").spectrum({
+	    	       color: initColor,
+	    	       preferredFormat: "hex6",
+	    	       showInput: true
+	    	   });
+	    	$(".subColorPicker").spectrum({
+	    	       color: initColor,
+	    	       preferredFormat: "hex6",
+	    	       showInput: true
+	    	   });
+	    }
+	    
+	    var reg = new RegExp("^[0-9]*$");  
+	    var reg1 = new RegExp("^-?\\d+$"); 
+	    function checkLogoWidth(){
+	    	var ogoWidth = $("#logoWidth").val().trim();
+	    	if(ogoWidth==""){
+	    		alert("图片宽度不能为空");
+	    		return false;
+	    	}
+			if(!reg.test(ogoWidth)){
+				alert("图片宽度只能为数字");
+	    		return false;
+			}
+			return true;
+	    }
+	    function checkLogoHeight(){
+	    	var ogoHeight = $("#logoHeight").val().trim();
+	    	if(ogoHeight==""){
+	    		alert("图片高度不能为空");
+	    		return false;
+	    	}
+	    	if(!reg.test(ogoHeight)){
+				alert("图片高度只能为数字");
+	    		return false;
+			}
+	    	return true;
+	    }
+	    function checkLogoTop(){
+	    	var ogoTop = $("#logoTop").val().trim();
+	    	if(ogoTop==""){
+	    		alert("图片上边距离不能为空");
+	    		return false;
+	    	}
+	    	if(!reg1.test(ogoTop)){
+				alert("图片上边距离只能为数字");
+	    		return false;
+			}
+	    	return true;
+	    }
+	    function checkLogoLeft(){
+	    	var ogoLeft = $("#logoLeft").val().trim();
+	    	if(ogoLeft==""){
+	    		alert("图片左边距离不能为空");
+	    		return false;
+	    	}
+	    	if(!reg1.test(ogoLeft)){
+				alert("图片左边距离只能为数字");
+	    		return false;
+			}
+	    	return true;
+	    }
+    </script>
+</head>
+<body>
+ 		<div class="content fm1">
+			<div class="tab div-fix-height">
+				<ul class="nav clear-fix">
+					<li class="ks-switchable-trigger-internal6 selected" id="titleOne"><span>主标题</span></li>
+					<li class="ks-switchable-trigger-internal6" id="titleTwo"><span>副标题</span></li>
+					<li class="ks-switchable-trigger-internal6" id="titleFour"><span>LOGO</span></li>
+					<li class="ks-switchable-trigger-internal6" id="titleThree"><span>高级</span></li>
+				</ul>
+				<form class="main-slide-form form-default" id="logoForm" novalidate="novalidate" method="post">
+				<input type="hidden" id="titleTop" name="titleTop" value=""/>
+				<input type="hidden" id="titleLeft" name="titleLeft" value=""/>
+					<div>
+						<div id="tabOne" style="display: block;">
+							<div class="edit-module">
+								<div class="edit-item  edit-head">
+									<div class="tittleSet">
+										<select class="typeface" id="mainFontF">
+											<option value="SimSun">宋体</option>
+											<option value="PMingLiU">新细明体</option>
+											<option value="FangSong_GB2312">仿宋_GB2312</option>
+											<option value="Microsoft YaHei">微软雅黑</option>
+											<option value="LiSu">隶书</option>
+											<option value="幼圆">幼圆</option>
+											<option value="STKaiti">华文楷体</option>
+											<option value="方正舒体">方正舒体</option>
+											<option value="华文彩云">华文彩云</option>
+											<option value="华文行楷">华文行楷</option>
+											<option value="华文宋体">华文宋体</option>
+											<option value="KaiTi">楷体</option>
+				                    		<option value="SimHei">黑体</option>
+				                    		<option value="Arial">Arial</option>
+				                    		<option value="Tahoma">Tahoma</option>
+				                    		<option value="Impact">Impact</option>
+				                    		<option value="Arial Serif">Arial Serif</option>
+				                    		<option value="Georgia">Georgia</option>
+				                    		<option value="Garamond">Garamond</option>
+				                    		<option value="Times New Roman">Times New Roman</option>
+				                    		<option value="andale mono">andale mono</option>
+				                    		<option value="arial black">arial black</option>
+				                    		<option value="comic sans ms">comic sans ms</option>
+										</select>
+									</div>
+									<div class="tittleSet" >
+										<select class="size" id="mainFontS">
+											<option value="12">12px</option>
+											<option value="14">14px</option>
+											<option value="16">16px</option>
+											<option value="18">18px</option>
+											<option value="20">20px</option>
+											<option value="22">22px</option>
+											<option value="24">24px</option>
+											<option value="26">26px</option>
+											<option value="28">28px</option>
+											<option value="30">30px</option>
+											<option value="32">32px</option>
+											<option value="34">34px</option>
+											<option value="36">36px</option>
+											<option value="38">38px</option>
+											<option value="40">40px</option>
+											<option value="42">42px</option>
+											<option value="44">44px</option>
+											<option value="46">46px</option>
+											<option value="48">48px</option>
+											<option value="50">50px</option>
+											<option value="52">52px</option>
+											<option value="54">54px</option>
+											<option value="56">56px</option>
+											<option value="58">58px</option>
+											<option value="60">60px</option>
+										</select>
+									</div>
+									<div class="tittleSet textSty textStyBold">
+										<div id="mainStyBold" class=""></div>
+									</div>
+									<div class="tittleSet textSty textStyItalic">
+										<div id="mainStyItalic" class=""></div>
+									</div>
+									<div class="tittleSet textSty textStyUnderline">
+										<div id="mainStyUnderline" class=""></div>
+									</div>
+									<div class="tittleSet">
+										<input class="mainColorPicker" type="text" value=""/>
+									</div>
+								</div>
+								<div class="edit-item  edit-head">
+									<textarea class="p5" id="mainTitle" placeholder="主标题" maxlength="30"></textarea>
+								</div>
+							</div>
+						</div>
+						<div id="tabTwo" style="display: none;">
+							<div class="edit-module">
+								<div class="edit-item  edit-head">
+									<div class="tittleSet">
+										<select class="typeface" id="subFontF">
+											<option value="SimSun">宋体</option>
+											<option value="PMingLiU">新细明体</option>
+											<option value="FangSong_GB2312">仿宋_GB2312</option>
+											<option value="Microsoft YaHei">微软雅黑</option>
+											<option value="LiSu">隶书</option>
+											<option value="幼圆">幼圆</option>
+											<option value="STKaiti">华文楷体</option>
+											<option value="方正舒体">方正舒体</option>
+											<option value="华文彩云">华文彩云</option>
+											<option value="华文行楷">华文行楷</option>
+											<option value="华文宋体">华文宋体</option>
+											<option value="KaiTi">楷体</option>
+				                    		<option value="SimHei">黑体</option>
+				                    		<option value="Arial">Arial</option>
+				                    		<option value="Tahoma">Tahoma</option>
+				                    		<option value="Impact">Impact</option>
+				                    		<option value="Arial Serif">Arial Serif</option>
+				                    		<option value="Georgia">Georgia</option>
+				                    		<option value="Garamond">Garamond</option>
+				                    		<option value="Times New Roman">Times New Roman</option>
+				                    		<option value="andale mono">andale mono</option>
+				                    		<option value="arial black">arial black</option>
+				                    		<option value="comic sans ms">comic sans ms</option>
+										</select>
+									</div>
+									<div class="tittleSet">
+										<select class="size" id="subFontS">
+											<option value="12">12px</option>
+											<option value="14">14px</option>
+											<option value="16">16px</option>
+											<option value="18">18px</option>
+											<option value="20">20px</option>
+											<option value="22">22px</option>
+											<option value="24">24px</option>
+											<option value="26">26px</option>
+											<option value="28">28px</option>
+											<option value="30">30px</option>
+											<option value="32">32px</option>
+											<option value="34">34px</option>
+											<option value="36">36px</option>
+											<option value="38">38px</option>
+											<option value="40">40px</option>
+											<option value="42">42px</option>
+											<option value="44">44px</option>
+											<option value="46">46px</option>
+											<option value="48">48px</option>
+											<option value="50">50px</option>
+											<option value="52">52px</option>
+											<option value="54">54px</option>
+											<option value="56">56px</option>
+											<option value="58">58px</option>
+											<option value="60">60px</option>
+										</select>
+									</div>
+									<div class="tittleSet textSty textStyBold">
+										<div id="subStyBold" class=""></div>
+									</div>
+									<div class="tittleSet textSty textStyItalic">
+										<div id="subStyItalic" class=""></div>
+									</div>
+									<div class="tittleSet textSty textStyUnderline">
+										<div id="subStyUnderline" class=""></div>
+									</div>
+									<div class="tittleSet">
+										<input class="subColorPicker" type="text" value=""/>
+									</div>
+								</div>
+								<div class="edit-item  edit-head">
+									<textarea class="p5" id="subTitle" placeholder="副标题" maxlength="30"></textarea>
+								</div>
+							</div>
+						</div>
+						<div id="tabThree" style="display: none;">
+							<div class="edit-module">
+								<div class="mouseCoverMain fb mt15">跳转设置</div>
+								<div class="edit-item mainShow picDisSet">
+									<div class="mainShowTab">跳转方式：</div>
+									<div class="mainShowTabText">
+										<input type="radio" id="jumpMode1" name="jumpMode" value="1">
+										<label for="jumpMode1">不跳转</label>
+										<input type="radio" id="jumpMode2" name="jumpMode" value="2">
+										<label for="jumpMode2">自定义链接</label>
+									</div>
+								</div>
+								<div class="picDisSet">
+									<div class="edit-item mainShow picDisSet2" style="display: none;">
+										<div class="mainShowTab">链接地址：</div>
+										<input type="text" id="titleUrl" class="DisSet2" value=""/>
+										<div class="mainShowTab">（以http://开头）</div>
+									<!--<a class="add-one btn-style-1 fl mt5 ml5">设置连接</a>  -->	
+										<div class="mainShowTab">打开方式：</div>
+										<select id="titleOpenWay">
+											<option value="_self">当前窗口</option>
+											<option value="_blank">新窗口</option>
+										</select>
+									</div>
+								</div>
+							<!-- 	<div class="edit-item mainShow">
+									<div class="mainShowTab">网站标题：</div>
+									<div>
+										<label class="h23">
+											<input type="checkbox" id="titleFix"/>固定在顶部</label>
+									</div>
+								</div> -->
+								<div id="logoIsShow">
+								<div class="mouseCoverMain fb mt15">网站LOGO</div>
+								<div class="edit-item mainShow">
+									<div class="mainShowTab">图片尺寸：</div>
+									<div class="mainShowTabText">
+										宽：
+										<input type="text" id="logoWidth" class="w30" onblur="checkLogoWidth()"/> 高：
+										<input type="text" id="logoHeight" class="w30" onblur="checkLogoHeight()" />
+									</div>
+								</div>
+								<div class="edit-item mainShow">
+									<div class="mainShowTab">图片位置：</div>
+									<div class="mainShowTabText">
+										左：
+										<input type="text" class="w30" id="logoLeft" onblur="checkLogoLeft()"/> 上：
+										<input type="text" class="w30" id="logoTop" onblur="checkLogoTop()"/>
+									</div>
+								</div>
+								<div class="edit-item mainShow">
+									<div class="mainShowTab">图片描述：</div>
+									<div class="mainShowTabText">
+										<input type="text" class="w150" id="logoDesc"/>
+									</div>
+								</div>
+								<div class="edit-item mainShow picDisSet">
+									<div class="mainShowTab">跳转方式：</div>
+									<div class="mainShowTabText">
+										<input type="radio" id="logojumpMode1" name="logojumpMode" value="1">
+										<label for="logojumpMode1">不跳转</label>
+										<input type="radio" id="logojumpMode2" name="logojumpMode" value="2">
+										<label for="logojumpMode2">自定义链接</label>
+									</div>
+								</div>
+								<div class="picDisSet">
+									<div class="edit-item mainShow logoDisSet2" style="display: none;">
+										<div class="mainShowTab">链接地址：</div>
+										<input type="text" id="logoUrl" class="linkAddress" />
+										<div class="mainShowTab">（以http://开头）</div>
+										<!-- <a class="add-one btn-style-1 fl mt5 ml5">设置连接</a> -->
+										<div class="mainShowTab">打开方式：</div>
+										<select id="logoOpenWay">
+											<option value="_self">当前窗口</option>
+											<option value="_blank">新窗口</option>
+										</select>
+									</div>
+								</div>
+							<!-- 	<div class="edit-item mainShow">
+									<div class="mainShowTab">网站LOGO：</div>
+									<div>
+										<label class="h23">
+											<input type="checkbox" id="logoFix" />固定在顶部</label>
+									</div>
+								</div> -->
+								</div>
+								<script>
+									$(function() {
+										$('#picDis1').click(function() {
+											$(".picDisSet").show();
+										})
+										$('#picDis2').click(function() {
+											$(".picDisSet").hide();
+										})
+										$('#paging1').click(function() {
+											$("#paging1Set").show();
+											$("#paging2Set").hide();
+										})
+										$('#paging2').click(function() {
+											$("#paging2Set").show();
+											$("#paging1Set").hide();
+										})
+										$('#jumpMode1').click(function() {
+											$(".picDisSet1").show();
+											$(".picDisSet2").hide();
+										})
+										$('#jumpMode2').click(function() {
+											$(".picDisSet2").show();
+											$(".picDisSet1").hide();
+										})
+										$('#logojumpMode1').click(function() {
+											$(".logoDisSet1").show();
+											$(".logoDisSet2").hide();
+										})
+										$('#logojumpMode2').click(function() {
+											$(".logoDisSet2").show();
+											$(".logoDisSet1").hide();
+										})
+									})
+								</script>
+							</div>
+						</div>
+						<div id="tabFour" style="display: none;">
+							<div class="edit-module">
+								<div class="edit-item  edit-head pL0">
+									<div class="editDisplay w75">显示LOGO：</div>
+									<div class="fl">
+										<label class="curs">
+											<input type="radio" class="DisplayLogo" name="logo" id="logoy" value="1"/>是</label>
+										<label class="curs">
+											<input type="radio" class="DisplayLogo" name="logo" id="logon" value="0"/>否</label>
+									</div>
+								</div>
+								<div class="edit-item pL0" id="addPic">
+									<div class="editDisplay w75">LOGO：</div>
+									<div class="fl">
+										<input type="hidden" name="pictureUrl" id="pictureUrl" value="">
+										<a class="add-one btn-style-1 fl" onclick="selectPic()">添加图片</a>
+										<a id="seeMore" target="_blank" class="seeMore" href="#">查看</a>
+									</div>
+								</div>
+								<div class="edit-item pL0" id="logoImg">
+									<div class="editDisplay w75">&nbsp;</div>
+									<div class="fl logoImg">
+										<img id="showImage" src="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<p class="opt-footer ctset-opt-footer">
+				<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+				<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+			</p>
+			<script type="text/javascript">
+				$(function() {
+					//Tab页事件begin
+					$('#titleOne').click(function() {
+						$(this).addClass('selected');
+						$(this).siblings().removeClass('selected');
+						$("#tabOne").show();
+						$("#tabTwo").hide();
+						$("#tabThree").hide();
+						$("#tabFour").hide();
+					})
+					$('#titleTwo').click(function() {
+						$(this).addClass('selected');
+						$(this).siblings().removeClass('selected');
+						$("#tabTwo").show();
+						$("#tabOne").hide();
+						$("#tabThree").hide();
+						$("#tabFour").hide();
+					})
+					$('#titleThree').click(function() {
+						$(this).addClass('selected');
+						$(this).siblings().removeClass('selected');
+						$("#tabThree").show();
+						$("#tabOne").hide();
+						$("#tabTwo").hide();
+						$("#tabFour").hide();
+					})
+					$('#titleFour').click(function() {
+						$(this).addClass('selected');
+						$(this).siblings().removeClass('selected');
+						$("#tabFour").show();
+						$("#tabOne").hide();
+						$("#tabTwo").hide();
+						$("#tabThree").hide();
+					})
+					$('#logoy').click(function() {
+						$("#logoImg").show();
+						$("#addPic").show();
+						$("#logoIsShow").show();
+					})
+					$('#logon').click(function() {
+							$("#logoImg").hide();
+							$("#addPic").hide();
+							$("#logoIsShow").hide();
+						})
+						//加粗、斜体 下划线事件begin
+					$('.textSty').find('div').click(function() {
+						var $this = $(this);
+						if ($this.hasClass('active')) {
+							$this.removeClass('active');
+						} else {
+							$this.addClass('active');
+						}
+					});
+				})
+			</script>
+		</div>
+
+</body>
+</html>

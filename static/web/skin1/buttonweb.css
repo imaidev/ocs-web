@@ -1,0 +1,23 @@
+                        .button {
+						border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+						-webkit-border-radius: 2px;
+						-moz-border-radius: 2px;
+						border-radius: 2px;
+						color: #fff;
+						cursor: pointer;
+						display: inline-block;
+						font-weight: bold;
+						line-height: 1;
+						overflow: visible;
+						padding: 5px 15px;
+						position: relative;
+						text-decoration: none;
+						text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+						font-size: 1.2em;
+						background-image: linear-gradient(bottom, #f96b28 100%, #f7a134 0%);
+						background-image: -moz-linear-gradient(top, #f96b28,#f96b28,#f7a134,#f7a134);
+						background-image: -webkit-gradient(linear, left top, left bottom, from(#f7a134), to(#f96b28));
+						}
+										
+						
+					

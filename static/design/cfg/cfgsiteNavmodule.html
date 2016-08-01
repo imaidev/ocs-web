@@ -1,0 +1,26 @@
+<div class="modal-dialog" role="document">
+	<div class="modal-content" style="width: 760px;height: 560px;padding: 5px;">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">×</span>
+			</button>
+			<h4 class="modal-title" id="H2">顶部功能区</h4>
+		</div>
+		<iframe id="listsIframe" name="listsIframe" scrolling="no" frameborder="0"
+				width="750px;" height="500px;" src='/static/design/cfg/cfgsiteNavmoduleiframe.html'></iframe>
+	</div>
+</div>
+
+<script>
+		// Tab页布局配置信息
+		var _$module;
+		var _cfg;
+		function cfgRead($selEl) {
+			_$module = $selEl;
+			_cfg = _$module.videoplayer('config');
+		}
+		
+        function cfgClose(){
+        	$("#CfgModal").modal('hide');
+        }
+</script>

@@ -1,0 +1,5 @@
+/****店铺首页头部****/
+.shopHead{background:#e4e4e4;}
+.shopHead div.headAll{display:block; height:auto; position:relative;}
+.shopHead div.headAll div.backP{background:url(/static/design/img/shopboard.jpg);background-size: contain;width:1210px; height:120px;}
+.shopHead div.headAll h2.word{position:absolute; top:33px; left:50px;font-family:KaiTi;font-size:24px; color:#fff; font-weight:bold;}

@@ -1,0 +1,73 @@
+/*公用样式部分*/
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td,header,footer,section,article,nav{padding:0;margin:0 }
+article,aside,dialog,footer,header,section,nav,figure,menu{display:block;}
+h1, h2, h3, h4, h5, h6 {font-weight: normal;font-size: 100%;}
+table, td, tr, th {font-size:12px }
+li{list-style-type:none }
+table { border-collapse:collapse;  border:0 none;  border-spacing:0; margin:0 auto;}
+img,body,html{border:0 none }
+ol, ul{list-style:none }
+pre{white-space:pre-wrap; /* css3.0 */white-space:-moz-pre-wrap; /* Firefox */white-space:-pre-wrap; /* Opera 4-6 */white-space:-o-pre-wrap; /* Opera 7 */word-wrap:break-word; /* Internet Explorer 5.5+ */}
+caption, th{text-align:left }
+select {border: 1px solid #BDC7D8;margin-right: 5px}
+em{color:#999;font-family: Tahoma, Verdana, helvetica;font-size: 12px;font-style: normal;white-space: nowrap}
+strong { font-weight:bold; }
+abbr, acronym {border:0;}
+address, caption, cite, code, dfn, em, th, var {font-weight:normal;font-style:normal }
+textarea{resize:none;}
+a{cursor:pointer;}
+/*主文字字体以及颜色*/
+body{font:12px/1.5 "Microsoft YaHei",Arial,Helvetica,sans-serif,Simsun;color:#444;}
+
+/*超链接设置*/
+a:link {text-decoration:none }
+a:visited {text-decoration:none }
+a:hover{text-decoration:underline }
+/*主连接颜色*/
+a,.m-link a,a.m-link{ color:#0078B6 }
+/*次连接颜色*/
+.sub-link a,a.sub-link{ color:#9abbc8 }
+/*主文字颜色，没设置次要的文字颜色。有些情况下m-text有用*/
+.m-text{color:#444}
+
+.icons { background: url("img/icons.png") no-repeat; }
+
+#sitemap {
+	height: 30px;
+	line-height: 30px;
+	padding: 6px 0 5px;
+}
+#sitemap .smtitle, #sitemap a{
+	color: #666;
+	font-size: 12px;
+}
+#sitemap .smtitle {
+	padding-left: 21px;
+	background-position: 0 0;
+}
+#sitemap .smspace {
+	display: inline-block;
+	width: 16px;
+	height: 12px;
+	background-position: 0 -16px;
+	margin: 0 3px;
+}
+.user_act_btn {
+	width:auto;
+	height:30px;
+	display:inline-block;
+}
+.user_act_btn.do{
+	background-color:#FF5F3D;
+	color: #fff;
+}
+.user_act_btn.back{
+	background-color:#e5e5e5;
+	color:#333;
+}
+.user_act_btn span{
+	font-size: 15px;
+	line-height: 30px;
+	display: inline-block;
+	margin: 0 8px;
+}

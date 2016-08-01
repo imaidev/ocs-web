@@ -1,0 +1,35 @@
+.contain-new .panel{
+	width:75%;
+	min-width:800px;
+}
+.form-signup-body{
+	width: 820px;
+	margin: 10px auto;
+}
+
+.form-body dl.remindset-dl{
+	padding:0;
+	width:100%;
+}
+.form-body dl.remindset-dl dd{
+	text-align: center;
+	width: 625px;
+	margin-top: 30px;
+	width: 100%;
+}
+.m_sum.m_contain{
+	margin: 0 auto;
+}
+.alM{
+	width:24px;
+	height:24px;
+	vertical-align: middle;
+}
+.photo-contain{
+	width:750px;
+	margin: 0 auto;
+}
+.authen-out-contain{
+	width:820px;
+	margin: 0 auto;
+}

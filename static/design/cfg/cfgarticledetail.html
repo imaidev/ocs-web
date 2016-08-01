@@ -1,0 +1,29 @@
+<div class="modal-dialog" role="document" style="width:502px;">
+		<div class="modal-content">
+				<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="H2">文章详情</h4>
+				</div>
+				<iframe id="listsIframe" name="listsIframe" scrolling="no" frameborder="0"
+						width="500px;" height="235px;" ></iframe>
+		</div>
+</div>
+
+<script>
+		var _$module;
+		var _moduleCfg;
+		// 文章内容配置信息
+		function cfgRead($selEl) {
+				_$module = $selEl;
+				_moduleCfg = _$module.articlecatagory('config');
+				$("#listsIframe").attr("src", ctx + "/design/article/ArticleDetailEdit.htm?random="+Math.random());
+		}
+		
+		// 关闭窗口
+		function cfgClose(){
+    		$("#CfgModal").modal('hide');
+    }
+</script>

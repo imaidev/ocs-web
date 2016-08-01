@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+
+<title>上传文件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ 
+<script src="/ecv6/skins/js/multiupload/flash/jquery-1.7.1.min.js" type="text/javascript"></script>
+ 
+<script type="text/javascript"	src="/ecv6/skin/js/kindeditor/kindeditorPi.js"></script>
+</head>
+<body style="width:1600px;height:740px;">
+	
+									  <div id="kindeditor">
+                                      <textarea name="detailDesc" id="detailDesc" rows="30" cols="80" >  </textarea>
+                                  </div>
+	
+ 
+	
+ 
+	
+ 
+</body>
+<script type="text/javascript">
+ 
+ 
+ 
+ 
+var g_file_sep = "/";
+var theMarks="#3C";
+var theMarks1="#3E";
+var editor=KE.show( { 
+	id : 'detailDesc',
+	imagePath : 'upload'+g_file_sep+'item'+g_file_sep+'images',
+	flashPath : 'upload'+g_file_sep+'item'+g_file_sep+'flashs',
+	videoPath : 'upload'+g_file_sep+'item'+g_file_sep+'videos',
+	imageUploadJson : '/ecv6/skins/js/kindeditor/jsp/upload_json.jsp',
+	fileManagerJson : '/ecv6/skins/js/kindeditor/jsp/file_manager_json.jsp',
+	allowFileManager : true,
+	height:'400',
+	afterCreate : function(id) {
+		KE.util.setData(id);
+	}
+}); 
+</script>
+</html>

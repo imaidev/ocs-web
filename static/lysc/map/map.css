@@ -1,0 +1,329 @@
+#mapcontainer {
+	/**float: right;
+	width: 899px;*/
+	height: 518px;
+	font-family: "宋体";
+}
+
+.info {
+	border: solid 1px silver;
+	min-height:135px;
+	width: 400px;
+}
+
+div.info-top {
+	position: relative;
+	background: none repeat scroll 0 0 #F9F9F9;
+	border-bottom: 1px solid #CCC;
+	border-radius: 5px 5px 0 0;
+}
+
+div.info-top div {
+	display: inline-block;
+	color: #333333;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 31px;
+	padding: 0 10px;
+}
+
+div.info-top img {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	transition-duration: 0.25s;
+}
+
+div.info-top img:hover {
+	box-shadow: 0px 0px 5px #000;
+}
+
+div.info-middle {
+	font-size: 12px;
+	padding: 10px;
+	line-height: 20px;
+	overflow:hidden;
+}
+
+div.info-bottom {
+	height: 0px;
+	width: 100%;
+	clear: both;
+	text-align: center;
+}
+
+div.info-bottom img {
+	position: relative;
+	z-index: 104; top:3px;
+}
+
+
+.info-middle img {
+	float: left;
+	margin-right: 20px;
+}
+/**市场地图总页 ---开始**/
+a:hover{text-decoration:none;}
+a {color:#337ab7;}
+.searchBox{
+	position: absolute;
+	left: 15px;
+	top: 25px;
+	z-index: 2201;
+	width: 350px;
+	height: 45px;
+	background: #fff;
+	box-shadow: 1px 2px 1px rgba(0,0,0,.1);
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.searchBox img{
+	margin: 6px 0 0 15px;
+	cursor: pointer;
+}
+.searchBox .iptbox {
+	left: 50px;
+	width: 250px;
+	z-index: 2202;
+	border-radius: 2px;
+	top: 6px;
+	height: 34px;
+	position: absolute;
+}
+.searchBox #searchipt {
+	position: absolute;
+	top: 8px;
+	left: 5px;
+	text-indent: 8px;
+	z-index: 2200;
+	border: none;
+	width: 210px;
+	height: 20px;
+	line-height: 20px;
+	padding: 0;
+	letter-spacing: .5px;
+	border-right: 1px solid #ccc;
+}
+.searchBox .iptbox #searchbtn{
+	position: absolute;
+	right: 0;
+	top: 10px;
+	z-index: 9308;
+	width: 24px;
+	height: 24px;
+}
+.searchBox .iptbox #searchbtn .searchlogo{
+	color: #CCC;
+	font-size: 16px;
+	cursor: pointer;
+}
+.searchBox .iptbox #searchbtn .searchlogo:hover{
+	color: #70b9f9;
+}
+.searchBox .resizeBtn{
+	width: 49px;
+	height: 43px;
+	background-color: #3385ff;
+	color: #fff;
+	float: right;
+	cursor: pointer;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 24px;
+	line-height: 44px;
+	right: 1px;
+}
+.searchBox .resizeBtn:hover{
+	background-color: #2e77e5;
+}
+.serp-box-con,.search-result {
+	width: 300px;
+	position: absolute;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	z-index: 5000;
+	left: 15px;
+	top: 73px;
+	border-top: 1px solid #fff;
+	overflow: hidden;
+}
+.search-result{height: 90%}
+.serp-box-con .serp-box, .search-result .serp-box{
+	width: 100%;
+	margin-bottom: 8px;
+	overflow: hidden;
+	background: #fff;
+	box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+   /* border: 1px solid #ccc;*/
+    padding: 30px 0 20px 10px;
+}
+.search-result .serp-box{
+	padding-top: 10px;
+}
+.serp-box-con .serp-box li{
+	font-size: 16px;
+	display: block;
+	height: 36px;
+	line-height: 36px;
+	cursor: pointer;
+	position: relative;
+}
+.serp-box-con .serp-box li>img{
+	margin-left: 10px;
+}
+.serp-box-con .serp-box li span{
+	margin-left: 5px;
+}
+.serp-box-con .serp-box li i{
+	left: 265px;
+	color: #FFF;
+	position: absolute;
+	top: 10px;
+}
+.serp-box-con .serp-box li.active{
+	color: #2997c3;
+	font-weight: bold;
+}
+.serp-box-con .serp-box li.active i{
+	color: #2997c3;
+}
+
+.menu-cont{
+	position: absolute;
+	left: 303px;
+	top: -1px;
+	background-color: #fff;
+}
+.menu-cont .menu-cont-list{
+	border: 1px solid #ccc;
+	padding: 5px 15px;
+	width: 182px;
+}
+.menu-cont .menu-cont-list li{
+	padding: 3px 5px;
+	cursor: pointer;
+}
+.menu-cont .menu-cont-list li.list_master{
+	color: #b61906;
+	font-size: 15px;
+}
+.changeMap a{
+	background: url(../images/viewmapbg1.png) no-repeat;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100px;
+	height: 100px;
+	z-index: 1001;
+}
+.search-result .serp-box .goBack{
+    margin-left: 15px;
+    margin-right: 15px;
+    border-bottom: 1px solid #CCC;
+    height: 30px;
+}
+.search-result .serp-box .goBack i,
+.search-result .serp-box .goBack label{
+    cursor: pointer;
+}
+.search-result .serp-box .search_item{
+    margin: 10px 15px;
+    overflow-y: auto;
+    height: 82%;
+	border-bottom: 1px solid #CCC;
+}
+.search-result .serp-box .search_item li{
+    position: relative;
+    border-top: 1px solid rgb(234, 234, 234);
+    padding: 3px 0;
+	cursor: pointer;
+}
+.search-result .serp-box .search_item li:hover{
+	background-color: #f6f6f6;
+}
+.search-result .serp-box .search_item li:first-child{
+	border-width: 0;
+}
+.search-result .serp-box .search_item i{
+    display: block;
+    width: 19px;
+    height: 33px;
+    background: url(../images/newpoi.png) no-repeat;
+    position: absolute;
+}
+.search-result .serp-box .search_item i.search_item01{
+	background-position: -107px -120px;
+}
+.search-result .serp-box .search_item i.search_item02{
+	background-position: -172px -120px;
+}
+.search-result .serp-box .search_item i.search_item03{
+	background-position: -237px -120px;
+}
+.search-result .serp-box .search_item i.search_item04{
+	background-position: -302px -120px;
+}
+.search-result .serp-box .search_item i.search_item05{
+	background-position: -366px -120px;
+}
+.search-result .serp-box .search_item i.search_item06{
+	background-position: -431px -120px;
+}
+.search-result .serp-box .search_item i.search_item07{
+	background-position: -496px -120px;
+}
+.search-result .serp-box .search_item i.search_item08{
+	background-position: -561px -120px;
+}
+
+.search-result .serp-box .search_item h3{
+    overflow: hidden;
+    margin: 0 0 5px 40px;
+}
+.search-result .serp-box .search_item .poi-info{
+    margin: 5px 0 5px 40px;
+    overflow: hidden;
+}
+.search-result .serp-box .search_item .poi-info p {
+    color:#999;
+    font-size: 13px;
+    margin: 0;
+}
+#pagin_btm, .pagin_btm{
+    padding: 0px;
+}
+.infor_inner img{
+	float: left;
+}
+.infor_inner .infor_inner_text{
+	float: right;
+	padding: 10px 5px 5px;
+}
+.infor_inner .infor_inner_text h3{
+	font-size: 15px;
+	max-width: 213px;
+	color: #333;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	float: left;
+}
+.infor_inner .infor_inner_text a{
+	float: right;
+}
+.infor_inner .infor_inner_text p{
+	margin-top: 6px;
+	font-size: 13px;
+	max-width: 273px;
+	word-wrap: break-word;
+	color: #666;
+	clear: both;
+}
+.infor_inner .infor_inner_text .infor_inner_header{
+	border-bottom: 1px solid #CCCCCC;
+	height: 25px;
+}
+/**市场地图总页 ---结束**/

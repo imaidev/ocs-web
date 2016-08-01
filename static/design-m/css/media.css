@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+@media ( max-width :320px) {
+	html {
+		font-size: 625%;
+	}
+}
+
+@media ( min-width :321px) and (max-width:384px) {
+	html {
+		font-size: 750%;
+	}
+}
+
+@media ( min-width :385px) and (max-width:480px) {
+	html {
+		font-size: 937.5%;
+	}
+}
+
+@media ( min-width :481px) {
+	html {
+		font-size: 1250%;
+	}
+}

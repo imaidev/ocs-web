@@ -1,0 +1,351 @@
+@charset "utf-8";
+/* CSS Document */
+#comment {
+	width: 1000px;
+	overflow: hidden;
+}
+
+.commentCon {
+	width: 100%;
+	overflow: hidden;
+	padding-bottom: 10px;
+}
+
+.commentTitle2 {
+	width: 100%;
+	overflow: hidden;
+	font-family: "\5B8B\4F53", "SimSun";
+	font-size: 12px;
+}
+
+.commentTitle2 dt {
+	padding-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.commentTitle2 dd {
+	background-color: #fafafa;
+	padding-left: 10px;
+	overflow: hidden;
+	border-bottom: 1px solid #cbcbcb;
+}
+
+#comment .commentTitle {
+	width: 1200px;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+	text-align: left;
+	font-size: 12px;
+	font-family: "\5B8B\4F53", "SimSun";
+}
+
+#comment .commentLeft {
+	font-family: "\5B8B\4F53", "SimSun";
+	font-size: 12px;
+	width: 176px;
+	border: 2px solid #3E7AC2;
+	color: #333333;
+	float: left;
+	margin-top: 10px;
+}
+
+#comment .commentLeft .dt {
+	display: none;
+	overflow: hidden;
+	width: 196px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: left;
+	padding-left: 10px;
+	font-size: 12px;
+	font-family: "\5B8B\4F53", "SimSun";
+	background-color: #ff9933;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+#comment .commentLeft .dd {
+	position: relative;
+	clear: both;
+	padding: 0 10px;
+}
+
+#comment .commentLeft .pImg {
+	display: block;
+	overflow: hidden;
+	margin: 15px auto;
+	width: 100px;
+	height: 100px;
+}
+
+#comment .commentLeft .pName {
+	font-family: "\5B8B\4F53", "SimSun";
+	color: #333333;
+	margin: 5px 0;
+}
+
+#comment .commentLeft .pPrice {
+	overflow: hidden;
+	margin: 5px 0;
+}
+
+#comment .commentLeft .grade {
+	overflow: hidden;
+	margin: 5px 0;
+}
+
+#comment .commentLeft .grade div {
+	float: left;
+	overflow: hidden;
+}
+
+#comment .commentLeft .amount {
+	overflow: hidden;
+	margin: 5px 0;
+}
+
+#comment .commentLeft .addCart {
+	position: relative;
+	display: block;
+	background: url(../images/items/commentBtn01.jpg) no-repeat center
+		center;
+	width: 106px;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 14px;
+	color: #6a430f;
+	margin: 15px auto;
+}
+
+#comment {
+	font-family: "\5B8B\4F53", "SimSun";
+	font-size: 12px;
+}
+
+#comment   dt {
+	padding-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+	background-color: #F5F3F3;
+	border-top:  1px solid #cbcbcb;
+}
+
+#comment   dd {
+	padding-left: 10px;
+	overflow: hidden;
+	margin-top: 10px;
+	border-bottom: 1px solid #cbcbcb;
+}
+
+#comment   dd a {
+	overflow: hidden;
+	display: block;
+	background: url(../images/items/commentBtn01.jpg) no-repeat center
+		center;
+	width: 80px;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 14px;
+	color: #6a430f;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#comment   dd li {
+	float: left;
+	overflow: hidden;
+	width: 135px;
+}
+
+#comment   dd li div {
+	float: left;
+}
+
+#comment   dd .commentDt {
+	font-size: 14px;
+	color: #000;
+	font-weight: bold;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+#comment   dd .commentDd {
+	overflow: hidden;
+	margin: 15px 0;
+	padding-left: 10px;
+	vertical-align: middle;
+}
+
+#comment   dd .commentDd input {
+	width: 500px;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+#comment   dd .commentDd textarea {
+	padding: 5px;
+	float: left;
+	display: block;
+	width: 500px;
+	height: 90px;
+	overflow-x: none;
+	overflow-y: scroll;
+}
+
+/*评价详情detail*/
+.detailLeft {
+	float: left;
+	margin-top: 10px;
+	font-family: "\5B8B\4F53", "SimSun";
+	color: #333333;
+	width: 125px;
+	overflow: hidden;
+	text-align: center;
+	line-height: 20px;
+}
+
+.detailLeft .dImg {
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	margin: 15px auto 5px auto;
+}
+
+.detailLeft .dNickname {
+	color: #005AA0;
+}
+
+.detailRight {
+	margin-top: 10px;
+	float: left;
+	font-family: "\5B8B\4F53", "SimSun";
+	color: #333333;
+	width: 680px;
+	overflow: hidden;
+}
+
+.detailRight .cDetail {
+	width: 670px;
+	overflow: hidden;
+	border: 1px solid #cbcbcb;
+	background-color: #EDF4FA;
+}
+
+.detailRight .dTitle {
+	padding-top: 10px;
+	height: 20px;
+	width: 650px;
+	padding-left: 7px;
+	border-bottom: 1px solid #cbcbcb;
+	margin: 0 auto;
+}
+
+.detailRight .dTitle div {
+	float: left;
+}
+
+.detailRight .dReply {
+	margin-top: 20px;
+	background-color: #F7F7F7;
+	width: 670px;
+	overflow: hidden;
+	border: 1px solid #cbcbcb;
+	padding: 15px 20px;
+}
+
+.detailRight .dReply textarea {
+	display: block;
+	width: 600px;
+	height: 100px;
+	overflow-y: scroll;
+	overflow-x: none;
+	background-color: #ffffff;
+	padding: 5px;
+	margin-top: 5px;
+}
+
+.detailRight .dContent {
+	overflow: hidden;
+	min-height: 100px;
+	border-bottom: 1px dashed #cbcbcb;
+}
+
+#j_cartinfo {
+	display: none;
+	overflow: hidden;
+	border: 1px solid #e85d02;
+	width: 375px;
+	height: 130px;
+	position: absolute;
+	z-index: 22;
+	left: -2px;
+	top: 230px;
+	background-color: #fff4d7;
+}
+
+.share {
+	line-height: 24px;
+	vertical-align: middle;
+	height: 24px;
+	margin-top: 5px;
+	overflow: hidden;
+	float: left;
+}
+
+#j_cartinfo .close {
+	cursor: pointer;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 60px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+#j_cartinfo .success {
+	background: url(../images/item_detail/success01.jpg) center 20px
+		no-repeat;
+	float: left;
+	height: 130px;
+	width: 80px;
+}
+
+#j_cartinfo .msg {
+	margin-top: 20px;
+	float: left
+}
+
+#j_cartinfo .msg li {
+	height: 35px;
+	line-height: 35px;
+	vertical-align: middle;
+}
+
+#j_cartinfo .msg li a {
+	display: block;
+	float: left;
+	margin-right: 20px;
+	height: 35px;
+	line-height: 35px;
+	vertical-align: middle;
+}

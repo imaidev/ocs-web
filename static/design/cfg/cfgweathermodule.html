@@ -1,0 +1,147 @@
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">天气信息</h4>
+        </div>
+        <div class="content">
+            <div class="panels">
+                <div class="panel display-set">
+                    <form class="form-default">
+                        <div class="control-group4">
+                            <label class="group-title">显示标题：</label>
+                            <input name="showTitle" class="radio J_TNotShowTitle" type="radio" value="" onchange="changeTitleShow('0')">不显示
+							<input name="showTitle" class="radio J_TShowTitle" type="radio" checked="checked" value="" onchange="changeTitleShow('1')"> 显示 
+							<input name="title" class="J_TTitleInput input-box title-input" style="display: inline-block;" type="text" maxlength="12" value="天气信息" autocomplete="off">
+                        </div>
+                        <div class="control-group4">
+                            <label class="group-title">选择城市：</label>
+                            <input id="choiceCity0" class="radio" type="radio" name="choiceCity" value="0" onchange="chooseCity()">  访客所在城市
+                        </div>
+                        <div style="width: 578px;">
+                            <table style="border-spacing: 14px; border-collapse: separate; text-align: center;">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div style="border: 1px solid #d9d7d7;" onclick="$('#ws1')[0].click();">
+                                                <img src="/static/design/img/weather1.png" style="width:170px"></div>
+                                        </td>
+                                        <td>
+                                            <div style="border: 1px solid #d9d7d7;" onclick="$('#ws2')[0].click();">
+                                                <img src="/static/design/img/weather2.png" style="width:170px"></div>
+                                        </td>
+                                        <td>
+                                            <div style="border: 1px solid #d9d7d7;" onclick="$('#ws3')[0].click();">
+                                                <img src="/static/design/img/weather3.png" style="width:169px"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="radio" class="radio" value="1" name="weatherStyle" id="ws1">
+                                            <span class="curP" onclick="$('#ws1')[0].click();">天气样式一</span>
+                                        </td>
+                                        <td>
+                                            <input type="radio" class="radio" value="2" name="weatherStyle" id="ws2">
+                                            <span class="curP" onclick="$('#ws2')[0].click();">天气样式二</span>
+                                        </td>
+                                        <td>
+                                            <input type="radio" class="radio" value="3" name="weatherStyle" id="ws3">
+                                            <span class="curP" onclick="$('#ws3')[0].click();">天气样式三</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </form>
+                </div>
+                <p class="opt-footer">
+                            <a class="btn-ok J_SubmitButton" onclick="cfgSet();">保存</a>
+                            <a class="btn-cancel J_CancelButton" onclick="cfgClose();">取消</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function cfgRead($selEl) {
+        $module = $selEl;
+        _cfg = $module.weathermodule('config');
+        $(".title-input").val($module.find(".weatherTitle")[0].innerHTML);
+
+        //是否显示标题
+        var isShowTitle = $module.find("#weatherTitle").val();
+        if ("true" == isShowTitle) {
+            $(".J_TShowTitle").val("true");
+            $(".J_TShowTitle")[0].checked = true;
+            $(".J_TNotShowTitle").val("false");
+            $(".J_TNotShowTitle")[0].checked = false;
+        } else {
+            $(".J_TNotShowTitle").val("true");
+            $(".J_TNotShowTitle")[0].checked = true;
+            $(".J_TShowTitle").val("false");
+            $(".J_TShowTitle")[0].checked = false;
+        }
+
+        //天气样式 
+        var ws = _cfg.weatherStyle;
+        if ("1" == ws) {
+            $("#ws1")[0].click();
+        } else if ("2" == ws) {
+            $("#ws2")[0].click();
+        } else {
+            $("#ws3")[0].click();
+        }
+        //指定城市 
+        var cs = _cfg.cityBlock;
+        if ("1" == cs) {
+            $('#choiceCity1')[0].click();
+            $(".cityBlock").css("display", "block");
+        } else {
+            $('#choiceCity0')[0].click();
+            $(".cityBlock").css("display", "none");
+        }
+
+    }
+
+    function cfgClose() {
+        $("#CfgModal").modal('hide');
+    }
+
+    // 保存设置
+    function cfgSet() {
+        $module.find(".weatherTitle")[0].innerHTML = $(".title-input").val();
+
+        if ("true" == $(".J_TShowTitle").val()) {
+            $module.find("#weatherTitle").val("true");
+            $module.find(".title-box").css("display", "block");
+        } else {
+            $module.find("#weatherTitle").val("false");
+            $module.find(".title-box").css("display", "none");
+        }
+
+        //组件更新
+        var o = {
+            weatherStyle: $("input[name='weatherStyle']:checked").val(),
+            cityBlock: $("input[name='choiceCity']:checked").val()
+        }
+        $module.weathermodule('reset', o);
+
+        //关闭配置框
+        $("#CfgModal").modal('hide');
+    }
+
+    function changeTitleShow(opt) {
+        if ("1" == opt) {
+            $(".J_TShowTitle").val("true");
+            $(".J_TNotShowTitle").val("false");
+        } else {
+            $(".J_TNotShowTitle").val("true");
+            $(".J_TShowTitle").val("false");
+        }
+    }
+</script>

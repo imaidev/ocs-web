@@ -1,0 +1,8 @@
+﻿@charset "utf-8";
+
+.anchorM {display:block;visibility: hidden; height: 0px;}
+.edit .row .anchorM {display:block;visibility: visible; height: 50px;margin:1px; border: 2px dashed #DDDDDD; border-radius: 4px 0 4px 0; text-align:center;line-height: 50px;font-size: 12px;color: #9DA0A4;}
+
+
+
+

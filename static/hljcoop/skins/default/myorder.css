@@ -1,0 +1,674 @@
+@charset "utf-8";
+
+#integral_list th {
+	vertical-align: middle !important;
+	line-height: 35px;
+	font-weight: bold;
+}
+
+#expandBtn {
+	background: url(../images/items/show.jpg) no-repeat;
+	display: block;
+	float: right;
+	margin-right: 25px;
+	height: 20px;
+	width: 47px;
+	margin-top: 10px;
+}
+
+#pickUp {
+	background: url(../images/items/hide.jpg) no-repeat;
+	display: block;
+	float: right;
+	margin-right: 25px;
+	height: 20px;
+	width: 47px;
+	margin-top: 10px;
+}
+
+.expPick {
+	display: block;
+	float: right;
+	margin-right: 5px;
+	height: 20px;
+	line-height: 20px;
+	vertical-align: middle;
+}
+
+#myOrder {
+	width: 1030px;
+	margin: 0px auto 15px auto;
+	padding: 0px;
+}
+
+/**myOrder**/
+.order_search {
+	width: 980px;
+	height: 45px;
+	float: left;
+}
+
+.order_search select {
+	border: 1px solid #cbcbcb;
+	height: 25px;
+	width: 120px;
+	float: left;
+	margin-left: 20px;
+}
+
+.order_search input {
+	float: left;
+	display: block;
+	height: 22px;
+	width: 160px;
+}
+
+.order_search div {
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+.order_search a {
+	margin-left: 15px;
+	color: #000000;
+	padding: 0 5px;
+	display: block;
+	float: left;
+	width: 48px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	vertical-align: middle;
+	background: url(../images/myorder/query.jpg) no-repeat;
+}
+
+.order_list {
+	font-size: 12px;
+	margin: 0 auto;
+	width: 980px;
+	margin-top:10px;
+	display:block;
+}
+.order_list th {
+	vertical-align: middle;
+	font-weight:bold;
+}
+
+.order_list td {
+	line-height: 25px;
+	vertical-align: middle;
+	text-align: center;
+	padding: 5px 0px;
+}
+
+.order_list td a {
+	line-height: 20px;
+	color: #4598d2;
+}
+
+.order_list td a:hover {
+	text-decoration: underline;
+}
+
+#order_list{
+	margin-left: 1px;
+	border-top: 1px solid #f2f2f2;
+	border-left: 1px solid #f2f2f2;
+	display: inline-table;
+	width:979px;
+}
+#integral_list{
+	display: inline-table;
+	width:980px;
+}
+#order_list td{
+	border-bottom: 1px solid #f2f2f2;
+	border-right: 1px solid #f2f2f2;
+	vertical-align: middle;
+	padding:5px;
+}
+
+#order_list  th {
+	border-bottom: 1px solid #f2f2f2;
+	border-right: 1px solid #f2f2f2;
+	vertical-align: middle;
+	font-weight: bold;
+	height:35px;
+	line-height:35px;
+}
+
+#order_list td a:hover {
+	text-decoration: underline;
+}
+
+.order_items {
+	width: 280px;
+}
+
+.order_items li {
+	border: 1px solid #f2f2f2;
+	display: block;
+	float: left;
+	width: 55px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+#order_center_amount {
+	width: 990px;
+	height: 60px;
+	padding-right: 10px;
+	text-align: right;
+	line-height: 60px;
+	vertical-align: middle;
+}
+
+#special_remarks {
+	line-height: 30px;
+	vertical-align: middle;
+	padding-left: 18px;
+	width: 980px;
+	position: relative;
+	border: 1px solid #cbcbcb;
+	padding-top: 15px;
+}
+
+#special_remarks a {
+	color: #4598d2;
+}
+
+#special_remarks_title {
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: center;
+	background-color: #ffffff;
+	top: -15px;
+	left: 15px;
+	width: 200px;
+	height: 30px;
+	position: absolute;
+}
+/*myorder--end*/
+
+/****order_success*****/
+#submitOrderS {
+	width: 1198px;
+	border: 1px solid #cbcbcb;
+	margin: 0 auto 20px auto;
+}
+
+#submitOrderS .successMsg {
+	height: 130px;
+	background: #F6FDF6 url(../images/myorder/right.gif) no-repeat 30px 40px;
+	clear: both;
+}
+
+#submitOrderS .failMsg {
+	height: 130px;
+	background: #F6FDF6 url(../images/myorder/err.gif) no-repeat 30px 40px;
+	clear: both;
+}
+
+#submitOrderS .msgInfo {
+	margin: 0 auto;
+	width: 910px;
+	height: 70px;
+	line-height: 70px;
+	vertical-align: middle;
+	text-align: left;
+}
+
+#submitOrderS .oneCardPay {
+	width: 910px;
+	border: 1px solid #cbcbcb;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#submitOrderS .oneCardPay .dt {
+	font-size: 14px;
+	font-weight: bold;
+	color: #f66300;
+	font-family: "\5B8B\4F53", "SimSun";
+	height: 35px;
+	line-height: 35px;
+	vertical-align: middle;
+	border-bottom: 1px solid #cbcbcb;
+	padding-left: 10px;
+}
+
+#submitOrderS .oneCardPay .dd {
+	padding: 30px 0 30px 50px;
+	background-color: #FFFDEE;
+	clear: both;
+}
+
+#submitOrderS .oneCardPay .dd a {
+	display: inline-block;
+	padding: 0 15px;
+	height: 40px;
+	line-height: 44px;
+	vertical-align: middle;
+	text-align: center;
+	background: url(../images/myorder/commonBtn01.jpg) no-repeat center
+		center;
+	font-family: "\9ED1\4F53 ", "SimHei";
+	font-size: 18px;
+	color: #6a430f;
+}
+
+#submitOrderS .oneCardPay .dd input {
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+#submitOrderS .bottom {
+	height: 40px;
+	vertical-align: middle;
+	line-height: 40px;
+	background-color: #F6FDF6;
+}
+
+.checkOrderInfoDt {
+	padding-left: 55px;
+	height: 38px;
+	background: url(../images/myorder/fillOrder.jpg) no-repeat left center;
+}
+
+#checkOrderInfo {
+	overflow: hidden;
+	padding-top: 10px;
+	width: 1194px;
+	border: 3px solid #7abddf;
+}
+
+.fillInfo {
+	clear: both;
+	overflow: hidden;
+	background-color: #eff5f8;
+	width: 1150px;
+	margin: 10px auto;
+	border-top: 2px solid #b7d2df;
+	border-bottom: 1px solid #b7d2df;
+	padding-bottom: 10px;
+}
+
+#checkOrderInfo .dt {
+	color: #000000;
+	font-size: 14px;
+	font-weight: bold;
+	font-family: "\5B8B\4F53", "SimSun";
+	padding: 10px 0 5px 10px;
+	text-align: left;
+}
+
+#checkOrderInfo .dd {
+	font-size: 12px;
+	color: #000000;
+	font-family: "\5B8B\4F53", "SimSun ";
+}
+
+.fillInfo .dd .often {
+	margin: 0 auto;
+	overflow: hidden;
+	padding-top: 5px;
+	background-color: #ffffff;
+	border: 1px dashed #cbcbcb;
+	width: 1115px;
+	padding-bottom: 10px;
+}
+
+.fillInfo .dd  .addresses {
+	overflow: hidden;
+	color: #005AA0;
+	width: 1105px;
+	margin: 0 auto;
+	border: 1px dashed #cbcbcb;
+	background-color: #fff4d6;
+}
+
+.fillInfo .dd table tr {
+	line-height: 30px;
+}
+
+.fillInfo .dd a {
+	color: #005aa0;
+}
+
+#checkOrderInfo .proList {
+	clear: both;
+	overflow: hidden;
+	width: 1150px;
+	margin: 10px auto 0 auto;
+	padding-bottom: 10px;
+}
+
+#checkOrderInfo .accounts {
+	clear: both;
+	overflow: hidden;
+	width: 1150px;
+	margin: 0px auto;
+	padding-bottom: 10px;
+}
+
+#checkOrderInfo .accounts .accountsContent {
+	border-top: 2px solid #F93;
+	overflow: hidden;
+	background-color: #fff4d6;
+}
+
+#checkOrderInfo .backCart {
+	margin-right: 50px;
+	font-size: 12px;
+	font-weight: normal;
+	font-family: "\5B8B\4F53", "SimSun ";
+	display: block;
+	float: right;
+	color: #0c95e5
+}
+
+#checkOrderInfo .submitOrderBtn {
+	width: 155px;
+	height: 44px;
+	display: block;
+	float: right;
+	background: url(../images/commonBtn01.jpg) no-repeat;
+	vertical-align: middle;
+	line-height: 44px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.expand {
+	background: url(../images/items/show.jpg) no-repeat;
+	display: block;
+	float: right;
+	margin-right: 25px;
+	height: 20px;
+	width: 47px;
+	cursor: pointer;
+}
+
+.pickUp {
+	background: url(../images/items/hide.jpg) no-repeat;
+	display: block;
+	float: right;
+	margin-right: 25px;
+	height: 20px;
+	width: 47px;
+	cursor: pointer;
+}
+
+#checkOrderInfo .pay {
+	margin-top: 5px;
+	margin-left: 25px;
+	overflow: auto;
+}
+
+#checkOrderInfo .delivery {
+	margin-top: 10px;
+	margin-left: 25px;
+	overflow: auto;
+}
+
+#ziti {
+	display: block;
+	width: 1100px;
+	border: 1px dashed #cbcbcb;
+	background-color: #ffffff;
+}
+
+#ziti dd td {
+	line-height: 25px;
+}
+
+#unionpay {
+	background-color: #fffdee;
+	width: 1115px;
+	height: 210px;
+	border: 1px solid #edd28f;
+}
+
+#oneCard {
+	margin: 50px auto;
+	overflow: hidden;
+	clear: both;
+	width: 450px;
+	height: 220px;
+}
+
+#oneCard div {
+	width: 450px;
+	height: 50px;
+	float: left;
+}
+
+#oneCard .text {
+	width: 200px;
+	height: 25px;
+	display: block;
+	float: left;
+}
+
+#oneCard .label {
+	height: 25px;
+	float: left;
+	font-size: 18;
+	font-weight: bold;
+	line-height: 25px;
+	display: block;
+	vertical-align: middle;
+}
+
+#oneCard  .button {
+	cursor: pointer;
+	width: 60px;
+	height: 25px;
+	display: block;
+	margin-left: 180px;
+}
+
+.orderTab {
+	width: 1000px;
+	overflow: hidden;
+}
+
+.pzHeader {
+	width: 1000px;
+	height: 30px;
+	font-size: 16px;
+	font-family: "\5B8B\4F53", "SimSun";
+	font-weight: bold;
+	line-height: 30px;
+	vertical-align: middle;
+	border-bottom: 1px solid #cbcbcb;
+	color: #000;
+	margin: 20px auto;
+}
+
+.pzContent {
+	position: relative;
+	width: 800px;
+	margin: 0 auto;
+	border: 3px solid #E9B430;
+}
+
+.pzTitle {
+	width: 700px;
+	height: 50px;
+	line-height: 50px;
+	vertical-align: middle;
+	text-align: center;
+	color: #4d4d4b;
+	font-size: 28px;
+	font-family: "\9ED1\4F53 ", "SimHei";
+	border-bottom: 1px solid #cbcbcb;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.pzBottom {
+	height: 30px;
+	background-color: #E9B430;
+	text-align: center;
+	line-height: 30px;
+	vertical-align: middle;
+	margin-top: 15px;
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.pzBottom input {
+	font-size: 12px;
+	font-family: "\5B8B\4F53", "SimSun";
+	padding: 3px;
+	cursor: pointer;
+}
+
+.signet {
+	position: absolute;
+	z-index: 2;
+	top: 100px;
+	right: 50px;
+}
+
+.groupMsg {
+	background-color: #F6FDF6;
+	clear: both;
+	line-height: 15px;
+	font-size: 14px;
+	font-family: "\5B8B\4F53", "SimSun";
+	color: #666666;
+}
+
+.groupFailMsg {
+	background: #F6FDF6 url(../images/myorder/err.gif) no-repeat 30px 40px;
+	clear: both;
+	line-height: 20px;
+}
+
+.groupSuccessMsg {
+	background: #F6FDF6 url(../images/myorder/right.gif) no-repeat 30px 40px;
+	clear: both;
+	line-height: 20px;
+	padding-bottom: 15px;
+}
+
+.groupBtn {
+	width: 900px;
+	margin: 0 auto 20px auto;
+}
+
+.groupBtn2 {
+	width: 900px;
+	margin: 25px auto;
+}
+
+#groupTab {
+	width: 1000px;
+	margin: 30px auto;
+	padding: 0px;
+	border: 1px solid #e1cc76;
+}
+
+.gMenubox {
+	height: 30px;
+	line-height: 30px;
+	position: relative;
+	border-bottom: 1px solid #e1cc76;
+	vertical-align: middle;
+}
+
+.gMenubox ul {
+	position: absolute;
+	left: 0;
+	height: 30px;
+	text-align: center;
+}
+
+.gMenubox li {
+	float: left;
+	display: block;
+	cursor: pointer;
+	color: #666666;
+	font-size: 14px;
+	font-family: "\5B8B\4F53", "SimSun";
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+	border-right: 1px solid #e1cc76;
+	letter-spacing: 2px;
+	padding: 0 15px;
+}
+
+.gMenubox li.hover {
+	border-bottom: none;
+	background: #FFFDEE;;
+	border-top:1px solid #e1cc76;
+	color: #ff6600;
+	border-right: 1px solid #e1cc76;
+	height: 31px;
+	line-height: 30px;
+}
+
+.gContentbox {
+	margin-top: 0px;
+	padding: 30px 0 20px 0;
+	border-top: none;
+	background-color: #FFFDEE;;
+	text-align: left;
+	overflow: hidden;
+}
+
+#coupon {
+	color: #333333;
+	padding: 5px 0 10px 20px;
+	overflow: hidden;
+	line-height: 20px;
+	background-color: #FFF;
+	display: none;
+}
+
+.fqfk {
+	border-top: 1px dashed #cdcdcd;
+	width: 1020px;
+	float: left;
+	padding: 15px 10px;
+	margin-top: 15px;
+	display: none;
+}
+
+.fqfkCon {
+	display: none;
+	padding: 10px 0;
+	line-height: 25px;
+}
+
+.fqfkCon ul {
+	margin-top: 10px;
+}
+
+.fqfkCon li {
+	height: 25px;
+	vertical-align: middle;
+	line-height: 25px;
+}
+
+.fqfkCon select {
+	display: block;
+	width: 150px;
+	height: 20px;
+	line-height: 20px;
+	vertical-align: middle;
+}
+
+.fqfkCon .input2 {
+	width: 80px;
+	padding: 2px;
+}

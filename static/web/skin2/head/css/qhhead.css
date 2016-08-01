@@ -1,0 +1,363 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre, 
+form,fieldset,input,textarea,p,blockquote,th,td { 
+padding: 0; 
+margin: 0; 
+} 
+a {
+    text-decoration: none;
+  /*  padding-bottom: 1px;
+    border-bottom: 1px solid #36c;*/
+    color: #36c;
+    cursor: pointer;
+}
+a:hover {
+    color: #f60;
+   /* border-bottom: 1px solid #f60;*/
+    cursor: pointer;
+    TEXT-DECORATION:none;
+}
+table { 
+border-collapse: collapse; 
+border-spacing: 0; 
+} 
+fieldset,img { 
+border: 0; 
+} 
+address,caption,cite,code,dfn,em,strong,th,var { 
+font-weight: normal; 
+font-style: normal; 
+} 
+ol,ul { 
+list-style: none; 
+} 
+caption,th { 
+text-align: left; 
+} 
+h1,h2,h3,h4,h5,h6 { 
+font-weight: normal; 
+font-size: 100%; 
+} 
+q:before,q:after { 
+content:''; 
+} 
+abbr,acronym { border: 0; 
+} 
+#headholder{
+	z-index:99999;
+	height:37px;
+}
+#headcontainer{
+	font-family:'微软雅黑';
+	height:37px;
+	background:url(../imgs/yingyongdaohangbj.jpg) repeat-x;
+	position:fixed;
+	top:0px;
+	left:0px;
+	z-index:99999;
+	width:100%;
+	min-width:1200px;
+	
+}
+#v6headlogo{
+	width:46px;
+	height:21px;
+	background:url(../imgs/v6logo1.png) no-repeat;
+	float:left;
+	margin-left:20px;
+	margin-top:10px;
+}
+#headmenus{
+	float:left;
+	margin-left:50px;
+	font-size:16px;
+}
+.v6menuitem{
+	height:35px;
+	float:left;
+	margin-left:10px;
+	margin-top:2px;
+	padding-left:5px;
+	padding-right:5px;
+	position:relative;
+	z-index:99999;
+}
+.v6menuitem .v6topmenuicon{
+	display:block;
+	width:23px;
+	height:22px;
+	float:left;
+	margin-top:5px;
+}
+#topmenu1{
+	background:url(../imgs/Homep.png) no-repeat;
+}
+#topmenu2{
+	background:url(../imgs/Business.png) no-repeat;
+}
+#topmenu3{
+	background:url(../imgs/Collaboration.png) no-repeat;
+}
+#topmenu4{
+	background:url(../imgs/Resources.png) no-repeat;
+}
+#topmenu5{
+	background:url(../imgs/juece.png) no-repeat;
+}
+.v6menuitem .v6topmenutext{
+	color:#ffffff;
+	float:left;
+	margin-top:5px;
+	margin-left:10px;
+}
+.v6menuitem .v6topmenuarrow{
+	float:left;
+	width:12px;
+	height:9px;
+	margin-top:13px;
+	margin-left:10px;
+	background:url(../imgs/downarr2.png) no-repeat;
+}
+.v6topmenuline{
+	float:left;
+	width:3px;
+	height:37px;
+	background:url(../imgs/Split%20line.jpg) no-repeat;
+	margin-left:10px;
+}
+.v6menuitem.active{
+	background:#FFFFFF;
+	cursor:pointer;
+}
+.v6menuitem.active #topmenu1{
+	background:url(../imgs/Homep2.png) no-repeat;
+}
+.v6menuitem.active #topmenu2{
+	background:url(../imgs/Business2.png) no-repeat;
+}
+.v6menuitem.active #topmenu3{
+	background:url(../imgs/Collaboration2.png) no-repeat;
+}
+.v6menuitem.active #topmenu4{
+	background:url(../imgs/Resources2.png) no-repeat;
+}
+.v6menuitem:hover #topmenu5{
+	background:url(../imgs/juece2.png) no-repeat;
+}
+.v6menuitem.active .v6topmenutext{
+	color:#0000A0;
+}
+.v6menuitem.active .v6topmenuarrow{
+	background:url(../imgs/downarr.png);
+}
+.appbox{
+	border:#333 1px solid;
+	border-top:#fff 1px solid;
+	position:absolute;
+	top:35px;
+	left:-20px;
+	display:none;
+	background-color:#FFF;
+	z-index:99999;
+	padding-bottom:10px;
+}
+#mymenu{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:34px;
+	background:#fff;
+	filter:alpha(opacity=0); /*IE滤镜，透明度50%*/
+	-moz-opacity:0; /*Firefox私有，透明度50%*/
+	opacity:0;/*其他，透明度50%*/
+}
+.v6menuitem:hover .appbox{
+	cursor:default;
+}
+.v6app{
+	width:78px;
+	height:88px;
+	float:left;	
+	display:inline;
+	text-align:center;
+	margin:5px;
+}
+.v6app:hover{
+	background:url(../imgs/beijing.png);
+	cursor:pointer;
+	color:#0033FF;
+}
+.v6app .v6appicon{
+	display:block;
+	padding:8px 5px 7px 5px;
+	background-repeat:no-repeat;
+	background-position:center;
+	font-size:13px;
+}
+.v6app .v6apptext{
+	font-size:12px;
+	text-align:center;
+}
+#v6searchbox{
+	width:191px;
+	height:24px;
+	background:url(../imgs/Search1.png) no-repeat;
+	float:left;
+	margin-left:20px;
+	margin-top:5px;
+}
+#v6searchbox:hover{
+	background:url(../imgs/Search2.png) no-repeat;
+}
+#v6searchtext{
+	float:left;
+	margin-top:2px;
+	margin-left:6px;
+	border:none;
+	    border: 0px;
+    border-style: double solid  solid solid;
+    /* 	border-style: dotted solid double dashed;  */  
+    /* 	background-color: transparent;  */
+    border-color: #ccc;
+}
+#v6searchbtn{
+	width:26px;
+	height:22px;
+	float:left;
+	cursor:pointer;
+}
+#headUserName{
+	padding-left:5px;
+	padding-right:5px;
+	display:block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+#headoptionbtn{
+	float:left;
+	color:#FFF;
+	font-size:12px;
+	text-align: center;
+	line-height:32px;
+	height:32px;
+	margin-top:3px;
+	margin-left:20px;
+	cursor:pointer;
+	position:relative;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+#headoptionbtn ul{
+	width:120px;
+	background:#fff;
+	position:absolute;
+	top:32px;
+	left:-81px;
+	border-left:#000 1px solid;
+	border-right:#000 1px solid;
+	border-bottom:#000 1px solid;
+	display:none;
+}
+#headoptionbtn li{
+	font-size:12px;
+	display:blcok;
+	line-height:32px;
+}
+#headoptionbtn li:hover{
+	background-color:#F2F2F2;
+	color:#098cd2;
+}
+#headoptionbtn:hover{
+	color:#098cd2;
+	background-color:#fff;
+}
+#headoptionbtn:hover ul{
+	display:block;
+}
+
+#headmsg{
+	float:left;
+	width:40px;
+	color:#FFF;
+	font-size:12px;
+	text-align: center;
+	line-height:32px;
+	height:32px;
+	margin-top:3px;
+	margin-left:20px;
+	cursor:pointer;
+	position:relative;
+}
+
+#headmsg ul{
+	width:120px;
+	background:#fff;
+	position:absolute;
+	top:32px;
+	left:-81px;
+	border-left:#000 1px solid;
+	border-right:#000 1px solid;
+	border-bottom:#000 1px solid;
+	display:none;
+}
+#headmsg li{
+	font-size:12px;
+	display:blcok;
+	line-height:32px;
+}
+#headmsg li:hover{
+	background-color:#F2F2F2;
+	color:#098cd2;
+}
+#headmsg:hover{
+	color:#098cd2;
+	background-color:#fff;
+}
+#headmsg:hover ul{
+	display:block;
+}
+#headmsgspan img{
+	padding-top: 5px;
+	}
+#logoutdiv{
+	float:left;
+	width:40px;
+	color:#FFF;
+	font-size:12px;
+	text-align: center;
+	line-height:32px;
+	height:32px;
+	margin-top:3px;
+	margin-left:20px;
+	cursor:pointer;
+	position:relative;
+}
+#menuandsch{
+	float:left;
+}
+#applist{
+	padding-bottom:30px;
+}
+.bottomInfo{
+	width:152px;
+	height:28px;
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	background:url(../imgs/mymenu.png) no-repeat;
+}
+.menumap{
+	display:block;
+	line-height:28px;
+	text-align:center;
+	color:#fff;
+	font-size:15px;
+	cursor:pointer;
+}
+.menumap:hover{
+	color:#626262
+}

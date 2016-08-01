@@ -1,0 +1,32 @@
+<div class="modal-dialog" role="document" style="width:747px;">
+		<div class="modal-content">
+				<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="H2">门户页脚</h4>
+				</div>
+				<iframe id="listsIframe" name="listsIframe" scrolling="no" frameborder="0"
+						width="745px;" height="480px;" ></iframe>
+		</div>
+</div>
+
+<script>
+		var $portalfooter;
+		// 门户页脚配置信息
+		function cfgRead($selEl) {
+				$portalfooter = $selEl;
+				$("#listsIframe").attr("src", ctx + "/design/portal/PortalFooter.htm?random="+Math.random());
+		}
+		
+		// 门户页脚设置
+		function cfgSet(operType) {
+		    // 保存
+		    //if (operType == "save") {
+		    		// 保存页面元素
+		    //		saveModel();
+		    //}
+		    $('#CfgModal').modal('hide');
+		}
+</script>

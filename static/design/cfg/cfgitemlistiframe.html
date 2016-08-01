@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- saved from url=(0103)https://siteadmin.taobao.com/module/moduleForm.htm?widgetId=13390975603&sid=361080938&pageId=1224684765 -->
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="gbk">
+    <title>商品列表模块编辑</title>
+    <!--页面基础的css dpl, 提供了tab切换, form, 按钮等样式-->
+    <script src="/static/web/js/jquery.js"></script>
+    <link href="/static/design/cfg/cfgitemlistiframe.css" rel="stylesheet" />
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+	</head>
+<body>
+     <div class="content">
+		<div class="tab">
+            <div class="panels">
+                <div class="panel display-set">
+                     <form id="form" action="" class="form-default J_TDisplaySetForm display-set-form">
+                        <div class="control-group">
+                            <!--control-label 表单域的相应标题-->
+                            <label class="control-label w110" for="">分类导航：</label>
+                            <!--表单域-->
+                            <div class="control Lh28 ml115">
+                                <input type="radio" class="J_TNotShowTitle input-radio" name="showGaid" value="true" checked="checked"> 打开
+                                <input type="radio" class="J_TShowTitle  input-radio close-cat-nav" name="showGaid" value="false"> 关闭
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <!--control-label 表单域的相应标题-->
+                            <label class="control-label w110" for="">显示方式：</label>
+                            <!--表单域-->
+                            <div class="control Lh28 ml115">
+    							<input type="radio" class="input-radio J_TChartWay" name="viewType" value="grid" checked="checked"> 图表
+            				    <input type="radio" class="input-radio show-row J_TListWay" name="viewType" value="list"> 列表
+                            </div>
+                        </div>
+						
+						 <div class="control-group">
+                             <div class="control ml115">
+
+                                 <dl class="itemsLayout line-item4 ">
+                                     <dt class="itemsLayoutShot dtselected">
+                                         <a class="J_itemsLayoutTrigger" data-value="180" data-layout="750">
+                                             <span></span>
+                                         </a>
+                                     </dt>
+                                     <dd>
+                                         <span>一行展示4个宝贝</span>
+                                     </dd>
+                                 </dl>
+                                 <dl class="itemsLayout line-item3">
+                                     <dt class="itemsLayoutShot ">
+                                         <a class="J_itemsLayoutTrigger" data-value="240" data-layout="750">
+                                             <span></span>
+                                         </a>
+                                     </dt>
+                                     <dd>
+                                         <span>一行展示3个宝贝</span>
+                                     </dd>
+                                 </dl>
+
+                                 <dl class="itemsLayout line-item3-border0">
+                                     <dt class="itemsLayoutShot ">
+                                         <a class="J_itemsLayoutTrigger" data-value="250" data-layout="750">
+                                             <span></span>
+                                         </a>
+                                     </dt>
+                                     <dd>
+                                         <span>一行无缝展示3个宝贝</span>
+                                     </dd>
+                                 </dl>
+                             </div>
+                         </div>
+                        
+                        <div class="control-group">
+                            <label class="control-label w110" for="">排序方式：</label>
+                            <div class="control ml115">
+                                <select name="sort" class="input-box" style="z-index: 1;">
+                                    <option value="coefp_desc" selected="">人气指数</option>						
+                                    <option value="hotsell_desc">热卖宝贝在前</option>
+                                    <option value="hotkeep_desc">热门收藏在前</option>
+            						<option value="newOn_desc">最新发布在前</option>
+                                    <option value="price_asc">价格最低在前</option>
+                                    <option value="price_desc">价格最低在后</option>
+                                </select>
+                            </div>
+                        </div>
+						
+						<div class="control-group">
+                            <label class="control-label w110" for="">每页展示宝贝数：</label>
+                            <div class="control ml115">
+                                <select name="itemNum" class="input-box J_itemCounts" style="z-index: 1;">
+    								<option value="16" selected="">16</option>
+                                    <option value="20">20</option>
+                                    <option value="24">24</option>
+                                    <option value="28">28</option>
+                                    <!-- <option class="J_countDiy" value="-1">自定义</option> -->
+                                </select>
+                                <input type="text" placeholder="宝贝显示个数不能超过30个" class="J_countDiyText input-box" name="itemNum" value="16" style="display:none">
+                            </div>
+                        </div>
+    
+                       <!--  <div class="control-group J_showStuffGroup" style="display: none" > 
+    						<label class="control-label w110" for="">是否显示：</label>
+    						表单域
+    						<div class="control J_showStuff Lh28 ml115">
+    						   <input type="checkbox" id="J_TShowCount" style="width:13px;height:13px;" name="showDiscount" value="true">
+            					折扣价
+            					<input type="checkbox" id="J_TShowSales" style="width:13px;height:13px;" name="showSaleData" checked="checked" value="true">
+            					最近30天销售数据
+            				    <input type="checkbox" id="J_TShowRates" style="width:13px;height:13px;" name="showEvaluateCount" checked="checked" value="true">
+            					累计评价数
+            				    <input type="checkbox" id="J_TShowCommits" style="width:13px;height:13px;" name="showEvaluate" value="true">
+            					评价
+    						</div>
+    					</div>
+    					
+                         <div class="control-group" style="display: none" > 
+                             <div class="control">
+                                 <span class="tips">宝贝折扣价格显示与主搜索保持一致！ </span>
+                             </div>
+                         </div> -->
+                         
+						<div class="opt-footer">
+                             <a class="J_SubmitButton btn-ok" onclick="cfgSet();">保存</a>
+                             <a class="btn-cancel" onclick="parent.cfgClose();">取消</a>
+                             <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                        </div>
+                    <input type="hidden" name="widgetId" value="13390975603"><input type="hidden" name="sid" value="361080938"><input type="hidden" name="pageId" value="1224684765"><input type="hidden" name="_tb_token_" value="33d21d9EwSvFVqZ3"></form>
+                </div>
+            </div>
+		</div>
+		</div>
+<script>
+
+
+$(document).ready(function(){
+	if(parent._cfg.showGaid!=null){
+		if(parent._cfg.showGaid=='false'){
+			$("#form").find(".J_TShowTitle.input-radio.close-cat-nav").attr("checked",'checked');
+		}
+		if(parent._cfg.viewType=='list'){
+			$("#form").find(".input-radio.show-row.J_TListWay").attr("checked",'checked');
+			$("#form").find(".control .itemsLayout").attr("style","display:none");
+			$("#form").find(".control-group.J_showStuffGroup").attr("style","display:none");
+		}else{
+			var grid_dom=$("#form").find(".itemsLayout .itemsLayoutShot");
+			for(var i=0;i<grid_dom.length;i++){
+				var grid_data = $(grid_dom[i]).find(".J_itemsLayoutTrigger").attr("data-value");
+				if(parent._cfg.grid_t==grid_data){
+					$("#form").find(".itemsLayout .itemsLayoutShot").removeClass("dtselected");
+					 $(grid_dom[i]).addClass("dtselected");
+				}
+			}
+		}
+		
+		$("select[name='sort']").val(parent._cfg.sort);
+		$("select[name='itemNum']").val(parent._cfg.itemNum);
+		
+		if(parent._cfg.showDiscount){
+			$('#J_TShowCount').attr("checked","checked");
+		}
+		if(!parent._cfg.showSaleData){
+			$('#J_TShowSales').removeAttr("checked");
+		}
+		if(!parent._cfg.showEvaluateCount){
+			$('#J_TShowRates').removeAttr("checked");
+		}
+		if(parent._cfg.showEvaluate){
+			$('#J_TShowCommits').attr("checked","checked");
+		}
+	}
+	
+});
+function cfgSet(){
+	
+	var showGaid=$('input[name="showGaid"]:checked').val();
+	var viewType=$('input[name="viewType"]:checked').val().toString();
+	var sort=$("select[name='sort']").val().toString();
+	var itemNum=$("select[name='itemNum']").val();
+	var grid_t = $("#form").find(".itemsLayout .itemsLayoutShot.dtselected").find(".J_itemsLayoutTrigger").attr("data-value");
+
+	var o={
+			showGaid:showGaid,
+			viewType:viewType,
+			sort:sort,
+			itemNum:itemNum,
+			grid_t:grid_t
+	};
+	
+	/* if(viewType=="grid"){
+		var grid_t = $("#form").find(".itemsLayout .itemsLayoutShot.dtselected").find(".J_itemsLayoutTrigger").attr("data-value");
+		o.grid_t = grid_t;
+	    var showDiscount =$("#J_TShowCount").is(':checked');
+		o.showDiscount=showDiscount;
+		var showSaleData =$("#J_TShowSales").is(':checked');
+		o.showSaleData=showSaleData;
+		var showEvaluateCount =$("#J_TShowRates").is(':checked');
+		o.showEvaluateCount=showEvaluateCount;
+		var showEvaluate =$("#J_TShowCommits").is(':checked');
+		o.showEvaluate=showEvaluate;
+	} */
+	parent._$module.itemlist('reset',o);
+	parent.cfgClose(); 
+}
+
+$("#form").find(".itemsLayout .itemsLayoutShot").click(function(){
+	$("#form").find(".itemsLayout .itemsLayoutShot").removeClass("dtselected");
+	$(this).addClass("dtselected");
+});
+$("#form").find(".input-radio.show-row.J_TListWay").click(function(){
+	$("#form").find(".control .itemsLayout").attr("style","display:none");
+	$("#form").find(".control-group.J_showStuffGroup").attr("style","display:none");
+});
+$("#form").find(".input-radio.J_TChartWay").click(function(){
+	$("#form").find(".control .itemsLayout").attr("style","display:block");
+	$("#form").find(".control-group.J_showStuffGroup").attr("style","display:block");
+});
+
+</script>
+</body></html>

@@ -1,0 +1,53 @@
+.layer_tips
+{
+	z-index: 999;
+	position: fixed;
+	_position: absolute;
+	width: 200px;
+	background: #feffe5;
+	border: 1px solid #f9f2a7;
+	padding:7px 10px;
+	line-height: 17px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	
+}
+.layer_tips a
+{
+	color: #d4a639;
+}
+.layer_tips a.close_icon
+{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+	background: url(../images/login/close.gif) 0 -11px;
+	overflow: hidden;
+	cursor: pointer;
+}
+.layer_tips .arrow_down
+{
+	position: absolute;
+	margin: 7px auto 0px;
+	width: 19px;
+	bottom: -10px;
+	display: block;
+	background: url("../images/login/layer_arrow.png?id=1341302813656") no-repeat 0 0;
+	height: 10px;
+	overflow: hidden;
+	left: 20px;
+}
+.layer_tips .error_text
+{
+	color: #da0000;
+}
+.layer_tips .error_text .icon
+{	
+	display: inline-block;width: 16px;height: 16px;
+	background:  url("../images/login/ico_warn.png?id=1341302813656") no-repeat 0 -50px;
+	vertical-align: middle;
+	margin: 0px 5px 0px 0px;
+}

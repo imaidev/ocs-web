@@ -1,0 +1,237 @@
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="H2">宝贝排行</h4>
+        </div>
+
+        <div id="nav-edit">
+            <div class="content">
+                <div class="panels">
+                    <div class="panel display-set">
+                        <form method="post" class="display-set-form form-default" name="displaySetForm">
+                            <input type="hidden" name="isDefault" value="false">
+                            <p class="control-group">
+                                <label class="group-title w65">显示标题:</label>
+                                <input class="radio J_NoTitle" name="showTitle" type="radio" value="false" id="Audio_NoTitle"><label class="type-name" for="Audio_NoTitle">不显示</label>
+                                <input class="radio J_HasTitle" name="showTitle" type="radio" value="true" id="Audio_HasTitle"><label class="type-name" for="Audio_HasTitle">显示</label>
+                                <input class="input-title J_InputTitle" type="text" name="title" value="宝贝排行榜" id="title_name">
+                                <span id="title_validation" class="prompt hidden">请控制在30字符内！</span>
+                            </p>
+                            <div class="control-group">
+                                <label class="group-title w65">宝贝分类:</label>
+                                <select name="classify" id="classify">
+                                </select>
+                            </div>
+                            <div class="control-group">
+                                <label class="group-title w65">关键字:</label>
+                                <input name="keyword" type="text" value="" id="searchWord">
+                            </div>
+                            <p class="control-group">
+                                <label class="group-title w65">价格范围:</label><input class="price J_LowerLimitPrice" id="lowerLimitPrice" name="lowerLimitPrice" type="text" value="">&nbsp;-&nbsp;<input style="margin-right: 5px;" class="price J_UpperLimitPrice" id="upperLimitPrice" name="upperLimitPrice" type="text" value="">元<span id="price_validation" class="prompt hidden">对不起！价格的输入有误！</span>
+                            </p>
+                            <div class="control-group">
+                                <label class="group-title w65">显示数量:</label>
+                                <select name="showNum" id="showNum">
+                                    <option value="3" selected="">3个宝贝</option>
+                                    <option value="4">4个宝贝</option>
+                                    <option value="5">5个宝贝</option>
+                                    <option value="6">6个宝贝</option>
+                                    <option value="7">7个宝贝</option>
+                                    <option value="8">8个宝贝</option>
+                                    <option value="9">9个宝贝</option>
+                                    <option value="10">10个宝贝</option>
+                                </select>
+                            </div>
+                            <div class="control-group">
+                                <label class="group-title w65">默认显示:</label>
+                                <input class="radio" name="rankType" type="radio" value="1" id="Audio_Monthly"><label class="type-name" for="Audio_Monthly">本月热销排行</label>
+                                <input class="radio" name="rankType" type="radio" value="0" id="Audio_Hotly"><label class="type-name" for="Audio_Hotly">热门收藏排行</label>
+                            </div>
+                            <p class="control-group">
+                                <label class="group-title w65"></label>
+                                <input class="radio" name="tblrType" type="radio" value="lrType" id="lr_Type"><label class="type-name" for="lr_Type">左右形式</label>
+                                <input class="radio" name="tblrType" type="radio" value="tbType" id="tb_Type"><label class="type-name" for="tb_Type">上下形式</label>
+                            </p>
+                            <p class="control-group">
+                                <label class="group-title w65"></label>
+                                <input class="checkbox" type="checkbox" name="showSellSituation" value="true" checked="checked" id="Audio_ShowSaleInfo"><label style="padding-left: 8px;" for="Audio_ShowSaleInfo">显示最近30天销量数据</label>
+                            </p>
+                        </form>
+                    </div>
+                    <p class="opt-footer">
+                        <a class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+                        <a class="btn-cancel J_CancelButton" onclick="cfgClose();">取消</a>
+                        <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // 店铺导航配置信息
+    var _$module;
+    var _cfg;
+    function cfgRead($selEl) {
+        _$module = $selEl;
+        _cfg = _$module.goodsrank('config');
+
+        //加载标题栏数据
+        $('#title_name').val(parent._$module.find('.title-box span').text().trim());
+        if (parent._$module.find('.title-box').is(":hidden")) {
+            $('input[name="showTitle"]').eq(0).attr("checked", true);
+        }
+        else {
+            $('input[name="showTitle"]').eq(1).attr("checked", true);
+        }
+
+        $.get(ctx + "/design/dataAPI/itemCategory/ItemCategoryDataApi.do?method=getVendCatagory" + "&VEND_ID=" + g_vendid,
+                      function (data_classify) {
+                          $("#classify").append("<option value=''>所有分类</option>");
+                          for (var i = 0; i < data_classify.length; i++) {
+                              $("#classify").append("<option value=" + data_classify[i].CATAGORY_ID + ">" + data_classify[i].CATAGORY_NAME + "</option>");
+                          }
+                          if (_cfg.classify == null || _cfg.classify == '') {
+                              $("#classify").val('');
+                          } else {
+                              $("#classify").val(_cfg.classify);
+                          }
+                      }, 'json');
+
+        if (_cfg.searchWord == null || _cfg.searchWord == '') {
+            $('#searchWord').val('');
+        } else {
+            $('#searchWord').val(_cfg.searchWord);
+        }
+
+        if (_cfg.lowerLimitPrice == null || _cfg.lowerLimitPrice == '') {
+            $('#lowerLimitPrice').val('');
+        } else {
+            $('#lowerLimitPrice').val(_cfg.lowerLimitPrice);
+        }
+
+        if (_cfg.upperLimitPrice == null || _cfg.upperLimitPrice == '') {
+            $('#upperLimitPrice').val('');
+        } else {
+            $('#upperLimitPrice').val(_cfg.upperLimitPrice);
+        }
+
+        if (_cfg.showNum == null || _cfg.showNum == '') {
+            $("#showNum").val('5');
+        } else {
+            $("#showNum").val(_cfg.showNum);
+        }
+
+        if (_cfg.rankType == '0') {
+            $('#Audio_Hotly').attr("checked", 'checked');
+        } else {
+            $('#Audio_Monthly').attr("checked", 'checked');
+        }
+
+        if (_cfg.tblrType == 'tbType') {
+            $('#tb_Type').attr("checked", 'checked');
+        } else {
+            $('#lr_Type').attr("checked", 'checked');
+        }
+        if (_cfg.showSellSituation) {
+            $('#Audio_ShowSaleInfo').attr("checked", "checked");
+        } else {
+            $('#Audio_ShowSaleInfo').removeAttr("checked");
+        }
+    }
+
+    $("#title_name").on('input', function (e) {
+        var title_name = $("#title_name").val();
+        var classes = $("#title_validation").attr("class");
+        if (title_name.length > 30) {
+            if (classes == "prompt hidden") {
+                $("#title_validation").attr("class", "prompt");
+            }
+        } else {
+            if (classes == "prompt") {
+                $("#title_validation").attr("class", "prompt hidden");
+            }
+        }
+    });
+
+    $("#lowerLimitPrice").on('input', function (e) {
+        var lowerLimitPrice = $("#lowerLimitPrice").val();
+        var classes = $("#price_validation").attr("class");
+        if (isNaN(lowerLimitPrice)) {
+            if (classes == "prompt hidden") {
+                $("#price_validation").attr("class", "prompt");
+            }
+        } else {
+            if (classes == "prompt") {
+                $("#price_validation").attr("class", "prompt hidden");
+            }
+        }
+    });
+
+    $("#upperLimitPrice").on('input', function (e) {
+        var upperLimitPrice = $("#upperLimitPrice").val();
+        var classes = $("#price_validation").attr("class");
+        if (isNaN(upperLimitPrice)) {
+            if (classes == "prompt hidden") {
+                $("#price_validation").attr("class", "prompt");
+            }
+        } else {
+            if (classes == "prompt") {
+                $("#price_validation").attr("class", "prompt hidden");
+            }
+        }
+    });
+
+
+    function cfgSet() {
+        var titleName = $('#title_name').val();
+        if (titleName.length > 30) {
+            return;
+        }
+
+        var lowerLimitPrice = $("#lowerLimitPrice").val();
+        var upperLimitPrice = $("#upperLimitPrice").val();
+        if (isNaN(lowerLimitPrice)) {
+            return;
+        }
+        if (isNaN(upperLimitPrice)) {
+            return;
+        }
+        //组件标题
+        _$module.find('.title-box span').text($('#title_name').val());
+        if ($('input[name="showTitle"]:checked').val() == "true") {
+            _$module.find('.title-box').show();
+        }
+        else {
+            _$module.find('.title-box').hide();
+        }
+
+        var classify = $("#classify").val();
+        var searchWord = $("#searchWord").val();
+        var showNum = $("#showNum").val();
+        var rankType = $('input[name="rankType"]:checked').val();
+        var tblrType = $('input[name="tblrType"]:checked').val();
+        var showSellSituation = $("input[name='showSellSituation']").is(':checked');
+
+        var o = {
+            classify: classify,
+            searchWord: searchWord,
+            lowerLimitPrice: lowerLimitPrice,
+            upperLimitPrice: upperLimitPrice,
+            showNum: showNum,
+            rankType: rankType,
+            tblrType: tblrType,
+            showSellSituation: showSellSituation
+        }
+       _$module.goodsrank('reset', o);
+        $("#CfgModal").modal('hide');
+    }
+
+    function cfgClose() {
+        $("#CfgModal").modal('hide');
+    }
+</script>

@@ -1,0 +1,145 @@
+
+body,th,input
+	{
+	margin: 0;
+	padding: 0;
+}
+body {
+	border: 0;
+}
+.editgrid div.bDiv table tr td div> *{
+	width:100%;
+	height:30px;
+	
+}
+.editgrid{
+border-bottom: 0px solid #f7f7f7;
+background-color:#f7f7f7;
+border-collapse:collapse;
+font-size:12px;
+text-align:center;
+table-layout:fixed;
+border: 1px solid #ccc;
+color:#304e82
+}
+.editgrid td{
+	border:0px solid silver;
+}
+
+.editgrid th{
+	line-height:20px;
+	border:0px solid silver;
+	border-style:solid;
+}
+.editgrid thead{
+background: #ffffff;
+border-bottom: 1px solid #ccc;
+color:#333333;
+
+}
+.editgrid thead tr th{
+vertical-align:middle;
+text-align:center;
+
+}
+.editgrid tbody tr:hover{
+    background: #DFEBFD;
+    border: 0px solid #A8D8EB;
+}
+.editgrid tr.erow:hover{
+    background: #DFEBFD;
+    border: 0px solid #A8D8EB;
+}
+.editgrid tr.selected:hover {
+	BACKGROUND-COLOR: #C0D7FA !important;
+	border-bottom: 1px dotted #a8d8eb;
+}
+
+.editgrid tr.highlight {
+	BACKGROUND-COLOR: #d5effc url(images/hl.png) repeat-x top;
+}
+.editgrid tr.selected {
+	BACKGROUND-COLOR: #DFEBFD !important;
+	border-bottom: 1px dotted #a8d8eb;
+}
+
+.editgrid tr.erow  {
+	BACKGROUND-COLOR:#ffffff;
+	border-bottom: 0px solid #f7f7f7;
+}
+
+.editgrid td input[type="text"] {
+	height: 24px;
+	BORDER-LEFT: transparent 1px solid;
+	BORDER-RIGHT: transparent 1px solid;
+	BORDER-TOP: transparent 1px solid;
+	BORDER-BOTTOM: transparent 1px solid;
+	BACKGROUND:transparent scroll repeat 0% 0%;
+}
+
+.editgrid  tr td input{
+text-align:center;
+}
+.editgrid td input.focus{
+	/*BORDER-LEFT: #000000 1px solid;
+	BORDER-RIGHT: #000000 1px solid;
+	BORDER-TOP: #000000 1px solid;
+	BORDER-BOTTOM: #000000 1px solid;*/
+	BACKGROUND: #ffffff;
+	border: 1px solid #eeb03f;
+}
+.editgrid td input[readonly].focus{
+	/*BORDER-LEFT: #000000 1px solid;
+	BORDER-RIGHT: #000000 1px solid;
+	BORDER-TOP: #000000 1px solid;
+	BORDER-BOTTOM: #000000 1px solid;*/
+	BACKGROUND-COLOR: #ffe591;
+	border: 0px;
+}
+.editgrid tr {
+	height: 30px;	
+}
+.editgrid tr th{
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.editgrid tr td{
+   	border-left:1px solid #dce7ef;
+	border-top:1px solid #dce7ef;
+	border-right:1px solid #dce7ef;
+	border-bottom:1px solid #dce7ef;
+	padding-left:2px;
+	padding-bottom:2px;
+	padding-top:2px;
+	text-align:left;
+}
+.editgrid tr td{
+	padding-left:0;
+	text-align:left;
+}
+.editgrid tr.sum {
+	background-color:#65dcfd;
+}
+.editgridtfoot tr {
+	height: 30px;
+
+}
+.editgridtfoot tr.sum {
+	background-color:#68bce0;
+}
+.editgrid tr.sum td{
+	border-left:1px solid #dce7ef;
+	border-top:1px solid #dce7ef;
+    padding:0px;
+	text-align:center;
+}
+.editgrid tr td span.jNiceWrapper{
+	padding-right:0px;
+}
+
+.editgrid tr td span.jNiceCheckbox{
+	width:100% !important;
+}
+.editgrid tr td span.jNiceRadio{
+	width:100% !important;
+}

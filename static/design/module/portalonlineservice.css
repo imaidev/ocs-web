@@ -1,0 +1,25 @@
+@charset "utf-8";
+.Servs-bdpor{margin-top:10px;margin-bottom:10px;}
+.servItempor{margin:0 10px;padding-bottom:5px;}
+.servItempor .serv-titpor{padding:5px 0;margin-bottom:7px;border-bottom:1px dotted #ddd;color:#333;font-size:14px;}
+.servItempor .serv-valuepor{margin-left:10px;}
+.tool-servspor{overflow:hidden;}
+.tool-servspor .icon-serv{display:inline-block;width:20px;height:20px;background:url(../img/icon/icon-serv.gif) no-repeat;vertical-align:middle;}
+.tool-servspor .serv-on{background-position:-110px -3px;}
+.tool-servspor .serv-off{background-position:-110px -23px;}
+.tool-servspor .serv-name{display:inline-block;height:20px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-left:5px;vertical-align:middle;}
+.tool-servspor a{text-decoration:none;}
+.tool-servspor a:hover{text-decoration:none;}
+.serv-lists-verpor li{margin-bottom:5px;white-space:nowrap;}
+.serv-lists-horpor li{float:left;margin:5px 7px 5px 5px;white-space:nowrap;}
+.fm1{font-family: "\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+/*******客服：纵向横向排列0310新增*******/
+.tool-servspor .icon-qqserv{display: inline-block;height: 21px !important;vertical-align: middle;}
+.tool-servspor .qqserv1-on{background: url(../img/icon/pa45.gif) no-repeat; width: 21px !important;}
+.tool-servspor .qqserv2-on{background: url(../img/icon/pa4.gif) no-repeat; width: 23px !important;}
+.tool-servspor .qqserv3-on{background: url(../img/icon/pa10.gif) no-repeat; width: 61px !important;}
+.tool-servspor .qqserv4-on{background: url(../img/icon/pa3.gif) no-repeat; width: 81px !important; height: 23px !important;}
+.tool-servspor .qqserv1-off{background: url(../img/icon/pa45off.gif) no-repeat; width: 21px !important;}
+.tool-servspor .qqserv2-off{background: url(../img/icon/pa4off.gif) no-repeat; width: 23px !important;}
+.tool-servspor .qqserv3-off{background: url(../img/icon/pa10off.gif) no-repeat; width: 61px !important;}
+.tool-servspor .qqserv4-off{background: url(../img/icon/pa3off.gif) no-repeat; width: 81px !important;height: 23px !important;}

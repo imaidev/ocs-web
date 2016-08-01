@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="/static/design/css/editor.css" rel="stylesheet">
+
+		<script src="/static/design/js/jquery.min.js"></script>
+		<link href="/static/design/js/layer/skin/layer.css" rel="stylesheet">
+		<script src="/static/design/js/layer/layer.js"></script>
+		<link rel="stylesheet" href="/static/design/js/layer/skin/layer.css" id="layui_layer_skinlayercss">
+
+		<script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+		<script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+		
+		
+	</head>
+    <script>
+   
+    //保存方法
+    function cfgSet(){
+    	
+    		layer.load(1, {
+				  shade: [0.5,'#fff'] //0.1透明度的白色背景
+				})
+		 
+        /* if(!$('#displaySetForm').valid()){
+       		return;
+       	} */
+        
+        var o={
+    			imgs:[],
+    			showStyle:$('input[name="showStyle"]:checked').val()
+    	};
+       	
+       	var values = new Array();
+        $("input[name='voteName']:checked").each(function(i){
+        	values=$(this).val().split("-");
+        	o.imgs[i]={};
+    		o.imgs[i].resid=values[0];
+    		o.imgs[i].coverurl=values[1];
+    		o.imgs[i].resurl=values[2];
+    		o.imgs[i].resname=values[3];
+      	});
+      	
+        
+       	parent._$module.selectalbum('reset',o);
+       	
+        //组件标题
+    	parent._$module.find('.title-box span').text($('#title').val());
+    	if($('input[name="showTitle"]:checked').val()=="true"){
+    		parent._$module.find('.title-box').show();
+    	}
+    	else{
+    		parent._$module.find('.title-box').hide();
+    	}
+       	
+       	//关闭配置框
+       	parent.cfgClose(); 
+       	
+       }
+    
+    
+    $(function () {
+    	
+    	//alert("g_vendid==yy===>"+parent.g_vendid);
+    	
+    	//调用接口查数据
+    	getAllAlbumList(parent.g_vendid);
+
+    	// 设置显示格式
+			$("input[id='showStyle"+parent._cfg.showStyle+"']").attr("checked",true);
+    	
+        //加载标题栏数据
+        $('#title').val(parent._$module.find('.title-box span').text().trim());
+        if(parent._$module.find('.title-box').is(":hidden")){
+        	$('input[name="showTitle"]').eq(0).attr("checked",true);	
+        }else{
+        	$('input[name="showTitle"]').eq(1).attr("checked",true);
+        }
+        
+        //检查是否空值  会用到
+        //setValidate();
+        
+    })
+    
+    
+    function getAllAlbumList(vendid){
+    	// ctx+   这个地方需要处理一下
+    	//alert("parent.g_vendid=====>"+parent.g_vendid);
+  	    var url = "/ecweb/design/dataAPI/base/resDataApi.do?method=getAllAlbumList&venId="+parent.g_vendid;
+		$.ajax({
+			url:url,
+			type : "POST",
+            dataType: 'json',
+            success: function(json){
+            	var strC=[];
+            	if(json.list.length>0){
+            		for(var i=0;i<json.list.length;i++){
+            			strC.push("<div class='voteChoose' title=",json.list[i].RES_NAME," >");
+            			strC.push("<input type='checkbox' name='voteName' id=voteName",i+1," class='Multiselect' value=",json.list[i].RES_ID,"-",json.list[i].ALBUM_COVER_ADDR,"-",json.list[i].RES_ADDR,"-",json.list[i].RES_NAME," /> ");
+            			strC.push("<label for=voteName",i+1,">",json.list[i].RES_NAME,"</label>");
+            			strC.push("</div>")
+            		}
+            	}
+            	$('div.voteChooseOut').html(strC.join('')); 
+            	// 赋值
+            	getValues();
+    		},
+			error: function(t, e, o) {
+	        	alert("error");
+	        }
+		}); 
+  }
+    
+  function getValues(){
+    	//alert("0000");
+    	$(parent._cfg.imgs).each(function(i){
+        	var  resid = this.resid;
+        	//alert(resid);
+        	if(""!=resid&&undefined!=resid){
+        		$("input[name='voteName']").each(function(j){
+            		if((this.value).indexOf(resid)!=-1){
+            			this.checked ="checked"; 
+            			//alert("这个地方要check");
+            		}
+            	})
+        	}
+        })
+     }
+  
+    </script>
+    
+	<body>
+		<div class="content fm1">
+			<div class="tab">
+				<!-- <ul class="nav clear-fix">
+					<li class="ks-switchable-trigger-internal6 selected"><span>常规</span></li>
+				</ul> -->
+				<form class="main-slide-form form-default">
+					<div>
+						<div id="tabOne">
+							<div class="edit-module">
+								<div class="edit-module">
+								<div class="edit-item">
+									<span class="fl">显示标题：</span>	
+		                            <div class="fl">
+		                                &nbsp;<input type="radio" class="J_TNotShowTitle  input-radio" name="showTitle" value="false">不显示
+		                                <input type="radio" class="J_TShowTitle  show-title-true input-radio" name="showTitle" value="true" checked="checked">显示
+		                                <input class="J_TTitleInput input-box title-input" id="title" type="text" maxlength="30" name="title" value="">
+		                            </div>
+		                        </div>
+							   </div>
+							   <div class="edit-item">
+												<span class="fl">显示风格：</span>	
+		                            <div class="fl">
+		                                &nbsp;<input type="radio" class="J_TNotShowTitle  input-radio" id="showStyle0" name="showStyle" value="0" checked="checked">横向
+		                                <input type="radio" class="J_TShowTitle show-title-true input-radio" id="showStyle1" name="showStyle" value="1">纵向
+		                            </div>
+		                        </div>
+							   </div>							
+								<div class="edit-item  edit-head">
+									<span class="fl" style="width:85px;text-align:right;">店铺相册：</span>
+									<div class="fl vote oveflowSet voteChooseOut">
+									
+										<!-- <div class="voteChoose" title="相册1">
+											<input type="checkbox" name="voteName" id="voteName1" class="Multiselect" />
+											<label for="voteName1">相册1</label>
+										</div>
+										<div class="voteChooseBg voteChoose"  title="相册2">
+											<input type="checkbox" name="voteName" id="voteName2" class="Multiselect"/>
+											<label for="voteName2">相册2</label>
+										</div>
+										<div class="voteChoose"  title="相册3">
+											<input type="checkbox" name="voteName" id="voteName3" class="Multiselect"/>
+											<label for="voteName3">相册3</label>
+										</div>
+										<div class="voteChooseBg voteChoose" title="相册4是否忘了最初的梦想？还爱这个世界吗？是否忘了最初的梦想？是否忘了最初的梦想？是否忘了最初的梦想？是否忘了最初的梦想？是否忘了最初的梦想？是否忘了最初的梦想？">
+											<input type="checkbox" name="voteName" id="voteName4" class="Multiselect"/>
+											<label for="voteName4">相册4是否忘了最初的梦想？还爱这个世界吗？是否忘了最初的梦想？是否忘了最初的梦想？是否忘了最初的梦想？是否忘了最初的梦想？是否忘了最初的梦想？是否忘了最初的梦想？</label>
+										</div> -->
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<p class="opt-footer ctset-opt-footer">
+				<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+				<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+			</p>
+
+		</div>
+
+	</body>
+
+</html>

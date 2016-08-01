@@ -1,0 +1,63 @@
+.selectContainer {
+    position: relative;
+    width: 65px;
+    height: 36px;
+    display: inline-block;
+    _display: inline;
+    _zoom: 1;
+    z-index: 1000;
+    letter-spacing: 1px;
+    background: #fff;
+}
+
+.selectContainer .selectOption {
+    display: inline-block;
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    z-index: 1000;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+.selectContainer .shows {
+    position: absolute;
+    right: 4px;
+    top: 15px;
+    width: 7px;
+    height: 4px;
+    background: url(../images/icons_sel.png);
+}
+
+.selectContainer ul {
+    position: absolute;
+    top: 36px;
+    left: -0px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-top: 0;
+    z-index: 1001;
+    display: none;
+}
+
+.selectContainer ul li {
+    padding: 0 5px;
+    line-height: 25px;
+    text-align: center;
+    background: #fff;
+    cursor: pointer
+}
+
+.selectContainer ul li:hover {
+    background: #F5F5F5;
+}
+
+.selectContainer ul.dis {
+    display: block !important;
+}
+
+.selectContainer ul.undis {
+    display: noneimportant;
+}

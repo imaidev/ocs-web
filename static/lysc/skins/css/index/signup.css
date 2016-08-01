@@ -1,0 +1,68 @@
+.common-page-home .footer-holder{
+	position:relative;
+	_position:relative;
+}
+.signup-main {
+	height: 100%;
+	padding:20px 0px 40px 0px;
+}
+
+.form-contain {
+	margin: 5px;
+}
+.form_per_contain_con{width: 70%;float: left;}
+
+.form-contain .form-type .btn-per,.form-contain .form-type .btn-org {
+	width: 100px;
+	height: 30px;
+	float: left;
+	border: 1px solid #BAD0DB;
+	margin: 0px 5px;
+	cursor: pointer;
+	outline-style:none;
+}
+.form-contain .form-type .btn-per:hover,.form-contain .form-type .btn-org:hover,
+.form-contain .form-type .btn-per-hover,.form-contain .form-type .btn-org-hover{
+	background:#55C6E4;
+	border:1px solid #55C6E4;
+	background-color: #23b2da;
+	color: #fff;
+	font-size: 14px;
+}
+
+.form-contain .form-type {
+	height: 29px;
+	margin: 5px;
+	border-bottom: 1px solid #BAD0DB;
+}
+
+.tip-box-contain {
+	width: 25%;
+	_width:200px;
+	float: right;
+	margin: 5px;
+}
+.tip-box-contain .title,.tip-box-contain .content {
+	width: 200px;
+	_width: 150px;
+	margin: 5px;
+	padding-left:20px;
+	font: 14px/1.5 "Microsoft YaHei",Arial,Helvetica,sans-serif,Simsun;
+}
+.tip-box-contain .content li{
+	padding-top:30px;
+	color: #666;
+	font-size:12px;
+}
+.form-body dl {
+	padding: 0px;
+}
+
+.form-signup-body .input {
+	width: 270px;
+	outline-style: none;
+	border: 1px solid #e4e4e4;
+}
+/* .form-signup-body, .form-type {
+	padding-left: 40px;
+} */

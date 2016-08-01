@@ -1,0 +1,169 @@
+/*公用按钮*/
+.btn_b,.btn_w,.add_atn,.btn_relation,.N_but,.btn_o,.btn_g,
+.btn_relation2,.add_atn_small,.btn_relation_small,
+.btn_relation span,.btn_relation2 span,
+.btn_b_disable,.btn_green,.so_btn,
+.btn_green_w121,.btn_reg,.btn_b_disable,
+.btn_group,.btn_create,.btn_download,.btn_search_big,
+.btn_upload_file{background: url(../images/btn/cc-btn-sprites.png) no-repeat left top;_background-image:url(img/btn/cc-btn-sprites.gif);display: inline-block}
+
+/*普通按钮样式，有确定类型和取消类型的*/
+.btn_b,.btn_w,.add_atn,.N_but,.btn_o,.btn_g{display: inline-block;height:24px;width:69px;border:0 none;line-height: 24px;text-align:center;padding:0;text-decoration:none;vertical-align:middle;cursor:pointer;color:#fff}
+
+.btn_o{background-position:0px -25px;}
+.btn_o:hover{background-position:-70px -25px;}
+.btn_o:active{background-position:-140px -25px;}
+
+.btn_b{background-position:0px 0px;}
+.btn_b:hover{background-position:-70px 0px;}
+.btn_b:active{background-position:-140px 0px;}
+
+.btn_g,.add_atn,.N_but{background-position:0px -50px;}
+.btn_g:hover,.add_atn:hover,.N_but:hover{background-position:-70px -50px;}
+.btn_g:active,.add_atn:active,.N_but:active{background-position:-140px -50px;}
+
+.btn_w{color:#333;background-position:0px -75px;}
+.btn_w:hover{background-position:-70px -75px;}
+.btn_w:active{background-position:-140px -75px;}
+
+.clear {height: 1em; line-height: 1em; clear: both}
+.c {clear:both;font-size:1px;height:0;line-height:0;visibility:hidden}
+.clearfix:after{clear:both;content:".";display:block;margin:0;padding:0;font-size:0;height:0;line-height:0;overflow:hidden}
+.clearfix{*zoom:1}
+
+.fl { float:left;}
+.fr { float: right;}
+
+.ellipse{overflow: hidden;white-space: nowrap;text-overflow: ellipsis; /* 现代浏览器 +IE6、7 inline 元素 */}
+
+/*----按钮 开始----*/
+.opt_btn {
+	font:14px/30px "Microsoft YaHei", Arial, Helvetica, sans-serif, Simsun;
+	line-height:30px;color:#fff; padding-left: 15px; display: inline-block; zoom: 1; font-size-adjust: none; font-stretch: normal;
+	background-image: url("../images/btn/uc_btn.png");
+	_background-image: url("../images/btn/uc_btn.gif");
+	background-repeat: no-repeat;
+	_display: inline;
+	background-position: left top;
+}
+.opt_btn:hover {
+	background-image: url("../images/btn/uc_btn_hover.png");
+	_background-image: url("../images/btn/uc_btn_hover.gif");
+	text-decoration: none;
+}
+
+.opt_btn_gray,.opt_btn_cancle{
+	color:#838383;
+	background-position: left -170px;
+}
+
+.opt_btn_blue{
+	background-position: left -85px;
+}
+.opt_btn_orange{
+	background-position: left -260px;
+}
+
+.opt_btn span {
+	background-position: right -39px; height: 30px; padding-right: 15px; display: inline-block; cursor: pointer; zoom: 1; 
+	background-image: url("../images/btn/uc_btn.png"); 
+	_background-image: url("../images/btn/uc_btn.gif");
+	background-repeat: no-repeat;
+	_display: inline;
+	color:#fff;
+}
+.opt_btn:hover span{
+	background-image: url("../images/btn/uc_btn_hover.png");
+	_background-image: url("../images/btn/uc_btn_hover.gif");
+}
+.opt_btn_gray span,.opt_btn_cancle span{
+	color:#838383;
+	background-position: right -208px;
+}
+.opt_btn_blue span{
+	color:#fff;
+	background-position: right -125px;
+}
+.opt_btn_orange span{
+	color:#fff;
+	background-position: right -300px;
+}
+.m_form .btn_wrap .opt_btn {
+	margin-right: 12px;
+}
+/*---获取手机激活码后改变显示文字颜色---*/
+.span-red{
+	color:#ff6666;
+}
+/*----按钮 结束----*/
+/*----返回顶部 开始----*/
+.gotop {
+	height: 83px;
+	padding-top: 5px;
+	left: 50%;
+	line-height: 14px;
+	margin-left: 478px;
+	overflow: hidden;
+	width: 20px;
+	border: 1px solid #D7F0F8;
+	border-radius: 5px;
+	background: #6FB9F3;
+	color: white;
+	text-align: center;
+	display: block;
+}
+.gotopcon {
+	text-align: center;
+}
+.toparr {
+	writing-mode: tb-rl;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	display: block;
+	font-family: 宋体;
+	cursor: pointer;
+	width: 12px;
+	height: 20px;
+	margin: -1px 0;
+	overflow: hidden;
+}
+.gotopcon span {
+	cursor: pointer;
+}
+/*----返回顶部 结束----*/
+/*---- tab按钮 开始----*/
+.tab-icon{
+	display: inline-block;
+    height: 30px;
+    line-height:30px;
+    width: 110px;
+    background: url("../images/btn/tab_icon.png") no-repeat 0 0 transparent;
+	text-align: center;
+}
+.tab-icon:hover{
+	text-decoration:none;
+	background-position:0px -60px;
+}
+.tab-icon-cur,.tab-icon-cur:hover{
+	background-position:0px -30px;
+}
+.tab-icon span{
+	color:#6C6A66;
+	font-size:14px;
+}
+.tab-icon:hover span,.tab-icon-cur span{
+	color:#373838;
+}
+/*---- tab按钮 结束----*/
+
+/*---- 分页 开始----*/
+.right{text-align:right;padding-right:35px; margin:5px;font-size:14px;}
+.page { text-align: right }
+.page a { padding-right: 5px; padding-left: 5px; padding-bottom: 2px;  margin-right: 2px; padding-top: 2px; text-decoration: none }
+.page a:hover { padding-right: 5px; padding-left: 5px; padding-bottom: 2px; margin-right: 2px; padding-top: 2px }
+.page a:active { padding-right: 5px; padding-left: 5px; padding-bottom: 2px; margin-right: 2px; padding-top: 2px}
+.page span.current { padding-right: 5px; padding-left: 5px; font-weight: bold; padding-bottom: 2px; color: #000; margin-right: 2px; padding-top: 2px; background-color: rgb(243, 243, 243) }
+.page span.disabled { padding-right: 5px; padding-left: 5px; padding-bottom: 2px; color: rgb(243, 243, 243); margin-right: 2px; padding-top: 2px }
+.page span.quantity { padding-right: 5px; padding-left: 5px; padding-bottom: 2px; color: rgb(243, 243, 243); margin-right: 2px; padding-top: 2px }
+/*---- 分页 结束----*/

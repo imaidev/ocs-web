@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="/static/design/css/editor.css" rel="stylesheet">
+		<link href="/static/design/js/layer/skin/layer.css" rel="stylesheet">
+		<link href="/static/design/css/mricode.pagination.css" rel="stylesheet">
+
+		<script src="/static/design/js/jquery.min.js"></script>
+		<script src="/static/design/js/layer/layer.js"></script>
+		<script src="/static/design/js/mricode.pagination.js"></script>
+	</head>
+
+	<style>
+		.form-default {
+		    margin-top: 0;
+		}
+		.form-default .edit-module .edit-item .w320 {
+			width: 320px;
+		}
+		
+		.form-default .edit-module {
+			width: 727px;
+		}
+		
+		.form-default .edit-module .edit-item {
+		    margin-left: 25px;
+		}
+		.form-default .edit-module .edit-item .column1 .videoName {
+			margin-left: 0;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		function uploadVideo() {
+			layer.open({
+                type: 2, 
+                area: ['400px', '250px'],
+                title: '上传文件',
+                shade: 0.6, 
+                moveType: 1, 
+                shift: -1,
+                content: parent.parent.ctx+'/resUpload.res?method=init&dir=videoplayer&type=doc&callback=videoCallBack&maxuploadsize=100M&folderId=videoroot'
+            });   
+		}
+		
+		function videoCallBack() {
+			window.location.reload();
+		}
+		
+		function chooseClose() {
+			var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+			parent.layer.close(index); 
+		}
+		
+		function chooseVideo() {
+			if ($("input[name=chooseVideo]:checked").size() == 0) {
+				layer.alert("请选择一个视频源！");
+				return false;
+			}
+			var url = $("input[name=chooseVideo]:checked").siblings("input[name=source_url]").val();
+			var type = $("input[name=chooseVideo]:checked").siblings("input[name=source_type]").val();
+			var name = $("input[name=chooseVideo]:checked").siblings("input[name=source_name]").val();
+			
+			if (_request.sourceType != null && _request.sourceType != "" && _request.sourceType.indexOf(type) < 0) {
+				layer.alert("只能选择"+_request.sourceType.replace(/\|/g, "、")+"格式的视频源！");
+				return false;
+			}
+			if (_request.callBack != null && _request.callBack != "") {
+				var o = "{url:\""+url+"\",type:\""+type+"\",name:\""+name+"\"}";
+				parent.eval(_request.callBack+'('+o+')');
+			}
+			var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+			parent.layer.close(index); 
+		}
+		
+		function deleteVideo(resId) {
+           	layer.confirm("确定删除该视频么？", {
+           		btn: ['确定', '取消'],
+           		yes: function(index, layero) {
+           			layer.close(index);
+           			$.ajax({
+           				url: parent.parent.ctx+"/design/dataAPI/base/ResDataApi.do?method=deleteResVideo&resId="+resId,
+           				success: function(data) {
+           					if (data.result == "success") {
+           						layer.alert("删除成功", function(index) {
+           							layer.close(index);
+			            			window.location.reload();
+           						});
+           					} else {
+           						layer.alert("删除失败");
+           					}
+           				},
+           				error: function() {
+           					layer.alert("删除失败");
+           				},
+           				dataType: 'json'
+           			});
+           		}
+           	})
+		}
+		
+		function GetRequest() {   
+		    var url = location.search; //获取url中"?"符后的字串   
+		    var theRequest = new Object();   
+		    if (url.indexOf("?") != -1) {   
+		       var str = url.substr(1);   
+		       strs = str.split("&");   
+		       for(var i = 0; i < strs.length; i ++) {   
+		          theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);   
+		       }   
+		    }   
+		    return theRequest;   
+		}   
+		
+		$(function() {
+			_request = GetRequest();
+			$("div.m-pagination").pagination({
+			    pageSize: 7,
+			    showInfo: false,
+	            showJump: true,
+	            showPageSizes: false,
+	            showPageSizes: false,
+	            prevBtnText :"上一页",
+	            nextBtnText :"下一页",
+	            firstBtnText :"|<",
+	            lastBtnText : ">|",
+	            jumpBtnText :"确定",
+			    remote: {
+			        url: parent.parent.ctx+"/design/dataAPI/base/ResDataApi.do?method=getResVideoInfo",
+			        success: function(json){
+		            	if(json.list.length>0){
+		            		var domstr="";
+		            		for(var i=0; i < json.list.length; i++){
+		            			var checkFlag = parent.checkSource(json.list[i].RES_URL+'/'+json.list[i].RES_NAME);
+		            			domstr += '<div class="edit-item ml0">'
+										+ '		<div class="edit-choose">'
+										+ '			<input type="radio" name="chooseVideo" '+(checkFlag?"disabled=\"disabled\" title=\"该视频已被选取\"":"")+'/>'
+										+ '			<input type="hidden" name="source_url" value="'+json.list[i].RES_URL+'/'+json.list[i].RES_NAME+'"/>'
+										+ '			<input type="hidden" name="source_id" value="'+json.list[i].RES_ID+'"/>'
+										+ '			<input type="hidden" name="source_type" value="'+json.list[i].RES_NAME.substring(json.list[i].RES_NAME.lastIndexOf('.')+1)+'"/>'
+										+ '			<input type="hidden" name="source_name" value="'+json.list[i].SOURCE_NAME+'"/>'
+										+ '		</div>'
+										+ '		<div class="column column1 w320">'
+										+ '			<div class="videoName" title="'+json.list[i].SOURCE_NAME+'">'+json.list[i].SOURCE_NAME+'</div>'
+										+ '		</div>'
+										+ '		<div class="column column1 w120">'
+										+ '			<div>【'+json.list[i].RES_NAME.substring(json.list[i].RES_NAME.lastIndexOf('.')+1)+'】</div>'
+										+ '		</div>'
+										+ '		<div class="column column1 w120">'
+										+ '			<div>'+Math.round(parseInt(json.list[i].RES_SIZE)/1024/1024*100)/100+'MB</div>'
+										+ '		</div>'
+										+ '		<div class="column column3">'
+										+ (checkFlag?'<div style="height: 26px;">该视频已被选取</div>':'<a title="删除" class="delete" href="javascript:void(0);" onclick="deleteVideo(\''+json.list[i].RES_ID+'\')"></a>')
+										+ '		</div>'
+										+ '</div>';
+		            		}
+		            		$("#EditorBox").empty().append(domstr);
+		            	}
+					},
+					
+			        totalName:'total'
+			    }
+			});
+		})
+	</script>
+	<body>
+		<div class="content fm1">
+			<div class="tab">
+				<form class="main-slide-form form-default">
+					<div class="panel content-set ks-switchable-panel-internal7" id="tabOne">
+						<div class="edit-module">
+							<div class="edit-item bb">
+								<div class="fr">
+									<a class="add-one btn-style-1" onclick="uploadVideo()">本地上传</a>
+								</div>
+							</div>
+						</div>
+						<div class="edit-module">
+							<div class="edit-item">
+								<div id="Group">
+									<div class="edit-item  edit-head ml0">
+										<div class="edit-choose"></div>
+										<div class="column column1 w320"><span>视频名称</span></div>
+										<div class="column column1 w120"><span>视频格式</span></div>
+										<div class="column column1 w120"><span>文件大小</span></div>
+										<div class="column column3"><span>操作</span></div>
+									</div>
+									<div id="EditorBox" class="pic-list">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div name="pagin_btm" class="m-pagination" style="margin-right: 27px;">
+				</div>
+					<p class="opt-footer ctset-opt-footer">
+						<a href="javascript:void(0);" class="btn-ok" onclick="chooseVideo();">选择</a>
+						<a href="javascript:void(0);" class="btn-cancel" onclick="chooseClose();">取消</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</body>
+
+</html>

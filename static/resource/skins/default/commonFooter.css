@@ -1,0 +1,134 @@
+@charset "utf-8";
+/* CSS Document */
+#service {
+	padding: 25px 0 30px 0;
+	border-top: 1px dashed #D0D0D0;
+	overflow: hidden;
+	clear: both;
+	min-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+	background: url(../images/index/serviceBg.jpg) repeat-x top;
+	border-top: 2px solid #cbcbcb;
+}
+
+#service .serviceContent {
+	font-size: 14px;
+	font-family: "\5B8B\4F53", "SimSun";
+	margin: 0 auto;
+	width: 1200px;
+	overflow: hidden;
+}
+
+#service .dd {
+	float: left;
+	width: 160px;
+	overflow: hidden;
+	padding-left: 30px;
+}
+
+#service .dd1 {
+	background: url(../images/index/service1.jpg) no-repeat left top;
+}
+
+#service .dd2 {
+	background: url(../images/index/service2.jpg) no-repeat left top;
+}
+
+#service .dd3 {
+	background: url(../images/index/service3.jpg) no-repeat left top;
+}
+
+#service .dd4 {
+	background: url(../images/index/service4.jpg) no-repeat left top;
+}
+
+#service .dd5 {
+	background: url(../images/index/service5.jpg) no-repeat left top;
+}
+
+#service .dd6 {
+	position: relative;
+	width: 214px;
+	height: 159px;
+	float: right;
+}
+
+#weibo {
+	position: absolute;
+	top: 135px;
+	width: 67px;
+	height: 24px;
+	left: 60px;
+	z-index: 2;
+}
+
+#service .sTitle {
+	padding-left: 5px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	width: 110px;
+	border-bottom: 1px solid #cbcbcb;
+	font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft YaHei";
+	font-size: 16px;
+	font-weight: bold;
+	color: #666666;
+	letter-spacing: 1px;
+	padding-bottom: 5px;
+}
+
+#service li {
+	margin-top: 8px;
+}
+
+#service li a {
+	color: #666666;
+}
+
+#footer {
+	padding: 15px 0;
+	overflow: hidden;
+	margin: 0 auto;
+	background-color: #ededed;
+	min-width: 1200px;
+	width: 100%;
+	font-size: 14px;
+	font-family: "\5B8B\4F53", "SimSun";
+	color: #666666;
+	line-height: 25px;
+}
+
+#footer .footerBg {
+	overflow: hidden;
+	margin: 0 auto;
+	min-width: 1200px;
+	width: 100%;
+}
+
+.links {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 1200px;
+	text-align: center;
+}
+
+#footer .fContent {
+	display: inline-block;
+	_display: inline;
+	text-align: center;
+}
+
+#footer .fContent li {
+	padding-left: 5px;
+	padding-right: 5px;
+	display: inline;
+}
+
+#footer .fContent li a {
+	color: #666666;
+}
+
+#footer .fContent li span {
+	color: #666666;
+}

@@ -1,0 +1,149 @@
+<h3 class="edit-tit">宝贝排行</h3>
+<div class="toolTips">
+    <p class="tipsTit">
+        模块使用小贴士<a class="closeTip">X</a>
+    </p>
+    <p class="tipsMain">
+        任一个榜单不足3个宝贝整个模块将不显示，该模块最多用1次
+        <br>
+        宝贝排行榜是由系统自动抓取排名前三的宝贝，当任意一个榜单不足3个宝贝时，整个模块将不显示。
+    </p>
+</div>
+<form id="form1">
+    <div class="mb15 mt25 overH">
+        <label class="linkTit">
+            类目
+        </label>
+        <div class="linkMain w80p">
+            <div class="linkInfo w100p">
+                <select class="fm1 category" name="category" id="category">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="mb15 mt25 overH">
+        <label class="linkTit">
+            关键字
+        </label>
+        <div class="linkMain w80p">
+            <div class="linkInfo w100p">
+                <textarea class="w90p fm1 enterInfo" name="keyWordSearch" id="keyWordSearch" onkeyup="textareaDel(this)" placeholder="请输入文字"></textarea>
+                <p class="help-block">
+                    0/30
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="mb15 mt25 overH">
+        <label class="linkTit">
+            过滤价格
+        </label>
+        <div class="linkMain w80p">
+            <div class="linkInfo w100p">
+                <input class="enterPrice fl" id="beginPrice" name="beginPrice" type="text"><span class="centerLine">--</span>
+                <input type="text" name="endPrice" id="endPrice" class="enterPrice fr">
+            </div>
+        </div>
+</form>
+<script>
+    $(".closeTip").click(function(){
+    
+        $(".toolTips").css('display', 'none');
+        
+    });
+    var saleList = "";
+    var collectList = "";
+    function textareaDel(obj){
+        var text = $(obj).val();
+        
+        $(obj).next().text(text.length + "/30");
+    }
+    
+    $(function(){
+        vendCategory();
+        var dataval = _cfg;
+        $(".enterInfo").val(dataval.keyWord);
+        $("#beginPrice").val(dataval.beginPrice);
+        $("#endPrice").val(dataval.endPrice);
+        $("#category").find("option[value=" + dataval.category + "]").attr("selected", true);
+        
+    });
+    //获取商家自定义类目 
+    function vendCategory(){
+        var url = parent.ctx + "/design/dataAPI/itemCategory/ItemCategoryDataApi.do?method=getVendCataByVendId&VEND_ID=" + parent.g_vendid;
+        $.ajax({
+            url: url,
+            type: "POST",
+            success: function(data){
+                var domstr = [];
+                
+                for (var i = 0; i < data.length; i++) {
+                    domstr.push("<option value='", data[i].CATAGORY_ID, "'>", data[i].CATAGORY_NAME, "</option>");
+                }
+                var str = domstr.join("");
+                $(".category").children().after(str);
+            },
+            error: function(){
+                alert("error");
+            },
+            dataType: "json",
+            async: false
+        
+        });
+        
+    }
+    
+    
+    //组件保存方法
+    function cfgset(){
+        var text = $(".enterInfo").val();
+        var beginPrice = $("#beginPrice").val();
+        var endPrice = $("#endPrice").val();
+        if (text.length > 30) {
+            layer.msg("关键字长度超过限制范围！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+        if ((!isNaNTool(endPrice)) || (!isNaNTool(beginPrice))) {
+            layer.msg("价格区间范围存在非数字！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+        if (endPrice < beginPrice) {
+            layer.msg("价格区间不成立！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+        
+        
+        var dataval = {
+        
+            keyWord: text,
+            beginPrice: beginPrice,
+            endPrice: endPrice,
+            category: $("#category").val()
+        };
+        _$module.goodsArrangement('reset', dataval);
+		hideEdit();
+    }
+    
+    function isNaNTool(val){
+        if (!isNaN(val)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+</script>

@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+
+/***分享栏目组件 ***/
+.shareInfo{overflow:hidden;}
+.shareInfo .shareBox {height:auto; width:100%;}
+.shareInfo .shareBox a {text-decoration:none;display:block;width:84px; _width:90px;float:left;margin:5px 0 5px 0;}
+.shareInfo .shareCtrl {float:left; width:60px;height:20px;line-height:20px;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.shareInfo .shareIcon {float:left;height:20px;line-height:20px;width:20px;margin:0 2px 0 2px;cursor:pointer;}
+.shareInfo .copy {background:url(../img/icon/shareicon.png) -437px 0 no-repeat;}
+.shareInfo .sina_weibo {background:url(../img/icon/shareicon.png) -56px 0 no-repeat;}
+.shareInfo .qq_weibo {background:url(../img/icon/shareicon.png) -332px 0 no-repeat;}
+.shareInfo .qq_zone {background:url(../img/icon/shareicon.png) -387px 0 no-repeat;}
+.shareInfo .kaixin001 {background:url(../img/icon/shareicon.png) -140px 0 no-repeat;}
+.shareInfo .renren {background:url(../img/icon/shareicon.png) -84px 0 no-repeat;}
+.shareInfo .douban {background:url(../img/icon/shareicon.png) -253px 0 no-repeat;}
+.shareInfo .baidu_hi {background:url(../img/icon/shareicon.png) -360px 0 no-repeat;}
+.shareInfo .baidu_tieba {background:url(../img/icon/shareicon.png) -412px 0 no-repeat;}
+.shareInfo .taojianghu {background:url(../img/icon/shareicon.png) -112px 0 no-repeat;}
+.shareInfo .sohu_weibo {background:url(../img/icon/shareicon.png) -279px 0 no-repeat;}
+.shareInfo .netease_weibo {background:url(../img/icon/shareicon.png) -305px 0 no-repeat;}
+.shareInfo .FaceBook {background:url(../img/icon/shareicon.png) -168px 0 no-repeat;}
+.shareInfo .Twitter {background:url(../img/icon/shareicon.png) -196px 0 no-repeat;}
+.shareInfo .LinkedIn {background:url(../img/icon/shareicon.png) -224px 0 no-repeat;}
+.shareInfo .Weixin {background:url(../img/icon/shareicon.png) -29px 0 no-repeat;}

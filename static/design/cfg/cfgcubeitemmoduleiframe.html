@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+
+    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+    <script src='/static/design/js/layer/layer.js'></script>
+
+    <link href="/static/design/js/spectrum/spectrum.css" rel="stylesheet" />
+    <script src="/static/design/js/spectrum/spectrum.js"></script>
+
+
+    <script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+    <script>
+        var MyCfg = {
+            defaultLayerOpt: {
+                offset: 80,
+                shift: 5,
+                time: 3000
+            }
+        }
+
+        function setSquence() {
+            var divlist = $('#EditorBox').children();
+            var len = divlist.length;
+            divlist.each(function(i, item) {
+                $(this).find(".col1").html(i + 1 + ".");
+                if (i == 0) {
+                    $(this).addClass('first')
+                    if (len > 1) $(this).removeClass('last');
+                }
+                if (i == len - 1) {
+                    $(this).addClass('last');
+                    if (len > 1) $(this).removeClass('first');
+                }
+                if (i > 0 && i < len - 1) {
+                    $(this).removeClass('last').removeClass('first');
+                }
+                if (i % 2 == 0) {
+                    $(this).addClass('even').removeClass('odd');
+                } else {
+                    $(this).addClass('odd').removeClass('even');
+                }
+            })
+        }
+
+        function addRow(number, typename) {
+            var arr = [];
+            arr.push("<div class='edit-item'>");
+            arr.push("    <div class='tc column col1'>");
+            arr.push(number + ".");
+            arr.push("    </div>");
+            arr.push("    <div class='tc column col2'>");
+            arr.push(typename);
+            arr.push("    </div>");
+            arr.push("    <div class='tc column column3 col2'>");
+            arr.push("        <a title='上移' class='up magicPic' ></a>");
+            arr.push("        <a title='下移' class='down magicPic' ></a>");
+            arr.push("        <a title='删除' class='delete magicPic' ></a>");
+            arr.push("    </div>");
+            arr.push("</div>");
+            var $div = $(arr.join(''));
+            $('#EditorBox').append($div);
+
+            setSquence();
+        }
+
+
+        $(function() {
+            SELECTTEDITEM = null;
+            parent._cfg=JSON.parse(JSON.stringify(parent._cfg));
+
+            //tab页切换
+            $('#titleOne').click(function() { //常规
+                $(this).addClass('selected');
+                $(this).siblings().removeClass('selected');
+                $("#tabOne").show();
+                $("#tabTwo").hide();
+                $("#tabThree").hide();
+            });
+            $('#titleTwo').click(function() { //特效
+                $(this).addClass('selected');
+                $(this).siblings().removeClass('selected');
+                $("#tabTwo").show();
+                $("#tabOne").hide();
+                $("#tabThree").hide();
+            });
+            $('#titleThree').click(function() { //展示
+                $(this).addClass('selected');
+                $(this).siblings().removeClass('selected');
+                $("#tabThree").show();
+                $("#tabOne").hide();
+                $("#tabTwo").hide();
+            });
+
+            $('#manual').click(function() { //配置方式：手动
+                $(".Manual").show();
+                $(".Auto").hide();
+            });
+            $('#auto').click(function() { //配置方式：自动
+                $(".Manual").hide();
+                $(".Auto").show();
+            });
+            //点击图册类型
+            $('#cubetype').find('.cardStyleItem').click(function() {
+                var $target = $(this);
+                $target.siblings().removeClass('cardStyleChoice');
+                $target.addClass('cardStyleChoice');
+
+                parent._cfg.type = $target.attr("data-type");
+            });
+            //点击选中
+            $("#EditorBox").delegate("div.edit-item", "click", function(e) {
+                if ($(this).hasClass('selectedEditItem')) return;
+                $(this).addClass('selectedEditItem').siblings().removeClass('selectedEditItem');
+
+                //读取items
+                //debugger;
+                var index = $('#EditorBox').children().index($(this));
+                window.SELECTTEDITEM = parent._cfg.items[index];
+                if (SELECTTEDITEM.type == "item") { //商品
+                    var itemname = "";
+
+                    function getItem(itemid) {
+                        var url = parent.ctx + "/design/dataAPI/item/AjaxItemInfoDataApi.do?method=getItemIsList&itemId=" + itemid;
+                        $.ajax({
+                            url: url,
+                            type: "POST",
+                            success: function(data) {
+                                //debugger;
+                                itemname = data.list[0].ITEM_TITLE;
+                            },
+                            error: function() {
+                                alert("error");
+                            },
+                            dataType: "json",
+                            async: false
+                        });
+                    }
+
+                    if (SELECTTEDITEM.itemid) {
+                        getItem(SELECTTEDITEM.itemid);
+                    }
+
+                    //设置配置框内容
+                    $("#itemtitle").text(itemname);
+                    if (SELECTTEDITEM.usecustomstyle == "1") {
+                        $("#itemusecust").click();
+                    } else {
+                        $("#itemnotusecust").click();
+                    }
+                    $("#itempadding").val(SELECTTEDITEM.padding);
+                    if (SELECTTEDITEM.isshowtitleandprice == "1") {
+                        $("#itemshowprice").click();
+                    } else {
+                        $("#itemnotshowprice").click();
+                    }
+                    $("#itembox").show().siblings().hide();
+                } else if (SELECTTEDITEM.type == "pic") {
+                    //设置配置框内容
+                    $("#picsrc").val(SELECTTEDITEM.src);
+                    $("#picurl").val(SELECTTEDITEM.href);
+                    if (SELECTTEDITEM.usecustomstyle == "1") {
+                        $("#picusecust").click();
+                    } else {
+                        $("#picnotusecust").click();
+                    }
+                    $("#picpadding").val(SELECTTEDITEM.padding);
+                    $("#picbox").show().siblings().hide();
+                } else if (SELECTTEDITEM.type == "slide") {
+                    //设置配置框内容
+                    if (SELECTTEDITEM.pics[0]) {
+                        $("#picsrc0").val(SELECTTEDITEM.pics[0].src);
+                        $("#picurl0").val(SELECTTEDITEM.pics[0].href);
+                    } else {
+                        $("#picsrc0").val("");
+                        $("#picurl0").val("");
+                    }
+                    if (SELECTTEDITEM.pics[1]) {
+                        $("#picsrc1").val(SELECTTEDITEM.pics[1].src);
+                        $("#picurl1").val(SELECTTEDITEM.pics[1].href);
+                    } else {
+                        $("#picsrc1").val("");
+                        $("#picurl1").val("");
+                    }
+                    if (SELECTTEDITEM.pics[2]) {
+                        $("#picsrc2").val(SELECTTEDITEM.pics[2].src);
+                        $("#picurl2").val(SELECTTEDITEM.pics[2].href);
+                    } else {
+                        $("#picsrc2").val("");
+                        $("#picurl2").val("");
+                    }
+                    if (SELECTTEDITEM.usecustomstyle == "1") {
+                        $("#slideusecust").click();
+                    } else {
+                        $("#slidenotusecust").click();
+                    }
+                    $("#slidepadding").val(SELECTTEDITEM.padding);
+                    $("#slidebox").show().siblings().hide();
+                }
+
+            });
+
+            //点击删除
+            $("#EditorBox").delegate("a.delete", "click", function(e) {
+                var $edititem = $(this).closest('div.edit-item');
+
+                var index = $('#EditorBox').children().index($edititem);
+                parent._cfg.items.splice(index, 1);
+
+                $edititem.remove();
+                setSquence();
+            });
+            //点击上移
+            $("#EditorBox").delegate("a.up", "click", function(e) {
+                e.stopPropagation();
+                var $edititem = $(this).closest('div.edit-item');
+                var index = $('#EditorBox').children().index($edititem);
+
+                if (!index) return;
+
+                var tmp = parent._cfg.items[index - 1];
+                parent._cfg.items[index - 1] = parent._cfg.items[index];
+                parent._cfg.items[index] = tmp;
+
+                $(this).parent().parent().after($(this).parent().parent().prev());
+                setSquence();
+            });
+            //点击下移
+            $("#EditorBox").delegate("a.down", "click", function(e) {
+                e.stopPropagation();
+
+                var $edititem = $(this).closest('div.edit-item');
+                var index = $('#EditorBox').children().index($edititem);
+
+                if (index == $('#EditorBox').children().length - 1) return;
+
+                var tmp = parent._cfg.items[index + 1];
+                parent._cfg.items[index + 1] = parent._cfg.items[index];
+                parent._cfg.items[index] = tmp;
+
+                $(this).parent().parent().next().after($(this).parent().parent());
+                setSquence();
+            });
+
+            //点击添加商品
+            $('#btnAddItem').click(function() {
+                var index = $('#EditorBox').children().length;
+                if (index >= 10) {
+                    layer.msg("最多只能添加10个模块", MyCfg.defaultLayerOpt);
+                    return false;
+                }
+
+                addRow(index + 1, '商品');
+
+                parent._cfg.items.push({
+                    type: "item",
+                    itemid: "",
+
+                    usecustomstyle: "0",
+                    isshowtitleandprice: "1",
+                    padding: "10",
+                });
+
+                setSquence();
+            });
+
+            //点击添加图片
+            $('#btnAddPic').click(function() {
+                var index = $('#EditorBox').children().length;
+                if (index >= 10) {
+                    layer.msg("最多只能添加10个模块", MyCfg.defaultLayerOpt);
+                    return false;
+                }
+                addRow(index + 1, '图片');
+
+                parent._cfg.items.push({
+                    type: "pic",
+
+                    usecustomstyle: "1",
+                    padding: "2",
+
+                    href: "",
+                    src: "",
+                });
+
+                setSquence();
+            });
+
+            //点击添加轮播
+            $('#btnAddSlide').click(function() {
+                var index = $('#EditorBox').children().length;
+                if (index >= 10) {
+                    layer.msg("最多只能添加10个模块", MyCfg.defaultLayerOpt);
+                    return false;
+                }
+                addRow(index + 1, '轮播');
+
+                parent._cfg.items.push({
+                    type: "slide",
+
+                    usecustomstyle: "1",
+                    padding: "0",
+
+                    pics: [{
+                        href: "",
+                        src: "/static/design/img/cube01.jpg",
+                    }, {
+                        href: "",
+                        src: "/static/design/img/cube02.jpg",
+                    }, {
+                        href: "",
+                        src: "/static/design/img/cube03.jpg",
+                    }]
+                });
+
+                setSquence();
+            });
+
+            //点击图册特效
+            $('#mouseCover').find('.cardStyleItem').click(function() {
+                var $target = $(this);
+                $target.siblings().removeClass('cardStyleChoice');
+                $target.addClass('cardStyleChoice');
+
+                parent._cfg.effect = $target.attr("data-effect");
+
+                if ($target.hasClass('mouseCover1')) {
+                    $("#mouseCover1").show();
+                } else {
+                    $("#mouseCover1").hide();
+                }
+            });
+            //点击特效(边框)
+            $('#radioBorderDefault').click(function() {
+                $("#mousecoverSet1").hide();
+            });
+            $('#radioBorderCustom').click(function() {
+                $("#mousecoverSet1").show();
+            });
+
+            //加载数据(图册图片)
+            $(parent._cfg.items).each(function(item, i) {
+                if (this.type == "item") {
+                    addRow(i, "商品");
+                }
+                if (this.type == "pic") {
+                    addRow(i, "图片");
+                }
+                if (this.type == "slide") {
+                    addRow(i, "轮播");
+                }
+            });
+            $('#picHight').val(parent._cfg.height); //加载数据(图册高度)
+            $('#picTarget').val(parent._cfg.target); //加载数据(图片打开方式)
+
+            $('#mouseCover').find("div[data-effect=" + parent._cfg.effect + "]").click(); //加载数据(图册特效)
+            $("#cubetype").find("div[data-type=" + parent._cfg.type + "]").click(); //加载数据(图册展示类型)
+
+            //加载数据(图册边框)
+            if (parent._cfg.custBorder != "0") {
+                $('#radioBorderCustom').click();
+            } else {
+                $('#radioBorderDefault').click();
+            }
+            $("#borderColor").val(parent._cfg.borderColor);
+            $("#borderColor").spectrum({
+                color: parent._cfg.borderColor,
+                preferredFormat: "hex6",
+                showInput: true
+            });
+            $('#borderWidth').val(parent._cfg.borderWidth);
+            $('#borderStyle').val(parent._cfg.borderStyle);
+
+            //是否显示商品名称和价格
+            if (parent._cfg.isshowtitleandprice != "0") {
+                $('#showtitleandprice').click();
+            } else {
+                $('#hidetitleandprice').click();
+            }
+
+            //选择方式
+            if (parent._cfg.autoSelect == "1") {
+                $('#auto').click();
+            } else {
+                $('#manual').click();
+            }
+
+            //展示位空白
+            $('#padding').val(parent._cfg.padding);
+
+            //加载是否显示边框
+            if (parent._cfg.showborderup != "0") {
+                $('#showborderup').click();
+            } else {
+                $('#hideborderup').click();
+            }
+            if (parent._cfg.showborderdown != "0") {
+                $('#showborderdown').click();
+            } else {
+                $('#hideborderdown').click();
+            }
+            if (parent._cfg.showborderleft != "0") {
+                $('#showborderleft').click();
+            } else {
+                $('#hideborderleft').click();
+            }
+            if (parent._cfg.showborderright != "0") {
+                $('#showborderright').click();
+            } else {
+                $('#hideborderright').click();
+            }
+
+            //加载自动配置方式
+            $("#beginPrice").val(parent._cfg.beginPrice);
+            $("#endPrice").val(parent._cfg.endPrice);
+            $("#sortRule").val(parent._cfg.sortRule);
+            $("#comName").text(decodeURIComponent(decodeURIComponent(parent._cfg.comName)));
+            $("#catName").text(decodeURIComponent(decodeURIComponent(parent._cfg.catName)));
+
+            //设置验证规则
+            setValidate();
+        })
+
+        function setValidate() {
+            $('#displaySetForm').validate({
+                onkeyup: function(element) {
+                    $(element).valid();
+                },
+                rules: {
+                    height: {
+                        required: true,
+                        max: 800,
+                        min: 400
+                    },
+                    padding: {
+                        required: true,
+                        max: 10,
+                        min: 0
+                    },
+                    itempadding: {
+                        required: true,
+                        max: 10,
+                        min: 0
+                    },
+                    picpadding: {
+                        required: true,
+                        max: 10,
+                        min: 0
+                    },
+                    slidepadding: {
+                        required: true,
+                        max: 10,
+                        min: 0
+                    }
+                },
+                showErrors: function(errorMap, errorList) {
+                    if (errorList.length > 0) {
+                        $.each(errorList, function(index, error) {
+                            var element = $(errorList[index].element);
+                            var msgContainer = element.parent().find('.J_TMsg');
+                            if (msgContainer.length > 0) {
+                                msgContainer.find('span').text(error.message);
+                                if (error.message != "")
+                                    msgContainer.removeClass('disappear').addClass('failure');
+                                else
+                                    msgContainer.removeClass('failure').addClass('disappear');
+                            }
+                        });
+                    } else {
+                        this.currentElements.parent().find('.J_TMsg').each(function() {
+                            $(this).removeClass('failure').addClass('disappear');
+                        });
+                    }
+
+                }
+            });
+        }
+
+        function cfgSet() {
+            if (!$('#displaySetForm').valid()) {
+                return;
+            } else {
+                var otherTab = $("#navul>.selected").siblings();
+                for (i = 0; i < otherTab.length; i++) {
+                    otherTab.click();
+                    if (!$('#displaySetForm').valid())
+                        return;
+                }
+            }
+
+            //todo 检查展示位合理性
+
+            $("#CfgBox").children().remove();
+
+            var arr = $('#displaySetForm').serializeArray();
+            //debugger;
+            arr.forEach(function(obj) {
+                parent._cfg[obj.name] = obj.value;
+            });
+
+
+            parent._$module.cubeitemmodule('reset', parent._cfg);
+
+            //关闭配置框
+            parent.cfgClose();
+        }
+    </script>
+</head>
+
+<body class="cfgitemmodule">
+    <div class="content fm1">
+        <div class="tab">
+            <ul class="nav clear-fix" id="navul">
+                <li class="ks-switchable-trigger-internal6 selected" id="titleOne"><span>常规</span></li>
+                <li class="ks-switchable-trigger-internal6" id="titleTwo"><span>图片特效</span></li>
+                <li class="ks-switchable-trigger-internal6" id="titleThree"><span>展示设置</span></li>
+            </ul>
+            <form class="main-slide-form form-default" id="displaySetForm">
+                <div class="panels">
+                    <div class="panel content-set ks-switchable-panel-internal7" id="tabOne" style="display: block;">
+                        <div class="edit-module">
+                            <div class="clearfloat"></div>
+                            <div class="selectCardStyleWarp edit-item overChose ba h240 mt15" style="width: 650px;">
+                                <div class="photoCartContainer" id="cubetype" style="width: auto;">
+                                    <div class="cardStyleItem itemModuleCard1 " data-type="type1"></div>
+                                    <div class="cardStyleItem itemModuleCard2 " data-type="type2"></div>
+                                    <div class="cardStyleItem itemModuleCard3 " data-type="type3"></div>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label w70">配置方式:</label>
+
+                                <div class="control show-title ml75">
+                                    <label>
+                                        <input type="radio" name="autoSelect" id="manual" value="0" checked="checked" />手动</label>
+                                    <label>
+                                        <input type="radio" name="autoSelect" id="auto" value="1" />自动</label>
+                                </div>
+                            </div>
+                            <div class="edit-module Auto cfgitemmodule" style="margin-top: 20px;width:100%;display:none">
+                                <div style="padding-left:60px;">
+                                  <div class="edititem">
+                                      过滤价格:
+                                      <input type="text" id="beginPrice" name="beginPrice" style="width:80px;" />-
+                                      <input type="text" id="endPrice" name="endPrice" style="width:80px;" />
+                                  </div>
+                                  <div class="edititem">
+                                      排序规则:
+                                      <select name="sortRule" id="sortRule">
+                                          <option value="oldstarts">上架日期</option>
+                                          <option value="hotsell">销量</option>
+                                          <option value="">价格（由高到低）</option>
+                                      </select>
+                                  </div>
+                                  <div class="edititem">
+                                        商城:<span id="comName"></span>
+                                  </div>
+                                  <div class="edititem">
+                                        类目:<span id="catName"></span>
+                                  </div>
+                                  <div class="edititem">
+                                        <a class="add-one btn-style-1" href="javascript:void(0);" id="btnChooseSiteCat">选择商城类目</a>
+                                  </div>
+                                  <script type="text/javascript">
+                                    $(function(){
+                                      $("#btnChooseSiteCat").click(function(){
+                                        parent.showLinkWin(SiteCallback,"siteCat");
+                                      })
+                                    })
+
+                                    function SiteCallback(obj){
+                                        $("#comName").text(obj.comName);
+                                        $("#catName").text(obj.catName);
+
+                                        parent._cfg.comId=obj.comId;
+                                        parent._cfg.comName=encodeURIComponent(encodeURIComponent(obj.comName));
+
+                                        parent._cfg.catId=obj.catId;
+                                        parent._cfg.catName=encodeURIComponent(encodeURIComponent(obj.catName));
+                                    }
+                                  </script>
+                                </div>
+                            </div>
+                            <div class="edit-module Manual " style="margin-top: 20px;width:100%">
+                                <div id="EditorBox" class="editorBox pic-list ml20 pb0 fl" style="padding-top: 3px;overflow-y: auto;width: 300px;height:220px;border:1px solid #E0E0E0;">
+
+                                </div>
+                                <div id="CfgBox" class=" pic-list ml20 pb0 fl" style="padding:10px;overflow-y: auto;width: 330px;height:220px;border:1px solid #E0E0E0;">
+                                    <div id="itembox" style="display:none;">
+                                        <div class="edititem" style="position:relative;">
+                                            商品名称：<span id='itemtitle' style="width: 150px;display: inline-block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;vertical-align: middle;"></span>
+                                            <a class="add-one btn-style-1" style="position: absolute;right: 0;top: 0;" href="javascript:void(0);" id="btnChooseItem">选择商品</a>
+                                        </div>
+                                        <div class="edititem">
+                                            使用个性化设置:
+                                            <input type="radio" id="itemusecust" name="itemusecust" value="1" />
+                                            <label for="itemusecust">是</label>
+                                            <input type="radio" id="itemnotusecust" name="itemusecust" value="0" />
+                                            <label for="itemnotusecust">否</label>
+                                        </div>
+                                        <div style="display:none;" id="itemusecustom">
+                                            <div class="edititem">
+                                                空白宽度:
+                                                <input type="text" id="itempadding" name="itempadding" style="width:40px;" /><span style="color:#999"> px</span>
+                                                <span class="J_TMsg msg disappear" style="margin-top:0"><i class="msg-icon"></i><span class="text"></span></span>
+                                            </div>
+                                            <div class="edititem">
+                                                显示商品名称和价格:
+                                                <input type="radio" id="itemshowprice" name="itemshowprice" value="1" />
+                                                <label for="itemshowprice">是</label>
+                                                <input type="radio" id="itemnotshowprice" name="itemshowprice" value="1" />
+                                                <label for="itemnotshowprice">否</label>
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                            //选择商品回调
+                                            function chooseItemCallback(objlist) {
+                                                if (objlist[0]) {
+                                                    SELECTTEDITEM.itemid = objlist[0].ITEM_ID;
+                                                    $("#itemtitle").text(objlist[0].ITEM_TITLE);
+                                                }
+                                            }
+                                            $(function() {
+                                                //选择商品
+                                                $("#btnChooseItem").click(function() {
+                                                    parent.showItemWin(chooseItemCallback);
+                                                })
+
+                                                $("#itemusecust").click(function() {
+                                                    SELECTTEDITEM.usecustomstyle = "1";
+                                                    $("#itemusecustom").show();
+                                                });
+
+                                                $("#itemnotusecust").click(function() {
+                                                    SELECTTEDITEM.usecustomstyle = "0";
+                                                    $("#itemusecustom").hide();
+                                                });
+
+                                                $("#itempadding").change(function() {
+                                                    SELECTTEDITEM.padding = $(this).val();
+                                                });
+
+                                                $("#itemshowprice").click(function() {
+                                                    SELECTTEDITEM.isshowtitleandprice = "1";
+                                                });
+
+                                                $("#itemnotshowprice").click(function() {
+                                                    SELECTTEDITEM.isshowtitleandprice = "0";
+                                                });
+                                            })
+                                        </script>
+                                    </div>
+
+                                    <div id="picbox" style="display:none;">
+                                        <div class="edititem">
+                                            图片链接:
+                                            <input type="text" name="picsrc" id="picsrc" style="width:200px;">
+                                            <a class="pickImg" onclick="selectPic(this)" title="选择图片"></a>
+                                        </div>
+                                        <div class="edititem">
+                                            跳转地址:
+                                            <input type="text" name="picurl" id="picurl" style="width:200px;">
+                                            <a class="pickImg" onclick="selectUrl(this)" title="选择链接"></a>
+                                        </div>
+                                        <div class="edititem">
+                                            使用个性化设置:
+                                            <input type="radio" id="picusecust" name="picusecust" value="1" />
+                                            <label for="picusecust">是</label>
+                                            <input type="radio" id="picnotusecust" name="picusecust" value="0" />
+                                            <label for="picnotusecust">否</label>
+                                        </div>
+                                        <div style="display:none;" id="picusecustom">
+                                            <div class="edititem">
+                                                空白宽度:
+                                                <input type="text" id="picpadding" name="picpadding" style="width:40px;" /><span style="color:#999"> px</span>
+                                                <span class="J_TMsg msg disappear" style="margin-top:0"><i class="msg-icon"></i><span class="text"></span></span>
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                            function selectPic(obj) {
+                                                var $input = $(obj).siblings();
+                                                selectPicCallback.$input = $input;
+
+                                                parent.showPicWin(selectPicCallback);
+                                            }
+
+                                            function selectPicCallback(path) {
+                                                selectPicCallback.$input.val(path);
+                                                if (selectPicCallback.$input.attr("data-bind")) {
+                                                    SELECTTEDITEM.pics[selectPicCallback.$input.attr("data-bind")].src = path;
+                                                } else {
+                                                    SELECTTEDITEM.src = path;
+                                                }
+                                            }
+
+                                            function selectUrl(obj) {
+                                                var $input = $(obj).siblings();
+                                                selectUrlCallback.$input = $input;
+
+                                                parent.showLinkWin(selectUrlCallback);
+                                            }
+
+                                            function selectUrlCallback(url) {
+                                                selectUrlCallback.$input.val(url);
+
+                                                if (selectUrlCallback.$input.attr("data-bind")) {
+                                                    SELECTTEDITEM.pics[selectUrlCallback.$input.attr("data-bind")].href = url;
+                                                } else {
+                                                    SELECTTEDITEM.href = url;
+                                                }
+                                            }
+                                            $(function() {
+                                                $("#picusecust").click(function() {
+                                                    SELECTTEDITEM.usecustomstyle = "1";
+                                                    $("#picusecustom").show();
+                                                });
+
+                                                $("#picnotusecust").click(function() {
+                                                    SELECTTEDITEM.usecustomstyle = "0";
+                                                    $("#picusecustom").hide();
+                                                });
+
+                                                $("#picpadding").change(function() {
+                                                    SELECTTEDITEM.padding = $(this).val();
+                                                });
+                                            })
+                                        </script>
+                                    </div>
+
+                                    <div id="slidebox" style="display:none;">
+                                        <div class="edititem">
+                                            图片链接1:
+                                            <input type="text" name="picsrc0" id="picsrc0" data-bind="0" style="width:180px;">
+                                            <a class="pickImg" onclick="selectPic(this)" title="选择图片"></a>
+                                        </div>
+                                        <div class="edititem">
+                                            跳转地址1:
+                                            <input type="text" name="picurl0" id="picurl0" data-bind="0" style="width:180px;">
+                                            <a class="pickImg" onclick="selectUrl(this)" title="选择链接"></a>
+                                        </div>
+                                        <div class="edititem">
+                                            图片链接2:
+                                            <input type="text" name="picsrc1" id="picsrc1" data-bind="1" style="width:180px;">
+                                            <a class="pickImg" onclick="selectPic(this)" title="选择图片"></a>
+                                        </div>
+                                        <div class="edititem">
+                                            跳转地址2:
+                                            <input type="text" name="picurl1" id="picurl1" data-bind="1" style="width:180px;">
+                                            <a class="pickImg" onclick="selectUrl(this)" title="选择链接"></a>
+                                        </div>
+                                        <div class="edititem">
+                                            图片链接3:
+                                            <input type="text" name="picsrc2" id="picsrc2" data-bind="2" style="width:180px;">
+                                            <a class="pickImg" onclick="selectPic(this)" title="选择图片"></a>
+                                        </div>
+                                        <div class="edititem">
+                                            跳转地址3:
+                                            <input type="text" name="picurl2" id="picurl2" data-bind="2" style="width:180px;">
+                                            <a class="pickImg" onclick="selectUrl(this)" title="选择链接"></a>
+                                        </div>
+                                        <div class="edititem">
+                                            使用个性化设置:
+                                            <input type="radio" id="slideusecust" name="slideusecust" value="1" />
+                                            <label for="slideusecust">是</label>
+                                            <input type="radio" id="slidenotusecust" name="slideusecust" value="0" />
+                                            <label for="slidenotusecust">否</label>
+                                        </div>
+                                        <div style="display:none;" id="slideusecustom">
+                                            <div class="edititem">
+                                                空白宽度:
+                                                <input type="text" id="slidepadding" name="slidepadding" style="width:40px;" /><span style="color:#999"> px</span>
+                                                <span class="J_TMsg msg disappear" style="margin-top:0"><i class="msg-icon"></i><span class="text"></span></span>
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(function() {
+                                                $("#slideusecust").click(function() {
+                                                    SELECTTEDITEM.usecustomstyle = "1";
+                                                    $("#slideusecustom").show();
+                                                });
+
+                                                $("#slidenotusecust").click(function() {
+                                                    SELECTTEDITEM.usecustomstyle = "0";
+                                                    $("#slideusecustom").hide();
+                                                });
+
+                                                $("#slidepadding").change(function() {
+                                                    SELECTTEDITEM.padding = $(this).val();
+                                                });
+                                            })
+                                        </script>
+                                    </div>
+                                </div>
+                                <div style="clear:both;"></div>
+                                <div class="bot">
+                                    <a class="add-one btn-style-1" href="javascript:void(0);" id="btnAddItem">添加商品展示位</a>
+                                    <a class="add-one btn-style-1" href="javascript:void(0);" id="btnAddPic">添加图片展示位</a>
+                                    <a class="add-one btn-style-1" href="javascript:void(0);" id="btnAddSlide">添加轮播展示位</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel content-set ks-switchable-panel-internal7" id="tabTwo" style="display: none;">
+                        <div class="edit-module">
+                            <div class="edit-item  edit-head">
+                                <span>鼠标悬停效果：</span>
+                            </div>
+                            <div class="clearfloat"></div>
+                            <div class="selectCardStyleWarp edit-item">
+                                <div class="photoCartContainer" id="mouseCover" style="width: auto;">
+                                    <div class="cardStyleItem mouseCover0" data-effect=""></div>
+                                    <div class="cardStyleItem mouseCover1" data-effect="album-border"></div>
+                                    <div class="cardStyleItem mouseCover6" data-effect="album-moveL"></div>
+                                </div>
+                            </div>
+                            <div id="mouseCover1" style="display: none;">
+                                <div class="mouseCoverMain fb">特效设置</div>
+                                <div class="selectCardStyleWarp edit-item">
+                                    <div class="photoCartContainer">
+                                        <div class="Mainset">
+                                            <div>
+                                                <p class="h30">
+                                                    <span class="fr mr10 pr65">
+															<input type="radio" id="radioBorderCustom"  name="custBorder" value="1"><label for="radioBorderCustom">自定义</label>
+														</span>
+                                                    <span class="fr mr10">
+															<input type="radio" id="radioBorderDefault"  name="custBorder" value="0"><label for="radioBorderDefault">默认</label>
+														</span>
+                                                    <span class="fl ml60">边框：</span>
+                                                </p>
+                                                <div id="mousecoverSet1" style="display: none;">
+                                                    <p class="h30">
+                                                        <span class="fl ml60">颜色：</span>
+                                                        <span class="fl ColorSet">
+															<input type="text" class="CSS_colorPicker" id="borderColor" name="borderColor">
+															</span>
+                                                    </p>
+                                                    <p class="h30">
+                                                        <span class="fl ml60">宽度：</span><span class="fl">
+																<select class="selectWidth" id="borderWidth" name="borderWidth">
+																	<option value="1">1</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																</select>
+															</span>
+                                                    </p>
+                                                    <p class="h30">
+                                                        <span class="fl ml60">样式：</span>
+                                                        <span class="fl">
+																<select class="selectWidth" id="borderStyle" name="borderStyle">
+																	<option value="solid">实线</option>
+																	<option value="dotted">点状</option>
+																	<option value="dashed">虚线</option>
+																</select>
+															</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel content-set ks-switchable-panel-internal7" id="tabThree" style="display: none;">
+                        <div class="edit-module">
+                            <div class="mouseCoverMain fb">内容设置</div>
+                            <div class="edit-item mainShow">
+                                <div class="mainShowTab">打开方式：</div>
+                                <select id="picTarget" name="target">
+                                    <option value="_blank">新窗口</option>
+                                    <option value="_top">当前窗口</option>
+                                </select>
+                            </div>
+                            <div class="edit-item mainShow">
+                                <div class="mainShowTab">显示价格和商品名：</div>
+                                <label>
+                                    <input type="radio" name="isshowtitleandprice" id="showtitleandprice" value="1" />是</label>
+                                <label>
+                                    <input type="radio" name="isshowtitleandprice" id="hidetitleandprice" value="0" />否</label>
+                            </div>
+
+                            <div class="mouseCoverMain fb mt15">组件设置</div>
+                            <div class="edit-item mainShow">
+                                <div class="mainShowTab">高度：</div>
+                                <div class="mainShowTabText">
+                                    <input type="text" value="" id="picHight" name="height" /><span style="color:#999"> px</span>
+                                    <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                </div>
+                            </div>
+                            <div class="edit-item mainShow">
+                                <div class="mainShowTab">展示位空白宽度：</div>
+                                <div class="mainShowTabText">
+                                    <input type="text" value="" id="padding" name="padding" /><span style="color:#999"> px</span>
+                                    <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                </div>
+                            </div>
+                            <div class="edit-item mainShow">
+                                <div class="mainShowTab">是否显示上边框：</div>
+                                <label>
+                                    <input type="radio" name="showborderup" id="showborderup" value="1" />是</label>
+                                <label>
+                                    <input type="radio" name="showborderup" id="hideborderup" value="0" />否</label>
+                            </div>
+                            <div class="edit-item mainShow">
+                                <div class="mainShowTab">是否显示右边框：</div>
+                                <label>
+                                    <input type="radio" name="showborderright" id="showborderright" value="1" />是</label>
+                                <label>
+                                    <input type="radio" name="showborderright" id="hideborderright" value="0" />否</label>
+                            </div>
+                            <div class="edit-item mainShow">
+                                <div class="mainShowTab">是否显示下边框：</div>
+                                <label>
+                                    <input type="radio" name="showborderdown" id="showborderdown" value="1" />是</label>
+                                <label>
+                                    <input type="radio" name="showborderdown" id="hideborderdown" value="0" />否</label>
+                            </div>
+                            <div class="edit-item mainShow">
+                                <div class="mainShowTab">是否显示左边框：</div>
+                                <label>
+                                    <input type="radio" name="showborderleft" id="showborderleft" value="1" />是</label>
+                                <label>
+                                    <input type="radio" name="showborderleft" id="hideborderleft" value="0" />否</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="opt-footer ctset-opt-footer">
+                    <a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+                    <a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

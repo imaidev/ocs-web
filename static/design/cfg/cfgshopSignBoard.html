@@ -1,0 +1,24 @@
+<div class="modal-dialog" role="document">
+ <div class="modal-content" style="width:760px;height: 380px;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<h4 class="modal-title" id="H2">店铺招牌</h4>
+	</div>
+	<iframe id="listsIframe" name="listsIframe" scrolling="no" frameborder="0" style="margin-left:5px;margin-right:5px;"
+				width="750px" height="330px" ></iframe>
+ </div>
+</div>
+
+<script>
+    function cfgRead($selEl) {
+    	_$module = $selEl;
+    	_cfg = _$module.shopSignBoard('config');
+		$("#listsIframe").attr("src",'/static/design/cfg/cfgshopSignBoardiframe.html');
+    }
+
+    function cfgClose(){
+    	$('#CfgModal').modal('hide');
+    }
+</script>

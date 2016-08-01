@@ -1,0 +1,138 @@
+<div id="customModule">
+	<h3 class="edit-tit">自定义模块</h3>
+	<div class="singleRow">
+		<!--模块使用小贴士-->
+		<div class="toolTips">
+			<p class="tipsTit">
+				模块使用小贴士 <a class="closeTip">X</a>
+			</p>
+			<p class="tipsMain">使用自定义模块来定制图文排版</p>
+		</div>
+		<!--模块使用小贴士end-->
+	</div>
+</div>
+
+<div id="customModuleEdit" style="display: none;">
+	<h3 class="edit-tit">模块编辑</h3>
+	<div class="singleRow">
+		<div class="mb15 mt25 overH">
+			<label class="linkTit">图片</label>
+			<div class="linkMain w90p">
+				<div class="linkInfo w100p">
+					<div class="addImgOut">
+						<div class="addImgInfo">
+							<div class="addIcon" rel='uploadImg'></div>
+						</div>
+						<div class="addImgMain" style="display: none;">
+							<img id="modImg" src="" height="100%">
+							<div class="ImgHover" rel='uploadImg'>重新上传</div>
+						</div>
+						<p class="addTips">类型：jpg、png</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group clearfix">
+			<label class="fb pb10">链接</label>
+			<div class="pr">
+				<input type="text" class="form-control mt10" placeholder="请输入网址" id="modUrl">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" rel='getlink'>
+						<span class="icon-url"></span>
+				</button>
+				</span>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			//链接选择
+			$("[rel='getlink']").on("click", function(e) {
+				showLinkWin("afterLinkSelected");
+				afterLinkSelected.$selectedInput = $(this).parent().siblings();
+			})
+
+			//关闭小贴士
+			$(".closeTip").click(function() {
+				$(".toolTips").css('display', 'none');
+			})
+
+			//图片上传
+			$("div[rel='uploadImg']").on("click", function(e) {
+				showPicWin("afterImgSelected");
+				afterImgSelected.$selectedPic = $(this).parents(".addImgOut").find("img");
+			})
+
+			var $active = _$module.find("div.active");
+			if ($active.length > 0) { //存在激活的编辑块
+				$("#customModule").hide();
+				$("#customModuleEdit").show();
+
+				loadActive($active);
+			} else {
+				$("#customModuleEdit").hide();
+				$("#customModule").show();
+
+				loadActive();
+			}
+		})
+
+		function loadActive($active) {
+			if (!$active) {
+				$(".addImgInfo").show();
+				$(".addImgMain").hide();
+
+				$("#modUrl").val("");
+				$("#modImg").attr("src", "");
+
+				return;
+			}
+
+			//读取url
+			$("#modUrl").val($active.find("a").attr("href") || "");
+
+			//读取图片
+			var picurl = $active.find("img").attr("src") || "";
+			if (picurl) {
+				$("#modImg").attr("src", picurl);
+				$(".addImgInfo").hide();
+				$(".addImgMain").show();
+			} else {
+				$("#modImg").attr("src", "");
+				$(".addImgInfo").show();
+				$(".addImgMain").hide();
+			}
+		}
+
+		//组件保存方法
+		function cfgset() {
+			//设置url
+			var url = $("#modUrl").val().trim()
+			if (url) {
+				_$module.find("div.active a").attr("href", url);
+			} else {
+				_$module.find("div.active a").removeAttr('href');
+			}
+
+			//设置图片
+			var picsrc = $("#modImg").attr("src");
+			if (picsrc) {
+				_$module.find("div.active img").attr("src", picsrc);
+			} else {
+				_$module.find("div.active img").removeAttr("src");
+			}
+
+			hideEdit();
+		}
+
+		function afterLinkSelected(url) {
+			afterLinkSelected.$selectedInput.val(url);
+		}
+
+		function afterImgSelected(path) {
+			afterImgSelected.$selectedPic.attr("src", path);
+			afterImgSelected.$selectedPic.parent().prev().hide();
+			afterImgSelected.$selectedPic.parent().show();
+		}
+	</script>
+</div>

@@ -1,0 +1,71 @@
+/*仓储中心 地图展示使用 start*/
+.secS{overflow:hidden;margin-top:20px !important;}
+.secS-con{height:518px;background:#f7f7f7;}
+.secS-srh{float:left;width:298px;height:100%;border-right:1px solid #ddd;}
+.secS-srh-inner{padding:10px 10px 0 10px;height:478px;}
+.srh-top{position:relative;height:28px;line-height:28px;background:#fff;border:1px solid #ddd;}
+.srh-top em{position:absolute;top:4px;right:10px;display:inline-block;width:20px;height:20px;cursor:pointer;background:url(../images/icon-srh-black.png) center center no-repeat;}
+.srh-top input[type="text"]{position: absolute;
+top: 1px;
+left: 0px;
+width: 175px;
+height: 26px;
+line-height: 26px;
+border: none;
+outline: none;
+background: #fff;
+padding:0 5px;}
+.srh-lists{overflow:hidden;}
+.srh-lists .lists{position:relative;height:165px;overflow:auto;margin-top:10px;margin-bottom:5px;border-bottom:1px solid #ddd;}
+.srh-lists .lists02{overflow:auto;}
+.srh-lists li {position:relative;display:block;float:left;width:48px;margin:4px 8px;cursor:pointer;text-align:center;}
+.srh-lists li a{display:block;}
+.srh-lists li a:hover{text-decoration:none;}
+.srh-lists li .list-icon{width:46px;height:46px;margin:0 auto;border:0;}
+.srh-lists li .list-icon img{display:inline-block;width:100%;height:100%;overflow:hidden;}
+.srh-lists li .list-title{display:inline-block;text-align:center;padding:5px 0;color:#333;}
+.srh-res{height:100%;width:100%;margin-top:0;overflow:hidden;background:#fff;}
+.res-inner{position:relative;height:100%;width:100%;overflow:auto;}
+.res-lists{padding:5px;}
+.res-lists li{position:relative;margin:5px 0;padding:10px 5px;}
+.res-lists li a,.res-lists li a:hover{text-decoration:none;}
+.res-num{float:left;}
+.res-infos{margin-left:30px;}
+.num{display:inline-block;width:18px;height:27px;text-align:center;color:#fff;margin-left:6px;margin-top:4px;background:url(../images/icon-num.png) center center no-repeat;}
+.res-lists li:hover,.res-lists li.sel{background:#f6f6f6;cursor:pointer;}
+.res-lists li:hover .num,.res-lists li.sel .num{background:url(../images/icon-num-hover.png) center center no-repeat;}
+/*仓储中心 地图展示使用 end*/
+
+
+.scharea{ height:50px; border:1px solid #ddd;}
+.scharea .srh-top{position:relative;height:28px;line-height:28px;background:#fff;border:1px solid #ddd; width:185px; float:left; margin-left:15px; margin-top:10px;}
+.scharea .srh-top em{position:absolute;top:4px;right:10px;display:inline-block;width:20px;height:20px;cursor:pointer;background:url(../images/icon-srh-black.png) center center no-repeat;}
+.scharea .srh-top input[type="text"]{position: absolute;top: 1px;left: 0px;width: 175px;height: 26px;line-height: 26px;border: none;outline: none;background: #fff;padding:0 5px;}
+.addresssrh input[type="text"]{width: 120px;height: 26px;line-height: 26px;border: 1px solid #ddd;outline: none;background: #fff;padding:0 5px;}
+
+.addresssrh{ margin-top:11px; margin-left:15px; width:440px;}
+.i-1, .i-2, .i-3, .i-4, .i-5, .i-6, .i-7, .b-q {background: url(../images/831209_1877011556.png) no-repeat scroll 0 0 transparent;display: inline-block;font-size: 0;overflow: hidden;position: relative;vertical-align: middle;height: 24px;width: 24px;}
+.addresssrh .a{margin: 0 10px 20px 15px;display: inline-block;}
+.addresssrh .s-input{width: 148px;height: 26px;line-height: 26px; border:0; padding-left:5px;}
+.addresssrh .i-4{position: absolute;top: 2px;left:150px;cursor: pointer;}
+.addresssrh .a{margin-bottom: 10px; float:left; height:26px; line-height:26px;}
+.addresssrh .e{text-align: center;}
+
+.addresssrh .chaxunBox{width:auto; height:30px; overflow:hidden;}
+.addresssrh .selectAddress{position:relative; width:170px;height:28px;line-height:28px; float:left;background:#fff;border:1px solid #ddd;}
+.addresssrh .b-q{cursor: pointer;width: 80px;height: 30px;line-height: 30px;background-position: -133px 0;font-size: 14px;font-weight: 700;text-align: center;color: #fff;border: 0;}
+.addresssrh .b-q:hover {background-position: -133px -38px;}
+.addresssrh .i-1 {background-position: -24px 0;}
+.addresssrh .i-2 {background-position: -24px -24px;}
+.addresssrh .i-3 {height: 58px;width: 350px;background-position: 0 -122px;}
+.addresssrh .i-4 {background-position: 0 -72px;}
+
+/*城市选择的样式*/
+._citys { width: 450px; display: inline-block; border: 2px solid #eee; padding: 5px; position: relative; background-color: #fff;}
+._citys span { color: #56b4f8; height: 15px; width: 15px; line-height: 15px; text-align: center; border-radius: 3px; position: absolute; right: 10px; top: 10px; border: 1px solid #56b4f8; cursor: pointer; }
+._citys0 { width: 100%; height: 34px; display: inline-block; border-bottom: 2px solid #56b4f8; padding: 0; margin: 0; }
+._citys0 li { display: inline-block; line-height: 34px; font-size: 15px; color: #888; width: 80px; text-align: center; cursor: pointer; }
+.citySel { background-color: #56b4f8; color: #fff !important; }
+._citys1 { width: 100%; display: inline-block; padding: 10px 0; }
+._citys1 a { width: 83px; height: 35px; display: inline-block; background-color: #f5f5f5; color: #666; margin-left: 6px; margin-top: 3px; line-height: 35px; text-align: center; cursor: pointer; font-size: 13px; overflow: hidden; }
+._citys1 a:hover { color: #fff; background-color: #56b4f8; }

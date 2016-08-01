@@ -1,0 +1,187 @@
+body{
+	font-family:'寰蒋闆呴粦';
+	font-size:14px;
+}
+.v6stc{
+	padding:10px;
+	border-radius: 5px;
+}
+.v6stc .toExcelBtn{
+	margin-top:10px;
+    background:url("../allPicture.png") no-repeat -215px 0px ;
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	outline:none;
+	padding-right:0px;
+}
+.v6stc .allScreanBtn{
+    margin-top:10px;
+    background:url("../allPicture.png") no-repeat -232px 0px ;
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	outline:none;
+	padding-right:0px;
+}
+.table-title{
+	border-left:5px solid #fdaa1c;
+	padding-left:10px;
+	font-size:16px;
+	color:#5596be;
+	font-weight:bold;
+	margin-bottom:5px;
+}
+.table-search{
+	margin-bottom:10px;
+}
+.table-search-item{
+	float:right;
+	color:#4f7a9a;
+	margin-right:20px;	
+}
+.tableFun{
+	float:right;
+	color:#4f7a9a;
+	margin-right:20px;	
+	margin-top:-15px;
+}
+.v6stc .table-main{
+	 table-layout:fixed;
+}
+.v6stc .table-main td.odd{
+  background:#f8f9fd;
+}
+.v6stc .table-main tr.linecolor td.coldata{
+	background:#f7f8fa;
+}
+.v6stc .table-main tr td.coldata{
+	text-align:right;
+}
+.v6stc .table-main th,.v6stc .table-main td{
+	border:#cdd5e0 1px solid;
+	text-align:center;
+}
+.v6stc .table-main th{
+	background:#f7f7f7;
+	color:#4e5e75;
+	font-weight:bold;
+}
+.v6stc .table-main td{
+	background:#FFFFFF;
+	color:#343434;
+}
+.v6stc .table-main td.coltitle{
+	background:#f7f7f7;
+}
+#exitFullScreen{
+	background:url("exitAllScreen.png") ;
+	position:fixed;
+    right:17px;
+    top:30px;
+    z-index:100005;
+    width:64px;
+    height:60px;
+    cursor:pointer;
+    opacity: 0.8;
+    
+    filter: alpha(opacity=80);/*ie7,8下的透明度设置*/
+    zoom:1;/*ie7,8下的透明度设置*/
+}
+#fullScreen{
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index:100000;
+  background:#ebf6f8;
+  overflow:auto;
+}
+
+.allScreenTable{
+ 
+ position:absolute;
+ top:0px;
+ left:0px;
+}
+.allScreenTable thead th{
+ 	background:#f7f7f7;
+	color:#4e5e75;
+	font-weight:bold;
+    border:1px solid #d1d4db;
+    text-align:center;
+}
+.allScreenTable tbody{
+   	background:#f7fbfc;
+
+}
+.allScreenTable tbody tr td{
+  border:1px solid #d1d4db;
+  text-align:center;
+}
+
+/*用来浮动表头的table
+.allScreenTable2 tbody{
+  display:none;
+}
+.allScreenTable2 {
+position:absolute;
+z-index:100003;
+}
+*/
+.allScreenTable2 thead th{
+ 	background:#d8e7f2;
+	color:#4e5e75;
+	font-weight:bold;
+    border:1px solid #d1d4db;
+    text-align:center;
+}
+.allScreenTable3 thead th{
+ 	background:#d8e7f2;
+	color:#4e5e75;
+	font-weight:bold;
+    border:1px solid #d1d4db;
+    text-align:center;
+}
+.allScreenTable4 thead th{
+ 	background:#fcf57e;
+	color:#4e5e75;
+	font-weight:bold;
+    border:1px solid #d1d4db;
+    text-align:center;
+}
+.allScreenTable4 tbody{
+  background:#e4f7fa;;
+}
+.allScreenTable2 tbody tr td{
+  border:1px solid #d1d4db;
+  text-align:center;
+}
+.allScreenTable3 tbody tr td{
+  border:1px solid #d1d4db;
+  text-align:center;
+}
+.allScreenTable4 tbody tr td{
+  border:1px solid #d1d4db;
+  text-align:center;
+}
+.report_table_all_head_fixeddiv{
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:100003;
+    overflow:hidden;
+}
+.report_table_fullscreen_left_fixeddiv{
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:100006;
+    overflow:hidden;
+}
+.report_table_fullscreen_top_fixeddiv{
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index:100009;
+   overflow:hidden;
+}

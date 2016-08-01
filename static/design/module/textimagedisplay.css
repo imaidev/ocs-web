@@ -1,0 +1,11 @@
+@charset "utf-8";
+/***图文展示组件 ***/
+.graphicalInfo{position:relative;height:auto;_zoom:1;min-height:5px;max-height:none; _height:5px; _height:100%;overflow-x:hidden;}
+.richContent {line-height: 1.8;padding: 0;white-space: normal;word-wrap: break-word;word-break: normal;overflow: hidden;width: 100%;text-align: left;}
+.richContent1 {width: auto; _float: left;}
+.richContent2 {width: auto; overflow: visible;}
+.textImg1 {float: left; margin: 5px 10px 5px 5px; position: relative;}
+.textImg2 {float: none;width: 100%;display: block;position: relative;}
+.textImg2 img {margin: 0 auto;	display: block;}
+.textImg3 {float: right;margin: 5px;position: relative;}
+.moreStyle{display: inline-block;color: #fff;float: right;font-size: 12px;padding-right: 10px;}

@@ -1,0 +1,23 @@
+
+/****宝贝分类****/
+.personalityStr {width:240px;overflow:hidden;background-color:#ffffff;float:left;border-bottom:none !important;}
+.personalityStr ul.allPro{line-height:35px;padding-left:0;margin-left:20px; width:180px;}
+.personalityStr ul.allPro li{width:40px; display:block; float:left; padding-right:5px;}
+.personalityStr h4 {border-top:1px solid #e4e4e4;font-weight:bold; background:#fcfcfc;display:block;float:left;width:205px;height:37px;line-height:32px;vertical-align:middle;cursor:pointer;font-size:14px;color:#333; overflow:hidden;}
+.personalityStr h4 span{ position:relative; top:-3px; padding-right: 5px;}
+.personalityStr h4.Btit{padding-left:20px;display:block;float:left;width:220px;vertical-align:middle;cursor:pointer;font-size:14px;color:#333;overflow:hidden;}
+.personalityStr ul {font-size: 12px; display:block;width:215px;overflow:hidden;padding-left:25px;border-top:1px solid #e4e4e4;}
+.personalityStr li {display:block;float:left;width:180px;height:30px;line-height:30px;vertical-align:middle;color:#666666; overflow:hidden;}
+.personalityStr li a {color:#666666;font-family:Arial, Helvetica, sans-serif;}
+.related-Buy{overflow:hidden;}
+.related-Buy h2{position:relative;height:40px;padding-left:15px;line-height:40px;vertical-align:middle;}
+.recGoods-960 .goodLists-three li.fN{float:none; padding:0 10px;border:none; font-size:14px; width:900px; border-bottom:1px dashed #EEEEEE;margin:0 20px;}
+.recGoods-960 .goodLists-three li h4 a{color:#9a9a9a; display:block; float:left; width:200px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;line-height:35px;}
+.recGoods-960 .goodLists-three li ul{width:600px; display:block;padding-bottom:0; font-size: 12px;}
+.recGoods-960 .goodLists-three li ul a{padding:0 8px;line-height:35px ; display:inline-block; word-break:break-all;}
+.recGoods-960 .goodLists-three ul.pb0{padding-bottom:0;}
+.personalityStr li.bt{border-top:none;}
+
+
+.personalityStr .treeview-plus{ position:absolute; width:9px; height:9px; background:url(../img/treeview-plus.png); top:12px; left:0px;}
+.personalityStr .treeview-cut{ position:absolute; width:9px; height:9px; background:url(../img/treeview-cut.png); top:12px; left:0px;}

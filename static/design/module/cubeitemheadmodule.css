@@ -1,0 +1,8 @@
+/***楼层头装修****/
+.flowTit{height: 40px;line-height:40px;width: 100%;overflow: hidden;border-bottom-width: 2px;border-bottom-style: solid;}
+.titLeft{text-align: center;width: 200px;background-color: #F16C00;color: #fff;float: left;}
+.titLeft a{display: inline-block;height: 100%;width: 100%;}
+.titLeft a:hover{text-decoration: none;}
+.titRight{float: left;overflow: hidden;}
+.classification{overflow: hidden;}
+.classification li{float: left;padding: 0 15px;}

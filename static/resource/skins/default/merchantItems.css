@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* CSS Document */
+.merchantItmesLeft {
+	width: 980px;
+	float: left;
+	overflow: hidden;
+}
+
+.merchantItmesHeader {
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.merchantLogo {
+	width: 223px;
+	border: 1px solid #cdcdcd;
+	overflow: hidden;
+	float: left;
+}
+
+.merchantInfo {
+	display: block;
+	float: left;
+	border-bottom: 1px solid #cdcdcd;
+	border-right: 1px solid #cdcdcd;
+	margin-left: 10px;
+	font-size: 14px;
+	color: #666666;
+	font-family: "\5B8B\4F53", "SimSun";
+	letter-spacing: 1px;
+}
+
+.merchantInfo td {
+	border-top: 1px solid #cdcdcd;
+	border-left: 1px solid #cdcdcd;
+	height: 60px;
+	vertical-align: middle;
+	line-height: 30px;
+}
+
+.merchantJoin {
+	width: 235px;
+	float: right;
+	overflow: hidden;
+}
+
+.merchantJoin h2 {
+	line-height: 50px;
+	vertical-align: middle;
+	font-size: 20px;
+	font-family: "\9ED1\4F53 ", "SimHei";
+	color: #064BB2;
+	font-weight: 900;
+	letter-spacing: 1px;
+}
+
+.merchantJoin a {
+	width: 175px;
+	height: 55px;
+	overflow: hidden;
+	display: block;
+	outline-style: none;
+	border: 0;
+	margin-top: 20px;
+}
+
+.merchantItmesRight {
+	width: 210px;
+	float: right;
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.merchantItmesRight .statementBox {
+	width: 208px;
+	overflow: hidden;
+	border: 1px solid #cdcdcd;
+}
+
+.merchantItmesRight .contact_Box {
+	height: 75px;
+	width: 210px;
+	background: url(../images/hyzx.png) center left no-repeat;
+	position: relative;
+	margin-top: 10px;
+}
+
+.merchantItmesRight .contact_inner {
+	position: absolute;
+	left: 120px;
+	top: 25px;
+}
+
+.merchantItmesRight .contact_inner p {
+	color: #00755b;
+	height: 19px;
+	font-size: 14px;
+	font-family: "Arial";
+}
+
+.ZuiXinLiuLan {
+	margin-top: 10px;
+	border: 1px solid #cdcdcd;
+	width: 208px;
+	background-color: #F1F1F1;
+}
+
+.ZuiXinLiuLan h3 {
+	background-color: #064BB2;
+	width: 200px;
+	height: 37px;
+	line-height: 36px;
+	font-size: 14px;
+	color: #ffffff;
+	padding-left: 10px;
+	font-weight: normal;
+}
+
+.ZuiXinLiuLan li {
+	border-top: 1px dotted #cdcdcd;
+	display: block;
+	overflow: hidden;
+	padding-bottom: 10px;
+}
+
+.ZuiXinLiuLan li:first-child {
+	border-top: none;
+}
+
+.ZuiXinLiuLan .zxllPic {
+	display: block;
+	width: 80px;
+	height: 80px;
+	float: left;
+	margin: 10px 0 0 10px;
+}
+
+.ZuiXinLiuLan .zxllName {
+	display: block;
+	width: 100px;
+	height: 60px;
+	line-height: 20px;
+	vertical-align: middle;
+	color: #666666;
+	float: right;
+	font-size: 12px;
+	letter-spacing: 1px;
+	margin: 10px 0 0 0;
+	overflow: hidden;
+}

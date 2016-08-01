@@ -1,0 +1,23 @@
+<div class="modal-dialog" role="document" >
+<div class="modal-content" style="width:610px;height: 400px;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<h4 class="modal-title" id="H2">在线客服</h4>
+	</div>
+	<iframe id="listsIframe" name="listsIframe" scrolling="no" frameborder="0" style="margin-left:5px;margin-right:5px;"
+				width="600px" height="350px" src='/static/design/cfg/cfgcustomerserviceiframe.html'></iframe>
+</div>
+</div>
+<script>
+	var $customermodule;
+	function cfgRead($selEl) {
+		$customermodule = $selEl;
+	}
+	
+	function cfgClose(){
+		$("#CfgModal").modal('hide');
+}
+</script>

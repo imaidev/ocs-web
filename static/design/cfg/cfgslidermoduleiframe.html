@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+    
+    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+    <script src='/static/design/js/layer/layer.js'></script>
+    
+    <script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+    <script>
+        function setSquence() {
+            var divlist = $('#EditorBox').children();
+            var len = divlist.length;
+            divlist.each(function (i,item) {
+                if (i == 0) {
+                    $(this).addClass('first')
+                    if(len>1) $(this).removeClass('last');
+                }
+                if (i == len - 1) {
+                    $(this).addClass('last');
+                    if(len>1) $(this).removeClass('first');
+                }
+                if (i>0 && i < len - 1) {
+                    $(this).removeClass('last').removeClass('first');
+                }
+                if (i % 2 == 0) {
+                    $(this).addClass('even').removeClass('odd');
+                }
+                else {
+                    $(this).addClass('odd').removeClass('even');
+                }
+            })
+            
+            setValidate();
+        }
+    	
+    	// 就将此元素插到下一个元素之后，从而实现互换顺序
+    	function actDown(Obj) {
+    		$(Obj).parent().parent().next().after($(Obj).parent().parent());
+    		// 重新设置排序规则
+    		setSquence();
+    	}
+    	
+    	// 就将此元素插到上一个元素之后，从而实现互换顺序
+    	function actUp(Obj) {
+    		$(Obj).parent().parent().after($(Obj).parent().parent().prev());
+    		// 重新设置排序规则
+    		setSquence();
+    	}
+        function addRow(picurl,url){
+        	var str = '<div class="edit-item J_TEditItem">' +
+            '<div class="column column1">' +
+                '<input class="J_ImgUrl" type="text" name="picture" value="'+picurl+'"/><a class="sys-images" onclick="selectPic()" title="选择图片"></a><span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>' +
+            '</div>' +
+            '<div class="column column2">' +
+                '<input class="J_LinkUrl w235" type="text" name="urlAddress" value="'+url+'"/>' +
+            '</div>' +
+            '<div class="column column3 J_Control ml50"><a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a><a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a><a title="删除" class="delete" href="javascript:void(0);"></a></div>' +
+        	'</div>';
+
+			$('#EditorBox').append(str);
+			setSquence();
+        }
+        $(function () {
+            $('#titleContent').click(function () {
+                $(this).addClass('selected');
+                $(this).siblings().removeClass('selected');
+                $("#tabContent").show();
+                $("#tabDisplay").hide();
+            })
+
+            $('#titleDisplay').click(function () {
+                $(this).addClass('selected');
+                $(this).siblings().removeClass('selected');
+                $("#tabDisplay").show();
+                $("#tabContent").hide();
+            })
+
+            $(".panels").delegate("a.delete", "click", function(e) {
+                $(this).closest('div.edit-item').remove();
+                setSquence();
+            })
+
+            $('#btnAdd').click(function () {
+                if ($('#EditorBox').children().length == 5) {
+                    layer.msg("最多只能添加五组", {
+                        offset: 80,
+                        shift: 5,
+                        time: 3000
+                    });
+                    return false;
+                }
+                addRow('','');
+            })
+            
+            //加载数据
+            $(parent._cfg.imgs).each(function(){
+            	addRow(this.src,this.href);
+            })
+            
+            $('#picHight').val(parent._cfg.height);
+            
+            if(parent._cfg.effect){
+            	$('#showType').val(parent._cfg.effect);
+            }
+            
+            //加载标题栏数据
+            $('#title').val(parent._$module.find('.title-box span').text().trim());
+            if(parent._$module.find('.title-box').is(":hidden")){
+            	$('input[name="showTitle"]').eq(0).attr("checked",true);	
+            }
+            else{
+            	$('input[name="showTitle"]').eq(1).attr("checked",true);
+            }
+            
+            setValidate();
+        })
+        function setValidate(){
+        	$('#displaySetForm').validate({
+	            onkeyup: function(element) {$(element).valid()},
+	            rules:{
+	            	picHight:{required:true,max:600,min:100},
+	            	picture:{required:true,maxlength:200},
+	           	},
+	            showErrors: function(errorMap, errorList) {
+	            	
+	            	if(errorList.length>0){
+	            		$.each(errorList,function(index,error){
+		            		var element=$(errorList[index].element);
+		            		var msgContainer=element.parent().parent().find('.J_TMsg');
+		            		if(msgContainer.length>0){
+		            			msgContainer.find('span').text(error.message);
+		            			if(error.message!="")
+		            				msgContainer.removeClass('disappear').addClass('failure');
+		            			else
+		            				msgContainer.removeClass('failure').addClass('disappear');
+			           		}
+		            	})
+	            	}
+	            	else{
+	            		this.currentElements.parent().parent().find('.J_TMsg').each(function(){
+	            			$(this).removeClass('failure').addClass('disappear');
+	            		})
+	            	}
+	            	
+	           	}
+            });
+        }
+        function cfgSet(){
+        	if(!$('#displaySetForm').valid()){
+        		return;
+        	}
+        	else {
+        	    var otherTab = $("#navul>.selected").siblings();
+        	    for (i = 0; i < otherTab.length; i++) {
+        	        otherTab.click();
+        	        if (!$('#displaySetForm').valid())
+        	            return;
+        	    }
+        	}
+         	//组件更新
+        	var o={
+        			height:$('#picHight').val(),
+        			effect:$('#showType').val(),
+        			imgs:[]
+        	}
+        	$('#EditorBox').children().each(function(i){
+        		if($(this).find('input[ name="picture"]').val().trim()!=""){
+        			o.imgs[i]={};
+            		o.imgs[i].src=$(this).find('input[ name="picture"]').val();
+            		o.imgs[i].href=$(this).find('input[ name="urlAddress"]').val();
+        		}
+        	})
+        	parent._$module.slidermodule('reset',o);
+        	
+        	//组件标题
+        	parent._$module.find('.title-box span').text($('#title').val());
+        	if($('input[name="showTitle"]:checked').val()=="true"){
+        		parent._$module.find('.title-box').show();
+        	}
+        	else{
+        		parent._$module.find('.title-box').hide();
+        	}
+        	
+        	//关闭配置框
+        	parent.cfgClose(); 
+        }
+        
+        var $curImgInput;
+        function selectPic() {
+        	var event=window.event || arguments.callee.caller.arguments[0];
+        	$curImgInput=$(event.srcElement ? event.srcElement:event.target).siblings('input.J_ImgUrl');
+			
+        	/* opt ={"dir":"shop", "maxuploadsize":"2M", "callBack":"selectPicCallBack"};
+    		layer.open({
+    	        type : 2,
+    	        content :  parent.ctx+"/res/tu/ResSelect.htm?dir="+opt.dir+"&maxuploadsize="+opt.maxuploadsize+"&callback="+opt.callBack,
+    	        title : "图片选取",
+    	        shadeClose: true,
+    	        area : ['750px','400px']
+    	    }); */
+    	    
+        	parent.showPicWin(selectPicCallBack);
+    	}
+        function selectPicCallBack(path){
+        	$curImgInput.val(path);
+        }
+
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div class="tab">
+            <ul class="nav clear-fix" id="navul">
+                <li class="ks-switchable-trigger-internal6 selected"id="titleContent"><span>内容设置</span></li>
+                <li class="ks-switchable-trigger-internal6" id="titleDisplay"><span>显示设置</span></li>
+            </ul>
+            <form class="main-slide-form form-default" method="post" id="displaySetForm" novalidate="novalidate">
+                <div class="panels">
+                    <div class="panel content-set ks-switchable-panel-internal7" id="tabContent" style="display: block;">
+                        <div class="edit-module w730">
+                            <div class="edit-item  tabTit">
+                                <div class="column column1"><span>图片地址</span></div>
+                                <div class="column column2"><span>链接地址</span></div>
+                                <div class="column column1 pr20"><span>操作</span></div>
+                            </div>
+                            <div id="EditorBox" class="pic-list pb0 ml20" style="height: 230px;overflow-y:auto;">
+                                
+                            </div>
+                            
+                            <div class="bottom">
+                                <a class="add-one btn-style-1" href="javascript:void(0);" id="btnAdd">添加</a>
+                            </div>
+                        </div>
+                        <div id="J_Tadget" class="tadget-box"></div>
+                    </div>
+                    <div class="panel display-set hidden ks-switchable-panel-internal7" id="tabDisplay" style="display: none;">
+                        <div class="control-group">
+                            <label class="control-label w65">显示标题:</label>
+
+                            <div class="control show-title ml70">
+                                <input type="radio" class="J_TNotShowTitle  input-radio" name="showTitle" value="false">不显示
+                                <input type="radio" class="J_TShowTitle  show-title-true input-radio" name="showTitle" value="true">显示
+                                <input class="J_TTitleInput input-box title-input" id="title" type="text" maxlength="30" name="title" value="图片轮播">
+                            </div>
+                        </div>
+                        <div class="control-group module-height">
+                            <label class="control-label w65">模块高度:</label>
+
+                            <div class="control ml70">
+                                <div>
+                                    <input autocomplete="off" class="height-input"  id='picHight' name="picHight" type="text" value=""/><span>px</span><span>请设置在100-600px之间</span>
+                                </div>
+                                <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label w65">切换效果:</label>
+
+                            <div class="control ml70">
+                                <select id='showType' name="showType">
+                                    <option value="topLoop" selected>上下滚动
+                                </option>
+                                    <option value="fold">渐变滚动</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="opt-footer ctset-opt-footer">
+                    <a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+                    <a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick='parent.cfgClose();'>取消</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

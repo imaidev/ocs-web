@@ -1,0 +1,240 @@
+<script id="timgblock" type="text/html">
+	<div class="imgBlock">
+		<div class="pr pl15 pr15 h16">
+			<div class="sortMain">
+				<span class="closeBtn"></span>
+				<span class="downBtn"></span>
+				<span class="upBtn"></span>
+			</div>
+		</div>
+		<div class="mb15 mt15 overH">
+			<label class="linkTit">图片</label>
+			<div class="linkMain w90p">
+				<div class="linkInfo w100p">
+					<div class="addImgOut">
+
+						<%if(src) { %>
+							<div class="addImgInfo" style="display: none">
+								<div class="addIcon" rel="uploadImg"></div>
+							</div>
+							<div class="addImgMain">
+								<img src="<%=src%>" height="100%" rel="multiPicImg" />
+								<div class="ImgHover" rel="uploadImg">重新上传</div>
+							</div>
+							<%}else{%>
+								<div class="addImgInfo">
+									<div class="addIcon" rel="uploadImg"></div>
+								</div>
+								<div class="addImgMain" style="display: none">
+									<img src="<%=src%>" height="100%" rel="multiPicImg" />
+									<div class="ImgHover" rel="uploadImg">重新上传</div>
+								</div>
+								<%}%>
+
+								<p class="addTips">建议选择608*304尺寸的图片，类型：jpg、png</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group clearfix">
+			<label class="fb pb10">链接</label>
+			<div class="pr">
+				<input type="text" class="form-control mt10" placeholder="请输入网址" value="<%=url%>" rel="multiPicInput" />
+				<span class="input-group-btn">
+				<button class="btn btn-default" type="button" rel="getlink">
+					<span class="icon-url"></span>
+				</button>
+				</span>
+			</div>
+		</div>
+	</div>
+</script>
+
+
+<h3 class="edit-tit">焦点图模块</h3>
+<div class="singleRow">
+	<!--模块使用小贴士-->
+	<div class="toolTips">
+		<p class="tipsTit">
+			模块使用小贴士 <a class="closeTip">X</a>
+		</p>
+		<p class="tipsMain">图片最多4个，最少1个，建议尺寸：608*304</p>
+		<p class="tipsMain">可尝试用来展示店铺优惠活动或主推的宝贝。</p>
+	</div>
+	<!--模块使用小贴士end-->
+	<div class="pr pl15 pr15 h16">焦点图</div>
+	<div class="imgBox">
+	</div>
+
+
+	<div class="mb15 mt25 overH" style="margin-top: 100px;">
+		<div class="linkMain w90p">
+			<div class="linkInfo w100p">
+				<div class="addImgBtn">添加0/4</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	var MULTIPIC_MINPIC = 1; //最小图片数目
+	var MULTIPIC_MAXPIC = 4; //最大图片数目
+	$(function() {
+		//下移按钮
+		$(".imgBox").delegate("span.downBtn", "click", function(e) {
+			e.preventDefault();
+
+			var $elem = $(this).parents(".imgBlock");
+			$elem.next().after($elem);
+		})
+
+		//上移按钮
+		$(".imgBox").delegate("span.upBtn", "click", function(e) {
+			e.preventDefault();
+
+			var $elem = $(this).parents(".imgBlock");
+			$elem.after($elem.prev());
+		})
+
+		//删除按钮
+		$(".imgBox").delegate("span.closeBtn", "click", function(e) {
+			if ($(".imgBox").children().length > MULTIPIC_MINPIC) {
+				$(this).parents(".imgBlock").remove();
+				calImgblockCount();
+			} else {
+				layer.msg("该模块可编辑数最少为" + MULTIPIC_MINPIC + "个！", {
+					offset: 80,
+					shift: 5,
+					time: 2500
+				});
+			}
+		})
+
+		//链接选择
+		$(".imgBox").delegate("[rel='getlink']", "click", function(e) {
+			showLinkWin("afterLinkSelected");
+			afterLinkSelected.$selectedInput = $(this).parent().siblings();
+		})
+
+		//图片上传
+		$(".imgBox").delegate("div[rel='uploadImg']", "click",
+			function(e) {
+				showPicWin("afterImgSelected");
+				afterImgSelected.$selectedPic = $(this).parents(
+					".addImgOut").find("img");
+			})
+
+		//关闭小贴士
+		$(".closeTip").click(function() {
+			$(".toolTips").css('display', 'none');
+		})
+
+		//添加图片模块
+		$(".addImgBtn").click(function() {
+			if ($(".imgBox").children().length < MULTIPIC_MAXPIC) {
+				tpl = {
+					templateid: 'timgblock',
+					data: {
+						src: "",
+						url: ""
+					}
+				};
+				var html = bt(tpl.templateid, tpl.data);
+
+				$(".imgBox").append(html);
+				calImgblockCount();
+			} else {
+				layer.msg("该模块可编辑数最多为" + MULTIPIC_MAXPIC + "个！", {
+					offset: 80,
+					shift: 5,
+					time: 2500
+				});
+			}
+		})
+
+		//读取组件图片和链接
+		var imgblockArr = [];
+		_cfg.imgs.forEach(function(item) {
+			tpl = {
+				templateid: 'timgblock',
+				data: {
+					src: item.src || "",
+					url: item.href || ""
+				}
+			};
+			var html = bt(tpl.templateid, tpl.data);
+
+			imgblockArr.push(html)
+		})
+		if (imgblockArr.length < MULTIPIC_MINPIC) {
+			for (var i = imgblockArr.length; i < MULTIPIC_MINPIC; i++) {
+				tpl = {
+					templateid: 'timgblock',
+					data: {
+						src: "",
+						url: ""
+					}
+				};
+				var html = bt(tpl.templateid, tpl.data);
+
+				imgblockArr.push(html)
+			}
+		}
+		$(".imgBox").html(imgblockArr.join(""));
+
+		//添加按钮图片数目
+		calImgblockCount();
+	})
+
+	//组件保存方法
+	function cfgset() {
+		//保存图片和链接
+		var o = {
+				imgs: []
+			},
+			imgcounts = 0;
+		$(".imgBox .imgBlock").each(
+			function() {
+				var $this = $(this);
+				var imgsrc = $this.find("img[rel=multiPicImg]").attr("src") || "",
+					url = $this.find("input[rel=multiPicInput]").val() || "";
+				imgsrc = imgsrc.trim();
+				url = url.trim();
+
+				if (imgsrc) {
+					o.imgs.push({
+						src: imgsrc,
+						href: url
+					})
+					imgcounts++;
+				}
+			})
+		if (imgcounts < MULTIPIC_MINPIC) {
+			layer.msg("请完善至少一张图片！", {
+				offset: 80,
+				shift: 5,
+				time: 2500
+			});
+			return;
+		}
+
+		_$module.focusPic("reset", o);
+		hideEdit();
+	}
+
+	function calImgblockCount() {
+		$(".addImgBtn").text(
+			"添加" + $(".imgBox").children().length + "/" + MULTIPIC_MAXPIC);
+	}
+
+	function afterLinkSelected(url) {
+		afterLinkSelected.$selectedInput.val(url);
+	}
+
+	function afterImgSelected(path) {
+		afterImgSelected.$selectedPic.attr("src", path);
+		afterImgSelected.$selectedPic.parent().prev().hide();
+		afterImgSelected.$selectedPic.parent().show();
+	}
+</script>

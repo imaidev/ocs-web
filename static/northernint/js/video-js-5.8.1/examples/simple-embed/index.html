@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <head>
+    <title>Video.js | HTML5 Video Player</title>
+    <script src="../../ie8/videojs-ie8.min.js"></script>
+    <link href="../../video-js.css" rel="stylesheet">
+    <script src="../../video.js"></script>
+
+  </head>
+
+</head>
+
+<body>
+
+  <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" muted width="264" height="264" poster="http://vjs.zencdn.net/v/oceans.png" data-setup="{}">
+    <source src="/res/lysc/video/oceans.mp4" type="video/mp4">
+    <source src="/res/lysc/video/oceans.webm" type="video/webm">
+    <source src="/res/lysc/video/oceans.ogv" type="video/ogg">
+    <track kind="captions" src="../shared/example-captions.vtt" srclang="en" label="English"></track>
+    <!-- Tracks need an ending tag thanks to IE9 -->
+    <track kind="subtitles" src="../shared/example-captions.vtt" srclang="en" label="English"></track>
+    <!-- Tracks need an ending tag thanks to IE9 -->
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+  </video>
+</body>
+
+</html>

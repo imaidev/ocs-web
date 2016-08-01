@@ -1,0 +1,194 @@
+@charset "utf-8";
+/* CSS Document */
+.marketD_w220{width:220px; overflow:hidden;}
+/**第一屏市场介绍***/
+.marketD_firstScr{ margin-top:10px !important;}
+.marketD{height:460px;}
+.marketD_rank{height:460px;}
+.marketD_rank{position:relative;}
+
+.marketD_ranknum b{position:absolute; top:0; right:10px;background:url(../images/rankBg.png) no-repeat ; width:46px; height:57px;display:inline-block;*display:inline;*zoom:1; overflow:hidden;  font-size:20px}
+.marketD_ranknum b .nums{ top:15px; position:absolute; right:20px; }
+.num1 b{background:url(../images/rankBg.png) 0 0 no-repeat; width:50px; height:53px; color:#fff;}
+.num2 b{background:url(../images/rankBg.png) -50px 0 no-repeat; width:50px; height:53px; color:#fff;}
+.num3 b{background:url(../images/rankBg.png) -100px 0 no-repeat; width:50px; height:53px; color:#fff;}
+.numother b{background:url(../images/rankBg.png) -150px 0 no-repeat; width:50px; height:53px; color:#fff;}
+.marketD_des .des_company{width:160px; height:25px; overflow:hidden;}
+.marketD_des .des_info{width:200px; height:20px; overflow:hidden;}
+.fcSLow{color:#83a862;}
+.market_pic{ height:110px; overflow:hidden;}
+
+/**第一屏轮播图***/
+.marketDR_top .adsBanners{overflow:hidden;height:350px; width:748px;position:relative;}
+.marketDR_top .adsBanners .adsBannerBd{height:100%;position:relative;}
+.marketDR_top .adsBanners .adsBannerBd ul{height:100%;overflow:hidden;}
+.marketDR_top .adsBanners .adsBannerBd ul li{display:block;width:100%;height:100%;}
+.marketDR_top .adsBanners .adsBannerBd ul li a{height:100%;display:block;}
+.marketDR_top .adsBanners .adsBannerHd{position:absolute;bottom:10px;right:10px;height:16px;display:inline-block;*display:inline;*zoom:1;z-index:1;}
+.marketDR_top .adsBanners .adsBannerHd li{float:left;width:15px;height:16px;margin-right:5px;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px;background:#fff;}
+.marketDR_top .adsBanners .adsBannerHd li.on{background:#2798c4;}
+
+.marketDR_top{height:360px;}
+.market_news{height:173px;}
+.market_news_title{height:70px;}
+.market_news_time{width:55px;}
+.market_news_time span{color: #fff;display: block;text-align: center;}
+.market_news_time .year{background-color: #8192be ;font-size: 12px;font-weight: bold;height: 20px; line-height: 20px;overflow: hidden; width: 55px;}
+.market_news_time .day{background-color: #fff;border: 2px solid #8192be ;color: #8192be ;font-size:16px;height: 30px;line-height: 30px;overflow: hidden;width:51px;}
+.sddt_cont span{display:block;}
+
+.slogan_box{background:#383838; height:102px;}
+.slogan_box .advantage{ padding-left:20px;}
+.slogan_box .advantage h3{color: #fff; font-size: 18px; font-weight: 400; margin-top: 6px;}
+.slogan_box .advantage span{color: #bcbcbc; font-family: tahoma,sans-serif; font-size: 12px;}
+.slogan_box .advantage li{background: url(../images/slogan.png) no-repeat scroll 0 0; float: left; height: 64px; margin-top:20px; padding-left: 80px; width: 160px;}
+.slogan_box .advantage li.global{background-position: 0 -60px;}
+.slogan_box .advantage li.feature{background-position: 0 -150px;}
+.slogan_box .advantage li.sourcing{background-position: 0 -240px;}
+.slogan_box .advantage li.ensure{background-position: 0 -330px;}
+
+/**第2屏***/
+.marketD_secondScr{ margin-top:10px !important;}
+.market_brand{ overflow:hidden; height:420px;}
+.market_brand_title{position:relative;height:40px;line-height:40px;padding-left:60px;background:#0f7aa6;color:#fff;font-size:14px; border-bottom:1px solid #fff;}
+.market_brand_title em.zylm{display:inline-block;position:absolute;top:8px;left:20px;width:23px;height:27px;background:url(../images/zylm_icon.png) center center no-repeat;}
+.market_brand_title em.sczh{display:inline-block;position:absolute;top:6px;left:20px;width:23px;height:25px; background:url(../images/market_iconfind.png) center center no-repeat;}
+
+.market_brand_List li{ height:83px; margin-top:5px;overflow:hidden;}
+.market_brand_List .inner .list-tit{ font-size:16px; line-height:30px; height:30px; }
+.market_brand_List .inner .list-others .item{ display: block;float: left; height: 24px;line-height: 24px; margin-right: 2%; overflow: hidden;width: 31%;}
+.market_famous{ height:420px; width:745px; overflow:hidden;}
+.market_famous  h3{ font-size:18px; padding:10px 15px;}
+.market_famous .market_famous-lists{overflow:hidden;margin-left:5px;margin-top:-5px;}
+.market_famous .market_famous-lists ul{height:420px;overflow:hidden;}
+.market_famous .market_famous-lists li{float:left;width:230px;height:111px;margin-left:10px;margin-top:10px;overflow:hidden; border:1px solid #ddd;}
+.market_famous .market_famous-lists li img{margin-top:1px;margin-left:2px;}
+.market_famouscomp{ height:420px; overflow:hidden;}
+.market_famouscomp h3{font-size:18px; padding:10px 15px;}
+.market_famouscomp_lists ul{ padding:10px 15px;}
+.market_famouscomp_lists ul li{ margin-bottom:12px;}
+
+/**第3屏***/
+.marketD_thrScr{ margin-top:10px !important;}
+.market_find{ overflow:hidden; width:978px; height:420px; }
+/***tab切换复杂结构部分**/
+.markerFloor-mt{margin-top:30px;}
+.market_findTabLists{overflow:hidden;}
+.market_findTabLists .markTabLists-hd{float:left;width:220px;height:420px;overflow:hidden;}
+.market_findTabLists .markTabLists-hd ul{height:100%;overflow:hidden;}
+.market_findTabLists .markTabLists-hd li{height:40px; line-height:40px;overflow:hidden;background:#fff;color:#444;cursor:pointer;font-weight:normal; border-bottom:1px solid #ddd;}
+.market_findTabLists .markTabLists-hd li.on{background:#0e7aa5;color:#fff;}
+.market_findTabLists .markTabLists-hd li .inner{height:30px;margin:0 10px;}
+.market_findTabLists .markTabLists-hd li.on .inner{}
+.market_findTabLists .list-tit{font-size:14px;}
+.market_findTabLists .markTabLists-hd li a:hover{text-decoration:none;}
+.markTabLists-bd{float:left;width:700px;}
+.markTabLists-bd .box{width:770px;border:1px solid #ddd;border-top:none;overflow:hidden;}
+.box_top{ height:250px; overflow:hidden;}
+.box_topL{width:370px; height:250px; overflow:hidden;}
+.box_topL_shopname{ width:343px; height:30px; line-height:30px; background:url(../images/boxtopbg.jpg) no-repeat; text-align:center; color:#fff;}
+.box_item{ width:100px; height:190px; margin-left:10px; overflow:hidden;}
+.box_item_name{ height:20px; overflow:hidden;}
+.box_find_bottom li{ width:31%; float:left; overflow:hidden; margin-left:5px;}
+.box_find_bottom .box_find_bottom_name{ height:25px; line-height:25px; padding:0 10px; background:#f5f5f5; color:#444; text-align:center;}
+.market_perimet_title{position:relative;height:40px;line-height:40px;padding-left:60px;background:#fff;color:#444;font-size:14px;}
+.market_perimet_title em.sczb{display:inline-block;position:absolute;top:6px;left:20px;width:35px;height:35px; background:url(../images/sczb_icon.png) center center no-repeat;}
+.market_perimet{ height:244px;}
+/***tab切换上下结构部分**/
+.market_peri_slideTxtBox{overflow:hidden;margin-top:10px; padding:0 10px;}
+.market_peri_slideTxtBox .slideTxtBoxHd{height:40px;line-height:40px;overflow:hidden;vertical-align:middle; border-bottom:1px solid #ddd;}
+.market_peri_slideTxtBox .slideTxtBoxHd ul{overflow:hidden;width:100%;}
+.market_peri_slideTxtBox .slideTxtBoxHd li{float:left;height:38px;line-height:38px;cursor:pointer;color:#444;font-weight:normal;font-size:14px;text-align:center; position:relative;}
+.market_peri_slideTxtBox .slideTxtBoxHd li b.train{ width:14px; height:18px; background:url(../images/train.png) no-repeat; position:absolute; top:10px; left:0;}
+.market_peri_slideTxtBox .slideTxtBoxHd li b.food{ width:13px; height:16px; background:url(../images/food.png) no-repeat; position:absolute; top:10px; left:0;}
+.market_peri_slideTxtBox .slideTxtBoxHd li b.hotel{ width:16px; height:13px; background:url(../images/hotel.png) no-repeat; position:absolute; top:13px; left:0;}
+.market_peri_slideTxtBox .slideTxtBoxHd01 li{width:33%;}
+.market_peri_slideTxtBox .slideTxtBoxHd01 li:first-child{width:33%;}
+.market_peri_slideTxtBox .slideTxtBoxHd li a:hover{text-decoration:none;}
+.market_peri_slideTxtBox .slideTxtBoxHd li.on{background:#fff;border-bottom:2px solid #2797c3;color:#333;font-size:16px;}
+.market_peri_slideTxtBox .box_content{ height:170px; overflow-x:auto;}
+.market_peri_slideTxtBox .box_content li{ margin-bottom:10px; line-height:20px; font-size:12px; width:180px; overflow:hidden;}
+
+/**第4屏***/
+.fourthScr{ margin-top:10px !important;}
+.fourthScr .market_job{ height:420px;}
+.fourthScr .market_slideTxtBoxBd li{ margin-bottom:10px; line-height:20px;}
+/***tab切换复杂结构部分**/
+.fourthScr .rank_list{ width:975px;}
+.fourthScr .rank_listTabLists{overflow:hidden;}
+.fourthScr .rank_listTabLists .rank_listTabLists-hd{float:left;width:220px;height:420px;overflow:hidden;}
+.fourthScr .rank_listTabLists .rank_listTabLists-hd ul{height:100%;overflow:hidden;}
+.fourthScr .rank_listTabLists .rank_listTabLists-hd li{height:90px; line-height:90px;overflow:hidden;background:#fff;color:#444;cursor:pointer;font-weight:normal; border-bottom:1px solid #ddd; text-align:center; }
+.fourthScr .rank_listTabLists .rank_listTabLists-hd li.on{color:#0e7aa5;}
+.fourthScr .rank_listTabLists .rank_listTabLists-hd li .inner{height:30px;margin:0 10px;}
+.fourthScr .rank_listTabLists .rank_listTabLists-hd li.on .inner{}
+.fourthScr .rank_listTabLists .list-tit{font-size:16px;}
+.fourthScr .rank_listTabLists .rank_listTabLists-hd li a:hover{text-decoration:none;}
+.fourthScr .rank_listTabLists-bd{float:left;width:751px;}
+.fourthScr .rank_listTabLists-bd .box{width:750px;border-right:1px solid #ddd; overflow:hidden; }
+.fourthScr .box_top{ height:260px; overflow:hidden;}
+.fourthScr .box_topL{width:350px; height:250px; overflow:hidden;}
+.fourthScr .box_topL_shopname{ width:343px; height:30px; line-height:30px; background:url(../images/boxtopbg.jpg) no-repeat; text-align:center; color:#fff;}
+.fourthScr .box_item{ width:100px; height:190px; margin-left:10px; overflow:hidden;}
+.fourthScr .box_item_name{ height:20px; overflow:hidden;}
+.fourthScr .box_find_bottom li{ width:31%; float:left; overflow:hidden; margin-left:5px;}
+.fourthScr .box_find_bottom .box_find_bottom_name{ height:25px; line-height:25px; padding:0 10px; background:#f5f5f5; color:#444; text-align:center;}
+.fourthScr .market_perimet_title{position:relative;height:40px;line-height:40px;padding-left:60px;background:#fff;color:#444;font-size:14px;}
+.fourthScr .market_perimet_title em.sczb{display:inline-block;position:absolute;top:6px;left:20px;width:35px;height:35px; background:url(../images/sczb_icon.png) center center no-repeat;}
+.fourthScr .market_perimet{ height:244px;}
+.fourthScr .ranklist_title{position:relative;height:60px;line-height:60px;padding-left:60px;color:#444;font-size:14px;}
+.fourthScr .ranklist_title em.sjbd{display:inline-block;position:absolute;top:12px;left:20px;width:35px;height:35px; background:url(../images/rankicon.png) center center no-repeat;}
+.fourthScr .rankbox_left{ width:310px; overflow:hidden;}
+.fourthScr .rankbox_left_top{ width:300px;}
+
+/**第4屏轮播图***/
+.fourthScr.rankBanner{overflow:hidden;height:400px; width:300px;position:relative;}
+.fourthScr .item_info{ background:#eaeaea; height:150px;}
+.fourthScr .rankBanner .item_info li{ line-height:25px; height:25px; color:#444;}
+.fourthScr .rankbox_right{ width:430px; overflow:hidden; height:420px;}
+.fourthScr .rankbox_right li{ float:left; border-left:1px dashed #ddd; border-bottom:1px dashed #ddd;}
+
+
+/*本例css*/
+.www51buycom { width: 740px; height: 400px;position: relative; overflow:hidden; margin: 10px; }
+
+/*数字按钮样式*/
+.www51buycom .nums { overflow:hidden; height: 25px; position: absolute; bottom:12px; left: 15px; zoom:1; z-index:3 }
+.www51buycom .nums li { width: 25px; height: 25px; line-height: 25px; text-align: center; font-weight: 400; font-family: "微软雅黑", Arial; color: #FFFFFF; background: #444444; margin-right: 10px; border-radius:50%; cursor:pointer; float: left;}
+.www51buycom .nums li.on { background: #FF7700; } /*当前项*/
+
+/*上一个  下一个*/
+.www51buycom .prev,
+.www51buycom .next { display: none; width: 40px; height: 100px; background: url(../images/btn.png) no-repeat; position: absolute; top: 115px;}
+.www51buycom .prev { left: 0; }
+.www51buycom .next { right: 0; background-position: right }
+
+
+
+/**第5屏***/
+.fiveScr{ margin-top:10px !important; height:400px;}
+.fiveScr .fiveScrLeft{ width:980px;}
+.fiveScr .fiveScrLeft h3{font-size:18px; padding:10px 15px;}
+.fiveScr .fiveScr_news{ width:225px; height:400px; overflow:hidden;position:relative;}
+.fiveScr .fiveScr_news_title{position:relative;height:40px;padding-left:60px;background:#fff;color:#444;font-size:14px;}
+.fiveScr .fiveScr_news_title em{display:inline-block;position:absolute;top:10px;left:20px;width:42px;height:31px; background:url(../images/scdt_icon.jpg) center center no-repeat;}
+.fiveScr .fiveScr_news_title span{ display:block; padding-left:10px;}
+.fiveScr .fiveScrnews_list { padding:10px; height:260px; overflow:hidden;}
+.fiveScr .fiveScrnews_list li{ position:relative; margin-bottom:15px; padding-left:15px; background:#fafafa; padding:10px 20px;}
+.fiveScr .fiveScrnews_list li em{ position:absolute; width:15px; height:15px; background:url(../images/clock.png) no-repeat; top:10px; left:5px;}
+
+/**第6屏***/
+.sixScr{ margin-top:10px !important; height:1100px; overflow:hidden;}
+.sixScr .sixScr_bigpic{ width:220px; height:480px;}
+.sixScr .sixScr_top{ height:500px;}
+.sixScr .sixScr_top_R{ width:965px;}
+.sixScr .sixScr_top_RT{ height:200px; }
+.sixScr .sixScr_top_RTLeft{ width:231px; height:200px;}
+.sixScr .sixScr_top_RTMiddle{ width:340px;height:180px;}
+.sixScr .sixScr_top_RTMiddlepic{ width:160px;}
+.sixScr .sixScr_top_RTMiddleinfo{ width:160px; padding-left:20px;}
+.sixScr .common_item{}
+.sixScr .common_item li{ width:240px; height:300px; float:left;}
+.sixScr .common_item_name{ height:20px; overflow:hidden;}
+.sixScr .common_hot{ background:#f1f1f1;}
+.sixScr .common_hot a{ margin:5px; padding:0 5px; display:block; float:left; border:1px solid #ddd; min-width:50px; height:30px; line-height:30px; background:#fff;text-align:center;}

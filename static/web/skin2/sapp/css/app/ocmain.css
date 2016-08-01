@@ -1,0 +1,174 @@
+#menutree.ztree{
+	position:relative;
+	padding:0px;
+	border-right:#dddddd 1px solid;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+}
+#menutree.ztree li{
+	padding-top:3px;
+	padding-bottom:3px;
+	position:relative;
+}
+#menutree.ztree li.level0{
+	padding:0px;
+	position:relative;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+}
+#menutree.ztree li.level0 a.level0{
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+}
+#menutree.ztree ul.level0{
+	background:url(zTreeStyle/img/line_conn0.gif) repeat-y;
+}
+#menutree.ztree li.level0.open ul{
+	background-color:#FFF;
+}
+#menutree.ztree li a{
+	height:30px;
+	line-height:30px;
+	display:block;
+	position:relative;
+	margin-left:18px;
+}
+#menutree.ztree li.level0 a.level0{
+	height:38px;
+	line-height:38px;
+	text-align:left;
+	display:block;
+	text-decoration:none;
+	border-bottom:#dddddd 1px solid;
+	border-top:#fafafa 1px solid;
+	padding-left:10px;
+	margin:0px;
+}
+#menutree.ztree li.level0 ul.level0{
+	padding-left:30px;
+}
+#menutree.ztree li.level0 a.level0 span.menu_span{
+	line-height:38px;
+	font-size:14px;
+}
+#menutree.ztree li a span.menu_span{
+	display:block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding-left:3px;
+}
+#menutree.ztree li a span.button{
+	float:left;
+	margin-top:12px;
+}
+#menutree.ztree li a:hover{
+	background:#f5f5f5;
+}
+#menutree.ztree li a.curSelectedNode{
+	background:#f5f5f5;
+	border:none;
+}
+#menutree.ztree li a.curSelectedNode.active{
+	font-weight:bold;
+}
+#menutree.ztree li a span.menu_span {
+	color: #222222;
+	font-size:12px;
+	word-spacing: 2px;
+	line-height:30px;
+	margin-left:5px;
+}
+#menutree.ztree li a.level0 {
+}
+#menutree.ztree li a.level0 .button.ico_close{
+	width:17px;
+	height:14px;
+	background:url(img/images.png) no-repeat;
+	background-position:-93px 0;
+}
+#menutree.ztree li .button.ico_docu{
+	width:13px;
+	height:14px;
+	margin-top:7px;
+	background:url(img/images.png) no-repeat -94px -28px;
+}
+#menutree.ztree li .button.switch{
+	width:20px;
+	height:36px;
+	top:-1px;
+	left:0px;
+	position:absolute;
+	background:url(img/images.png) no-repeat;
+}
+#menutree.ztree li .button.switch.center_docu{
+	left:5px;
+	background-position:5px -12px;
+}
+#menutree.ztree li .button.switch.bottom_docu{
+	left:5px;
+	background-position: 5px -35px;
+}
+#menutree.ztree li .button.switch.center_close{
+	background-position: -28px -12px;
+}
+#menutree.ztree li .button.switch.bottom_close{
+	background-position: -28px -36px;
+}
+#menutree.ztree li .button.switch.center_open{
+	background-position: -60px -12px;
+}
+#menutree.ztree li .button.switch.bottom_open{
+	background-position: -60px -36px;
+}
+#menutree.ztree li a.level0 .button.ico_open{
+	width:17px;
+	height:14px;
+	background:url(img/images.png) no-repeat;
+	background-position:-93px -14px;
+}
+#menutree.ztree li a.level0 span.button.switch {
+	width:14px;
+	height:14px;
+	float:right;
+	margin-top:12px;
+	margin-right:8px;
+	background:url(img/images.png) no-repeat;
+	position:static;
+}
+#menutree.ztree li a.level0 span.button.switch.root_docu{
+	background-position:-111px 0;
+}
+#menutree.ztree li a.level0 span.button.switch.roots_close{
+	background-position:-111px 0;
+}
+#menutree.ztree li a.level0 span.button.switch.roots_open{
+	background-position:-111px -14px;
+}
+#menutree.ztree li a.level0 span.button.switch.root_close{
+	background-position:-111px 0;
+}
+#menutree.ztree li a.level0 span.button.switch.root_open{
+	background-position:-111px -14px;
+}
+#menutree.ztree li a.level0 span.button.switch.center_close{
+	background-position:-111px 0;
+}
+
+#menutree.ztree li a.level0 span.button.switch.center_open{
+	background-position:-111px -14px;
+}
+#menutree.ztree li a.level0 span.button.switch.bottom_close{
+	background-position:-111px 0;
+}
+#menutree.ztree li a.level0 span.button.switch.bottom_open{
+	background-position:-111px -14px;
+}
+#menutree.ztree ul.level0 li span.button.ico_close,#menutree.ztree ul.level0 li span.button.ico_open {
+	display:none;
+}
+
+
+#mt-menu .slimScrollDiv {
+}
+

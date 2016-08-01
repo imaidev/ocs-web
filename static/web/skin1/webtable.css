@@ -1,0 +1,41 @@
+.headTable{
+		font-family: "lucida grande", verdana, lucida, sans-serif;
+		font-size: 8pt;	
+		border: 1px solid #666;
+	}
+	tr td{
+		font-family: "lucida grande", verdana, sans-serif;
+		font-size: 8pt;
+		padding: 3px 8px;
+		background: #fff;
+	}
+	thead td{
+		color: #fff;
+		background-color: #C8C028;
+		font-weight: bold;
+		border-bottom: 1px solid #999;
+	}
+	tbody td{
+			border-left: 1px solid #D9D9D9;
+	}
+	tbody tr.even td{
+		background: #eee;
+	}
+	tbody tr.selected td{
+		background: #3d80df;
+		color: #ffffff;
+		font-weight: bold;
+		border-left: 1px solid #346DBE;
+		border-bottom: 1px solid #7DAAEA;
+	}
+	tbody tr.ruled td{
+		color: #000;
+		background-color: #C6E3FF; 
+		font-weight: bold;
+		border-color: #3292FC;
+	}
+	
+	/* Opera fix */
+	head:first-child+body tr.ruled td{
+		background-color: #C6E3FF; 
+	}

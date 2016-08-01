@@ -1,0 +1,21 @@
+@charset "utf-8";
+/*css reset*/
+/* .main{margin:auto; width:1200px;} */
+.photo{margin-top:10px;}
+.mon{margin-top:20px;}
+/*left*/
+.imf{width:794px; float:left;}
+.xian{width:250px; height:1px; background-color:#d5d5d5; float:left; margin-top:9px;}
+.tip01 h1{float:left; font-size:18px; font-weight:200; color:#4c4c4c; background:url(/static/zywl/skins/images/depot/cangchu_10.png) left no-repeat; padding-left:28px; margin-left:27px;}
+.xian01{width:250px; height:1px; background-color:#d5d5d5; float:right; margin-top:9px; margin-bottom:30px;}
+table{border:0;margin:0;border-collapse:collapse; color:#4c4c4c;}
+table td{border:1px solid #a6a6a6; margin:0; text-align:left;}
+.tip02 td{ font-size:16px; font-weight:200; color:#4c4c4c;}
+/*right*/
+.mat{float:right; width:386px; padding:0;}
+.mat h1{font-size:18px; font-weight:200; color:#4c4c4c; background:url(/static/zywl/skins/images/depot/cangchu_07.png) left no-repeat; padding-left:28px;}
+.mat img{margin-top:28px;}
+.mat p{margin-top:20px; margin-left:23px; color:#4c4c4c; line-height:20px;}
+.inp{margin-top:20px;}
+.bottom01{border:none;background:url(/static/zywl/skins/images/depot/cangchu_21.png) no-repeat;width:144px; height:42px; float:left; margin-left:40px;  margin-bottom:30px;}
+.bottom02{border:none;background:url(/static/zywl/skins/images/depot/cangchu_23.png) no-repeat;width:144px; height:42px; float:right; margin-right:38px;  margin-bottom:30px;}

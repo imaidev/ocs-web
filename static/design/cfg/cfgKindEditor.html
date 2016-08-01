@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="/static/design/js/jquery.min.js"></script>
+    <script src="/static/resource/js/layer/layer.min.js"></script>
+    <script src="/static/resource/js/kindeditor4/kindeditor-min.js"></script>
+</head>
+<body>
+	<div id='desc_editor' style='width:100%;height:480px;'>
+			<textarea id="editContent" name='editContent' rows='30' cols='105' style='width:100%; height:480px;'></textarea>
+	</div>
+	<script type="text/javascript">
+		var editor1;
+		$(function(){
+			$("#editContent").html(parent.$RichtextContainer.html())
+			
+			KindEditor.ready(function(K) {
+				editor1 = K.create('#editContent', {
+						kid:"editContent",
+						filterMode:false,
+						resizeType:0,
+						rcUrl:parent.parent.ctx+"/res/tu/ResSelect.htm?item&type=image&callback=uploadCallBack&maxuploadsize=2M",
+						rcUrlMulti:parent.parent.ctx+"/resUpload.res?method=batchInit&dir=shop&type=image&callback=uploadCallBack&maxuploadsize=2M"
+				}); 
+			});
+		})
+	</script>
+</body>
+</html>

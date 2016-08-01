@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="/static/design/css/editor.css" rel="stylesheet">
+		<script src="/static/design/js/jquery.min.js"></script>
+		
+		<link href="/static/design/js/layer/skin/layer.css" rel="stylesheet">
+		<script src="/static/design/js/layer/layer.js"></script>
+
+		<link href="/static/design/js/spectrum/spectrum.css" rel="stylesheet" />
+   		<script src="/static/design/js/spectrum/spectrum.js"></script>
+
+		<script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+		<script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+		<script>
+			function setSquence() {
+	            var divlist = $('#EditorBox').children();
+	            var len = divlist.length;
+	            divlist.each(function (i,item) {
+	                if (i == 0) {
+	                    $(this).addClass('first')
+	                    if(len>1) $(this).removeClass('last');
+	                }
+	                if (i == len - 1) {
+	                    $(this).addClass('last');
+	                    if(len>1) $(this).removeClass('first');
+	                }
+	                if (i>0 && i < len - 1) {
+	                    $(this).removeClass('last').removeClass('first');
+	                }
+	                if (i % 2 == 0) {
+	                    $(this).addClass('even').removeClass('odd');
+	                }
+	                else {
+	                    $(this).addClass('odd').removeClass('even');
+	                }
+	            })
+	            setValidate();
+	        }	
+			// 就将此元素插到下一个元素之后，从而实现互换顺序
+	    	function actDown(Obj) {
+	    		$(Obj).parent().parent().next().after($(Obj).parent().parent());
+	    		// 重新设置排序规则
+	    		setSquence();
+	    	}
+	    	
+	    	// 就将此元素插到上一个元素之后，从而实现互换顺序
+	    	function actUp(Obj) {
+	    		$(Obj).parent().parent().after($(Obj).parent().parent().prev());
+	    		// 重新设置排序规则
+	    		setSquence();
+	    	}
+			function addRow(floorliclass,anchorpoint,floorurls,floornames){ 
+				var str;
+				if(floorliclass != "go-top"){
+					str = '<div class="edit-item">' + 
+					'<div class="column column1">' +
+		                '<input class="J_ImgUrl w190" type="text" name="urlAddress" value="'+floorurls+'"/>' +
+		                '<a class="sys-images sys-magicImages" onclick="selectPic()"></a><span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>' +
+		            '</div>' +
+		            '<div class="column column1 magicAlbum4">' +
+		                '<input class="magicAlbum4 magicPhoto" type="text" name="floorsnames" value="'+floornames+'"/>'  +
+		            '</div>' +
+		            '<div class="column column1 ">'+
+		                '<input class="column column1" type="text" name="anchorpoint" placeholder="请输入锚点" value="'+anchorpoint+'"/><span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>'+     //显示栏目 锚点位置
+		            '</div>'+
+		            '<div class="column column3 J_Control  w90" style="margin-left:14px;">'+
+		                '<a title="上移" class="up magicPic" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down magicPic" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		                '<a title="删除" class="delete magicPic" href="javascript:void(0);"></a>'+
+		            '</div>'+
+	        	'</div>';
+				}
+				$('#EditorBox').append(str);
+				setSquence();
+	        } 
+			$(function () {
+				// 设置展示方式
+				$("#displayMode"+parent._cfg.floorstyle).addClass("clickstyle");
+				//加载离页面顶部多远开始显示导航
+				$("input[name=floorheight]").attr("value",parent._cfg.floorheight);
+				//加载是否返回顶部选项
+				if(parent._cfg.toTop == "0"){
+					$("input[name=returntop]").eq(1).click();
+				}else{
+					$("input[name=returntop]").eq(0).click();
+				}
+				
+				$(".totop").delegate("input", "click", function(e) {
+	                $(this).attr("checked",true);
+	            })
+				$(".panels").delegate("a.delete", "click", function(e) {
+	                $(this).closest('div.edit-item').remove();
+	                setSquence();
+	            })
+				//添加导航栏
+	            $('#btnAdd').click(function() {
+	            	addRow('','','','');
+            	})
+	             //加载数据
+	            $(parent._cfg.floors).each(function(){
+	            	addRow(this.floorliclass,this.anchorpoint,this.floorurls,this.floornames);
+	            }) 
+	            //字体颜色
+	            $("#floorwordscolour").val(parent._cfg.floorwordscolour);
+	            $("#floorwordscolour").spectrum({
+		            color: parent._cfg.floorwordscolour,
+		            preferredFormat: "hex6",
+		            showInput: true
+		        });
+	            //文字背景色
+	            $("#floorhovercolour").val(parent._cfg.floorhovercolour);
+	            $("#floorhovercolour").spectrum({
+		            color: parent._cfg.floorhovercolour,
+		            preferredFormat: "hex6",
+		            showInput: true
+		        });
+	            //导航背景色
+	            $("#floorbackgroundcolour").val(parent._cfg.floorbackgroundcolour);
+	            $("#floorbackgroundcolour").spectrum({
+		            color: parent._cfg.floorbackgroundcolour,
+		            preferredFormat: "hex6",
+		            showInput: true
+		        });
+	            setValidate();
+	        })
+	        function setValidate(){
+	        	$('#displaySetForm').validate({
+		            onkeyup: function(element) {$(element).valid()},
+		            rules:{
+		            	floorheight:{required:true,max:1000,min:10},
+		            	urlAddress:{required:true,maxlength:200},
+		            	anchorpoint:{required:true,maxlength:200},
+		           	},
+		            showErrors: function(errorMap, errorList) {
+		            	
+		            	if(errorList.length>0){
+		            		$.each(errorList,function(index,error){
+			            		var element=$(errorList[index].element);
+			            		var msgContainer=element.parent().find('.J_TMsg');
+			            		if(msgContainer.length>0){
+			            			msgContainer.find('span').text(error.message);
+			            			if(error.message!="")
+			            				msgContainer.removeClass('disappear').addClass('failure');
+			            			else
+			            				msgContainer.removeClass('failure').addClass('disappear');
+				           		}
+			            	})
+		            	}
+		            	else{
+		            		this.currentElements.parent().find('.J_TMsg').each(function(){
+		            			$(this).removeClass('failure').addClass('disappear');
+		            		})
+		            	}
+		            	
+		           	}
+	            });
+	        }
+	        function cfgSet(){
+	        	if(!$('#displaySetForm').valid()){
+	        		return;
+	        	}
+	        	else{
+	        		if(!$('#displaySetForm').valid()){
+	            		return;
+	            	}
+	            	else {
+	            	    var otherTab = $("#navul>.selected").siblings();
+	            	    for (i = 0; i < otherTab.length; i++) {
+	            	        otherTab.click();
+	            	        if (!$('#displaySetForm').valid())
+	            	            return;
+	            	    }
+	            	}
+	        	}
+	        	//是否显示到顶部的符号
+				var toTop= "1" ;
+				if($("input[name=returntop]").eq(1).attr("checked")){
+					toTop ="0";
+				}
+				//距离顶部多大的距离显示导航
+				var floorheight = $("input[name=floorheight]").val();
+				//获取颜色的值
+				var floorwordscolour = $("input[name=floorwordscolour]").val();
+				var floorhovercolour = $("input[name=floorhovercolour]").val();
+				var floorbackgroundcolour = $("input[name=floorbackgroundcolour]").val();
+	         	//组件更新
+	        	var o={
+	         		floorwordscolour:floorwordscolour,
+	         		floorhovercolour:floorhovercolour,
+	         		floorbackgroundcolour:floorbackgroundcolour,
+	         		toTop:toTop,
+	         		floorheight:floorheight,
+	        		floors:[],
+	        		floorstyle:$('.clickstyle').attr("id").replace("displayMode","")
+	        	}
+	        	$('#EditorBox').children().each(function(i){
+	        		if($(this).find('input[ name="urlAddress"]').val().trim()!="" && $(this).find('input[ name="anchorpoint"]').val().trim()!="" ){
+	        			o.floors[i]={};
+	        			o.floors[i].floorliclass="";
+	            		o.floors[i].floorurls=$(this).find('input[ name="urlAddress"]').val();
+	            		o.floors[i].floornames=$(this).find('input[ name="floorsnames"]').val();
+	            		o.floors[i].anchorpoint=$(this).find('input[ name="anchorpoint"]').val();
+	        		}
+	        	})
+	        	parent._$module.floorguide('reset',o);
+	        	
+	        	//关闭配置框
+	        	parent.cfgClose(); 
+	        }
+			var $curImgInput;
+	        function selectPic() {
+	        	var event=window.event || arguments.callee.caller.arguments[0];
+	        	$curImgInput=$(event.srcElement ? event.srcElement:event.target).siblings('input.J_ImgUrl');
+				
+	        	opt ={"dir":"shop", "maxuploadsize":"2M", "callBack":"selectPicCallBack"};
+	    		layer.open({
+	    	        type : 2,
+	    	        content :  parent.ctx+"/res/tu/ResSelect.htm?dir="+opt.dir+"&maxuploadsize="+opt.maxuploadsize+"&callback="+opt.callBack,
+	    	        title : "图片选取",
+	    	        shadeClose: true,
+	    	        area : ['750px','500px']
+	    	    });
+	    	}
+	        function selectPicCallBack(path){
+	        	$curImgInput.val(path);
+	        }
+		</script>
+	</head>
+
+	<body>
+		<div class="content fm1">
+			<div class="tab">
+				<!-- <ul class="nav clear-fix">
+					<li class="ks-switchable-trigger-internal6 selected" id="titleOne"><span>常规</span></li>
+				</ul> -->
+				<form class="main-slide-form form-default" id="displaySetForm" >
+					<div class="panels">
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabOne" style="display: block;">
+							<div class="edit-module">
+								<div class="edit-item">
+									<div id="Group">
+										<div class="antithetical mb5" style="height: 50px;">
+											<span class="fl renovationOption">显示样式：</span>
+											<div class="MoudulesyuleMain">
+												<ul id="choice-panel" class="choice-panel">
+													<li id="displayMode1">
+														<div class="img-container tc">
+															<a class="imag"><img src="/static/design/img/floor-guide1.png">
+															</a>
+														</div>
+													</li>
+													<li id="displayMode2">
+														<div class="img-container">
+															<a class="imag"><img src="/static/design/img/floor-guide2.png">
+															</a>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<script type="text/javascript">
+												$('#choice-panel').find('li').hover(
+														function() {
+															$(this).addClass('hoverstyle')
+														},
+														function() {
+															$(this).removeClass('hoverstyle')
+														}
+													)
+													//滑过增加滑过样式end
+												$('#choice-panel').find('li').click(function() {
+														var $target = $(this);
+														$target.siblings().removeClass('clickstyle');
+														$target.addClass('clickstyle');
+													})
+													//点击事件end
+											</script>
+										</div>
+										<div class="antithetical h23 mt5">
+											<span class="fl renovationOption">文字颜色：</span>
+											<div class="fl ColorSet">
+												<!-- <input type="color" class="w30" value="#ffffff"/> -->
+												<input type="text" class="CSS_colorPicker" id="floorwordscolour" name="floorwordscolour" value=""/>
+											</div>
+										</div>
+										<div class="antithetical h23 mt5">
+											<span class="fl renovationOption">文字背景色：</span>
+											<div class="fl ColorSet">
+												<!-- <input type="color" class="w30" value="#0f7aa6"/> -->
+												<input type="text" class="CSS_colorPicker" id="floorhovercolour" name="floorhovercolour" value=""/>
+											</div>
+										</div>
+										<div class="antithetical h23 mt5">
+											<span class="fl renovationOption">导航背景色：</span>
+											<div class="fl ColorSet">
+												<!-- <input type="color" class="w30" value="#f6f6f6"/> -->
+												<input type="text" class="CSS_colorPicker" id="floorbackgroundcolour" name="floorbackgroundcolour" value=""/>
+											</div>
+										</div>
+										<div class="antithetical h23 mt5">
+											<span class="fl renovationOption">是否返回顶部：</span>
+											<div class="fl totop">
+												<input type="radio" name="returntop" id="returntop1" class="classification" value="1"/>
+												<label for="returntop1">是 </label>
+												<input type="radio" name="returntop" id="returntop2" class="classification"  value="0"/>
+												<label for="returntop2">否 </label>
+											</div>
+										</div>
+										<div class="antithetical h23 mt5">
+											<span class="fl renovationOption">显示导航栏：</span>
+											<div class="fl">
+												<input class="floorheight J_LinkUrl" type="text" name="floorheight" style="text-align:right;width:40px;" value=""/>&nbsp;<span class="tips">px</span>&nbsp;&nbsp;<span class="tips">请设置在10-1000px之间</span><br/>
+												<span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+											</div>
+											
+										</div>
+										
+										<div class="antithetical mt10 tabTit h30">
+											<div class="column column1 "><span>导航图标</span></div>
+											<div class="column column2 magicAlbum1"><span>显示文字</span></div>
+											<div class="column column1"><span>栏目地址</span></div>
+											<div class="column column3 magicAlbum2 w100"><span>操作</span></div>
+										</div>
+										
+										<div id="EditorBox" class="pic-list scrollBar" style="max-height:178.4px;">
+										    
+										</div>
+										<div class="bottom">
+											<a class="add-one btn-style-1" href="javascript:void(0);" id="btnAdd">添加</a>
+										</div>
+									</div>
+								</div>
+							</div>
+			
+						</div>
+						<p class="opt-footer ctset-opt-footer">
+							<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+							<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+						</p>
+				    </div>
+				</form>
+			</div>
+		</div>
+	</body>
+
+</html>

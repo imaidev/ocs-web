@@ -1,0 +1,153 @@
+#top{
+	min-width:1202px;
+	font-family: Verdana, Arial, Helvetica, sans-serif,'microsoft yahei',\5b8b\4f53;
+	font-weight:400;
+	letter-spacing:1px;
+}
+#top-banner{
+	background-color:#0957c3;
+	height:122px;
+}
+.page-area{
+    width:1200px;
+	margin:0 auto;
+	
+}
+#top-right-area{
+	float: right;
+	width: 750px;
+}
+#top-banner-info{
+	margin-top:12px;
+	color:#009cff;
+	font-size:12px;
+	float:right;
+}
+#top-banner .small-text{
+	margin-left:16px;
+}
+#top-banner .small-text-thin-spance{
+
+	margin-left:6px;
+}
+#top-banner .small-text-thin-spance:first-child{
+
+	margin-left:-6px;
+}
+#top-shopping-area{
+	margin-top:42px;
+	width:724px;
+	float:right;
+}
+
+#top-shopping-search{
+	height:34px;
+	float:left;
+	margin-right:16px;
+}
+#top-search-button-img{
+	height:32px;
+	width:50px;
+	background-color:#ffb400;
+	float:left;
+
+}
+#top-shopping-area .top-search{
+	width:510px;
+	height:32px;
+	border:none;
+	padding-left:8px;
+	color:#98999b;
+	line-height:32px;
+	float:left;
+}
+#top-shopping-cart{
+    width:140px;
+    height:32px;
+	background-color:#ffb400;
+	float:right;
+	
+}
+#top-shopping-cart .shopping-cart-img{
+    width:88px;
+	border-right:1px solid #e67c02;
+}
+#top-shopping-cart .shopping-cart-select{
+	border-left:1px solid #fe8f01;
+	
+}
+#top-left-area{
+	float:left;
+	margin-top:40px;
+	height:64px;
+	width:300px;
+	
+}
+#top-left-area .top-logo{
+	width:148px;
+	height:64px;
+	border:1px solid #FFF;
+	float:left;
+	margin-right:16px;
+}
+#top-left-area .top-sent-add{
+	float:left;
+	height:50px;
+	width:100px;
+	border-left:1px solid #08408b;
+	padding-left:10px;
+	margin-top:16px;
+	color:#d4eaf8;
+	font-weight:500;
+	font-size:12px;
+}
+#top-left-area .top-sent-add .sent-to{
+	float:left;
+	margin-right:15px;
+}
+#top-left-area .top-sent-add .sent-add{
+	float:left;
+}
+#tour-banner{
+	height:37px;
+	background-color:#164499;
+}
+#tour-banner .page-area ul{
+	margin-left:224px;
+}
+#tour-banner .page-area ul li{
+	padding-left:25px;
+	padding-right:25px;
+	float:left;
+	height:36px;
+ 	line-height:36px;
+ 	color:#ffffff;
+ 	font-size:14px;
+ 	cursor:pointer;
+}
+#tour-banner ul li:hover{
+ background-color:#0a346e;
+}
+#tour-banner ul li.active{
+ background-color:#0a346e;
+}
+#tour-detail{
+	height:57px;
+	background-color:#dd4697;
+	color:#FFF;
+	line-height:57px;
+}
+#tour-detail .detail-title{
+	float:left;
+	font-size:18px;
+	font-weight:500;
+	
+}
+#tour-detail ul li{
+ float:left;
+ font-size:14px;
+ margin-left:11px;
+}
+#tour-detail ul li span{
+ margin-left:11px;
+}	

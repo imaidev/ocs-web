@@ -1,0 +1,256 @@
+@charset "utf-8";
+/* CSS Document */
+
+.body-area{
+	width:1024px;
+	margin:0 auto;
+	font-family: Verdana, Arial, Helvetica, sans-serif,'microsoft yahei',\5b8b\4f53;
+	font-weight:400;
+	font-size:12px;
+	letter-spacing:1px;
+	
+	}
+.search-head{
+	border-bottom:2px solid #23a3e0;
+	margin:0 auto;
+	text-align:center;
+	letter-spacing:3px;
+	}
+.search-title{
+	color:#23a3e0;
+	font-size:16px;
+	padding-bottom:14px;
+	}
+/* 查询条件表单*/
+.search-form{
+	color:#686868;
+	margin-top:27px;
+	}
+.search-form span{
+	margin-left:12px;
+	margin-right:24px;
+	margin-bottom:1px;
+	width:260px;
+	display:inline-block;
+	line-height:30px;
+	}
+.search-form span input{
+	width:200px;
+	height:30px;
+	border:1px solid #cccccc;
+    float:right;
+}
+.searchBut{
+	width:86px;
+	height:31px;
+	background-color:#23a3e0;
+	color:#fff;
+	border:none;
+}
+.search-result{
+	margin:60px auto 0px auto;
+}
+/* 订单查询结果表格*/
+
+#datagrid{
+	border:1px solid #cdcdcd;
+	margin:0px auto;
+}
+#datagrid th{
+	background-color:#f9f9f9;
+	height:46px;
+	text-align:center;
+	font-size:14px;
+}
+#datagrid td{
+	text-align:center;
+	height:78px;
+	border:1px solid #cdcdcd;
+}
+#datagrid td ul li{
+	color:#22a2df;
+}
+#datagrid td ul li:first-child{
+	padding-bottom:7px;
+}
+#datagrid td ul li:last-child{
+	padding-top:7px;
+}
+/*订单明细修改*/
+.order-detail-revise{
+	width:600px;
+	height:360px;
+	background-color:#eff8ff;
+	margin:12px auto 0 auto;
+}
+.order-detail-content{
+	margin-left:130px;
+	padding-top:40px;
+}
+.order-detail-content p{
+	font-size:14px;
+	margin-left:-2px;
+}
+.order-detail{
+	color:#666769;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.order-detail li{
+	margin-bottom:8px;
+}
+.order-detail li span:first-child{
+	width:56px;
+	display:inline-block;
+	text-align:right; 
+
+}
+.order-detail li input{
+	width:162px;
+	height:23px;
+	padding-left:10px;
+}
+.order-detail li .add-input{
+	width:216px;
+}
+
+.order-search-return{
+	margin:50px auto 0 auto;
+	text-align:center;
+}
+.returnBut{
+	width:150px;
+	height:42px;
+	background-color:#dd4697;
+	color:#fff;
+	border:none;
+	font-size:14px;
+}
+/*订单查询结果*/
+.order-search-detail{
+	float:right;
+	margin-top:10px;
+	width:880px;
+}
+.search-detail-datagrid tr{
+	
+}
+.search-detail-datagrid .detail-title{
+	border:1px solid #cdcdcd;
+}
+.search-detail-datagrid th{
+	background-color:#f9f9f9;
+	height:42px;
+	font-size:14px;
+	
+}
+.search-detail-datagrid th,td{
+	width:460px;
+}
+.search-detail-datagrid td{
+	margin-bottom:18px;
+}
+.search-detail-datagrid th:first-child,td:first-child{
+	width:160px;
+	text-align:center;
+}
+.search-detail-datagrid th:last-child,td:last-child{
+	width:260px;
+	text-align:right;
+}
+/*页码*/
+#page-turn{
+	float:right;
+	height:30px;
+	margin-top:30px;
+	color:#676767;
+	font-size:14px;
+}
+#page-turn .page-turn{
+	border:1px solid #cccccc;
+	color:#cdcdcd;
+	padding:6px 8px 6px 8px;
+	margin-left:14px;
+	margin-right:14px;
+}
+#page-turn .page-active{
+	color:#000;
+}
+#page-turn .page-num-active{
+	color:#fe8804;
+	margin-left:6px;
+	margin-right:6px;
+}
+#page-turn .page-num{
+	color:#000;
+	border-bottom:1px solid #000;
+	margin-left:6px;
+	margin-right:6px;
+}
+#page-turn .page-amount{
+	margin-left:12px;
+	margin-right:12px;
+}
+#page-turn .detail-amount{
+	margin-left:12px;
+	margin-right:24px;
+}
+#page-turn .page-input{
+	width:76px;
+	height:29px;
+	border:1px solid #cdcdcd;
+	background-color:#f1f1f1;
+	margin-left:5px;
+	margin-right:5px;
+	text-align:center;
+}
+#page-turn .page-comfirm{
+	color:#000;
+	border-bottom:1px solid #000;
+	margin-left:18px;
+}
+/*文字*/
+.color-blue{
+	color:#009edf;
+}
+.font-14{
+	font-size:14px;
+}
+/*长度*/
+.width-1k{
+	width:1000px;
+}
+.width-50per{
+	width:50%;
+}
+.width-20per{
+	width:20%;
+}
+.width-160{
+	width:160px;
+}
+/*按钮*/
+#confirmBut{
+	width:86px;
+	height:30px;
+	background-color:#23a3e0;
+	border:none;
+	color:#fff;
+	padding:0;
+	margin-left:40px;
+	font-size:14px;
+}
+/*位置*/
+.margin-top-80{
+	margin-top:80px;
+}
+.margin-top-50{
+	margin-top:50px;
+}
+.float-right{
+	float:right;
+}
+/*鼠标*/
+.cursor-hand{
+	cursor:pointer;
+}

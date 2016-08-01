@@ -1,0 +1,14 @@
+<?xml version="10" encoding="GBK"?>
+<graph bgAlpha='0,0'	canvasBgAlpha='0,0' showNames="1" showValues="0" showBorder='0'
+			formatNumberScale="0" decimalPrecision="0"  setadaptiveymin="1" setadaptivesymin="1"
+			caption="最近一周航天品牌的销售情况" lineThickness='0'  rotateYAxisName='1'
+			baseFontColor="#FFFFFF" baseFontSize="13" baseFont="Arial" numberSuffix='万元' 
+			anchorBgColor='#FFFFFF' showhovercap='1'  numberPrefix='%A5' hoverCapBgColor='#6699FF'>
+	 <set value="560" label="周一"/> 
+	 <set value="310" label="周二"/> 
+	 <set value="420" label="周三"/> 
+	 <set value="0" label="周四"/> 
+	 <set value="270" label="周五"/> 
+	 <set value="340" label="周六"/> 
+	 <set value="990" label="周日"/> 
+</graph>

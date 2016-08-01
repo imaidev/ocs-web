@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="/static/design/css/editor.css" rel="stylesheet">
+		<link href="/static/design/js/layer/skin/layer.css" rel="stylesheet">
+
+		<script src="/static/design/js/jquery.min.js"></script>
+		<script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+		<script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+		<script src="/static/design/js/layer/layer.js"></script>
+		<script src="/static/design/module/siteNav.js"></script>
+	</head>
+	<style>
+		.form-default .edit-module {
+			width: 700px;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		function setSquence(flag) {
+	        var divlist = $('#EditorBoxLeft').children();
+	        var len = divlist.length;
+	        divlist.each(function (i,item) {
+	            if (i == 0) {
+	                $(this).addClass('first')
+	                if(len>1) $(this).removeClass('last');
+	            }
+	            if (i == len - 1) {
+	                $(this).addClass('last');
+	                if(len>1) $(this).removeClass('first');
+	            }
+	            if (i>0 && i < len - 1) {
+	                $(this).removeClass('last').removeClass('first');
+	            }
+	            if (i % 2 == 0) {
+	                $(this).addClass('even').removeClass('odd');
+	            }
+	            else {
+	                $(this).addClass('odd').removeClass('even');
+	            }
+	        })
+	        var divlist = $('#EditorBoxRight').children();
+	        var len = divlist.length;
+	        divlist.each(function (i,item) {
+	            if (i == 0) {
+	                $(this).addClass('first')
+	                if(len>1) $(this).removeClass('last');
+	            }
+	            if (i == len - 1) {
+	                $(this).addClass('last');
+	                if(len>1) $(this).removeClass('first');
+	            }
+	            if (i>0 && i < len - 1) {
+	                $(this).removeClass('last').removeClass('first');
+	            }
+	            if (i % 2 == 0) {
+	                $(this).addClass('even').removeClass('odd');
+	            }
+	            else {
+	                $(this).addClass('odd').removeClass('even');
+	            }
+	        })
+	        
+	    }
+		
+		// 就将此元素插到下一个元素之后，从而实现互换顺序
+		function actDown(Obj) {
+			$(Obj).parent().parent().next().after($(Obj).parent().parent());
+			// 重新设置排序规则
+			setSquence();
+		}
+		
+		// 就将此元素插到上一个元素之后，从而实现互换顺序
+		function actUp(Obj) {
+			$(Obj).parent().parent().after($(Obj).parent().parent().prev());
+			// 重新设置排序规则
+			setSquence();
+		}
+		 // 移动到左侧模块
+		function moveToLeft(Obj) {
+			if ($('#EditorBoxLeft').children().length == 10) {
+                alert('最多只能添加十个模块');
+                return false;
+            }
+			var args = $(Obj).parent().parent().find("input[name=moduleArgs]").val();
+			$(Obj).parent().parent().remove();
+			addRow(JSON.parse(args), "Left");
+			// 重新设置排序规则
+			setSquence();
+		}
+		// 移动到右侧模块
+		function moveToRight(Obj) {
+			if ($('#EditorBoxRight').children().length == 10) {
+                alert('最多只能添加十个模块');
+                return false;
+            }
+			var args = $(Obj).parent().parent().find("input[name=moduleArgs]").val();
+			$(Obj).parent().parent().remove();
+			addRow(JSON.parse(args), "Right");
+			// 重新设置排序规则
+			setSquence();
+		}
+	    function addRow(obj, flag){
+	    	var type = $.fn.siteNavmodule.defaults.type;
+	    	if (obj.title == null) obj.title = type[obj.type].name;
+	    	var str = ' <div class="edit-item ml0">'
+					 +'		<div class="column column1 w190" style="text-align:center;">'
+					 +'			<div class="siteNavmoduleName" title="'+obj.title+'">'+obj.title+'</div>'
+					 +'			<input type="hidden" name="moduleArgs" value=\''+JSON.stringify(obj)+'\'/>'
+					 +'		</div>'
+					 +'		<div class="column column1 w145" style="text-align:center;">'
+					 +'			<span>'+type[obj.type].name+'</span>'
+					 +'		</div>'
+					 +'		<div class="column column3 w300" style="padding-left: 40px;">'
+					 +'			<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'
+					 +'			<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'
+					 +(flag=="Left"?'<a title="移至右侧模块" class="right" href="javascript:void(0);" onclick="moveToRight(this)"></a>':'<a title="移至左侧模块" class="left" href="javascript:void(0);" onclick="moveToLeft(this)"></a>')
+					 +'			<a title="删除" class="delete" href="javascript:void(0);"></a>'
+					 +(type[obj.type].config?'<a title="配置" class="set" href="javascript:void(0);" onclick="configModule(this)"></a>':'')
+					 +'		</div>'
+					 +'	</div>';
+	
+			$('#EditorBox'+flag).append(str);
+			setSquence();
+	    }
+	    
+	    function addPresetModule(flag) {
+            if ($('#EditorBox'+flag).children().length == 10) {
+                alert('最多只能添加十个模块');
+                return false;
+            }
+            layer.open({
+                type: 2, 
+                area: ['350px','300px'],
+                title: '选择预置模块',
+                shade: 0.6, 
+                moveType: 1, 
+                shift: -1,
+                content: '/static/design/cfg/cfgsiteNavmodulechooseiframe.html?hasAdd='+checkSiteModule()+'&callBack=addPresetModuleCallBack&flag='+flag
+            }); 
+        }
+	    
+	    function addPresetModuleCallBack(obj, flag, msg) {
+	    	if (msg != null && msg != "") {
+	    		layer.msg(msg, {
+					offset : 80,
+					shift : 5,
+					time : 5000,
+					closeBtn : true
+				});
+	    	}
+			addRow(obj, flag);
+	    }
+	    
+	    function addCustLink(flag) {
+            if ($('#EditorBox'+flag).children().length == 10) {
+                alert('最多只能添加十个模块');
+                return false;
+            }
+            
+            layer.open({
+                type: 1,
+                area: ['400px', '250px'],
+                title: '添加自定义链接',
+                shade: 0.6, 
+                moveType: 1,
+                shift: -1,
+                content: '<div style="padding:25px 40px 0 40px;" class="fm1">'
+                		 +'<form>链接名称：<input type="text" name="moduleTitle" style="width:260px;margin:5px 0;"><br>'
+                		 +'链接地址：<input type="text" name="onlineUrl" style="width:260px;margin:7px 0;"><br>'
+                		 +'打开方式：<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetBlank" value="_blank" checked="checked"/><label for="targetBlank">新窗口打开</label>'
+		        		 +'<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetSelf" value="_self"/><label for="targetSelf">当前窗口打开</label><br>'
+		        		 +'<span class="V_Msg msg hidden" style="margin-top:10px;"><i class="msg-icon"></i><span class="text"></span></span></form>'
+                		 +'</div>',
+                btn: ['添加', '取消'],
+                success: function(layero, index) {
+                	$(layero).find("form").validate({
+                		onkeyup: function(element) {$(element).valid()},
+        	            rules:{
+                			moduleTitle:{required:true,maxlength:10},
+        	            	onlineUrl:{required:true,url:true,maxlength:1000}
+        	           	},  
+        	           	messages:{
+        	           		moduleTitle:{required:"请输入链接名称",maxlength:"链接名称最多输入10个字符"},
+        	           		onlineUrl:{required:"请输入链接地址",url:"请输入正确的链接地址",maxlength:"链接地址最多输入1000个字符"}
+        	           	},
+        				showErrors: function(errorMap, errorList) {
+        	            	if(errorList.length>0){
+        	            		$.each(errorList,function(index,error){
+        		            		var element=$(errorList[index].element);
+        		            		var msgContainer=element.parent().find('.V_Msg');
+        		            		if(msgContainer.length>0){
+        		            			msgContainer.find('span').text(error.message);
+        		            			if(error.message!="")
+        		            				msgContainer.removeClass('hidden').addClass('failure');
+        		            			else
+        		            				msgContainer.removeClass('failure').addClass('hidden');
+        			           		}
+        		            	})
+        	            	}
+        	            	else{
+        	            		this.currentElements.parent().find('.V_Msg').each(function(){
+        	            			$(this).removeClass('failure').addClass('hidden');
+        	            		})
+        	            	}
+        	            	
+        	           	}
+                    });
+                	$(layero).find("input[name=moduleTitle]").focus();
+                },
+                yes: function(index, layero){
+                	if(!$(layero).find("form").valid()){
+                		return;
+                	}
+                	var obj = {
+                		type: "custLink",
+                		url: $(layero).find("input[name=onlineUrl]").val(),
+                		target: $(layero).find("input[name=target]:checked").val(),
+                		title: $(layero).find("input[name=moduleTitle]").val()
+                	}
+		            addRow(obj, flag);
+                    layer.close(index); //如果设定了yes回调，需进行手工关闭
+                }
+            });              
+        }
+	    
+	    function configModule(Obj) {
+	    	var args = JSON.parse($(Obj).parent().parent().find('input[name="moduleArgs"]').val());
+	    	var contentHtml = "";
+	    	if (args.type == "greeting") {
+	    		contentHtml = '<div style="padding:25px 40px 0 40px;" class="fm1">'
+			           		 +'<form>未登录欢迎语 ：&nbsp;&nbsp;<input type="text" name="title" style="width:200px;margin:5px 0;" value="'+args.title+'"><br>'
+			        		 +'登录欢迎语前缀：<input type="text" name="title" style="width:200px;margin:5px 0;" value="'+args.loginTitlePrefix+'"><br>'
+			        		 +'登录欢迎语后缀：<input type="text" name="title" style="width:200px;margin:5px 0;" value="'+args.loginTitleSuffix+'"><br>'
+			        		 +'账户中心打开方式：<input type="radio" style="vertical-align:middle;margin:9px 3px;" name="target" id="targetBlank" value="_blank" '+(args.target=="_blank"?'checked="checked"':'')+'/><label for="targetBlank">新窗口打开</label>'
+			        		 +'<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetSelf" value="_self" '+(args.target=="_self"?'checked="checked"':'')+'/><label for="targetSelf">当前窗口打开</label><br>'
+	    					 +'<span class="V_Msg msg hidden" style="margin-top:10px;"><i class="msg-icon"></i><span class="text"></span></span></form>'
+			        		 +'</div>';
+	    	} else if (args.type == "login") {
+	    		contentHtml = '<div style="padding:25px 40px 0 40px;" class="fm1">'
+			           		 +'<form>登录链接名称：<input type="text" name="moduleTitle" style="width:200px;margin:5px 0;" value="'+args.loginTitle+'"><br>'
+			        		 +'登出链接名称：<input type="text" name="moduleTitle" style="width:200px;margin:7px 0;" value="'+args.logoutTitle+'"><br>'
+			           		 +'登录页打开方式：<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetBlank" value="_blank" '+(args.target=="_blank"?'checked="checked"':'')+'/><label for="targetBlank">新窗口打开</label>'
+			        		 +'<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetSelf" value="_self" '+(args.target=="_self"?'checked="checked"':'')+'/><label for="targetSelf">当前窗口打开</label><br>'
+	    					 +'<span class="V_Msg msg hidden" style="margin-top:10px;"><i class="msg-icon"></i><span class="text"></span></span></form>'
+			        		 +'</div>';
+	    	} else if (args.type == "siteFavorite") {
+	    		contentHtml = '<div style="padding:25px 40px 0 40px;" class="fm1">'
+			           		 +'<form>模块名称：<input type="text" name="moduleTitle" style="width:200px;margin:5px 0;" value="'+args.title+'"><br>'
+			        		 +'收藏标题：<input type="text" name="favoriteTitle" style="width:200px;margin:5px 0;" value="'+args.siteTitle+'"><br>'
+			        		 +'收藏链接：<input type="text" name="favoriteUrl" style="width:200px;margin:5px 0;" value="'+args.siteUrl+'"><br>'
+			        		 +'<span class="V_Msg msg hidden" style="margin-top:10px;"><i class="msg-icon"></i><span class="text"></span></span></form>'
+			        		 +'</div>';
+	    	} else if (args.type == "userFavorite" || args.type == "custServiceCenter") {
+	    		contentHtml = '<div style="padding:25px 40px 0 40px;" class="fm1">'
+			           		 +'<form>模块名称：<input type="text" name="moduleTitle" style="width:260px;margin:7px 0;" value="'+args.title+'"><br>'
+			        		 +'打开方式：<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetBlank" value="_blank" '+(args.target=="_blank"?'checked="checked"':'')+'/><label for="targetBlank">新窗口打开</label>'
+			        		 +'<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetSelf" value="_self" '+(args.target=="_self"?'checked="checked"':'')+'/><label for="targetSelf">当前窗口打开</label><br>'
+			        		 +'显示图标：<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="showIcon" id="showIconTrue" value="true" '+(args.showIcon=="true"?'checked="checked"':'')+'/><label for="showIconTrue">是</label>'
+			        		 +'<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="showIcon" id="showIconFalse" value="false" '+(args.showIcon=="false"?'checked="checked"':'')+'/><label for="showIconFalse">否</label><br>'
+			        		 +'<span class="V_Msg msg hidden" style="margin-top:10px;"><i class="msg-icon"></i><span class="text"></span></span></form>'
+			        		 +'</div>';
+			} else if (args.type == "myCart") {
+	    		contentHtml = '<div style="padding:25px 40px 0 40px;" class="fm1">'
+			           		 +'<form>模块名称：<input type="text" name="moduleTitle" style="width:260px;margin:7px 0;" value="'+args.title+'"><br>'
+			        		 +'打开方式：<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetBlank" value="_blank" '+(args.target=="_blank"?'checked="checked"':'')+'/><label for="targetBlank">新窗口打开</label>'
+			        		 +'<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetSelf" value="_self" '+(args.target=="_self"?'checked="checked"':'')+'/><label for="targetSelf">当前窗口打开</label><br>'
+			        		 +'显示购物车图标：<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="showIcon" id="showIconTrue" value="true" '+(args.showIcon=="true"?'checked="checked"':'')+'/><label for="showIconTrue">是</label>'
+			        		 +'<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="showIcon" id="showIconFalse" value="false" '+(args.showIcon=="false"?'checked="checked"':'')+'/><label for="showIconFalse">否</label><br>'
+			        		 +'显示购物车商品数量：<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="showItemCount" id="showItemCountTrue" value="true" '+(args.showItemCount=="true"?'checked="checked"':'')+'/><label for="showItemCountTrue">是</label>'
+			        		 +'<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="showItemCount" id="showItemCountFalse" value="false" '+(args.showItemCount=="false"?'checked="checked"':'')+'/><label for="showItemCountFalse">否</label><br>'
+			        		 +'<span class="V_Msg msg hidden" style="margin-top:10px;"><i class="msg-icon"></i><span class="text"></span></span></form>'
+			        		 +'</div>';
+			} else if (args.type == "mailTop") {
+	    		contentHtml = '<div style="padding:25px 40px 0 40px;" class="fm1">'
+			           		 +'<form>模块名称：<input type="text" name="moduleTitle" style="width:200px;margin:5px 0;" value="'+args.title+'"><br>'
+							 +'<span class="V_Msg msg hidden" style="margin-top:10px;"><i class="msg-icon"></i><span class="text"></span></span></form>'
+			        		 +'</div>';
+			} else if (args.type == "custLink") {
+	    		contentHtml = '<div style="padding:25px 40px 0 40px;" class="fm1">'
+			           		 +'<form>模块名称：<input type="text" name="moduleTitle" style="width:260px;margin:5px 0;" value="'+args.title+'"><br>'
+			        		 +'链接地址：<input type="text" name="onlineUrl" style="width:260px;margin:7px 0;" value="'+args.url+'"><br>'
+			        		 +'打开方式：<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetBlank" value="_blank" '+(args.target=="_blank"?'checked="checked"':'')+'/><label for="targetBlank">新窗口打开</label>'
+			        		 +'<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetSelf" value="_self" '+(args.target=="_self"?'checked="checked"':'')+'/><label for="targetSelf">当前窗口打开</label><br>'
+			        		 +'<span class="V_Msg msg hidden" style="margin-top:10px;"><i class="msg-icon"></i><span class="text"></span></span></form>'
+			        		 +'</div>';
+	    	} else {
+	    		contentHtml = '<div style="padding:25px 40px 0 40px;" class="fm1">'
+			           		 +'<form>模块名称：<input type="text" name="moduleTitle" style="width:200px;margin:7px 0;" value="'+args.title+'"><br>'
+			           		 +'打开方式：<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetBlank" value="_blank" '+(args.target=="_blank"?'checked="checked"':'')+'/><label for="targetBlank">新窗口打开</label>'
+			        		 +'<input type="radio" style="vertical-align:middle;margin:7px 3px;" name="target" id="targetSelf" value="_self" '+(args.target=="_self"?'checked="checked"':'')+'/><label for="targetSelf">当前窗口打开</label><br>'
+			        		 +'<span class="V_Msg msg hidden" style="margin-top:10px;"><i class="msg-icon"></i><span class="text"></span></span></form>'
+			        		 +'</div>';
+	    	}
+	    	layer.open({
+                type: 1,
+                area: ['400px', '250px'],
+                title: '配置模块',
+                shade: 0.6, 
+                moveType: 1,
+                shift: -1,
+                content: contentHtml,
+                btn: ['确定', '取消'],
+                success: function(layero, index) {
+                	$(layero).find("form").validate({
+                		onkeyup: function(element) {$(element).valid()},
+        	            rules:{
+        	            	title: {maxlength:20},
+        	            	favoriteTitle: {maxlength:50},
+                			moduleTitle:{required:true,maxlength:10},
+        	            	favoriteUrl:{url:true,maxlength:1000},
+        	            	onlineUrl:{required:true,url:true,maxlength:1000}
+        	           	},  
+        	           	messages:{
+        	           		title: {maxlength:"最多输入20个字符"},
+        	           		favoriteTitle: {maxlength:"收藏标题最多输入50个字符"},
+        	           		moduleTitle:{required:"请输入模块名称",maxlength:"模块名称最多输入10个字符"},
+        	           		favoriteUrl:{url:"请输入正确的收藏链接",maxlength:"收藏链接最多输入1000个字符"},
+        	           		onlineUrl:{required:"请输入链接地址",url:"请输入正确的链接地址",maxlength:"链接地址最多输入1000个字符"}
+        	           	},
+        				showErrors: function(errorMap, errorList) {
+        	            	if(errorList.length>0){
+        	            		$.each(errorList,function(index,error){
+        		            		var element=$(errorList[index].element);
+        		            		var msgContainer=element.parent().find('.V_Msg');
+        		            		if(msgContainer.length>0){
+        		            			msgContainer.find('span').text(error.message);
+        		            			if(error.message!="")
+        		            				msgContainer.removeClass('hidden').addClass('failure');
+        		            			else
+        		            				msgContainer.removeClass('failure').addClass('hidden');
+        			           		}
+        		            	})
+        	            	}
+        	            	else{
+        	            		this.currentElements.parent().find('.V_Msg').each(function(){
+        	            			$(this).removeClass('failure').addClass('hidden');
+        	            		})
+        	            	}
+        	            	
+        	           	}
+                    });
+                	$(layero).find("input:text").first().focus();
+                },
+                yes: function(index, layero){
+                	if(!$(layero).find("form").valid()){
+                		return;
+                	}
+                	
+                	if (args.type == "greeting") {
+                		args.title = $(layero).find("input[name=title]").eq(0).val();
+                		args.target = $(layero).find("input[name=target]:checked").val();
+                		args.loginTitlePrefix = $(layero).find("input[name=title]").eq(1).val();
+                		args.loginTitleSuffix = $(layero).find("input[name=title]").eq(2).val();
+                	} else if (args.type == "login") {
+                		args.target = $(layero).find("input[name=target]:checked").val();
+                		args.loginTitle = $(layero).find("input[name=moduleTitle]").eq(0).val();
+                		args.logoutTitle = $(layero).find("input[name=moduleTitle]").eq(1).val();
+                		args.title = args.loginTitle + "/" + args.logoutTitle;
+                	} else if (args.type == "siteFavorite") {
+                		args.siteTitle = $(layero).find("input[name=favoriteTitle]").val();
+                		args.siteUrl = $(layero).find("input[name=favoriteUrl]").val();
+                		args.title = $(layero).find("input[name=moduleTitle]").val();
+       	    		} else if (args.type == "userFavorite" || args.type == "custServiceCenter") {
+                		args.target = $(layero).find("input[name=target]:checked").val();
+                		args.showIcon = $(layero).find("input[name=showIcon]:checked").val();
+                		args.title = $(layero).find("input[name=moduleTitle]").val();
+       	    		} else if (args.type == "myCart") {
+                		args.target = $(layero).find("input[name=target]:checked").val();
+                		args.showIcon = $(layero).find("input[name=showIcon]:checked").val();
+                		args.showItemCount = $(layero).find("input[name=showItemCount]:checked").val();
+                		args.title = $(layero).find("input[name=moduleTitle]").val();
+       	    		} else if (args.type == "mailTop") {
+                		args.title = $(layero).find("input[name=moduleTitle]").val();
+       	    		} else if (args.type == "custLink") {
+                		args.url = $(layero).find("input[name=onlineUrl]").val();
+                		args.target = $(layero).find("input[name=target]:checked").val();
+                		args.title = $(layero).find("input[name=moduleTitle]").val();
+       	    		} else {
+       	    			args.target = $(layero).find("input[name=target]:checked").val();
+       	    			args.title = $(layero).find("input[name=moduleTitle]").val();
+                	}
+                	
+                	$(Obj).parent().parent().find('.siteNavmoduleName').attr("title", args.title).text(args.title);
+                	$(Obj).parent().parent().find('input[name="moduleArgs"]').val(JSON.stringify(args));
+                    layer.close(index); //如果设定了yes回调，需进行手工关闭
+                }
+            });             
+	    }
+	    
+	    function addVertical(flag) {
+	    	if ($('#EditorBox'+flag).children().length == 10) {
+                alert('最多只能添加十个模块');
+                return false;
+            }
+	    	var obj = {
+	    		type: "vertical",
+    			title: "分隔线"
+	    	}
+	    	addRow(obj, flag);
+	    }
+	    
+	    $(function() {
+			$('#titleOne').click(function() {
+				$(this).addClass('selected');
+				$(this).siblings().removeClass('selected');
+				$("#tabOne").show();
+				$("#tabTwo").hide();
+			})
+			$('#titleTwo').click(function() {
+				$(this).addClass('selected');
+				$(this).siblings().removeClass('selected');
+				$("#tabTwo").show();
+				$("#tabOne").hide();
+			})
+			$("#tabOne").delegate("a.delete", "click", function(e) {
+                $(this).closest('div.edit-item').remove();
+                setSquence();
+            });
+			$("#tabTwo").delegate("a.delete", "click", function(e) {
+                $(this).closest('div.edit-item').remove();
+                setSquence();
+            });
+
+			
+			$(parent._cfg.leftMenu).each(function(){
+            	addRow(this, "Left");
+            });
+			$(parent._cfg.rightMenu).each(function(){
+            	addRow(this, "Right");
+            });
+		})
+		
+		function checkSiteModule() {
+	    	var siteArr = [];
+	    	$('#EditorBoxLeft').children().each(function(i){
+	    		var obj = JSON.parse($(this).find('input[name="moduleArgs"]').val());
+        		if (obj.type != "vertical" && obj.type !="custLink") siteArr.push(obj.type);
+        	});
+	    	$('#EditorBoxRight').children().each(function(i){
+	    		var obj = JSON.parse($(this).find('input[name="moduleArgs"]').val());
+        		if (obj.type != "vertical" && obj.type !="custLink") siteArr.push(obj.type);
+        	});
+        	return siteArr.join('|');
+	    }
+		
+		function cfgSet(){
+         	//组件更新
+        	var o={
+        		leftMenu:[],
+        		rightMenu:[]
+        	}
+        	$('#EditorBoxLeft').children().each(function(i){
+        		o.leftMenu[i]=JSON.parse($(this).find("input[name=moduleArgs]").val())
+        	})
+        	$('#EditorBoxRight').children().each(function(i){
+        		o.rightMenu[i]=JSON.parse($(this).find("input[name=moduleArgs]").val())
+        	})
+        	parent._$module.siteNavmodule('reset',o);
+        	
+        	//关闭配置框
+        	parent.cfgClose(); 
+        }
+	</script>
+
+	<body>
+		<div class="content fm1">
+			<div class="tab">
+				<ul class="nav clear-fix">
+					<li class="ks-switchable-trigger-internal6 selected" id="titleOne"><span>左侧模块</span></li>
+					<li class="ks-switchable-trigger-internal6" id="titleTwo"><span>右侧模块</span></li>
+				</ul>
+				<form class="main-slide-form form-default" id="displaySetForm">
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabOne" style="display: block;">
+							<div class="edit-module" style="margin-top: -13px;">
+								<div class="edit-item">
+									<div class="site-menu-tips">
+										<p>点击按钮选择并向顶部区域左侧添加模块，可以通过箭头调整模块顺序，或点击删除按钮删除。</p>
+										<p>点击模块后面的配置按钮可以配置对应模块。</p>
+									</div>
+									<div class="fr">
+										<a class="add-one btn-style-1" onclick="addPresetModule('Left')">添加预置模块</a>
+										<a class="add-one btn-style-1" onclick="addCustLink('Left')">添加自定义模块</a>
+										<a class="add-one btn-style-1" onclick="addVertical('Left')">添加分隔线</a>
+									</div>
+								</div>
+							</div>
+							<div class="edit-module">
+								<div class="edit-item">
+									<div>
+										<div class="edit-item tabTit ml0 w670">											
+											<div class="column column1 w190"><span>模块名称</span></div>
+											<div class="column column1 w145"><span>模块类别</span></div>
+											<div class="column column3 w300"><span>操作</span></div>
+										</div>
+										<div id="EditorBoxLeft" class="pic-list pb0 site-list">
+
+										</div>
+									</div>
+								</div>
+							</div>				
+						</div>
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabTwo" style="display: none;">
+							<div class="edit-module" style="margin-top: -13px;">
+								<div class="edit-item">
+									<div class="site-menu-tips">
+										<p>点击按钮选择并向顶部区域右侧添加模块，可以通过箭头调整模块顺序，或点击删除按钮删除。</p>
+										<p>点击模块后面的配置按钮可以配置对应模块。</p>
+									</div>
+									<div class="fr">
+										<a class="add-one btn-style-1" onclick="addPresetModule('Right')">添加预置模块</a>
+										<a class="add-one btn-style-1" onclick="addCustLink('Right')">添加自定义模块</a>
+										<a class="add-one btn-style-1" onclick="addVertical('Right')">添加分隔线</a>
+									</div>
+								</div>
+							</div>
+							<div class="edit-module">
+								<div class="edit-item">
+									<div>
+										<div class="edit-item tabTit ml0 w670">											
+											<div class="column column1 w190"><span>模块名称</span></div>
+											<div class="column column1 w145"><span>模块类别</span></div>
+											<div class="column column3 w320"><span>操作</span></div>
+										</div>
+										<div id="EditorBoxRight" class="pic-list pb0 site-list">
+
+										</div>
+									</div>
+								</div>
+							</div>				
+						</div>
+
+						<p class="opt-footer ctset-opt-footer">
+							<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+							<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+						</p>
+				</form>
+				</div>
+			</div>
+	</body>
+
+</html>

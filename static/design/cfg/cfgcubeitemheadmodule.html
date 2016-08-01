@@ -1,0 +1,27 @@
+<div class="modal-dialog" role="document" style="width:705px;">
+    <div class="modal-content" >
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="H2">楼层头</h4>
+        </div>
+        <iframe src="/static/design/cfg/cfgcubeitemheadmoduleiframe.html" id="listsIframe" name="listsIframe" scrolling="no" frameborder="0" width="695px" height="550px;">
+        </iframe>
+    </div>
+</div>
+<script>
+    // 店铺自定义配置组件
+    var _$module;
+    var _cfg;
+    // 店铺自定义配置信息
+    function cfgRead($selEl){
+        _$module = $selEl;
+       _cfg = _$module.cubeitemheadmodule('config');
+    }
+    
+    // 店铺自定义关闭
+    function cfgClose(){
+        $("#CfgModal").modal('hide');
+    }
+</script>

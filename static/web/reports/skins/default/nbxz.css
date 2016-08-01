@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+.nbxz{
+	overflow:hidden;
+	letter-spacing:1px;
+	line-height:30px;
+	padding:0 50px;
+	}
+.nbxz h1{
+	font-size:18px;
+	font-weight:900;
+	color:#000;
+	font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";
+	text-align:center;
+	padding:25px;
+	}
+.nbxz p{
+	text-indent:2em;
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#444444;
+	}
+

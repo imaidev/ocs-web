@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*************分页样式*************/
+#pagin_btm {
+	display: inline-block;
+	float: right;
+	height: 30px;
+}
+.tag-tit{
+	padding-left:15px;
+	line-height:35px;
+	vertical-align:bottom;
+	width:963px;
+	height:35px;
+	border-top:1px  solid #cbcbcb;
+	border-left:1px  solid #cbcbcb;
+	border-right:1px  solid #cbcbcb;
+	border-bottom:2px solid #1367DB;
+	color:#1367DB;
+	font-weight: bold;
+	font-size:14px;
+}
+.page_skip {
+	height: 26px;
+	padding: 0 10px;
+	border: none;
+	font-size: 12px;
+	overflow: hidden;
+	float: left;
+	letter-spacing: 2px;
+}
+
+.page_skip span {
+	display: block;
+	float: left;
+	margin: 0 5px;
+}
+
+.jumpto {
+	display: inline;
+	width: 36px;
+	height: 21px;
+	padding: 1px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #aaa #ddd #ddd #aaa;
+	margin: 0 5px;
+	text-align: center;
+	font-family: verdana;
+	line-height: 21px;
+	vertical-align: middle;
+}
+
+.btn_skipsearch {
+	/*background:url(../images/items/skipbtn.jpg) no-repeat; */
+	display: block;
+	float: left;
+	width: 53px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.current {
+	border: none !important;
+	color: #F90;
+}
+
+#page_num {
+	color: #005aa0;
+	float: left;
+}
+
+#page_num a {
+	margin: 0 2px 0 2px;
+	display: block;
+	float: left;
+	height: 27px;
+	min-width: 30px;
+	width: auto;
+	line-height: 27px;
+	vertical-align: middle;
+	text-align: center;
+	border: 1px solid #cbcbcb;
+}
+
+#page_num a:hover {
+	margin: 0 2px 0 2px;
+	display: block;
+	float: left;
+	height: 27px;
+	min-width: 30px;
+	width: auto;
+	line-height: 27px;
+	vertical-align: middle;
+	text-align: center;
+	background-color: #005aa0;
+	color: #FFF !important;
+	border: 1px solid #cbcbcb;
+}
+
+.prew {
+	padding: 0 5px;
+}
+
+.next {
+	padding: 0 5px;
+}
+/*分页样式end*/

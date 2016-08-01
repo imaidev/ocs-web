@@ -1,0 +1,20 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/***右侧浮动导航****/
+.floatBar-right{z-index:99999;display:block;position:fixed;right:0;top:0;width:36px;height:100%;background:#f6f6f6;font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.floatBar-right-con{position:absolute;top:25%;left:0;z-index:311;width:35px;text-align:center;}
+.floatBar-right-con .rSidebarItem{position:relative;width:35px;margin:0 0 15px;}
+.rSidebarItem .rsItemName{ position:relative;width:35px;padding:10px 0; z-index:350;cursor:pointer;background:none;}
+.rSidebarItem .rsItemName i{display:inline-block;width:19px;height:19px;}
+.publicIcon{background:url(../images/public-floatright.png) -160px -163px no-repeat;}
+.user-i{background-position:-120px -163px;}
+.rSidebarItem .rsItemName span{display:block;line-height:16px;color:#333;padding:2px 0 0;}
+.rSidebarItem .rsItemCon{ display:none;z-index:320;position:absolute;top:0;right:35px; background:#fff;border:1px solid #ddd;border-right:0;}
+.rSidebarItem.on .rsItemName{background:#c3c3c3;}
+.rSidebarItem.on .rsItemName .user-i{background-position:-140px -163px}
+.rSidebarItem.on .rsItemName span{color:#333;}
+/***
+.rSidebarItem.on .rsItemCon{display:block;min-width:100px;min-height:100px;color:#fff;background:#fff;}
+***/
+.floatBar-right-con .go-top{height:40px;line-height:40px;color:#fff;cursor:pointer;border-top:1px solid #ddd;background:url(../images/menu-gotop.png) center center no-repeat;text-indent:200px;}

@@ -1,0 +1,117 @@
+<script id='cubeitemtpl_iteminfo' type="text/template">
+	<%if(item.type=="item"){%>
+		<div class="infoMain">
+			<div class="goodsImg">
+					<a href="<%:=item.href%>" target="<%=opts.target%>"><img src="<%=item.src%>"/></a>
+			</div>
+
+			<%if(item.usecustomstyle=="1"){%>
+				<%if(item.isshowtitleandprice=="1"){%>
+					<div class="goodsHide goodsBot">
+						<a href="<%:=item.href%>" target="<%=opts.target%>" class="tit"><%=item.title%></a>
+						<span class="goodsM"><%=item.price%></span>
+					</div>
+				<%}%>
+			<%}else if(opts.isshowtitleandprice=="1"){%>
+				<div class="goodsHide goodsBot">
+					<a href="<%=item.href%>" target="<%=opts.target%>" class="tit"><%=item.title%></a>
+					<span class="goodsM"><%=item.price%></span>
+				</div>
+			<%}%>
+		</div>
+  <%}%>
+	<%if(item.type=="pic"){%>
+		<div class="infoMain">
+			<div class="goodsImg">
+				<%if(item.src.trim()){%>
+							<a target="<%=opts.target%>" <%if(item.href.trim()){%> href=<%:=item.href%> <%}%> ><img src="<%=item.src%>"/></a>
+				<%}%>
+			</div>
+		</div>
+  <%}%>
+	<%if(item.type=="slide"){%>
+		<div class="infoMain">
+			<div class="adsBanner" style="height: 100%;">
+					<ul class="adsBannerHd">
+							<%for(var i=0;i<item.pics.length;i++){%>
+										<%if(item.pics[i].src.trim()){%>
+											<li></li>
+										<%}%>
+							<%}%>
+					</ul>
+					<div class="adsBannerBd" style="height: 100%;">
+							<ul>
+								<%for(var i=0;i<item.pics.length;i++){%>
+											<%if(item.pics[i].src.trim()){%>
+												<li>
+														<a target="<%=opts.target%>" <%if(item.pics[i].href.trim()){%> href=<%:=item.pics[i].href%> <%}%> style="display:block;overflow:hidden;background: url(<%=item.pics[i].src%>) center no-repeat;"></a>
+												</li>
+											<%}%>
+								<%}%>
+							</ul>
+					</div>
+			</div>
+		</div>
+  <%}%>
+	<%if(item.type=="empty"){%>
+		<div class="infoMain">
+		</div>
+  <%}%>
+
+	<%if(opts.effect=="album-border" && item.type!="empty" && item.type!="slide"){%>
+		<%if(opts.custBorder=="0"){%>
+			<div class="inner" style="border:<%=defaults.borderWidth%>px <%=defaults.borderStyle%> <%=defaults.borderColor%>;"></div>
+		<%}else{%>
+			<div class="inner" style="border:<%=opts.borderWidth%>px <%=opts.borderStyle%> <%=opts.borderColor%>;"></div>
+		<%}%>
+	<%}%>
+</script>
+
+
+<script id='cubeitemtpl_type1' type="text/template">
+	<ul class="goodsMain">
+		<%for(var i=0;i<doms.length;i++){%>
+	        <li style="width:20%;<%if(i%5==0){%>border-left: none !important;<%}%><%if(i>4){%>border-bottom: none !important;<%}%>" data-height="0.5" data-index="<%=i%>"
+							<%if(opts.effect=="album-border"){%>
+									class="album"
+							<%}%>
+							<%if(opts.effect=="album-moveL"){%>
+									class="album-moveL"
+							<%}%>
+						><%:=doms[i]%></li>
+		<%}%>
+	</ul>
+</script>
+
+<script id='cubeitemtpl_type2' type="text/template">
+	<ul class="goodsMain">
+		<%for(var i=0;i<doms.length;i++){%>
+	        <li style="width:20%;<%if(i%5==0){%>border-left: none !important;<%}%> border-bottom: none !important;" data-height="1" data-index="<%=i%>"
+							<%if(opts.effect=="album-border"){%>
+									class="album"
+							<%}%>
+							<%if(opts.effect=="album-moveL"){%>
+									class="album-moveL"
+							<%}%>
+						><%:=doms[i]%></li>
+		<%}%>
+	</ul>
+</script>
+
+<script id='cubeitemtpl_type3' type="text/template">
+	<ul class="goodsMain" style="width:40%;float:left;">
+	    <li style="width:50%;border-left: none !important;" data-height="0.5" data-index="0" <%if(opts.effect=="album-border"){%>class="album"<%}%> <%if(opts.effect=="album-moveL"){%>class="album-moveL"<%}%> ><%:=doms[0]%></li>
+			<li style="width:50%;" data-height="0.5" data-index="1" <%if(opts.effect=="album-border"){%>class="album"<%}%> <%if(opts.effect=="album-moveL"){%>class="album-moveL"<%}%> ><%:=doms[1]%></li>
+			<li style="width:50%;border-left: none !important;border-bottom: none !important;" data-height="0.5" data-index="2" <%if(opts.effect=="album-border"){%>class="album"<%}%> <%if(opts.effect=="album-moveL"){%>class="album-moveL"<%}%> ><%:=doms[2]%></li>
+			<li style="width:50%;border-bottom: none !important;" data-height="0.5" data-index="3" <%if(opts.effect=="album-border"){%>class="album"<%}%> <%if(opts.effect=="album-moveL"){%>class="album-moveL"<%}%> ><%:=doms[3]%></li>
+	</ul>
+	<ul class="goodsMain" style="width:20%;float:left;">
+		<li style="width:100%;border-bottom: none !important;" data-height="1" data-index="4" <%if(opts.effect=="album-border"){%>class="album"<%}%> <%if(opts.effect=="album-moveL"){%>class="album-moveL"<%}%> ><%:=doms[4]%></li>
+	</ul>
+	<ul class="goodsMain" style="width:40%;float:left;">
+		<li style="width:50%;" data-height="0.5" data-index="5" <%if(opts.effect=="album-border"){%>class="album"<%}%> <%if(opts.effect=="album-moveL"){%>class="album-moveL"<%}%> ><%:=doms[5]%></li>
+		<li style="width:50%;" data-height="0.5" data-index="6" <%if(opts.effect=="album-border"){%>class="album"<%}%> <%if(opts.effect=="album-moveL"){%>class="album-moveL"<%}%> ><%:=doms[6]%></li>
+		<li style="width:50%;border-bottom: none !important;" data-height="0.5" data-index="7" <%if(opts.effect=="album-border"){%>class="album"<%}%> <%if(opts.effect=="album-moveL"){%>class="album-moveL"<%}%> ><%:=doms[7]%></li>
+		<li style="width:50%;border-bottom: none !important;" data-height="0.5" data-index="8" <%if(opts.effect=="album-border"){%>class="album"<%}%> <%if(opts.effect=="album-moveL"){%>class="album-moveL"<%}%> ><%:=doms[8]%></li>
+	</ul>
+</script>

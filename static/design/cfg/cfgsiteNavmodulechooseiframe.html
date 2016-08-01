@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="/static/design/css/editor.css" rel="stylesheet">
+		<link href="/static/design/js/layer/skin/layer.css" rel="stylesheet">
+
+		<script src="/static/design/js/jquery.min.js"></script>
+		<script src="/static/design/js/layer/layer.js"></script>
+		<script src="/static/design/module/siteNav.js"></script>
+	</head>
+
+	<style>
+		body{
+			overflow: hidden;		
+		}
+		.form-default {
+		    margin-top: 0;
+		}
+		.tabTit {
+			width: 100%;
+		}
+		.form-default .edit-module {
+			width: 320px;
+		}
+		.form-default .edit-module .pic-list {
+			margin-top: 0;
+			padding-bottom: 0;
+			max-height: 151px;
+			overflow-y: auto; 
+		}
+		.form-default .edit-module .pic-list .edit-item {
+		    border: none !important;
+		}
+		.form-default .edit-module .pic-list .edit-item input[type=radio]{
+		    height: 18px !important;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		function setSquence() {
+	        var divlist = $('#EditorBox').children();
+	        var len = divlist.length;
+	        divlist.each(function (i,item) {
+	            if (i == 0) {
+	                $(this).addClass('first')
+	                if(len>1) $(this).removeClass('last');
+	            }
+	            if (i == len - 1) {
+	                $(this).addClass('last');
+	                if(len>1) $(this).removeClass('first');
+	            }
+	            if (i>0 && i < len - 1) {
+	                $(this).removeClass('last').removeClass('first');
+	            }
+	            if (i % 2 == 0) {
+	                $(this).addClass('even').removeClass('odd');
+	            }
+	            else {
+	                $(this).addClass('odd').removeClass('even');
+	            }
+	        })
+	    }
+	
+		function chooseClose() {
+			var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+			parent.layer.close(index); 
+		}
+		
+		function chooseModule() {
+			if ($("input[name=moduleChoose]:checked").size() == 0) {
+				layer.alert("请选择一个模块！");
+				return false;
+			}
+			var args = $("input[name=moduleChoose]:checked").siblings("input[name=moduleArgs]").val();
+			
+			parent.eval(_request.callBack+'('+args+', "'+_request.flag+'", "'+$.fn.siteNavmodule.defaults.type[JSON.parse(args).type].tip+'")');
+
+			var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+			parent.layer.close(index); 
+		}
+		
+		function GetRequest() {   
+		    var url = location.search; //获取url中"?"符后的字串   
+		    var theRequest = new Object();   
+		    if (url.indexOf("?") != -1) {   
+		       var str = url.substr(1);   
+		       strs = str.split("&");   
+		       for(var i = 0; i < strs.length; i ++) {   
+		          theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);   
+		       }   
+		    }   
+		    return theRequest;   
+		}   
+		
+		$(function() {
+			_request = GetRequest();
+			var preset = $.fn.siteNavmodule.defaults.presetModule;
+			var type = $.fn.siteNavmodule.defaults.type;
+			var domstr = "";
+			for(var key in preset){
+				if (_request.hasAdd.indexOf(key) == -1) {
+	    			domstr += '<div class="edit-item ml0" style="text-align: center;">'
+							+ '		<div class="column column1 w40">'
+							+ '			<input type="radio" name="moduleChoose"/>'
+							+ '			<input type="hidden" name="moduleArgs" value=\''+JSON.stringify(preset[key])+'\'/>'
+							+ '		</div>'
+							+ '		<div class="column column1 w215">'
+							+ '			<div class="moduleTitle" title="'+type[key].name+'">'+type[key].name+'</div>'
+							+ '		</div>'
+							+ '</div>';
+				}
+    		}
+    		$("#EditorBox").empty().append(domstr);
+    		setSquence();
+		})
+	</script>
+	<body>
+		<div class="content fm1">
+			<div class="tab">
+				<form class="main-slide-form form-default">
+					<div class="panel content-set" id="tabOne">
+						<div class="edit-module">
+							<div class="edit-item">
+								<div id="Group">
+									<div class="edit-item tabTit ml0" style="text-align: center;">
+										<div class="column column1 w40"><span>选择</span></div>
+										<div class="column column1 w215"><span>模块类型</span></div>
+									</div>
+									<div id="EditorBox" class="pic-list">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div name="pagin_btm" class="m-pagination" style="margin-right: 27px;">
+				</div>
+					<p class="opt-footer ctset-opt-footer">
+						<a href="javascript:void(0);" class="btn-ok" onclick="chooseModule();">选择</a>
+						<a href="javascript:void(0);" class="btn-cancel" onclick="chooseClose();">取消</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</body>
+
+</html>

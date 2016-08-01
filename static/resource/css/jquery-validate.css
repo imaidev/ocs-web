@@ -1,0 +1,16 @@
+@charset "utf-8";
+label.error{
+		display:inline-block;*display:inline;*zoom:1;
+		background:url(../images/error.png) no-repeat left center; 
+		height:30px; vertical-align:middle;
+		line-height:30px;
+		padding-left:20px;
+		font-size:12px;
+	}
+label.valid {
+background:url(../images/correct.png) no-repeat left center;
+	font-size:12px;vertical-align:middle;
+	height:30px;
+	line-height:30px;
+	padding:5px 0 5px 20px;
+}

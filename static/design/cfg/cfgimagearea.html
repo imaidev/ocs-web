@@ -1,0 +1,55 @@
+<div class="modal-dialog" role="document" style="width:902px;">
+		<div class="modal-content">
+				<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="H2">图片热区</h4>
+				</div>
+				<iframe id="moduleIframe" name="moduleIframe" scrolling="no" frameborder="0"
+						width="900px;" height="590px;"></iframe>
+		</div>
+</div>
+
+<div id="imageShowDiv" style="display: none;">
+		<img id="imageAreaSelect" src="/static/design/img/hotspotsdefault.jpg"/>
+</div>
+
+<script>
+		var _$module;
+		var _moduleCfg;
+		// 图片热区配置信息
+		function cfgRead($selEl) {
+				_$module = $selEl;
+				_moduleCfg = _$module.imagearea('config');
+				$("#moduleIframe").attr("src", "/static/design/cfg/cfgimageareaiframe.html");
+		}
+		
+		// 关闭窗口
+		function cfgClose(){
+    		$("#CfgModal").modal('hide');
+    }
+    
+    // 显示图片区域
+    function showImageArea(imagewidth, imageheight) {
+    		layer.open({
+		        type : 2,
+		        title: false,
+  					closeBtn: true, //不显示关闭按钮
+  					shadeClose: true, //开启遮罩关闭
+		        content :  "/static/design/cfg/cfgshowimageareaiframe.html",
+		        area : [imagewidth,imageheight]
+	    	});
+    	
+    	
+    		/*layer.open({
+				  type: 1,
+				  area: imagewidth,
+				  shift: 2,
+				  shadeClose: true, //开启遮罩关闭
+				  skin: 'layui-layer-rim', //加上边框
+				  content: "/static/design/cfg/cfgshowimageareaiframe.html"
+				});*/
+    }
+</script>

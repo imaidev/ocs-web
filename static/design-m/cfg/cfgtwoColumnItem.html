@@ -1,0 +1,496 @@
+</script>
+<h3 class="edit-tit">双列宝贝模块</h3>
+<div class="singleRow">
+    <!--模块使用小贴士-->
+    <div class="toolTips">
+        <p class="tipsTit">
+            模块使用小贴士<a class="closeTip">X</a>
+        </p>
+        <div>
+            该模块最多用1次
+        </div>
+        <div>
+            单列宝贝模块适合展示精美的宝贝大图能更好的吸引消费者的眼球。
+        </div>
+    </div>
+    <!--模块使用小贴士end-->
+    <div class="form-group clearfix">
+        <label class="fb pb10">
+            标题
+        </label>
+        <div class="pr">
+            <input type="text" class="form-control mt10" id="title" onkeyup="titleUrlShow(this)" name="title" placeholder="请输入文本" />
+            <p class="help-block input-help-block">
+                0/10
+            </p>
+        </div>
+    </div>
+    <div class="form-group clearfix" style="display:none;">
+        <label class="fb pb10">
+            更多链接
+        </label>
+        <div class="pr">
+            <input type="text" class="form-control mt10" id="link" placeholder="请输入网址"><span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="showLinkWin('callBackLink')">
+                    <span class="icon-url"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="form-group clearfix">
+        <label class="recommend_title fb">
+            推荐类型
+        </label>
+        <div class="recommend_select fl">
+            <label>
+                <input type="radio" name="RadioGroup1" value="自动推荐" checked=oncheck id="" onclick="toAutoRecommend();">自动推荐
+            </label>
+            <label>
+                <input type="radio" name="RadioGroup1" value="手动推荐" id="" onclick="toHandRecommend();">手动推荐
+            </label>
+        </div>
+    </div>
+    <div id="autorecommend">
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                宝贝个数
+            </label>
+            <div class="mt10">
+                <select class="form-control" name="itemNum" id="itemNum">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                过滤价格
+            </label>
+            <div class="mt10">
+                <div class="recommend_price fl">
+                    <input type="text" class="form-control mt10" id="beginPrice" name="beginPrice">
+                </div>
+                <div class="recommen_line">
+                    -
+                </div>
+                <div class="recommend_price fl">
+                    <input type="text" class="form-control mt10" name="endPrice" id="endPrice">
+                </div>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                关键字
+            </label>
+            <div class="mt10 recommend_text">
+                <textarea type="text" class="form-control" name="keyWord" id="keyWord" placeholder="请输入文本"></textarea>
+                <p class="help-block">
+                    0/30
+                </p>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                排序规则
+            </label>
+            <div class="mt10">
+                <select class="form-control" name="sortRule" id="sortRule">
+                    <option value="DATE">上新</option>
+                    <option value="SALE">销量</option>
+                    <option value="PRICE">价格（由高到低）</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                类目
+            </label>
+            <div class="mt10">
+                <select class="form-control category" id="category" name="category">
+                    <option value="oldstarts">所有宝贝</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <!--自动推荐end-->
+    <div id="toHandRecommend" style="display: none;">
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                宝贝
+            </label>
+            <div class="mt10 recommend_add" onclick="showItemWin('callBackItems')">
+                <span class="f16 fb">+</span>
+                添加<span class="num_add">0</span>/6 
+            </div>
+            <div>
+            </div>
+            <!--写入商品信息的div -->
+        </div>
+    </div>
+</div>
+<!--手动推荐end-->
+<script type="text/javascript">
+	    $(".closeTip").click(function(){
+    
+        $(".toolTips").css('display', 'none');
+        
+    });
+    var items = "";
+    
+    //手动推荐 自动推荐切换
+    $(document).ready(function(){
+        toAutoRecommend();
+    });
+    
+    
+    $(function(){
+        var dataVar = _cfg;
+        items = dataVar.items;
+        var type = dataVar.type;
+        $("#title").val(dataVar.title);
+        $("#link").val(dataVar.url);
+        titleUrlShow($("#title"));
+        if (type == "手动推荐") {
+            $("input[name='RadioGroup1'][value='手动推荐']").click();
+            toHandRecommend();
+			getItemIsList(dataVar);
+           // setRightItem(dataVar.items);
+            
+        }
+        else {
+            $("input[name='RadioGroup1'][value='自动推荐']").click();
+            if (dataVar.items != null) {
+                getItemIsList(dataVar);
+				//setRightItem(dataVar.items);
+                $("#keyWord").val(dataVar.keyWord);
+                $("#beginPrice").val(dataVar.beginPrice);
+                $("#endPrice").val(dataVar.endPrice);
+                $("#category").find("option[value=" + dataVar.category + "]").attr("selected", true);
+                $("#itemNum").find("option[value=" + dataVar.itemNum + "]").attr("selected", true);
+                $("#sortRule").find("option[value=" + dataVar.sort + "]").attr("selected", true);
+            }
+            toAutoRecommend();
+        }
+		vendCategory();
+    });
+    
+    
+    //手动推荐 自动推荐切换
+    function toAutoRecommend(){
+    
+        $("#autorecommend").show();
+        $("#toHandRecommend").hide();
+    }
+    
+    function toHandRecommend(){
+    
+        $("#autorecommend").hide();
+        $("#toHandRecommend").show();
+    }
+    
+    //获取商家自定义类目 
+    function vendCategory(){
+        var url = ctx + "/design/dataAPI/itemCategory/ItemCategoryDataApi.do?method=getVendCataByVendId&VEND_ID=" + g_vendid;
+        $.ajax({
+            url: url,
+            type: "POST",
+            success: function(data){
+              var domstr = [];
+                
+                for (var i = 0; i < data.length; i++) {
+                    domstr.push("<option value='", data[i].CATAGORY_ID, "'>", data[i].CATAGORY_NAME, "</option>");
+                }
+                var str = domstr.join("");
+                $(".category").children().after(str);
+            },
+            error: function(){
+                alert("error");
+            },
+            dataType: "json",
+            async: false
+        
+        });
+        
+    }
+    
+    
+    
+    //商品小工具的回调函数
+    function callBackItems(callbackItem){
+      if (items != null && items != "") {
+        
+            var length = items.length;
+            for (var i = 0; i < callbackItem.length; i++) {
+                for (var j = 0; j < length; j++) {
+                    if (callbackItem[i].ITEM_ID == items[j].ITEM_ID) {
+                        layer.msg("存在已选择的商品", {
+                            offset: 80,
+                            shift: 5,
+                            time: 2500
+                        });
+                        break;
+                    }
+                    if (j == length - 1) {
+                        items.push({"ITEM_ID": callbackItem[i].ITEM_ID});
+                    }
+                }
+            }
+        }
+        else {
+			items="";
+			for(var i=0;i<callbackItem.length;i++){
+				items.push({"ITEM_ID": callbackItem[i].ITEM_ID});
+			}
+            
+        }
+		_cfg.items = items;
+        getItemIsList(_cfg);
+       // setRightItem(items);
+    }
+    
+    //连接小工具回调函数
+    function callBackLink(url){
+    
+        $("#link").val(url);
+    }
+    
+    //右侧配置框 展现商品
+    function setRightItem(items){
+    
+        if (items.length < 6) {
+            $(".num_add").text(items.length);
+        }
+        else {
+            $(".recommend_add").attr("style", "display:none");
+        }
+        
+        var domstr = [];
+        for (var i = 0; i < items.length; i++) {
+            domstr.push("<div class='goodsOn'>");
+            domstr.push("<div class='goodsInfo'>");
+            domstr.push("<div class='commodityImg'>");
+            domstr.push("<img src='", items[i].IMG_URL, "' height='100%'>");
+            domstr.push("</div>");
+            domstr.push("<div class='sellerInfo'>", items[i].ITEM_TITLE, "</div>");
+            domstr.push("<div class='goodsPrice'>￥", items[i].PRICE, "</div>");
+            domstr.push("</div>");
+            domstr.push("<div class='outLayer'></div>");
+            domstr.push("<div class='outBtn' data-itemId='", items[i].ITEM_ID, "'>");
+            domstr.push("<a onclick=", "upOrDowm('up',this)", "></a>");
+            domstr.push("<a class='down' onclick=", "upOrDowm('down',this)", "></a>");
+            domstr.push("<a class='cancel' onclick='delRightItem(this)'></a>");
+            domstr.push("</div>");
+            domstr.push("</div>");
+        }
+        var str = domstr.join("");
+        $(".recommend_add").next().html(str);
+    }
+    
+    //右侧配置框 展现商品 上下移动
+    function upOrDowm(upOrDowm, obj){
+        var itemId = $(obj).parent().attr("data-itemId");
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].ITEM_ID == itemId) {
+                var temp = items[i];
+                if (upOrDowm == "up" && i != 0) {
+                    items[i] = items[i - 1];
+                    items[i - 1] = temp;
+                }
+                if (upOrDowm == "down" && i != items.length - 1) {
+                    items[i] = items[i + 1];
+                    items[i + 1] = temp;
+                }
+                break;
+            }
+        }
+        
+        $(".recommend_add").next().html("");
+		_cfg.items = items;
+        getItemIsList(_cfg);
+        //setRightItem(items);
+    }
+    
+    //右侧配置框 展现商品 删除
+    function delRightItem(obj){
+        var itemId = $(obj).parent().attr("data-itemId");
+        var temp = new Array();
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].ITEM_ID != itemId) {
+                temp.push(items[i]);
+            }
+        }
+        items = temp;
+        $(".recommend_add").next().html("");
+		_cfg.items = items;
+        getItemIsList(_cfg);
+       // setRightItem(items);
+        $(".recommend_add").attr("style", "display:block");
+    }
+    
+    //自动推荐 ajax 
+    function autoGetItems(){
+        var keyWord = $("#keyWord").val();
+        var beginPrice = $("#beginPrice").val();
+        var endPrice = $("#endPrice").val();
+        var category = $("#category").val();
+        var itemNum = $("#itemNum").val();
+        var sort = $("#sortRule").val();
+        
+        var url = "" + ctx + "/design/dataAPI/itemList/AjaxItemListDataApi.do?method=getItemInfoSorting&vend_id=" + g_vendid;
+        var data = "keyWordSearch=" + keyWord + "&beginPrice=" + beginPrice + "&endPrice=" + endPrice + "&category=" + category + "&sort=" + sort + "&itemNum=" + itemNum;
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: data,
+            success: function(data){
+				if(data.total!=0){
+					setRightItem(data.list);
+	                //toHandRecommend();
+	                items = data.list;
+				}else{
+					$("#sortRule").val(_cfg.sort);
+				 	layer.msg("没有符合条件的商品！", {
+		                offset: 80,
+		                shift: 5,
+		                time: 2500
+		            });					
+				}
+                
+            },
+            error: function(){
+                alert("error");
+            },
+            dataType: "json",
+            async: false
+        
+        });
+    }
+    
+    
+    //写入标题时 弹出连接设置
+    function titleUrlShow(obj){
+        var title = $("#title").val();
+        if (title.length > 0) {
+        
+            $(obj).parent().parent().next().attr("style", "display:block");//链接输入框展示
+        }
+        else {
+            $(obj).parent().parent().next().attr("style", "display:none");//链接输入框隐藏
+        }
+        if (title.length > 10) {
+            $(obj).addClass("beyond");
+        }
+        else {
+            $(obj).removeClass("beyond");
+        }
+        $(obj).next().text(title.length + "/10");
+    }
+    
+    function textareaDel(obj){
+        var text = $(obj).val();
+        
+        $(obj).next().text(text.length + "/30");
+    }
+	
+	function getItemIsList(dataval){
+        var itemId = new Array();
+        for (var i = 0; i < dataval.items.length; i++) {
+            itemId.push(dataval.items[i].ITEM_ID);
+        }
+        var url = ctx + "/design/dataAPI/item/AjaxItemInfoDataApi.do?method=getItemIsList&itemId=" + itemId.toString();
+        $.ajax({
+            url: url,
+            type: "POST",
+            success: function(data){
+                //dataval.items = data.list;
+                // setItemIntoPage($widget,dataval,data.list);
+				setRightItem(data.list);
+            },
+            error: function(){
+                alert("error");
+            },
+            dataType: "json"
+        
+        });
+        
+    }
+	
+	
+    
+    //组件保存方法
+    function cfgset(){
+        var title = $("#title").val();
+        var text = $("#keyWord").val();
+        var beginPrice = $("#beginPrice").val();
+        var endPrice = $("#endPrice").val();
+        
+        if (title.length > 10) {
+            layer.msg("标题长度超过限制范围！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+        if (text.length > 30) {
+            layer.msg("关键字长度超过限制范围！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+        if ((!isNaNTool(endPrice)) || (!isNaNTool(beginPrice))) {
+            layer.msg("价格区间范围存在非数字！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+        if (endPrice < beginPrice) {
+            layer.msg("价格区间不成立！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+        
+        
+        if ($("input[name='RadioGroup1']:checked").val() == "自动推荐") {
+            autoGetItems();
+        }
+		var itemsId = new Array();
+		for(var i = 0;i<items.length;i++){
+			itemsId.push({"ITEM_ID":items[i].ITEM_ID});
+		}
+        var dataval = {
+            items: itemsId,
+            url: $("#link").val(),
+            title: $("#title").val(),
+            type: $("input[name='RadioGroup1']:checked").val(),
+            keyWord: $("#keyWord").val(),
+            beginPrice: $("#beginPrice").val(),
+            endPrice: $("#endPrice").val(),
+            category: ($("#category").val() != null ? $("#category").val() : ""),
+            itemNum: $("#itemNum").val(),
+            sort: $("#sortRule").val()
+        };
+        _$module.twoColumnItem('reset', dataval);
+        hideEdit();
+    }
+    
+    function isNaNTool(val){
+        if (!isNaN(val)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>

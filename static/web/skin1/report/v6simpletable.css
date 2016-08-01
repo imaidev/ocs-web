@@ -1,0 +1,48 @@
+body{
+	font-family:'微软雅黑';
+	font-size:14px;
+}
+.v6stc{
+	background:#eff7fa;
+	padding:10px;
+	border-radius: 5px;
+}
+.v6stc .toExcelBtn{
+	margin-top:10px;
+}
+.table-title{
+	text-align:center;
+	font-size:16px;
+	color:#5596be;
+	font-weight:bold;
+}
+.table-search{
+	margin-bottom:10px;
+}
+.table-search-item{
+	float:left;
+	color:#4f7a9a;
+	margin-left:20px;	
+}
+.v6stc .table-main{
+	 table-layout:fixed;
+}
+.v6stc .table-main tr.linecolor td.coldata{
+	background:#f7f8fa;
+}
+.v6stc .table-main th,.v6stc .table-main td{
+	border:#89bada 1px solid;
+	text-align:center;
+}
+.v6stc .table-main th{
+	background:#b7d6eb;
+	color:#FFFFFF;
+	font-weight:bold;
+}
+.v6stc .table-main td{
+	background:#FFFFFF;
+	color:#4f7a9a;
+}
+.v6stc .table-main td.coltitle{
+	background:#eaf1f7;
+}

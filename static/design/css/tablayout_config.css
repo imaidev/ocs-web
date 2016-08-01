@@ -1,0 +1,504 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td
+	{
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: 'Glyphicons Halflings';
+	src: url('/static/design/fonts/glyphicons-halflings-regular.eot');
+	src: url('/static/design/fonts/glyphicons-halflings-regular.eot?#iefix')
+		format('embedded-opentype'),
+		url('/static/design/fonts/glyphicons-halflings-regular.woff2')
+		format('woff2'),
+		url('/static/design/fonts/glyphicons-halflings-regular.woff')
+		format('woff'),
+		url('/static/design/fonts/glyphicons-halflings-regular.ttf')
+		format('truetype'),
+		url('/static/design/fonts/glyphicons-halflings-regular.svg#@{icon-font-svg-id}')
+		format('svg');
+}
+
+body,button,input,select,textarea {
+	font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+button,input,select,textarea {
+	font-size: 100%;
+}
+
+.hidden {
+	display: none;
+}
+
+.disappear {
+	display: none;
+}
+
+.clear-fix {
+	*zoom: 1;
+}
+
+.clear-fix:after {
+	content: '\20';
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+html {
+	background-color: #fff;
+}
+
+.content {
+	padding-top: 10px;
+	padding-bottom: 20px;
+	position: relative;
+}
+
+.tab {
+	height: 325px;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.tab .nav {
+	border-bottom: 1px solid #E0E0E0;
+	margin-bottom: 10px;
+	position: relative;
+	padding-left: 20px;
+}
+
+.tab .nav li {
+	color: #666;
+	font-size: 14px;
+	cursor: pointer;
+	display: block;
+	float: left;
+	height: 24px;
+	background-color: #ededed;
+	border: 1px solid #d4d4d4;
+	border-bottom-width: 0;
+	position: relative;
+	top: 2px;
+	padding: 0 10px;
+	margin-left: 3px;
+}
+
+.tab .nav li.selected {
+	background-color: #fff;
+	color: #000;
+	height: 26px;
+	position: relative;
+	top: 1px;
+}
+
+.tab .nav li span {
+	cursor: pointer;
+	display: block;
+	line-height: 24px;
+}
+
+.failure {
+	display: inline-block;
+	border-color: #ff8080;
+	background-color: #fff2f2;
+}
+
+.failure .msg-icon {
+	background-position: -23px -23px;
+}
+
+.form-default .failure {
+	*display: inline;
+	*zoom: 1;
+}
+
+.tab .panels {
+	height: 270px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.form-default {
+    margin-top: 22px;
+}
+
+.form-default label {
+	color: #2d2d2d;
+}
+
+.form-default table {
+	margin: 0 auto;
+}
+
+.form-default table thead {
+	text-align: center;
+	font-size: 14px;
+}
+
+.form-default input.input-box,.form-default select.input-box {
+	display: inline-block;
+	height: 23px;
+	line-height: 23px;
+	vertical-align: middle;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid #d9d9d9;
+	border-left: 1px solid #d9d9d9;
+	border-right: 1px solid #d9d9d9;
+}
+
+.form-default input:focus,.form-default textarea:focus,.form-default select:hover
+	{
+	border: 1px solid silver;
+}
+
+.form-default .edit-item .tag-name {
+	width: 160px;
+	margin-left: 6px;
+}
+
+.form-default .edit-item .tag-url {
+	width: 268px;
+	margin-left: 6px;
+}
+
+.form-default .edit-item .tag-target {
+	margin: 0 5px 0 20px;
+}
+
+.form-default .control-group {
+	margin-bottom: 10px;
+	*zoom: 1;
+}
+
+.form-default .control-group:before,.form-default .control-group:after {
+	display: table;
+	content: "";
+}
+
+.form-default .control-group:after {
+	clear: both;
+}
+
+.form-default .control {
+	margin-left: 110px;
+}
+
+.form-default .control-label {
+	float: left;
+	width: 100px;
+	text-align: right;
+}
+
+.form-default .control-label,.form-default .input-radio,.form-default .input-checkbox
+	{
+	display: inline-block;
+	height: 26px;
+	line-height: 26px;
+	vertical-align: middle;
+}
+
+.form-default input.input-radio,.form-default input.input-checkbox {
+	margin-right: 3px;
+	*margin-right: 0;
+}
+
+.form-default .show-title-true,.form-default .title-input {
+	margin-left: 10px;
+}
+
+.opt-footer {
+	margin-top: 30px;
+	margin-left: 110px;
+}
+
+.btn-ok {
+	border: 0 none;
+	background-color: #1a98e1;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 12px;
+	vertical-align: middle;
+	padding: 6px 9px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+.btn-ok:hover,.btn-ok-hover {
+	background-color: #1888c9;
+}
+
+.btn-cancel {
+	border: 0 none;
+	background: none repeat scroll 0 0 transparent;
+	color: #000;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 12px;
+	vertical-align: middle;
+	padding: 6px 9px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+.btn-style-1 {
+	border: 1px solid #d4d4d4;
+	color: #000;
+	cursor: pointer;
+	display: inline-block;
+	height: 24px;
+	line-height: 22px;
+	padding: 0 12px;
+	vertical-align: middle;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+.btn-style-1:hover {
+	border-color: #999;
+	text-decoration: none;
+}
+
+.msg {
+	height: 23px;
+	border-width: 1px;
+	border-style: solid;
+	padding: 0 5px;
+	color: #424a4d;
+}
+
+.msg .text {
+	display: inline-block;
+	height: 23px;
+	line-height: 23px;
+	vertical-align: middle;
+}
+
+.msg-icon {
+	background: url(/static/design/img/cfgslideicon.png) no-repeat scroll 0
+		0 transparent;
+	display: inline-block;
+	height: 16px;
+	line-height: 23px;
+	width: 16px;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.form-default .up,.form-default .down,.form-default .delete {
+	background-image: url(/static/design/img/cfgslideicon2.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 20px;
+	height: 22px;
+	margin: 0 2px;
+}
+
+.form-default label {
+	vertical-align: middle;
+}
+
+.form-default input,.form-default select {
+	height: 21px;
+	padding-left: 5px;
+	vertical-align: middle;
+	border: 1px solid #d9d9d9;
+	line-height: 21px;
+}
+
+.form-default select {
+	height: 23px;
+	width: 152px;
+	padding-left: 0;
+}
+
+.form-default .control-group {
+	position: relative;
+}
+
+.form-default .control-group .delayTime,.form-default .control-group .interTime,.form-default .control-group .tagWidthCust
+	{
+	width: 50px;
+}
+
+.form-default .control-group .input-radio {
+	width: auto;
+	margin-right: 3px;
+}
+
+.form-default .control-group span {
+	padding-right: 10px;
+	vertical-align: middle;
+	color: #999;
+}
+
+.form-default .edit-module {
+	overflow-y: auto;
+	height: 228px;
+	position: relative;
+	width: 100%;
+}
+
+.form-default .edit-module .tag-list {
+	border-bottom: 1px solid #E0E0E0;
+	padding-bottom: 5px;
+}
+
+.form-default .edit-module .up {
+	background-position: 5px -108px;
+}
+
+.form-default .edit-module .down {
+	background-position: 5px -172px;
+}
+
+.form-default .edit-module .delete {
+	background-position: 5px -203px;
+}
+
+.form-default .edit-module .first .up {
+	background-position: 5px -75px;
+}
+
+.form-default .edit-module .last .down {
+	background-position: 5px -140px;
+}
+
+.form-default .edit-module .even {
+	background-color: #fff;
+}
+
+.form-default .edit-module .odd {
+	background-color: #F0F0F0;
+}
+
+.form-default .edit-module .edit-item {
+	height: 35px;
+}
+
+.form-default .edit-module .edit-head {
+	padding-bottom: 0;
+}
+
+.form-default .style-container {
+    width: 100%;
+    height: 220px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.form-default .style-container li {
+   	width: 230px;
+    height: 135px;
+    margin: 2px;
+    display: inline-block;
+    padding: 3px;
+}
+
+.form-default .style-container li .style-wrap {
+    width: 218px;
+    height: 129px;
+    border: 3px solid #EEEEEE;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-default .style-container li.active .style-wrap, .form-default .style-container li:hover .style-wrap {
+   	border: 3px solid #1a98e1;
+}
+
+.form-default .style-container li .style-wrap img {
+  	width: 100%;
+}
+
+.form-default .style-container li .style-wrap i {
+   	display: none;
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    width: 23px;
+    height: 23px;
+    background: url(/static/design/img/icon/right-bottom-triangle23-23.png) 0 0 no-repeat;
+}
+
+.form-default .style-container li.active .style-wrap i {
+   	display: block;
+}
+
+.form-default .panel .top {
+	height: 26px;
+	margin-bottom: 5px;
+	padding-bottom: 10px;
+	position: relative;
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid #F0F0F0;
+}
+
+.form-default .panel .top .title {
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: 20px;
+}
+
+.form-default .panel .top .icon {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	font-family: 'Glyphicons Halflings';
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 14px;
+}
+
+.form-default .panel .top .edit-icon:before {
+	content: "\270f";
+}
+
+.form-default .panel .top .list-icon:before {
+	content: "\e012";
+}
+
+.form-default .panel .top .add-one {
+	text-decoration: none;
+	padding: 0 24px;
+	position: absolute;
+	right: 27px;
+	top: 0;
+}
+
+.form-default .delayTime .msg {
+	margin-top: 5px;
+	float: left;
+}
+
+.ctset-opt-footer {
+	margin-top: 0;
+	margin-left: 50px;
+	padding-left: 5px;
+	padding-top: 10px;
+	clear: both;
+}
+.ml20{margin-left:20px;}
+.form-default .overflowIn{overflow:inherit;}
+.form-default .style-container li.w220{width:220px;}

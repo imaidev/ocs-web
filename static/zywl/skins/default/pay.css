@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+/*****顶部******/
+#zytHeader{width: 100%;background-color:#eee;border-bottom: 1px solid #3b3b3b;}
+.zytHeader{height:120px;position: relative;z-index:33;}
+.zytHeader>a{display:inline-block;width:220px;height:120px;}
+/*****宇培付导航******/
+.zytNav{position:absolute;height:50px;bottom:1px;right:0;font-family: "\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.zytNav li{float:left;width:90px;margin-left:20px;text-align: center;}
+.zytNav li:first-child{margin-left:0px;}
+.zytNav li.curr,.zytNav li:hover{border-bottom:3px solid #ff5f3d;}
+.zytNav li a{display:inline-block;height:50px;line-height:50px;font-size:16px;color:#666;}
+.zytNav li.curr a,.zytNav li:hover a{font-weight:700;text-decoration:none;}
+
+#content{background:#eee;}
+
+/*****用户帐号信息******/
+#userInfo{width:100%;background:#2cada9;}
+.userInfo{min-height:100px;color:#333;}
+.userInfo p{height:32px;line-height:32px;}
+.userInfo span{display:inline-block;}
+/***首页快捷小图标部分**/
+.shortcut{display:inline-block;position:relative;}
+.hideCon{position:absolute;bottom:25px;left:-30px;z-index:99;min-height:20px;line-height:20px;min-width:160px;padding:5px 10px;background:#fff;border:2px solid #FF5F3D;}
+.hideCon p{height:20px;line-height:20px;}
+.hideCon em{position:absolute;bottom:-8px;left:30px;z-index: 9998;display:block;width:0px; height:0px;border-color: #fff transparent;border-width: 8px 8px 0px 8px;border-style: solid;}
+.hideCon i{position: absolute;bottom: -10px;left: 28px;z-index: 9990;display: block;width: 0px;height: 0px;border-color: #FF5F3D transparent;border-width: 10px 10px 0px 10px;border-style: solid;}
+
+/*****公共样式******/
+.fixed:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+.fixed { display: block; min-height: 1%; }
+*html .fixed { height: 1%; }
+.zytBtn1{background: #FF5F3D;height: 25px;line-height: 25px;vertical-align: middle;padding: 0 15px;display: inline-block;cursor: pointer;color: #FFFFFF;}
+.zytBtn2{border:1px solid #FF5F3D;height: 23px;line-height: 23px;vertical-align: middle;padding: 0 14px;display: inline-block;cursor: pointer;color: #333;}
+.zytBtn3{background: #FF5F3D;height: 25px;line-height: 25px;vertical-align: middle;width:74px;text-align:center;display: inline-block;cursor: pointer;color: #FFFFFF;font-size:12px;}
+.zytBtn4{border:1px solid #FF5F3D;height: 23px;line-height: 23px;vertical-align: middle;width:74px;text-align:center;display: inline-block;cursor: pointer;color: #FF5F3D;font-size:12px;}
+.zytBtn1:hover,.zytBtn2:hover,.zytBtn3:hover,.zytBtn4:hover{filter:alpha(opacity:90); opacity:0.9;text-decoration:none;}
+.dottedBTop{border-top:1px dotted #e5e5e5;}
+.dottedBBtm{border-bottom:1px dotted #e5e5e5 !important;}
+p.dottedBBtm{height:10px !important;line-height:10px !important;border-bottom:1px dotted #e5e5e5 !important;}
+.bBN{border-bottom:none !important;}
+.verticalT{vertical-align:top;}
+.vt{vertical-align:top;}
+.mt10{margin-top:10px !important;}
+.mt40{margin-top:40px !important;}
+.marginR100{margin-right: 100px;}
+#gn table td{min-height: 40px;height: 40px;word-break: break-all;word-wrap: break-word;}
+
+/*****首页账户余额部分样式******/
+.zytCount{height:93px;background:#fff;border:1px solid #e5e5e5;}
+.zytCount p{height:45px;line-height:45px;}
+
+/*****表格部分******/
+.zytTableCon{background:#fff;border:1px solid #e5e5e5;color:#333;font-size:14px;font-family: "\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.tableTitle{height:54px;line-height:54px;border-bottom:1px solid #e5e5e5;}
+/*****表格***行高60*单行表格***/
+.zytTable{width:100%;table-layout:fixed;}
+.zytTable td{min-height:60px;line-height:60px;word-break:break-all;word-wrap:break-word;border-bottom:1px solid #e5e5e5;}
+.zytTable th{height:60px;line-height:60px;border-bottom:1px solid #e5e5e5;font-weight:bold;}
+.zytTable .nowrap{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;-o-text-overflow: ellipsis;word-wrap: normal;}
+
+/***************图标样式***************/
+b{position: absolute;display: inline-block;overflow: hidden;}
+#subNav b{display:inline-block;*display:inline;*zoom:1; overflow:hidden; position:absolute;}
+.emailIcon{position:relative;display:inline-block;width:20px;height:20px;background:url(../images/zytIcons.png) -80px 0 no-repeat;top: 5px;*top:3px;*margin-left:4px;cursor:pointer;}
+.phoneIcon{position:relative;display:inline-block;width:20px;height:20px;background:url(../images/zytIcons.png) -110px 0 no-repeat;top: 5px;*top:3px;*margin-left:4px;cursor:pointer;}
+.tvIcon{position:relative;display:inline-block;width:20px;height:20px;background:url(../images/zytIcons.png) -140px 0 no-repeat;top: 5px;*top:3px;*margin-left:4px;cursor:pointer;}
+
+/*****价格下拉部分样式****/
+.downCon{position:relative;display: inline-block;}
+.downCon b.fold{width:4px;height:7px;background:url(../images/zytIcons.png) -70px 0 no-repeat;position: absolute;top: 26px;right: -10px;cursor:pointer;}
+.downCon b.unfold{width:7px;height:4px;background:url(../images/zytIcons.png) -70px -10px no-repeat;position: absolute;top:28px;right:-13px;cursor:pointer;}
+.unfoldCon{position:absolute;z-index:200;width:360px;min-height:160px !important;height:auto !important;padding-right:0px !important;border:1px solid #ddd;background:#fff;}
+.unfoldCon em{position:absolute;top:0px;left:30px;display:inline-block;width:0px;height:0px;border-style: solid;border-color: #a70000 #F5F4FA;border-width: 0px 6px 6px 6px;}
+.expandTable{table-layout:fixed;width:95%;margin:10px auto;}
+.expandTable th{height:30px;line-height:30px;text-align:center;border:1px solid #e5e5e5;background:#eee}
+.expandTable td{min-height:24px;line-height:24px;padding:5px;height:auto;text-align:center;word-break:break-all;word-wrap:break-word;border:1px solid #e5e5e5;}
+/*****转账页面****/
+.bgf{background: #fff;}
+.bgBlue{background: #F2F6FA;}
+.topSwitchBtn{display: inline-block;width: 150px;height: 40px;font-size: 16px;line-height: 40px;text-align: center;text-decoration: none;}
+.transferBtn{border: 2px solid #E6EEF6;border-top-left-radius: 5px;border-top-right-radius: 8px;position: absolute;top: 10px;left: 50px;border-bottom: none;}
+.transferBtn:hover{text-decoration: none;}
+.recordBtn{position: absolute;top: 10px;right: 10px;color: #6699FF;}
+.transferMain{width: 100%;height: 100%; border: 2px solid #E6EEF6;border-radius: 5px;overflow: hidden;}
+.transferInfo{height: 50px;line-height: 50px;overflow: hidden;margin-top: 10px;}
+.transferCategory{width: 150px;text-align: right;float: left;}
+.transferDetail{float: left;margin: 0 10px 10px;}
+.transferDetail input{height: 20px;padding: 5px 10px;width: 200px;}
+.overH{overflow: hidden;}
+.nextBtn{margin-left: 150px;display: inline-block;width: 90px;text-align: center;height: 32px;line-height: 32px;background: #287DBB;color: #fff;border-radius: 3px;text-decoration: none;}
+.nextBtn:hover{background: #0A6695;text-decoration: none;}
+.transferAll{border: 1px solid #E6EEF6;border-radius: 8px;}
+.transferInto{padding:50px 9px 7px 5px;}
+.transferTips{height: 30px;line-height:30px;background: #FFFBCC;color: #F35C40;padding-left: 30px;position: relative;border: 1px solid #E6DAA1;}
+.tipsInfo{display: inline-block;width: 15px;height: 15px;border-radius: 50%;background:#F35C40;color: #fff;font-weight: bold;text-align: center;line-height: 15px;position: absolute;top: 50%;margin-top: -8px;left: 10px;}
+/*****转账确认页面****/
+.sureTop{margin: 0 auto;width: 500px;}
+.sureMain{width: 100%;background:#EBF2FA;border: 1px solid #D2E8ED;min-height: 200px;border-radius: 5px;}
+.sureInfo{height: 100%;width: 100%;}
+.sureborderB{border-bottom: 1px solid #D2E8ED;}
+.sureDetail{height:auto; line-height: 25px;overflow: hidden;padding-top: 15px;padding-bottom: 15px;}
+.sureLeft{width: 150px;text-align: right;float: left;}
+.sureRight{float: left;max-width: 340px;word-break: break-all;}
+.sureRight img{height: 60px;width: 60px;vertical-align: middle;margin: 0 10px;}
+.sureTips{width: 470px;margin: 0 auto; background: #FFFF8D;border-color: #E7C560;margin-top: 10px;color: #333;}
+.sureTipsInfo{background: #FCB80C;}
+.btnLine{width: 500px;height: 50px;line-height: 50px;margin: 0 auto; text-align: center;}
+.btnMain{width: 250px; display: inline-block;}
+.sureBtn{display: inline-block;text-align: center;height: 32px;line-height: 32px;background: #287DBB;color: #fff;border-radius: 3px;text-decoration: none;width: 150px;font-size: 14px;}
+.bgBack{color: #6699FF;}
+.tipsLeft{width: 50%;float: left;}
+.tipsRight{width: 50%; float: left;text-align: right;}
+.borderBl{border-bottom-left-radius: 5px;}
+.borderBr{border-bottom-right-radius: 5px;}

@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="/static/design-m/css/base.css" />
+<link rel="stylesheet" href="/static/design-m/css/operate_center.css" />
+<link rel="stylesheet" href="/static/design/css/mricode.pagination.css" />
+<link rel="stylesheet" href="/static/design/js/layer/skin/layer.css" />
+<script type="text/javascript" src="/static/design/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/static/design/js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="/static/design/js/layer/layer.js"></script>
+<script type="text/javascript" src="/static/design/js/baiduTemplate.js"></script>
+<script type="text/javascript" src="/static/design/js/mricode.pagination.js"></script>
+<script id="turl" type="text/html">
+<div class="item">
+	<div class="linkModular" title="<%=title%>"><%=title%></div>
+	<div class="chooseBtn">
+		<input type="hidden" value="<%=value%>">
+		<a>选择链接</a>
+	</div>
+</div>
+</script>
+<title>新增页面</title>
+</head>
+<body>
+	<div class="fm1 f14">
+		<div class="smallTool">
+			<div class="toolNav">
+				<ul>
+					<li>常用链接</li>
+					<li>宝贝链接</li>
+					<li>宝贝分类链接</li>
+					<li>自定义页面链接</li>
+				</ul>
+			</div>
+			<div class="toolMain">
+				<div>
+					<div class="item">
+						<div class="linkModular" title="店铺首页">店铺首页</div>
+						<div class="chooseBtn">
+							<input type="hidden" id="indexUrl">
+							<a>选择链接</a>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="fm1" style="height: 40px;">
+						<form id="form1">
+							<input class="keyword" type="text" name="keyWordSearch" placeholder="请输入关键字"> 
+							<span class="fb f16 pl10">价格：</span> 
+								<input class="price" type="text" name="beginPrice"/>－
+								<input class="price" type="text" name="endPrice"/>
+							<a class="searchLinkBtn" onclick="ajaxPage(true)">搜索</a>
+						 </form>
+					</div>
+					<table class="goodsLink">
+					</table>
+					<div id="pagin_btm" class="m-pagination"></div>
+				</div>
+				<div id="catUrl"></div>
+				<div id="customUrl"></div>
+			</div>
+			<div class="linkBottom">* 这个小工具帮你获取无线页面的链接</div>
+		</div>
+		<script>
+			jQuery(".smallTool").slide({
+				titCell : ".toolNav li",
+				mainCell : ".toolMain",
+				effect : "fade",
+				autoPlay : false,
+				trigger : "click",
+				easing : "swing",
+				delayTime : 500,
+				pnLoop : false
+			});
+			var bt=baidu.template;
+			var FRAME_INDEX;
+			$(function() {
+				$(".toolMain").delegate(".chooseBtn a", "click", function(e) {
+					e.preventDefault();
+					var callback = getUrlParam("callback");
+					try{
+						parent[callback]($(this).siblings().val()); 
+					}
+					catch(e){
+						
+					}
+					parent.layer.close(FRAME_INDEX);
+				})
+				
+				FRAME_INDEX= parent.layer.getFrameIndex(window.name);
+				
+				$.get(parent.ctx+ "/design/dataAPI/link/AjaxLinkDataApi.do?method=getMobileShopPackedUrl&vendid="+ parent.g_vendid, 
+						function(data) {
+							if (data.ShopIndexUrl) {
+								$("#indexUrl").val(data.ShopIndexUrl)
+							}
+							if(data.ShopCatUrlList){
+								var arr=[];
+								$.each(data.ShopCatUrlList,function(){
+									tpl={templateid:'turl',data:{
+										title:this.CATAGORY_NAME,
+										value:this.CATAGORY_URL
+									}};
+									var html=bt(tpl.templateid,tpl.data);
+									arr.push(html)
+								})
+								
+								$('#catUrl').html(arr.join(""));
+							}
+							if(data.ShopCustomUrlList){
+								var arr2=[];
+								$.each(data.ShopCustomUrlList,function(){
+									tpl={templateid:'turl',data:{
+										title:this.PAGE_NAME,
+										value:this.PAGE_URL
+									}};
+									var html=bt(tpl.templateid,tpl.data);
+									
+									arr2.push(html)
+								})
+								
+								$('#customUrl').html(arr2.join(""));
+							}
+
+						}, 'json').error(
+						function(xhr, errorText, errorType) {
+						});
+				
+				
+				ajaxPage(false);
+
+			})
+			
+			
+			//ajax 翻页
+            function ajaxPage(isSearch, catId){
+                var index = layer.load(1, {
+                    shade: [0.1, '#fff'] //0.1透明度的白色背景
+                });
+                var url = "" + parent.ctx + "/design/dataAPI/link/AjaxLinkDataApi.do?method=getItemListUrl&vendid=" + parent.g_vendid;
+                
+                if (isSearch) {
+                    $(".m-pagination").pagination('destroy');
+                }
+				 var data={
+						 keyWordSearch:encodeURIComponent($("input[name=keyWordSearch]").val()),
+						 beginPrice:$("input[name=beginPrice]").val(),
+						 endPrice:$("input[name=endPrice]").val()
+				 }
+				 data="keyWordSearch="+encodeURIComponent(encodeURIComponent($("input[name=keyWordSearch]").val()))+"&beginPrice="+$("input[name=beginPrice]").val()+"&endPrice="+$("input[name=endPrice]").val()
+				 
+                $(".m-pagination").pagination({
+                    pageSize: 6,
+                    showInfo: false,
+                    showJump: true,
+                    showPageSizes: false,
+                    showPageSizes: false,
+                    prevBtnText: "上一页",
+                    nextBtnText: "下一页",
+                    firstBtnText: "|<",
+                    lastBtnText: ">|",
+                    jumpBtnText: "确定",
+                    remote: {
+                        url: url,
+                        params: isSearch ? data : "",
+                        success: function(data){
+                            if (data.list.length > 0) {
+                                Items = new Array();
+                                var domstr = [];
+                                for (var i = 0; i < data.list.length; i++) {
+                                    Items.push(data.list[i]);
+                                    
+                                    domstr.push("<tr>");
+	                                    domstr.push("<td width='75%'>");
+	                                    	domstr.push("<span class='goodsPic'><img src='", data.list[i].IMG_URL, "' /></span>");
+	                                    	domstr.push("<a class='goodsInfo' title='",data.list[i].ITEM_TITLE,"'>",data.list[i].ITEM_TITLE,"</a>");
+	                                    domstr.push("</td>");	
+	                                    domstr.push("<td width='10%'><span class='fc60'>¥",data.list[i].PRICE,"</span></td>");	
+ 	                                    domstr.push("<td width='15%'><div class='chooseBtn'><input type='hidden' value='",data.list[i].MOBILE_ITEM_URL,"'><a>选择链接</a></div></td>");	
+	                                domstr.push("</tr>");	
+                                }
+                                var str = domstr.join("");
+                                $(".goodsLink").html(str);
+                            }
+                            else {
+                                $(".goodsLink").html("");
+                            }
+                            layer.close(index);
+                        },
+                        totalName: 'total'
+                    
+                    }
+                
+                });
+            }
+			
+			function getUrlParam(name){
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+                    var r = window.location.search.substr(1).match(reg); //匹配目标参数
+                    if (r != null) 
+                        return unescape(r[2]);
+                    return null; //返回参数值
+            }
+		</script>
+	</div>
+</body>
+</html>

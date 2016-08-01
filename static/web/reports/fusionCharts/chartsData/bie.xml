@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="GBK"?>
+<graph caption="最近一周品牌销售统计" rotateNames='0'
+	divLineDecimalPrecision='1' limitsDecimalPrecision='1' YAxisName='价格'
+	formatNumberScale='0' bgAlpha='0' canvasBgAlpha='0' showNames='1'
+	decimalPrecision='0'>
+	<set label="20" name="百达翡丽" />
+	<set value="7" name="卡西欧" />
+	<set value="12" name="梅花" />
+	<set value="11" name="天梭" />
+	<set value="8" name="劳力士" />
+	<set value="19" name="浪琴" />
+	<set value="15" name="雷达" />
+</graph>

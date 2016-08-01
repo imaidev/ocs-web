@@ -1,0 +1,32 @@
+<?xml version="10" encoding="GBK"?>
+<chart caption="最近一月类目销售统计" rotateNames='0' showvalues="0"
+	decimals="3" setadaptiveymin="1" setadaptivesymin="1" linethickness="5"
+	bgAlpha='0,0'	canvasBgAlpha='0,0' numberPrefix='%A5' showBorder='0'
+	clickURL='JavaScript:showFusinValue();' formatNumberScale='0' numberSuffix='万元' 
+	 baseFontColor="#FFFFFF" baseFontSize="13" baseFont="Arial" hoverCapBgColor='#6699FF'
+	 legendBorderAlpha='0' legendBgAlpha='0' rotateLabels='0'>
+	<categories fontColor="#FFFFFF" fontSize="13" font="Arial">
+		<category name="电力装备(套)" />
+		<category name="新材料(吨)" />
+		<category name="化工(吨)"/>
+		<category name="医疗器械(台)" />
+		<category name="卫星应用(套)" />
+		<category name="高端定制(套)" />
+	</categories>
+	<dataset parentyaxis="P" seriesname="金额">
+		<set value="2160" />
+		<set value="3360" />
+		<set value="780" />
+		<set value="1100" />
+		<set value="2600" />
+		<set value="2000" />
+	</dataset>
+	<dataset parentyaxis="S" seriesname="数量" renderas="Column">
+		<set value="20" />
+		<set value="13" />
+		<set value="26" />
+		<set value="15" />
+		<set value="6" />
+		<set value="5" />
+	</dataset>
+</chart>

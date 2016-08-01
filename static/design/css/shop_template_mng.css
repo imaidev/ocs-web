@@ -1,0 +1,51 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin: 0; padding: 0; }
+body { font-family: Microsoft YaHei;  }
+body, button, input, select, textarea { font: 12px/1.5 tahoma,arial,\5b8b\4f53; }
+ul, ol { list-style: none; }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+html { overflow-x:hidden; }
+.content { 
+     background: url(/static/design/img/shoptplbg.jpg) 0 0 repeat;
+}
+.tplcat { 
+    width:240px;
+    float:left;
+    min-height:600px;
+    position: relative;
+}
+
+.tpliframe { 
+    margin-left:240px;
+    width:auto;
+    min-height:600px;
+}
+
+.tplcat .chose-box { margin: 0 10px 10px 10px; }
+.tplcat .chose-box ul { width: 100%; overflow: hidden; }
+.tplcat .chose-box li a { display: block; }
+.tplcat .chose-box li a:hover { text-decoration: none; }
+
+.tplcat .style-box li, .tplcat .price-box li, .tplcat .themes-box li, .tplcat .more-wrapper li { height: 23px; width: 88px; float: left; border: 1px solid #16191E; background: #33363F; margin: 0 4px 4px 0; cursor: pointer; }
+.tplcat .style-box li a, .tplcat .price-box li a, .tplcat .themes-box li a, .tplcat .more-wrapper li a { margin-left: 10px; height: 23px; line-height: 23px; text-decoration: none; color: #bbb; }
+.tplcat .style-box li a:hover, .tplcat .price-box li a:hover, .tplcat .themes-box li a:hover, .tplcat .more-wrapper li a:hover { color: #fff; }
+.tplcat .style-box .hover { border: 1px solid #ccc; }
+* + html .tplcat .price-box ul { padding-bottom: 4px; }
+
+.tplcat .chose-box ul li { position: relative; }
+.tplcat .chose-box ul li:hover { background: #5A5E6A; color: #fff; }
+.tplcat .chose-box .tag { border: 1px solid #16191E; color: #fff; }
+.tplcat .chose-box .tag a { display: block; }
+.tplcat .chose-box .tag a:hover { color: #fff; }
+.tplcat .chose-box .tag i { display: block; width: 12px; height: 10px; background: url(/static/design/img/shoptplicon.png) 0 -58px no-repeat; position: absolute; right: 3px; top: 8px; }
+.tplcat .radius-box { margin: 15px; width: 210px; background: url(/static/design/img/shoptplcat.jpg) 0 0 repeat-y; color: #bbb; height: 100%; }
+.tplcat .radius-box h3 { width: 210px; height: 38px; line-height: 38px; text-indent: 10px; font-family: "Microsoft Yahei"; font-size: 14px; font-weight: 700; }
+
+.more-div { display: none; position: absolute; top: 146px; left: 165px; width: 416px; zoom: 1; z-index: 10000380; }
+.pointy-tip { position: absolute; background: url(/static/design/img/shoptplpoint.png) 0 14px no-repeat; top: 26px; width: 10px; height: 40px; float: left; }
+.more-wrapper { float: left; background-color: #101215; padding: 15px; position: absolute; left: 10px; }
+.more-wrapper ul { width: 100%; overflow: hidden; }
+.more-wrapper ul li { position: relative; }
+.more-wrapper ul li:hover { background: #5A5E6A; color: #fff; }
+.more-wrapper ul li a { display: block; width: 80px; }
+

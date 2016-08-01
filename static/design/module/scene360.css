@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+.shop_360_none{ height:470px; background:url(/static/design/img/360_nonebg.jpg); position:relative;}
+.shop_360_none_input{ position:absolute; left:36%; top:45%;}
+.shop_360_none_input input{ 
+	border:2px solid #2c8fb8;
+	height: 34px;
+    line-height: 34px;
+    padding: 0 5px;
+    outline: none;}
+
+.shop_360_none_input button{ height:38px; line-height:38px; width:60px; color:#fff; cursor: pointer; background:#2c8fb8;} 

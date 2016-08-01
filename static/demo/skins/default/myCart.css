@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+#cart{ overflow:hidden;}
+#cart input[type="checkbox"]{ display:inline-block;*display:inline;*zoom:1;float:left;}
+
+/*****绑定sprite******/
+.choose-amount-item .amount-minus b,.choose-amount-item .amount-minus:hover b,.choose-amount-item .amount-plus b,.choose-amount-item .amount-plus:hover b{background:url(../images/sprite201411.png) no-repeat;}
+
+.cart-title{ line-height:40px; vertical-align:middle; padding-left:5px;}
+.cart-th{ overflow:hidden; height:40px; line-height:40px; vertical-align:middle;}
+.cart-th li{ float:left; text-align:center;}
+.cart-th input[type="checkbox"]{ margin:15px 5px 0 10px; *margin:10px 0 0 10px;}
+
+.shopInfo{ overflow:hidden;}
+.shopTitle{ height:30px; overflow:hidden; line-height:30px; vertical-align:middle; position:relative; padding-top:15px;}
+.shopTitle input[type="checkbox"]{ margin:8px 5px 0 10px; *margin:5px 0 0 10px;}
+.shopTitle p{ position:absolute; right:10px; top:15px;}
+
+.shop-itemLists{ overflow:hidden; border-bottom:0;}
+.shop-itemList{ overflow:hidden; padding:15px 0; background-color:#fcfcfc;}
+.shop-itemLists .hover{ background-color:#fff5e6;}
+.shop-itemList ul{overflow:hidden;}
+.shop-itemList ul li{ float:left; text-align:center; vertical-align:middle;}
+.shop-itemList input[type="checkbox"]{ margin:30px 0 0 15px; *margin:25px 0 0 15px;}
+.shop-itemList .itemPic{ width:7%;}
+.shop-itemList .itemName{width:22%; height:75px; overflow:hidden; line-height:25px; padding-top:5px;}
+.shop-itemList .itemPrice{width:12%;}
+.shop-itemList .salePro{width:15%; vertical-align:middle;}
+.shop-itemList .salePro table{ width:100%; border:0; }
+.shop-itemList .salePro table td{ text-align:center;vertical-align:middle;height:80px;}
+.shop-itemList .storage{width:18%; line-height:80px;}
+.shop-itemList .account{width:10%; line-height:80px;}
+.shop-itemList .handle{width:10%;line-height:80px;}
+.shop-itemList p{ padding:10px 0 0 50px;}
+.loseItem{ background-color:#E4E4E4 !important;}
+.loseItem .state span{ width:30px; height:20px; background-color:#999; color:#3B3B3B !important; margin-top:30px; margin-left:10px; text-align:center;}
+.loseItem a,.loseItem span,.loseItem p{ color:#999 !important;}
+.cart-toolbar,.cart-total{ height:50px; line-height:50px; vertical-align:middle; overflow:hidden; border-top:0;}
+.cart-total-p{ height:52px;}
+.cart-total{ z-index:2; bottom:0; zoom:1;}
+.cart-toolbar input[type="checkbox"]{ margin:18px 5px 0 10px; *margin:15px 0 0 10px;}
+.cart-total .goOrder{ width:160px; height:50px;  text-align:center; display:block; float:right; color:#FFFFFF;}
+.cart-total .totalPrice{ width:980px; float:left;}
+
+/****商品数量选择****/
+.choose-amount-item{height:28px;width:100px;overflow:hidden;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px; margin:24px auto 0 auto; background-color:#FFFFFF;}
+.choose-amount-item .amount-minus,.choose-amount-item .amount-plus{display:block;height:28px;width:28px;float:left;cursor:pointer;}
+.choose-amount-item  b{position:static;width:12px; height:12px; display:block; margin:8px auto 0 auto; overflow:hidden;}
+.choose-amount-item .item-amount{display:block;outline:none;width:42px;border:0;height:28px;line-height:28px;vertical-align:middle;float:left; text-align:center;}
+.choose-amount-item .amount-minus b{ background-position: -20px -125px;}
+.choose-amount-item .amount-minus:hover b{ background-position:0 -125px;}
+.choose-amount-item .amount-plus b{ background-position: -20px -140px;}
+.choose-amount-item .amount-plus:hover b{ background-position: 0 -140px;}
+
+
+

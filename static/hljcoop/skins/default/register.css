@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+.main-reg{overflow:hidden;}
+.main-reg-fl{float:left;width:60%;}
+.main-reg-fr{float:left;width:35%;min-height:270px;margin-left:10px;padding-left:10px;border-left:1px solid #eee;}
+.main-reg-fl .item{overflow:hidden;}
+.main-reg-fl .item label,.main-reg-fl .item span{display:inline-block;float:left;}
+.main-reg-fl .item label{width:200px;height:36px;line-height: 36px;text-align:right;font-size: 18px;color: #333;}
+.main-reg-fl .item-chk{margin-left:200px;}
+.main-reg-fl .item-chk a:hover{text-decoration:none;}
+.reg-table{table-layout: fixed;}
+.reg-table td{padding:10px 0 10px 5px;word-break: break-all;}
+.itme-img{display: inline-block;*display:inline;width:56px;height:56px;border:2px dashed #f0f0f0;vertical-align: middle;}
+.reg-res{width:700px;margin:0 auto;}
+.reg-agree{width:880px;margin:0 auto;}
+.item-ieHack{display:inline-block;*margin-top:-20px;}

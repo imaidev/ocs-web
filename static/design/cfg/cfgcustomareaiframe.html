@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+		<head>
+		    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		    <link href="/static/design/css/editor.css" rel="stylesheet" />
+		    <script src="/static/web/js/jquery.js"></script>
+		    <script src="/static/resource/js/layer/layer.min.js"></script>
+		    <script src="/static/resource/js/kindeditor4/kindeditor.js"></script>
+		</head>
+		
+		<body>
+		    <div class="content" style="padding-top: 0px;">
+				    <div class="self-defined">
+				        <form name="editform" class="form-default" id="form" method="post" accept-charset="utf-8">
+				            <input name="enc" type="hidden" value="™">
+				            <input name="isDefault" type="hidden" value="false">
+				            <div class="control-group">
+				                <label class="control-label" for="" style="width:100px;">显示标题：</label>
+				                <div class="control show-title" style="margin-left:0px;margin-top:3px;">
+				                    <input name="showTitle" class="J_TNotShowTitle  input-radio" type="radio" value="false" onclick="changeTitle('1');">不显示
+				                    <input name="showTitle" class="J_TShowTitle  show-title-true input-radio" type="radio" checked="checked" value="true" onclick="changeTitle('2');">显示
+				                    <input id="titleContent" name="titleContent" class="J_TTitleInput input-box title-input" type="text" maxlength="30" value="自定义内容区">
+				                </div>
+				            </div>
+				            <div class="setting setting-mod-custom">
+				                <table style="margin: 0px auto;">
+				                    <colgroup>
+				                        <col>
+				                    </colgroup>
+				                    <tbody>
+				                        <tr>
+				                            <td>
+				                            		<div id="editContentDiv">
+																						<textarea name="editContent" id="editContent" rows="30" cols="105" style="width:715px; height:340px;"></textarea>
+																				</div>
+				                            </td>
+				                        </tr>
+				                    </tbody>
+				                    <tfoot>
+				                    </tfoot>
+				                </table>
+				            </div>
+				            <div class="opt-footer" style="padding-left:25px;">
+				                <a class="btn-ok" onclick="cfgSet();">保存</a>
+				                <a class="btn-cancel" onclick="parent.cfgClose();">取消</a>
+				            </div>
+				        </form>
+				    </div>
+				</div>
+		</body>
+
+<script type="text/javascript">
+		var editor1;   				
+		$(document).ready(function(){		
+				KindEditor.ready(function(K) {
+						editor1 = K.create('textarea[name="editContent"]', {
+								kid:"editContent",
+						    rcUrl:parent.ctx+"/res/tu/ResSelect.htm?item&type=image&callback=uploadCallBack&maxuploadsize=2M",
+						    filterMode : false,
+						    resizeType:0
+						}); 
+				});
+
+        // 设置自定义页内容
+        setTimeout(function(){
+        	//加载标题栏数据
+	        $('#titleContent').val(parent._$customareamodule.find('.title-box span').text().trim());
+	        if(parent._$customareamodule.find('.title-box').is(":hidden")){
+	        	$('input[name="showTitle"]').eq(0).attr("checked",true);	
+	        	$('#titleContent').hide();
+	        }
+	        else{
+	        	$('input[name="showTitle"]').eq(1).attr("checked",true);
+	        }
+        	
+					KindEditor.html("#editContent",parent._$customareamodule.find("#customAreaContent").html());
+				}, 15);
+		});
+		
+		// 保存设置
+    function cfgSet() {
+        //组件标题
+        if ($('#titleContent').val() != "") {
+        		parent._$customareamodule.find('.title-box span').text($('#titleContent').val());
+        }
+        if ($('input[name="showTitle"]:checked').val() == "true") {
+            parent._$customareamodule.find('.title-box').show();
+        } else {
+            parent._$customareamodule.find('.title-box').hide();
+        }
+        
+        // 设置自定义页内容
+        parent._$customareamodule.find("#customAreaContent").html(editor1.html());
+        
+        // 保存页面元素
+		//parent.saveModel();
+
+        //关闭配置框
+        parent.cfgClose();
+    }
+    
+    // 改变标题
+    function changeTitle(flag) {
+    	if (flag == '1') {
+    			$('#titleContent').val("自定义内容区").hide();
+    	} else {
+    			$('#titleContent').show();	
+    	}
+    }
+</script></html>

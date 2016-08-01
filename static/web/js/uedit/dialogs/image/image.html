@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<title>上传文件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="upload.css" rel="stylesheet" type="text/css" />
+<link href="jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css" />
+
+<script src="/skin/js/jquery.js" type="text/javascript"></script>
+<script src="jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
+<script src="upload/html5upload.js" type="text/javascript" ></script>
+<script src="upload/jquery.swfupload.js" type="text/javascript" ></script>
+<script src="upload/swfupload.js" type="text/javascript" ></script>
+<script src="swfobject.js"  type="text/javascript"></script>
+<script src="fileupload.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="../internal.js"></script>
+<style>
+#uuuuuuuuuuuuuuuuu{
+  margin-top:4px;
+  margin-left:4px;
+  color:#4d6789;
+  font-size:14px;
+  text-decoration:underline;
+  cursor:pointer;
+  font-weight:700;
+}
+#fsUploadProgress{
+  height:240px;
+}
+.upload-img-box{
+  float:left;
+  border:2px solid #a0a0a0;
+  margin-left:5px;
+  margin-top:5px;
+}
+.upload-img-box img{
+  border:0px;
+}
+.upload-img-box-width{
+  padding-left:5px;
+  width:145px;
+  height:25px;
+}
+.upload-img-box-width input{
+  width:90px;
+}
+.upload-img-box-height{
+  padding-left:5px;
+  width:145px;
+  height:25px;
+}
+.upload-img-box-height input{
+  width:90px;
+}
+</style>
+</head>
+<body style="width:620px;height:389px;overflow:auto;"scroll="auto">
+	<a onclick="initView()" id="uuuuuuuuuuuuuuuuu" style="width:100px;">添加图片</a>
+	
+	<div id="dialog-message" class="dn"></div>
+	
+	<div id="uploadbox" style="padding:0;"  class="dn">
+		<div id="fsUploadProgress" > 
+			<p id="queuestatus"></p>
+			<ol id="log"></ol>
+		</div>
+
+		<div class="upload-buttonpane" style="background: #F0F0F0; padding:0.9em 1.4em 1em 0.4em; border-top: 1px solid #F5F6F7;"> 
+			<!--<button id="uploadbtn"  class="atMC ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only small-btn" aria-disabled="false" ><span>继续添加</span></button>-->
+			<div id="uploadfirstwrapper" class="atMC blueBtn r2"><span id="uploadfirst">选择文件</span></div>
+			<button id="cancelbtn" class="pt10 r r2 ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only small-btn" aria-disabled="false"><span>关闭</span></button>
+			<div class="clearfix">&nbsp;</div>
+		</div>
+	</div>
+	
+	<div id="resultimg" class="dn"></div>
+</body>
+<script>
+var userId="SUPERADMIN";
+var queuestatus =$('#queuestatus');
+var fsUploadProgress = $("#fsUploadProgress");
+var divs = fsUploadProgress[0]; //JQUERY תDOM
+var fileSelectedNum =0;  
+var filesQueuedNum=0;
+var fileFailNum =0;
+var isUpload = false;
+var initFlashFlag =false;
+var result="";
+</script>
+   
+</html>

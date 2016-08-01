@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+.searchPanel  .searchCon{position:relative;display:block;width:500px;height:40px;letter-spacing:1px;z-index:3;background:#04a1e6;font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.srh-inner{position:absolute;top:2px;left:2px;width:417px;height:36px;background:#fff;}
+.searchCon .srh-input{display:none;height:26px;line-height:26px;border:0;border-left:1px solid #eee;outline-style:none;vertical-align:middle;padding-left:4px;padding-bottom:0px !important;background:#fff; width:75%;}
+.searchCon button{position:absolute;right:0;top:0;display:block;width:80px;height:40px;border:0;outline-style:none;cursor:pointer;color:#fff;font-size:15px;background:#04a1e6;font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.searchCon .selectContainer{position:relative;min-width:65px;height:36px;display:inline-block;_display:inline;_zoom:1;z-index:1000;letter-spacing:1px;padding-right:18px;padding-left:5px;} 
+.searchCon .selectContainer .selectOption{display:inline-block;width:100%;height:36px;line-height:36px;text-align:center;z-index:1000;font-size:14px;color:#333;cursor:pointer;} 
+.searchCon .selectContainer .shows{position:absolute;right:4px;top:15px;width:7px;height:4px;background:url(../img/arrow-down.png) no-repeat;} 
+.searchCon .selectContainer ul{position:absolute;top:36px;left:-0px;border:1px solid #CCC;border-top:0;z-index:1001;display:none; min-width: 60px;} 
+.searchCon .selectContainer ul li{padding:0 5px;line-height:25px;text-align:center;background:#fff;cursor:pointer} 
+.searchCon .selectContainer ul li:hover{background:#F5F5F5;} 
+.searchCon .selectContainer ul.dis{display:block!important;} 
+.searchCon .selectContainer ul.undis{display:noneimportant;} 
+.searchPanel .hotSearch{width:445px;height:20px;line-height:20px;vertical-align:middle;padding-left:5px;margin-top:5px;overflow:hidden;font-family: "\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.searchPanel .hotSearch li{float:left;}
+.searchPanel .hotSearch li a{color:#333;margin-right:10px;}
+.search-tabs .s-tags{overflow:hidden;height:22px;vertical-align:middle;line-height:22px;font-weight:bold;}
+.search-tabs .s-tags li{float:left;margin-right:5px;padding:0 13px;cursor:pointer;}
+.search-tabs .s-tags li.active{background:#2797c3;color:#fff;}
+.search-tabs  .srh-input{display:none;margin-top:4px;}

@@ -1,0 +1,198 @@
+@charset "utf-8";
+/* CSS Document */
+/*星级评分*/
+.star5 {
+	width: 65px;
+	background: url(../images/items/star.jpg) no-repeat 0px center;
+	height: 14px;
+}
+
+.star4 {
+	width: 65px;
+	background: url(../images/items/star.jpg) no-repeat -13px center;
+	height: 14px;
+}
+
+.star3 {
+	width: 65px;
+	background: url(../images/items/star.jpg) no-repeat -26px center;
+	height: 14px;
+}
+
+.star2 {
+	width: 65px;
+	background: url(../images/items/star.jpg) no-repeat -39px center;
+	height: 14px;
+}
+
+.star1 {
+	width: 65px;
+	background: url(../images/items/star.jpg) no-repeat -52px center;
+	height: 14px;
+}
+
+#commonTitle {
+	display: block;
+	width: 1200px;
+	height: 75px;
+	margin: 0 auto;
+	line-height: 75px;
+	vertical-align: middle;
+}
+
+#commonTitle dt {
+	height: 75px;
+	float: left;
+}
+
+#commonTitle dd {
+	height: 75px;
+	float: right;
+}
+
+#commonTitle dd.leading {
+	width: 42px;
+	background: url(../images/macart/cart_pic01.jpg) no-repeat center;
+}
+
+#contentHeader {
+	width: 1200px;
+	height: 35px;
+	border-bottom: 1px solid #cbcbcb;
+	line-height: 35px;
+	vertical-align: bottom;
+}
+
+#contentLeft {
+	margin-top: 15px;
+	float: left;
+	width: 150px;
+	overflow: hidden;
+	border: 1px solid #cbcbcb;
+}
+
+#contentRight {
+	overflow: hidden;
+	width: 1000px;
+	float: right;
+	border-bottom: 1px solid #cbcbcb;
+}
+
+#contentRightTitle {
+	padding-left: 15px;
+	line-height: 35px;
+	vertical-align: bottom;
+	width: 978px;
+	height: 35px;
+	border-left: 1px solid #cbcbcb;
+	border-top: 1px solid #cbcbcb;
+	border-right: 1px solid #cbcbcb;
+	border-bottom: 2px solid #1367DB;
+	color: #1367DB;
+}
+
+#ysh {
+	width: 150px;
+}
+
+#left_title {
+	width: 150px;
+	height: 33px;
+}
+
+#left_list {
+	width: 150px;
+}
+
+#left_list a {
+	color: #333333;
+}
+
+#left_list dt {
+	background-color: #f2f2f2;
+	background: url(../images/menu_01.jpg) no-repeat 9px center;
+	line-height: 30px;
+	vertical-align: middle;
+	padding-left: 25px;
+	width: 125px;
+	height: 30px;
+	border-bottom: 1px solid #cbcbcb;
+}
+
+#left_list dd {
+	border-bottom: 1px solid #cbcbcb;
+	width: 125px;
+	height: 25px;
+	padding-left: 25px;
+	font-size: 12px;
+	font-family: "\5B8B\4F53", "SimSun";
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+#left_list span {
+	display: block;
+	float: right;
+	width: 15px;
+	height: 25px;
+	margin-right: 10px;
+	font-family: "\5B8B\4F53", "SimSun ";
+}
+
+/*菜单myOrder*/
+.order_center_tabborder {
+	margin-top: 15px;
+}
+
+.order_center_Menubox {
+	height: 30px;
+	line-height: 30px;
+	position: relative;
+}
+
+.order_center_Menubox ul {
+	list-style: none;
+	position: absolute;
+	top: 2px;
+	left: 0;
+	height: 28px;
+	text-align: center;
+}
+
+.order_center_Menubox li {
+	float: left;
+	display: block;
+	cursor: pointer;
+	background-color: #fbfbfb;
+	color: #333333;
+	font-family: "\5B8B\4F53", "SimSun";
+	font-size: 12px;
+	height: 26px;
+	line-height: 26px;
+	border: 2px solid #ffcdab;
+	padding: 0 10px;
+	margin-left: 3px;
+}
+
+.order_center_Menubox li.hover {
+	border-bottom: none;
+	color: #ff6600;
+	background-color: #ffcdab;
+	border-left: 1px solid #ffcdab;
+	border-top: 1px solid #ffcdab;
+	border-right: 1px solid #ffcdab;
+	height: 28px;
+	line-height: 28px;
+}
+
+.order_center_Contentbox {
+	clear: both;
+	margin-top: 0px;
+	border-top: none;
+	padding-top: 8px;
+	border-top: 2px solid #ffcdab;
+}
+
+.order_center_Contentbox td a {
+	color: #4598d2;
+}

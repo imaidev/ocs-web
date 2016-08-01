@@ -1,0 +1,155 @@
+<div id="edit-wrap" class="edit-wrap f14" style="overflow-x: hidden; overflow-y: auto; height: 914px;">
+    <h3 class="edit-tit">店铺底部模块</h3>
+    <div class="singleRow">
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                第一张图
+            </label>
+            <div class="pr">
+                <input type="text" class="form-control mt10" placeholder="点击添加图片"><span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="bottom_url"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                链接
+            </label>
+            <div class="pr">
+                <input type="text" class="form-control mt10" placeholder="请输入网址"><span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="icon-url"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                第二张图
+            </label>
+            <div class="pr">
+                <input type="text" class="form-control mt10" placeholder="点击添加图片"><span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="bottom_url"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                链接
+            </label>
+            <div class="pr">
+                <input type="text" class="form-control mt10" placeholder="请输入网址"><span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="icon-url"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                第三张图
+            </label>
+            <div class="pr">
+                <input type="text" class="form-control mt10" placeholder="点击添加图片"><span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="bottom_url"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                链接
+            </label>
+            <div class="pr">
+                <input type="text" class="form-control mt10" placeholder="请输入网址"><span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="icon-url"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                背景图
+            </label>
+            <div class="pr">
+                <input type="text" class="form-control mt10" placeholder="点击添加图片"><span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="bottom_url"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <label class="fb pb10">
+                链接
+            </label>
+            <div class="pr">
+                <input type="text" class="form-control mt10" placeholder="请输入网址"><span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="icon-url"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $(".icon-url").parents(".input-group-btn").on("click", function(){
+            showLinkWin("LinkCallBack");
+            LinkCallBack.$selected = $(this).siblings();
+        });
+        $(".bottom_url").parents(".input-group-btn").on("click", function(){
+            showPicWin("ImgCallBack");
+            ImgCallBack.$selected = $(this).siblings();
+        });
+        var dataVar = _cfg;
+        if (typeof dataVar.items != "undefined") {
+            var imgPath = "";
+            var imgLink = "";
+            for (var i = 0; i < dataVar.items.length; i++) {
+                imgPath = dataVar.items[i].imgPath;
+                imgLink = dataVar.items[i].imgLink;
+                $($(".bottom_url")[i]).parents(".clearfix").find("input").val(imgPath);
+                $($(".bottom_url")[i]).parents(".clearfix").next().find("input").val(imgLink);
+            }
+        }
+    });
+    function LinkCallBack(url){
+        LinkCallBack.$selected.val(url);
+    }
+    
+    function ImgCallBack(path){
+        ImgCallBack.$selected.val(path);
+    }
+    
+    function cfgset(){
+        var items = new Array();
+        var imgPath = "";
+        var imgLink = "";
+        var imgTitle = "";
+        for (var i = 0; i < $(".bottom_url").length; i++) {
+            imgPath = $($(".bottom_url")[i]).parents(".clearfix").find("input").val();
+            imgLink = $($(".bottom_url")[i]).parents(".clearfix").next().find("input").val();
+            imgTitle = $.trim($($(".bottom_url")[i]).parents(".pr").siblings().text().replace(/[\r\n]/g, ""));
+            var item = {
+                "imgPath": imgPath,
+                "imgLink": imgLink,
+                "imgTitle": imgTitle,
+                "imgIndex": i
+            };
+            items.push(item);
+        }
+        var dataval = {
+            items: items
+        };
+        _$module.shopBottom('reset', dataval);
+        hideEdit();
+    }
+</script>

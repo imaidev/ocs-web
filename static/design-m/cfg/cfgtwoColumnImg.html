@@ -1,0 +1,186 @@
+<h3 class="edit-tit">双列图片模块</h3>
+<div class="toolTips">
+    <p class="tipsTit">
+        模块使用小贴士<a class="closeTip">X</a>
+    </p>
+    <p class="tipsMain">
+        图片建议尺寸：296*160
+        <br>
+        该模块可尝试展示店铺的宝贝分类哦。
+    </p>
+</div>
+<div class="mb15 mt25 overH">
+    <label class="linkTit">
+        第一张图片
+    </label>
+    <div class="linkMain w90p">
+        <div class="linkInfo w100p">
+            <div class="addImgOut">
+                <div class="addImgInfo" data-num="one" onclick="selectPic(this)">
+                    <div class="addIcon">
+                    </div>
+                </div>
+                <div class="addImgMain" style="display: none;" data-num="one" onclick="selectPic(this)">
+                    <img src="img/examplePhoto.jpg" height="100%">
+                    <div class="ImgHover">
+                        重新上传
+                    </div>
+                </div>
+                <p class="addTips">
+                    建议选择296*160尺寸的图片，类型：jpg、png
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb15 mt25 overH">
+    <label class="linkTit">
+        第一个链接
+    </label>
+    <div class="linkMain w90p">
+        <div class="linkInfo w100p">
+            <input class="fm1" type="text" data-num="one" placeholder="请输入网址">
+            <div class="linkAddress">
+                <span ><a></a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb15 mt25 overH">
+    <label class="linkTit">
+        第二张图片
+    </label>
+    <div class="linkMain w90p">
+        <div class="linkInfo w100p">
+            <div class="addImgOut">
+                <div class="addImgInfo" data-num="two" onclick="selectPic(this)">
+                    <div class="addIcon">
+                    </div>
+                </div>
+                <div class="addImgMain" style="display: none;" data-num="two" onclick="selectPic(this)">
+                    <img src="img/examplePhoto.jpg" height="100%">
+                    <div class="ImgHover">
+                        重新上传
+                    </div>
+                </div>
+                <p class="addTips">
+                    建议选择296*160尺寸的图片，类型：jpg、png
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb15 mt25 overH">
+    <label class="linkTit">
+        第二个链接
+    </label>
+    <div class="linkMain w90p">
+        <div class="linkInfo w100p">
+            <input class="fm1" type="text" data-num="two" placeholder="请输入网址">
+            <div class="linkAddress">
+                <span ><a></a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+     $(".closeTip").click(function(){
+    
+         $(".toolTips").css('display', 'none');
+    
+     });
+    
+	$(".linkAddress").click(function(){
+		showLinkWin('callBackLink');
+		callBackLink.obj = this;
+	});
+    var selObj = "";
+    var imgPath = new Array(2);
+    var link = new Array(2);
+    
+    $(function(){
+        
+         var dataVar = parent._cfg;//imgPath,title
+      if (dataVar.imgPath == null) {
+            return
+        }
+        if (dataVar.imgPath[0] != null) {
+        
+            $($(".addImgMain")[0]).find("img").attr("src", dataVar.imgPath[0]);
+            $($(".addImgInfo")[0]).attr("style", "display:none");
+            $($(".addImgInfo")[0]).next().attr("style", "display:block");
+			imgPath[0]=dataVar.imgPath[0];
+        }
+        if (dataVar.imgPath[1] != null) {
+            $($(".addImgMain")[1]).find("img").attr("src", dataVar.imgPath[1]);
+            $($(".addImgInfo")[1]).attr("style", "display:none");
+            $($(".addImgInfo")[1]).next().attr("style", "display:block");
+			imgPath[1]=dataVar.imgPath[1];
+        }
+		if(dataVar.link[0] != null){
+			$($(".fm1")[0]).val(dataVar.link[0]);
+			link[0]=dataVar.link[0];
+		}
+		if(dataVar.link[1] != null){
+			$($(".fm1")[1]).val(dataVar.link[1]);
+			link[1]=dataVar.link[1];
+		}
+        
+    });
+    
+    function selectPic(obj){
+        selObj = obj;
+        opt = {
+            "dir": "shop",
+            "maxuploadsize": "2M",
+            "callBack": "selectPicCallBack"
+        };
+        layer.open({
+            type: 2,
+            content: ctx + "/res/tu/ResSelect.htm?dir=" + opt.dir + "&maxuploadsize=" + opt.maxuploadsize + "&callback=" + opt.callBack,
+            title: "图片选取",
+            shadeClose: true,
+            area: ['1050px', '500px']
+        });
+    }
+    
+    function selectPicCallBack(path){
+    
+    
+        if ($(selObj).attr("class") == "addImgInfo") {
+            $(selObj).attr("style", "display:none");
+            $(selObj).next().attr("style", "display:block");
+            $(selObj).next().find("img").attr("src", path);
+        }
+        if ($(selObj).attr("class") == "addImgMain") {
+           
+            $(selObj).find("img").attr("src", path);
+        }
+     
+        if ($(selObj).attr("data-num") == "one") {
+            imgPath[0] = path;
+        }
+        else {
+            imgPath[1] = path;
+        }
+        
+    }
+     //连接小工具回调函数
+    function callBackLink(url){
+		$(callBackLink.obj).prev().val(url);
+		if($(callBackLink.obj).prev().attr("data-num") == "one"){
+			link[0]=url;
+		}else{
+			link[1]=url;
+		}
+    }
+    //组件保存方法
+    function cfgset(){
+        var dataval = {
+            imgPath: imgPath,
+			link: link
+        };
+        _$module.twoColumnImg('reset', dataval);
+		hideEdit();
+    }
+</script>

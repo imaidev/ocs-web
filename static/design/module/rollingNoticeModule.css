@@ -1,0 +1,8 @@
+@charset "utf-8";
+/***滚动文本 ***/
+.scrolltxt{overflow:hidden;width:auto}
+.noticeCon{position:relative; width:100%;overflow:hidden;height:26px; line-height:26px;}
+.notice-image0 {background:url(../img/icon/noticeIco1.gif) no-repeat left center;padding-left:22px}
+.notice-image1 {background:url(../img/icon/noticeIco2.gif) no-repeat left center;padding-left:22px}
+.notice-image2 {background:url(../img/icon/noticeIco3.gif) no-repeat left center;padding-left:22px}
+.noticetxt{position: relative; left: 0; top: 0;overflow:hidden;}

@@ -1,0 +1,165 @@
+.ztree li span.button.icon01_ico_open,.ztree li span.button.icon01_ico_close{
+	margin-right:2px;
+	background-image: url(../skin/image/icon.png);
+	background-repeat:no-repeat;
+	background-position:-128px 0px;
+	vertical-align:top;
+	*vertical-align:middle;
+}
+.ztree li span.button.icon02_ico_open,.ztree li span.button.icon02_ico_close{
+	margin-right:2px;
+	background-image: url(../skin/image/icon.png);
+	background-repeat:no-repeat;
+	background-position:-144px -16px;
+	vertical-align:top;
+	*vertical-align:middle;
+}
+.ztree li span.button.icon03_ico_open,.ztree li span.button.icon03_ico_close{
+	margin-right:2px;
+	background-image: url(../skin/image/icon.png);
+	background-repeat:no-repeat;
+	background-position:-128px -80px;
+	vertical-align:top;
+	*vertical-align:middle;
+}
+
+
+.ztree li span.button.export{background: url(../skin/image/export.png) no-repeat 0 0;}
+.ztree li span.button.import{background: url(../skin/image/import.png) no-repeat 0 0;}
+
+.ztree li span.button.icon04_ico_docu{
+	margin-right:2px;
+	background-image: url(../skin/image/icon.png);
+	background-repeat:no-repeat;
+	background-position:-128px -64px;
+	vertical-align:top;
+	*vertical-align:middle;
+}
+.ztree li span.button.add {
+	margin-left:2px; 
+	margin-right: -1px; 
+	background-position:-144px 0; 
+	vertical-align:top; 
+	*vertical-align:middle;
+}
+input[type="text"]{
+	font-family: "SimSun",sans-serif !important;
+	font-family: "SimSun",sans-serif ;
+	color: #000;
+	padding: 2px 0 0 4px;
+	height: 20px;
+	width: 95%;
+}
+textarea{
+	font-family: "SimSun",sans-serif !important;
+	font-family: "SimSun",sans-serif ;
+	color: #000;
+	padding: 2px 0 0 4px;
+}
+.searchBar {
+	height:30px;
+	font-weight: bold;
+	font-family: microsoft Yahei;
+	font-size: 18px;
+	padding: 5px 10px 5px 20px;
+}
+ul.ztree{
+	height:480px;
+    overflow-y:auto;
+    overflow-x:auto;
+}
+.leftColumn{
+	border-right: #d7d7d7 solid 0px;
+}
+.rightColumn{
+	border-left: #d7d7d7 solid 1px;
+}
+
+.detailTitle{
+	height: 30px;
+    background-repeat: repeat;
+}
+.detailTitle .sub{
+	color: #0085c3;
+	font-weight: bold;
+	line-height: 24px;
+	padding-left: 10px;
+}
+.detailTable{
+	line-height: 20px;
+	width: 70%;
+	background: none;
+}
+.rightAlign{
+	text-align: right;
+	padding-right: 5px;
+}
+.leftAlign{
+	text-align: left;
+	width: 25%;
+	color: #0085c3;
+}
+.table-ct{
+	line-height: 30px;
+	width: 100%;
+	margin-top: 20px;
+}
+.sign-red{
+	color:red;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+.split-line{
+	border-top:1px dashed #d7d7d7;
+	height:18px;
+	width:90%;
+	margin: auto;
+	margin-top: 18px;
+}
+.footer{
+    position: absolute;
+    bottom: 0px;
+    height: 40px;
+    width: 100%;
+    background-color: #e5e5e5;
+	border-top: 1px solid #c8c8c8;
+}
+.btnWrapper{
+    float: right;
+    margin: 8px 10px 0px 0px;
+}
+#saveBtn{
+	width: 83px;
+	height: 25px;
+	color: #fff;
+	padding: 2px 0 2px 4px;
+}
+.status{
+	width: 30%;
+}
+input.error{
+	display: inline;
+	margin-left: 0px !important;
+}
+.not-edit{
+	width:40%;
+	text-align:left;
+	color: #0085c3;
+}
+.trhide{
+	display:none;
+}
+.editgrid th{
+	background-color: #c2d8ef;
+	font-weight: bold;
+}
+.pointer{
+	cursor: pointer;
+}
+
+.buttonRightContainer{
+    border-bottom: 1px #cdd5e0 solid;
+}
+.buttonRightContainer input[type="button"]{
+    display: none;
+}

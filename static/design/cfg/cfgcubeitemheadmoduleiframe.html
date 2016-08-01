@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js">
+    </script>
+    <script src='/static/design/js/layer/layer.js'>
+    </script>
+    <script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js">
+    </script>
+    <script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js">
+    </script>
+    <link href="/static/design/js/spectrum/spectrum.css" rel="stylesheet" />
+    <script src="/static/design/js/spectrum/spectrum.js">
+    </script>
+    <!--<link href="/static/design/css/base.css" rel="stylesheet" /> -->
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="content fm1">
+        <div class="tab">
+            <form class="main-slide-form form-default" id="displaySetForm">
+                <div class="panels" style="width: 650px;">
+                    <div class="panel content-set ks-switchable-panel-internal7" id="tabOne" style="display: block;">
+                        <div class="edit-module">
+                            <div class="mouseCoverMain fb mt15" style="margin-left: 20px;width: 650px;">
+                                左侧
+                            </div>
+                            <div class="edit-item">
+                                <span class="projectL">字体颜色：</span>
+                                <input type="text" class="CSS_colorPicker" id="fontColor" name="fontColor" style="display: none;">
+                            </div>
+                            <div class="edit-item">
+                                <span class="projectL">导航底边框及背景颜色：</span>
+                                <input type="text" class="CSS_colorPicker" id="bgColor" name="bgColor" style="display: none;">
+                            </div>
+                            <div class="edit-module Manual">
+                                <div class="edit-item  tabTit w650">
+                                    <div class="column column1 classification1">
+                                        <span>文字</span>
+                                    </div>
+                                    <div class="column column2 classification2">
+                                        <span>链接</span>
+                                    </div>
+                                    <div class="column column3 classification2">
+                                        <span>宽度(PX)</span>
+                                    </div>
+                                </div>
+                                <div id="EditorBox" class="pic-list ml20 pb0" style="width: 650px;">
+                                    <div class="edit-item first even" style="line-height: 30px;height: 40px;">
+                                        <div class="column column1 classification1">
+                                            <input type="text" id="leftTitle" name="leftTitle" style="width: 100px;margin-left: 45px;">
+                                        </div>
+                                        <div class="column column2 classification2 pr">
+                                            <input type="text" id="leftLink" name="leftLink" style="width:185px;"><span class="msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                            <a class="sys-images sys-magicImages"></a>
+                                        </div>
+                                        <div class="tc column column3 classification3" style="margin-left: 10px;">
+                                            <input type="text" id="leftWidth" name="leftWidth" style="width: 100px;margin-left: 45px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mouseCoverMain fb mt15" style="margin-left: 20px;width: 650px;">
+                                右侧
+                            </div>
+                            <div class="edit-module Manual" style="margin-top: 20px;">
+                                <div class="edit-item  tabTit w650">
+                                    <div class="column column1 classification1">
+                                        <span>文字</span>
+                                    </div>
+                                    <div class="column column2 classification2">
+                                        <span>文字链接</span>
+                                    </div>
+                                    <div class="column column3 classification2">
+                                        <span>操作</span>
+                                    </div>
+                                </div>
+                                <div id="EditorBox" class="pic-list ml20 pb0 EditorBox" style="overflow-y: auto;width: 650px;max-height:163px">
+                                    <div class="edit-item first even" style="line-height: 30px;height: 40px;">
+                                        <div class="column column1 classification1">
+                                            <input type="text" style="width: 100px;margin-left: 45px;" max>
+                                        </div>
+                                        <div class="column column2 classification2 pr">
+                                            <input type="text" name="urlAddress" value="" style="width:185px;"><span class="msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                            <a class="sys-images sys-magicImages"></a>
+                                        </div>
+                                        <div class="tc column column3 classification2" style="margin-top: 5px;">
+                                            <input type="hidden" name="replace" value="/static/design/img/cube02.jpg">
+                                            <a title="上移" class="up magicPic" href="javascript:void(0);"></a>
+                                            <a title="下移" class="down magicPic" href="javascript:void(0);"></a>
+                                            <a title="删除" class="delete magicPic" href="javascript:void(0);"></a>
+                                        </div>
+                                    </div>
+                                    <div class="edit-item  odd" style="line-height: 30px;height: 40px;">
+                                        <div class="column column1 classification1">
+                                            <input type="text" style="width: 100px;margin-left: 45px;">
+                                        </div>
+                                        <div class="column column2 classification2 pr">
+                                            <input type="text" name="urlAddress" value="" style="width:185px;"><span class="msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                            <a class="sys-images sys-magicImages"></a>
+                                        </div>
+                                        <div class="tc column column3 classification2" style="margin-top: 5px;">
+                                            <input type="hidden" name="replace" value="/static/design/img/cube02.jpg">
+                                            <a title="上移" class="up magicPic"></a>
+                                            <a title="下移" class="down magicPic"></a>
+                                            <a title="删除" class="delete magicPic"></a>
+                                        </div>
+                                    </div>
+                                    <div class="edit-item  even" style="line-height: 30px;height: 40px;">
+                                        <div class="column column1 classification1">
+                                            <input type="text" style="width: 100px;margin-left: 45px;">
+                                        </div>
+                                        <div class="column column2 classification2 pr">
+                                            <input type="text" name="urlAddress" value="" style="width:185px;"><span class="msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                            <a class="sys-images sys-magicImages"></a>
+                                        </div>
+                                        <div class="tc column column3 classification2" style="margin-top: 5px;">
+                                            <input type="hidden" name="replace" value="/static/design/img/cube02.jpg">
+                                            <a title="上移" class="up magicPic"></a>
+                                            <a title="下移" class="down magicPic"></a>
+                                            <a title="删除" class="delete magicPic"></a>
+                                        </div>
+                                    </div>
+                                    <div class="edit-item last odd" style="line-height: 30px;height: 40px;">
+                                        <div class="column column1 classification1">
+                                            <input type="text" style="width: 100px;margin-left: 45px;">
+                                        </div>
+                                        <div class="column column2 classification2 pr">
+                                            <input type="text" name="urlAddress" value="" style="width:185px;"><span class="msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                            <a class="sys-images sys-magicImages"></a>
+                                        </div>
+                                        <div class="tc column column3 classification2" style="margin-top: 5px;">
+                                            <input type="hidden" name="replace" value="/static/design/img/cube02.jpg">
+                                            <a title="上移" class="up magicPic"></a>
+                                            <a title="下移" class="down magicPic"></a>
+                                            <a title="删除" class="delete magicPic"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottom w650">
+                                    <a class="add-one btn-style-1" href="javascript:void(0);" id="btnAdd" onclick="addRow('','')">添加</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="opt-footer ctset-opt-footer">
+                    <a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+                    <a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    $(function() {
+        setCfg();
+        addClick();
+
+    });
+
+    function setCfg() {
+
+        var dataval = parent._cfg;
+        if (typeof dataval.Right != "undefined") {
+            if (dataval.Right.length > 0) {
+                $(".EditorBox").html("");
+            }
+            for (var i = 0; i < dataval.Right.length; i++) {
+                addRow(dataval.Right[i].title, dataval.Right[i].Link);
+            }
+
+        }
+        if (typeof dataval.Left != "undefined") {
+            $("#leftTitle").val(dataval.Left.title);
+            $("#leftLink").val(dataval.Left.Link);
+            $("#fontColor").val(dataval.Left.fontColor);
+            $("#bgColor").val(dataval.Left.bgColor);
+            $("#leftWidth").val(dataval.Left.leftWidth);
+        } else
+        if (typeof dataval.Left == "undefined") {
+            $("#leftWidth").val(dataval.leftWidth);
+            $("#fontColor").val(dataval.fontColor);
+            $("#bgColor").val(dataval.bgColor);
+
+        }
+        $("#fontColor").spectrum({
+            color: $("#fontColor").val(),
+            preferredFormat: "hex6",
+            showInput: true
+        });
+        $("#bgColor").spectrum({
+            color: $("#bgColor").val(),
+            preferredFormat: "hex6",
+            showInput: true
+        });
+
+    }
+
+    function addClick() {
+        $(".sys-magicImages").on("click", function() {
+            parent.showLinkWin(LinkCallBack);
+            LinkCallBack.$selected = $(this).siblings("input");
+        });
+        $(".up").on("click", function() {
+
+            upItem.$selected = $(this).parents(".edit-item");
+            upItem();
+        });
+        $(".down").on("click", function() {
+            downItem.$selected = $(this).parents(".edit-item");
+            downItem();
+        });
+        $(".delete").on("click", function() {
+            deleteItem.$selected = $(this).parents(".edit-item");
+            deleteItem();
+        });
+    }
+
+    function removeClick() {
+        $(".sys-magicImages").off("click");
+        $(".up").off("click");
+        $(".down").off("click");
+        $(".delete").off("click");
+    }
+
+    function LinkCallBack(url) {
+        LinkCallBack.$selected.val(url);
+    }
+
+    function addRow(title, link) {
+        if ($(".EditorBox").find(".edit-item").length >= 10) {
+            layer.msg("最多只可添加10个", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+        var domstr = [];
+        domstr.push("<div class='edit-item even' style='line-height: 30px;height: 40px;'>");
+        domstr.push("<div class='column column1 classification1'>");
+        domstr.push("<input type='text' value='", title, "' style='width: 100px; margin-left: 45px; background-image: none; background-position: 0% 0%; background-repeat: repeat;'>");
+        domstr.push("</div>");
+        domstr.push("<div class='column column2 classification2 pr'>");
+        domstr.push("<input type='text' name='urlAddress' value='", link, "' style='width: 185px; background-image: none; background-position: 0% 0%; background-repeat: repeat;'>");
+        domstr.push("<span class='msg disappear'>");
+        domstr.push("<i class='msg-icon'></i>");
+        domstr.push("<span class='text'></span>");
+        domstr.push("</span>");
+        domstr.push("<a class='sys-images sys-magicImages'></a>");
+        domstr.push("</div>");
+        domstr.push(" <div class='tc column column3 classification2' style='margin-top: 5px;'>");
+        domstr.push("<a title='上移'  class='up magicPic' ></a>\n"); //加\n是为了去除样式问题（很奇葩的问题=。=）
+        domstr.push("<a title='下移'  class='down magicPic'></a>\n");
+        domstr.push("<a title='删除'  class='delete magicPic' ></a>\n");
+        domstr.push("</div>");
+        domstr.push("</div>");
+        var str = domstr.join("");
+        $(".EditorBox").append(str);
+        setClass();
+        if (title == "" && link == "") {
+            removeClick();
+            addClick();
+        }
+
+    }
+
+    function setClass() {
+        removeAllClass();
+        var item = $(".EditorBox").find(".edit-item");
+        for (var i = 0; i < item.length; i++) {
+            if (i == 0) {
+                $(item[i]).addClass("first");
+            }
+            if (i == item.length - 1) {
+                $(item[i]).addClass("last");
+            }
+            if (i % 2 == 1) {
+                $(item[i]).addClass("odd");
+            }
+            if (i % 2 == 2 || i % 2 == 0) {
+                $(item[i]).addClass("even");
+            }
+        }
+    }
+
+    function removeAllClass() {
+
+        $(".EditorBox").find(".first").removeClass("first");
+        $(".EditorBox").find(".last").removeClass("last");
+        var oddItem = $(".EditorBox").find(".odd");
+        var evenItem = $(".EditorBox").find(".even");
+        for (var i = 0; i < oddItem.length; i++) {
+            $(oddItem[i]).removeClass("odd");
+        }
+        for (var i = 0; i < evenItem.length; i++) {
+            $(evenItem[i]).removeClass("even");
+        }
+    }
+
+    function upItem() {
+
+        upItem.$selected.prev().before(upItem.$selected);
+        setClass();
+    }
+
+    function downItem() {
+
+        downItem.$selected.next().after(downItem.$selected);
+        setClass();
+    }
+
+    function deleteItem() {
+        deleteItem.$selected.remove();
+        setClass();
+    }
+
+    function isNaNTool(val) {
+        if (!isNaN(val)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function cfgSet() {
+
+        var leftTitle = $("#leftTitle").val();
+        var leftLink = $("#leftLink").val();
+        var fontColor = $("#fontColor").val();
+        var bgColor = $("#bgColor").val();
+        var leftWidth = $("#leftWidth").val();
+
+        if (!isNaNTool(leftWidth)) {
+            layer.msg("宽度值不是数字！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+
+        var rightArray = new Array();
+        var divItem = $(".EditorBox").find(".edit-item");
+        for (var i = 0; i < divItem.length; i++) {
+            var input = $(divItem[i]).find("input");
+            var item = {
+                title: $(input[0]).val(),
+                Link: $(input[1]).val()
+            };
+            if (!($(input[0]).val() == "" && $(input[1]).val() == "")) {
+                rightArray.push(item);
+            }
+        }
+        var cubeitemheadcfg = {
+            Right: rightArray,
+            Left: {
+                title: leftTitle,
+                Link: leftLink,
+                fontColor: fontColor,
+                bgColor: bgColor,
+                leftWidth: leftWidth
+            }
+        };
+        parent._$module.cubeitemheadmodule('reset', cubeitemheadcfg);
+        parent.cfgClose();
+    }
+</script>

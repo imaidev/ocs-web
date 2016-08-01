@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+.userWidgetHeader{
+	width:100%;
+	height:33px;
+	line-height:33px;
+	background:#87bee6;
+	color:#FFF;
+}
+.userWidgetHeader span{
+	padding-left:5px;
+	float:left;
+}
+.widgetSet{
+	float:right;
+	width:16px;
+	height:13px;
+	background-image:url(globalImg/chg2.png);
+	margin-right:10px;
+	margin-top:10px;
+	cursor:pointer;
+}
+.widgetSet:hover{
+	background-image:url(globalImg/chg1.png);
+}
+.userWidget{
+	border:1px solid #2a73a8;
+}
+#wsDiv{
+	position:absolute;
+	background:#e9f1f6;
+	border:1px solid #4990c4;
+	display:none;
+	max-height:250px;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+#wsDiv UL LI{
+	color:#205484;
+	font-size:14px;
+	height:25px;
+	padding:0px 24px 0px 10px;
+	cursor:pointer;
+}
+#wsDiv UL LI:hover{
+	background:url(globalImg/chgbg.png) repeat-x;
+}
+#wsDiv UL LI.has{
+	background:yellow;
+	cursor:default;
+}
+#wsDiv UL LI.has:hover{
+	background:yellow;
+	cursor:default;
+}
+#wsDiv UL LI.current{
+	background:#87bee6;
+}
+#wsDiv UL LI.current:hover{
+	background:#87bee6;
+}

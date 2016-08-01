@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* CSS Document */
+
+#noticeX {
+	width: 960px;
+	height: 200px;
+	float: right;
+	min-height: 605px;
+	height: auto;
+	margin-top: 10px;
+	overflow: hidden;
+	border: 1px solid #cbcbcb;
+	padding-top: 10px;
+}
+
+#noticeX .title {
+	margin: 15px 0;
+	text-align: center;
+}
+
+#noticeX .noticeContent {
+	font-family: "\5B8B\4F53", "SimSun";
+	font-size: 14px;
+	line-height: 2;
+	width: 920px;
+	margin: 0 auto;
+}
+
+#noticeX .noticeContent .bottom {
+	display: inline-block;
+	float: right;
+	margin-right: 40px;
+	text-align: center;
+}

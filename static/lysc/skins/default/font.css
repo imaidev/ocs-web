@@ -1,0 +1,468 @@
+@charset "utf-8";
+/* CSS Document */
+/*commonFont*/
+.commonBtnFont01{
+	font-size:20px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#6a430f;
+	}
+.commonBtnFont02{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#000000;
+	font-weight:normal;
+	}
+/*支付成功*/
+.commonMsgFont01{
+	font-family:"\9ED1\4F53 ","SimHei";
+	font-size:18px;
+	color:#009900;
+	}
+.commonMsgFont02{
+	font-family:"\5B8B\4F53","SimSun";
+	font-size:12px;
+	color:#666666;
+	}
+.commonMsgFont03{
+	font-family:"\5B8B\4F53","SimSun";
+	font-size:14px;
+	font-weight:bold;
+	color:#333333;
+	}
+.commonMsgFont04{
+	font-family:"\5B8B\4F53","SimSun";
+	font-size:12px;
+	color:#333333;
+	
+	}
+/*公用箭头样式*/
+.arrowsFont{
+	font-size:16px;
+	font-family:"arial";
+	color:#fe6700;
+	}
+
+/*首页start
+字体头上登陆欢迎nav*/
+.loginBarFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#393332;
+	}
+/*搜索字体*/
+.searchFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#609280;
+	}
+/*热门搜索字体*/
+.hotSrhFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#777777;
+	}
+	
+.mainNavFont{
+	font-size:16px;
+	font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";
+	color:#ffffff;
+	font-weight:bold;
+	}	
+.myCartFont{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#555554;
+	}
+.cartSumFont{
+	font-size:11px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#ffffff;
+	font-weight:bold;
+	}
+/*全部商品分类 font*/
+.categoryFont{
+	font-size:16px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#de8114;
+	}
+/*友情链接*/	
+.friendLinkFont{
+	font-size:16px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#1a1a1a;
+	}
+	
+/*首页底部的服务*/	
+.serviceHeaderFont{
+	font-size:16px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#4b4b4b;
+	font-weight:bold;
+	}	
+.serviceContentFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#353535;
+	}	
+
+/*footer*/
+.footerFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#ffffff !important;
+	}
+	
+.menuFont01{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#ffffff;
+	}
+.menuFont02{
+	font-weight:bold;
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#474747;
+	}
+.menuFont03{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#474747;
+	}
+/*当季特卖*/	
+.promotionTitleFont{
+	font-size:15px;
+	font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";
+	letter-spacing:1px;
+	color:#fe6700;
+	font-weight:bold;
+	}
+.pNameFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#8c8c8c ;
+	}
+.pPriceFont{
+	font-size:16px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#fdac2d;
+	font-weight:bold;
+	}
+.psignFont{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#8c8c8c;
+	}
+/*代收代缴*/
+.taxNameFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#333333;
+	}
+.taxDtFont{
+	font-size:20px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#f8faf9;
+	}
+.taxDdFont{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#383838;
+	}
+	
+/*floor*/
+.floorFont01{
+	font-size:16px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#68ad1d ;
+	}	
+.floorFont02{
+	font-size:16px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#1a1a1a ;
+	letter-spacing:2px;
+	font-weight:bold;
+	}	
+.floorFont03{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#666666;
+	}	
+/*更多品牌*/
+.moreBrandFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#717171 ;
+	}
+.floorDtFont{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#4b4b4b ;
+	line-height:20px;
+	}
+.floorDdFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#4b4b4b ;
+	}
+	
+/*右边栏*/
+.contentRightDtFont{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#065f45  ;
+	}
+.contentRightFont01{
+	font-size:18px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#6d472a  ;
+	}
+.contentRightFont02{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#6d472a  ;
+	}
+.contentRightFont03{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#ffffff;
+	}
+.loginTabFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#505050;
+	}
+.customerServiceFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun ";
+	color:#666666;
+	}
+.moreServiceFont{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#4f850d;
+	}
+.oneCardFont01{
+	font-size:16px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#6f8d48;
+	font-weight:bold;
+	}
+.oneCardFont02{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#474747;
+	}
+/*首页end*/
+
+/*购物车字体样式start*/
+.cartFont1{
+	font-family:"\5B8B\4F53","SimSun";
+	font-size:14px;
+	color:#F2B816;
+	}
+.titleFont01{
+	font-size:18px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#000000;
+	}
+.titleFontSeq1{
+	font-size:30px;
+	font-family: "Arial";
+	font-weight:bold;
+	font-style:italic;
+	color:#096c57 ;
+	}
+.titleFontSeq2{
+	font-size:30px;
+	font-family: "Arial";
+	font-weight:bold;
+	font-style:italic;
+	color:#b2b2b2  ;
+	}
+.titleFontSeq1_1{
+	font-size:18px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#096c57 ;
+	}
+.titleFontSeq2_1{
+	font-size:18px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#b2b2b2 ;
+	}
+.tableDtFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#646464;
+	}
+.tableDdFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#145899;
+	}
+.cartItemPFont{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#010101 ;
+	font-weight:bold;
+	}
+.itemsAcountFont1{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#050505;
+	font-weight:bold;
+	}
+.itemsAcountFont2{
+	font-size:24px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#c50404 ;
+	font-weight:bold;
+	}
+.cartFooterFont1{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#333333 ;
+	}
+.cartFooterFont2{
+	font-size:20px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#6a430f;
+	}
+/*购物车字体样式end*/
+
+/*商品列表start*/
+.commonFont1{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#333333;
+	}
+.commonFont2{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#005aa0;
+	}
+.crumbFont2{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#333333;
+	font-weight:bold;
+	}
+.allKindsFont1{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#f59d01;
+	font-weight:bold;
+	}
+.allKindsFont2{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#333333;
+	font-weight:bold;
+	}
+.allKindsFont3{
+	font-size:14px;
+	font-family:"Arial";
+	color:#999999;
+	}
+.proPriceFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#dd0000;
+	font-weight:bold;
+	}
+/*商品列表end*/
+
+/*商品明细start*/
+.detailDtFont1{
+	font-size:16px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#333333;
+	font-weight:bold;
+	}
+.detailDtFont2{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#333333;
+	}
+.proPriceFont{
+	font-size:16px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#dd0000;
+	font-weight:bold;
+	}
+.proPriceFont2{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#dd0000;
+	font-weight:bold;
+	}
+.favFont{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#008000;
+	}
+/*商品明细end*/
+
+/*order*/
+.orderFont1{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#f59d01;
+	font-weight:bold;
+	}
+.orderFont2{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#333333;
+	}
+.orderFont3{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#000000;
+	}
+.orderFont4{
+	 color:#000000;
+	 font-size:14px;
+	 font-weight:bold;
+	 font-family:"\5B8B\4F53","SimSun";
+	}
+.orderFont5{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#c68600;
+	font-weight:bold;
+	}
+.orderFont6{
+	color:#000000;
+	 font-size:14px;
+	 font-weight:bold;
+	 font-family:"\5B8B\4F53","SimSun";
+	}
+	
+/*orderDetail*/
+.orderDetailFont01{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#333333;
+	}
+	
+/*oneCard*/
+.oneCard01{
+	font-size:24px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#b00003;
+	}
+.oneCard02{
+	font-size:16px;
+	font-family:"\9ED1\4F53 ","SimHei";
+	color:#434343;
+	font-weight:bold;
+	}
+.oneCard03{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	color:#4c4c4c;
+	}
+.oneCard04{
+	font-size:12px;
+	font-family:"\5B8B\4F53","SimSun";
+	}

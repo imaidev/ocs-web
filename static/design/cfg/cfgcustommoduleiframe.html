@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+    
+    <script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+    <script>
+        function setSquence() {
+            var divlist = $('#EditorBox').children();
+            var len = divlist.length;
+            divlist.each(function (i,item) {
+                if (i == 0) {
+                    $(this).addClass('first')
+                    if(len>1) $(this).removeClass('last');
+                }
+                if (i == len - 1) {
+                    $(this).addClass('last');
+                    if(len>1) $(this).removeClass('first');
+                }
+                if (i>0 && i < len - 1) {
+                    $(this).removeClass('last').removeClass('first');
+                }
+                if (i % 2 == 0) {
+                    $(this).addClass('even').removeClass('odd');
+                }
+                else {
+                    $(this).addClass('odd').removeClass('even');
+                }
+            })
+            
+            setValidate();
+        }
+    	
+    	// 就将此元素插到下一个元素之后，从而实现互换顺序
+    	function actDown(Obj) {
+    		$(Obj).parent().parent().next().after($(Obj).parent().parent());
+    		// 重新设置排序规则
+    		setSquence();
+    	}
+    	
+    	// 就将此元素插到上一个元素之后，从而实现互换顺序
+    	function actUp(Obj) {
+    		$(Obj).parent().parent().after($(Obj).parent().parent().prev());
+    		// 重新设置排序规则
+    		setSquence();
+    	}
+        $(function () {
+            $('#titleBase').click(function () {
+                $(this).addClass('selected');
+                $(this).siblings().removeClass('selected');
+                $("#tabBase").removeClass('hidden');
+                $("#tabBase").siblings().addClass('hidden');
+            });
+
+            $('#titleSenior').click(function () {
+                $(this).addClass('selected');
+                $(this).siblings().removeClass('selected');
+                $("#tabSenior").removeClass('hidden');
+                $("#tabSenior").siblings().addClass('hidden');
+            });
+            
+            $('.style-container > ul > li').click(function () {
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+            });
+
+            $('input[name=autoPlay]').click(function() {
+            	if ($(this).val() == "true") {
+            		$('#interTime').parent().show();
+            	} else {
+            		$('#interTime').parent().hide();
+            	}
+            });
+            
+            //加载数据
+            $(parent._cfg.tags).each(function(){
+            	addRow(this.id, this.title, this.url, this.target);
+            });
+            
+            $('.style-container > ul > li[data-id='+parent._cfg.skinClass+']').addClass('active');
+            $('#moduleTitle').val(parent._cfg.moduleTitle);
+            $('#delayTime').val(parent._cfg.delayTime);
+           	$('#effect').val(parent._cfg.effect);
+           	$('input[name=autoPlay][value='+parent._cfg.autoPlay+']').attr('checked', 'checked');
+           	$('input[name=trigger][value='+parent._cfg.trigger+']').attr('checked', 'checked');
+        	$('#interTime').val(parent._cfg.interTime);
+          	if (!parent._cfg.autoPlay) {
+          		$('#interTime').parent().hide();
+           	}
+            
+            setValidate();
+        })
+        function setValidate(){
+        	$('#displaySetForm').validate({
+        		onkeyup: function(element) {$(element).valid()},
+	            rules:{
+	            	delayTime:{required:true,digits:true,max:5000,min:0},
+	            	interTime:{required:true,digits:true,max:5000,min:0},
+	            	moduleTitle:{maxlength:8},
+	            	tagUrl:{url:true,maxlength:255},
+	            	tagName:{required:true,maxlength:8}
+	           	},
+				showErrors: function(errorMap, errorList) {
+	            	if(errorList.length>0){
+	            		$.each(errorList,function(index,error){
+		            		var element=$(errorList[index].element);
+		            		var msgContainer=element.parent().parent().find('.V_Msg');
+		            		if(msgContainer.length>0){
+		            			msgContainer.find('span').text(error.message);
+		            			if(error.message!="")
+		            				msgContainer.removeClass('hidden').addClass('failure');
+		            			else
+		            				msgContainer.removeClass('failure').addClass('hidden');
+			           		}
+		            	})
+	            	}
+	            	else{
+	            		this.currentElements.parent().parent().find('.V_Msg').each(function(){
+	            			$(this).removeClass('failure').addClass('hidden');
+	            		})
+	            	}
+	            	
+	           	}
+            });
+        }
+        function cfgSet(){
+        	if(!$('#displaySetForm').valid()){
+        		return;
+        	}
+         	//组件更新
+        	var o={
+        			skinClass:$('.style-container > ul > li.active').attr("data-id"),
+        			moduleTitle:$('#moduleTitle').val(),
+        			effect:$('#effect').val(),
+        			autoPlay:$('input[name=autoPlay]:checked').val()=="true"?true:false,
+     				trigger:$('input[name=trigger]:checked').val(),
+        			interTime:$('#interTime').val(),
+        			tags:[]
+        	}
+        	$('#EditorBox').children().each(function(i){
+        		o.tags[i]={};
+        		o.tags[i].id=$(this).find('input[name="tagId"]').val();
+        		o.tags[i].title=$(this).find('input[name="tagName"]').val();
+        		o.tags[i].url=$(this).find('input[name="tagUrl"]').val();
+        		o.tags[i].target=$(this).find('input[name^="tagTarget_"]:checked').val();
+        	})
+        	parent._$module.tablayout('reset',o);
+        	
+        	//关闭配置框
+        	parent.cfgClose(); 
+        }
+        
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div class="tab">
+            <ul class="nav clear-fix">
+                <li class="selected" id="titleBase"><span>基本设置</span></li>
+                <li id="titleSenior"><span>高级设置</span></li>
+            </ul>
+            <form class="form-default" id="displaySetForm" novalidate="novalidate">
+                <div class="panels">
+                    <div class="panel" id="tabBase">
+                    </div>
+                    <div class="panel hidden" id="tabSenior">
+                        <div class="control-group">
+                            <label class="control-label">模块标题:</label>
+                            <div class="control">
+                                <input class="input-box moduleTitle" id="moduleTitle" type="text" maxlength="8" name="moduleTitle" value="请输入模块标题"><span>  要显示模块标题，请同时在样式工具中选择显示标题</span>
+                            </div>
+                            <span class="V_Msg msg hidden"><i class="msg-icon"></i><span class="text"></span></span>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">效果速度:</label>
+                            <div class="control">
+                                <div style="display: inline-block;">
+                                    <input autocomplete="off" class="delayTime" id="delayTime" name="delayTime" type="text" value="500"/><span>ms</span><span>请设置在0-5000之间</span>
+                                </div>
+                                <span class="V_Msg msg hidden"><i class="msg-icon"></i><span class="text"></span></span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">切换效果:</label>
+                            <div class="control">
+                                <select id="effect" name="effect">
+                                    <option value="fade">渐显</option>
+                                    <option value="left">左右滚动</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">触发方式:</label>
+                            <div class="control trigger">
+                                <input type="radio" class="input-radio" name="trigger" value="mouseover">鼠标移过标签
+                                <input type="radio" class="input-radio" name="trigger" value="click">鼠标点击标签
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">自动运行:</label>
+                            <div class="control autoPlay">
+                                <input type="radio" class="input-radio" name="autoPlay" value="true">是
+                                <input type="radio" class="input-radio" name="autoPlay" value="false">否
+                                <div style="display: inline-block;margin-left: 10px;">
+	                                	时间间隔：<input autocomplete="off" class="interTime" id="interTime" name="interTime" type="text" value="2500"/><span>ms</span><span>请设置在0-5000之间</span>
+                                </div>
+                                <span class="V_Msg msg hidden"><i class="msg-icon"></i><span class="text"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <p class="opt-footer ctset-opt-footer">
+            <a href="javascript:void(0);" class="btn-ok" onclick="cfgSet()">保存</a>
+            <a href="javascript:void(0);" class="btn-cancel" onclick='parent.cfgClose();'>取消</a>
+        </p>
+    </div>
+
+</body>
+</html>

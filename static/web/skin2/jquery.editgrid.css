@@ -1,0 +1,434 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body,th,input
+	{
+	margin: 0;
+	padding: 0;
+}
+body {
+	border: 0;
+}
+
+.editgrid{
+border-collapse:collapse;
+border-top:1px solid #bfcfda;
+border-right:1px solid #bfcfda;
+border-bottom: 0px ;
+font-size:12px !important;
+text-align:center;
+table-layout:fixed;
+overflow-y:auto;
+}
+.editgridtfoot.editgrid.editgridlistGridItem{
+border-top:0px solid #bfcfda;
+}
+
+.editgridtfoot.editgrid.editgridlistGridItem tr:first-child td{
+border-top:0px solid #e1e4e9 !important;
+}
+/***************************
+ie firefox google safari
+***************************/
+.editgrid thead{background-color: #ecf0f1;}
+.editgrid th{
+	vertical-align:middle;
+    text-align:center;
+	color:#343434; 
+	font-size:12px;	   
+	overflow:hidden; 
+ 	text-overflow:ellipsis; 
+    white-space:nowrap; 
+/*
+    FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType='0',startColorStr='#fafafc',endColorStr='#e3e6eb');
+    background: -moz-linear-gradient(top, #f9f9fb, #eaedf2);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9f9fb), to(#eaedf2)); */
+    border:1px solid #dde7f0 ;
+}
+/*
+.editgrid th:first-child{
+    border-left:1px  solid #fff !important;
+}
+*/
+.editgrid tr.highlight {
+	BACKGROUND-COLOR: #d5effc url(images/hl.png) repeat-x top;
+}
+.editgrid tr.selected {
+	color:#333;
+	BACKGROUND-COLOR: #d9effa !important;	
+}
+.editgrid tr:nth-child(even).selected td {
+ 	BACKGROUND-COLOR: #d9effa ;
+}
+.editgrid tr:nth-child(even).selected td input{
+ 	BACKGROUND-COLOR: #fff ;
+}
+.editgrid tr:nth-child(even).selected td input[readonly]{
+    BACKGROUND-color: #d9effa;
+	border: 1px solid #d9effa;
+	color:#ffffff; 
+	margin:0px;
+	vertical-align:middle;
+	valign:"center";
+}
+.editgrid tr.selected .deleteBox{
+ background:url(flexgrid/delete1_hover.png);
+ cursor:pointer;
+}
+.editgrid  tr td button{
+	margin-left: 1px!important;
+}
+.editgrid td input[type="text"] {
+	BORDER-LEFT: transparent 1px solid;
+	BORDER-RIGHT: transparent 1px solid;
+	BORDER-TOP: transparent 1px solid;
+	BORDER-BOTTOM: transparent 1px solid;
+	}
+	
+.editgrid  tr td .inputHelpDiv {
+	BORDER-LEFT: transparent 1px solid;
+	BORDER-RIGHT: transparent 1px solid;
+	BORDER-TOP: transparent 1px solid;
+	BORDER-BOTTOM: transparent 1px solid;
+	background-color:transparent;
+	margin:0px;
+}
+	
+.editgrid  tr.selected td input{
+    text-align:center;
+    color:#ffffff; 
+	font-size:12px !important;
+	color:#343434;
+	/*BACKGROUND-COLOR: #eeeff4;*/
+	BACKGROUND-COLOR: #fff;
+}
+.editgrid  tr.selected td input[readonly]{
+    BACKGROUND-COLOR: #7a9dd7;
+	border: 0px solid #7a9dd7;
+	color:#ffffff; 
+	margin:0px;
+	vertical-align:middle;
+	valign:"center";
+}
+.editgrid  tr.selected td .inputHelpDiv {
+   	background-color:transparent;
+	border:0px;
+	color:#ffffff; 
+	vertical-align:middle;
+	valign:"center";
+}
+.editgrid  tr.selected td input.help {
+   	background-color:transparent;
+	border:0px;
+	color:#ffffff; 
+	vertical-align:middle;
+	valign:"center";
+}
+.editgrid  tr td input{
+	width:98%;
+    text-align:center;
+    color:#343434; 
+    font-size:12px !important;
+    margin-left:0px !important;
+    padding-left:0px !important;
+ 
+}
+
+.editgrid  tr td input[type='radio'],.editgrid  tr td input[type='checkbox']{
+	width:auto;
+    text-align:center;
+    color:#343434; 
+    font-size:12px !important;
+    margin-left:0px !important;
+    padding-left:0px !important;
+   	background-color:transparent !important;
+}
+.editgrid  tr td select{
+	width:98%;
+}
+.editgrid  tr td button{
+	width:98%;
+}
+/*
+.editgrid tr.selected td input.focus{
+	color:#343434;
+	BACKGROUND-COLOR: #eeeff4;
+	
+}
+*/
+/*
+.editgrid tr.selected input[readonly].focus{
+    BACKGROUND: #7a9dd7;
+	border: 0px solid #5574b5;
+	color:#ffffff; 
+	margin:0px;
+	vertical-align:middle;
+	valign:"center";
+}
+*/
+.editgrid tr {
+	height: 30px;
+	border-top: 1px solid #dce7ef;
+}
+.editgrid tr td{
+	border-left:1px solid #dce7ef;
+	border-bottom:1px solid #dce7ef;
+		padding-left:2px;
+	padding-right:2px;
+    text-align:center;
+}
+.editgrid tr td input.alignleft{
+   text-align:left;
+}
+/*
+.editgrid tr .firstVisibleColumn{
+ border-left:1px solid #fff !important;
+}
+*/
+
+.editgrid tr td.aligncenter{
+	border-left:1px solid #dce7ef;
+	border-top:1px solid #dce7ef;
+	padding-left:2px;
+	padding-right:2px;
+	text-align:center;
+}
+.editgrid tr td.alignright{
+	border-left:1px solid #dce7ef;
+	border-top:1px solid #dce7ef;
+	padding-left:2px;
+	padding-right:2px;
+	text-align:right;
+}
+.editgrid tr td.alignleft{
+	border-left:1px solid #dce7ef;
+	border-top:1px solid #dce7ef;
+	padding-left:2px;
+	padding-right:2px;
+	text-align:left;
+}
+.editgrid tr td input.alignright{
+  text-align:right;
+
+}
+.editgrid td td input.alignleft{
+    text-align:left;
+}
+.editgrid td td u.alignleft{
+    text-align:left;
+}
+.editgrid td td u a.alignleft{
+    text-align:left;
+}
+.editgrid tr.sum td{
+	border-left:1px solid #dce7ef;
+	border-top:0px solid #dce7ef;
+    padding:0px;
+	text-align:center;
+}
+.editgrid tr td:first-child{
+
+}
+.editgrid tr:first-child td{
+border-top:1px solid #e1e4e9 !important;
+}
+.editgrid tr:nth-child(even) td input{
+  background-color:#f8f9fd;
+}
+.editgrid tr:nth-child(even) td {
+  background-color:#f8f9fd;
+}
+.editgrid tr.sum {       
+    border-top:0px #bfd0da solid;  	
+    border-bottom:1px #bfd0da solid;  
+}
+.editgrid tr.sum td{
+	 *border-bottom:1px #bfd0da solid;/*ie7*/
+}
+.editgrid tr.sum td{
+ text-align:right;
+ padding-right:2px;
+}
+.editgridtfoot {
+ background:url("flexgrid/editgridBj.jpg") #d9e3fc repeat-x;
+}
+.editgridtfoot tr td{
+	height: 30px;
+	/*
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType='0',startColorStr='#f9f9fb',endColorStr='#eaedf2');
+    background: -moz-linear-gradient(top, #f9f9fb, #eaedf2);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9f9fb), to(#eaedf2));*/
+}
+.editgridtfoot tr.sum {
+	
+}
+.editgrid tr td span.jNiceWrapper{
+	padding-right:4px;
+}
+
+.editgrid tr td span.jNiceCheckbox{
+	width:100% !important;
+}
+.editgrid tr td span.jNiceRadio{
+	width:100% !important;
+}
+/*�̶�����ʽ��ʼ*/
+.editgrid td.indexEgridTd{
+ background-color:#f5f7f6 !important;
+}
+.editgrid td.indexEgridTd input{
+ background-color:#f5f7f6 !important;
+}
+.editgrid  tr.selected td.indexEgridTd input{
+    text-align:center;
+    color:#ffffff; 
+	font-size:12px !important;
+	color:#343434;
+	/*BACKGROUND-COLOR: #eeeff4;*/
+	BACKGROUND-COLOR: #f5f7f6;
+}
+.editgrid  tr.selected td.indexEgridTd input[readonly]{
+    BACKGROUND-COLOR: #f5f7f6;
+	border: 0px solid #5574b5;
+	color:#343434; 
+	margin:0px;
+	vertical-align:middle;
+	valign:"center";
+}
+/*�̶�����ʽ����*/
+.editgrid td label{
+ width:98%;
+ margin-left:0px;
+ display:inline-block;
+ white-space:nowrap; 
+ border:0px;
+}
+.editgrid td label.help input{
+ width:98%;
+}
+.editgrid td label.help a.help{
+ position:auto;
+ background-image: url("flexgrid/bangzhu.jpg");
+ background-position: 98% 50%;
+ background-repeat: no-repeat;
+ width:20px;
+ margin-left:-20px;
+ height:20px;
+ display:inline-block;
+}
+/*������ͷ��������ʽ��ʼ*/
+.fixedEditgridHead{
+ width:100%;
+ height:30px;
+ position:relative;
+ top:0px;
+ z-index:99;
+ table-layout:fixed;
+ left:0px;
+}
+.fixedEditgridHead thead{
+	background:url("flexgrid/editgridBj.jpg") #d9e3fc repeat-x;
+}
+.fixedEditgridHead th{
+	vertical-align:middle;
+    text-align:center;
+	color:#343434; 
+	font-size:12px;	   
+	overflow:hidden; 
+ 	text-overflow:ellipsis; 
+    white-space:nowrap; 
+/*
+    FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType='0',startColorStr='#fafafc',endColorStr='#e3e6eb');
+    background: -moz-linear-gradient(top, #f9f9fb, #eaedf2);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9f9fb), to(#eaedf2)); */
+    border-left:1px solid #bfcfda ;
+}
+fixedEditgridHead th{
+	 vertical-align:middle;
+    text-align:center;
+	color:#343434; 
+	font-size:12px;	   
+	overflow:hidden; 
+ 	text-overflow:ellipsis; 
+    white-space:nowrap; 
+}
+.fixedEditgridFoot tfoot td{
+  	vertical-align:middle;
+    text-align:center;
+	color:#343434; 
+	font-size:12px;	   
+	overflow:hidden; 
+ 	text-overflow:ellipsis; 
+    white-space:nowrap; 
+/*
+    FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType='0',startColorStr='#fafafc',endColorStr='#e3e6eb');
+    background: -moz-linear-gradient(top, #f9f9fb, #eaedf2);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9f9fb), to(#eaedf2)); */
+    border-left:1px solid #bfcfda ;
+}
+.fixedEditgridFoot{
+ width:100%;
+ height:30px;
+ position:relative;
+ top:0px;
+ z-index:900;
+ table-layout:fixed;
+ left:0px;
+}
+.fixedEditgridFoot tfoot{
+	background:url("flexgrid/editgridBj.jpg") #d9e3fc repeat-x;
+}
+.editgridFixedInDiv{
+ position:relative;
+ overflow-y:auto;
+}
+/*������ͷ��������ʽ����*/
+/*�������������ʽ��ʼ*/
+.editgrid label.sampleSelectTree input[type='text']{
+  margin-left:0px;
+  float:left;
+  width:100%;
+  border: 1px;
+    border-style: double solid  solid solid;
+    /* 	border-style: dotted solid double dashed;  */  
+    /* 	background-color: transparent;  */
+    border-color: #ccc;
+}
+.editgrid a.sampleSelectTreeBtn{
+  width:23px;
+  height:23px;
+  display:inline-block;
+  background: url(selectbox/selectTreeArrow.png) no-repeat center;
+  border-left: 1px;
+  border-right:0px;
+  border-top:0px;
+  border-bottom:0px;
+  border-style: double solid  solid solid;
+  border-color: #ccc;
+  float:float;
+  margin-left:-23px;
+}
+
+.editgrid .v6_selectTree_button{
+	  width:50px;
+    background:#dddce3;
+    height:25px;
+    color:#1d1d1d;
+    outline:none;
+    border:1px solid #becfd9;
+    border-radius: 5px;
+    padding-left:5px;
+	padding-right:5px;
+	letter-spacing:2px;
+	margin-left:5px;
+	margin-right:5px;
+	cursor:pointer;
+    -moz-box-shadow: 0px 0px 0px #000;
+    -webkit-box-shadow: 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px #000;
+}
+/*�������������ʽ����*/
+
+.wrapEditDiv{
+ 
+}

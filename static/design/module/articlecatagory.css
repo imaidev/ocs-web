@@ -1,0 +1,8 @@
+@charset "utf-8";/* CSS Document*/
+/***文章分类 ***/
+.newsCategory{overflow:hidden;}
+.newsCategory ul{width:100%;}
+.newsCategory ul li.upright{ border-bottom:#aaa dashed 1px;}
+.newsCategory ul li a{word-wrap:break-word; word-break:normal; display:block; margin:0; padding:7px 4px;}
+.newsCategory ul li.transverse{ float:left; margin-right:5px;}
+.newsCategory ul li.transverse a{word-break:break-all; display:block; margin:0; padding:2px 4px;}

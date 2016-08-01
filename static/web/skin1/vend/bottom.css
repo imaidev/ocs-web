@@ -1,0 +1,148 @@
+.page-area{
+    width:1200px;
+	margin:0 auto;
+}
+a{
+	text-decoration: none;
+}
+#links{
+	border:1px solid #e7e7e7;
+	height:58px;
+	margin-bottom:10px;
+	background-color:#fafafa;
+}
+#links .linkother{
+	margin-left:270px;
+	color:#666666;
+	font-size:20px;
+	font-weight:800;
+	display:inline;
+	float:left;
+	line-height:58px;
+}
+#links span{
+    margin-top:12px;
+	margin-left:26px;
+	width:100px;
+	height:33px;
+	display:inline-block;
+}
+#service{
+	padding:25px 0 30px 0;
+	border-top:1px dashed #D0D0D0;
+	overflow:hidden;
+	clear:both;
+	min-width:1200px;
+	width:100%;
+	margin:0 auto;
+	background: url() repeat-x top;
+	border-top:2px solid #e8e8e8;
+	background-color:#f9f9f9;
+	}
+#service .serviceContent{
+	font-size:14px;
+	font-family:"\5B8B\4F53","SimSun";
+	margin:0 auto;
+	width:1200px;
+	overflow:hidden;
+    
+	}
+	#service .dd{
+		float:left;
+		width:160px;
+		overflow:hidden;
+		padding-left:30px;
+		
+		}
+	#service .dd1{
+		background: url() no-repeat left top;
+		}
+		#service .dd2{
+		background: url() no-repeat left top;
+		}
+		#service .dd3{
+		background: url() no-repeat left top;
+		}
+		#service .dd4{
+		background: url() no-repeat left top;
+		}
+		#service .dd5{
+		background: url() no-repeat left top;
+		}
+	#service .dd6{
+		position:relative;
+		width:214px;
+		height:159px;
+		float:right;
+		}
+	#weibo{
+		position:absolute;
+		top:135px;
+		width:67px;
+		height:24px;
+		left:60px;
+		z-index:2;
+		}
+		 
+		#service .sTitle{
+			padding-left:5px;
+			height:30px;
+			line-height:30px;
+			vertical-align:middle;
+			width:110px;
+	        border-bottom:1px solid #cbcbcb;
+	        font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";
+			font-size:16px;
+			font-weight:bold;
+			color:#666666;
+			letter-spacing:1px;
+			padding-bottom:5px;
+			}
+#service li{
+	margin-top:8px;
+	}
+#service li a{
+	color:#666666;
+	}
+#foot-protectinfo{
+	overflow:hidden;
+	margin:0 auto;
+	width:100%;
+	height:60px;
+	margin-left:189px;
+}
+#foot-protectinfo span{
+	width:130px;
+	height:34px;
+	margin-top:14px;
+	margin-left:108px;
+	display:inline-block;
+}
+#footer{
+	padding:28px 0;
+	overflow:hidden;
+	margin:0 auto;
+	min-width:1200px;
+	width:100%;
+	font-size:14px;
+	color:#666666;
+	line-height:25px;
+	border-top:1px solid #cccccc;
+}
+
+#footer .fContent{
+	text-align:center;
+	}
+#footer .fContent ul{
+	margin-bottom:18px;
+}
+#footer .fContent ul li{
+	padding-left:5px;
+	padding-right:5px;
+	display:inline;
+	}
+#footer .fContent li a{color:#666666;}
+#footer .fContent span{
+	color:#666666;
+	margin-bottom:16px;
+}

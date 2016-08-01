@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+#help{ margin:0 auto; padding:10px 0; overflow:hidden;}
+.helpCon{ padding:15px; overflow:hidden; line-height:2;}
+.helpCon img{ margin-left:10px; max-width:90%;}
+.helpCon table{ border:1px solid #E4E4E4;table-layout:fixed;}
+.helpCon table td{border:1px solid #E4E4E4;table-layout:fixed;}
+.help-tit{ padding:5px 0;}
+.help-tit2{ padding:5px 15px 0 25px;}
+.help-box{ padding:5px 15px 20px 25px;border-bottom:1px dotted #dddddd;}
+.help-box2{ padding:5px 15px 20px 50px;border-bottom:1px dotted #dddddd;}
+
+.left-menu{ border:1px solid #dddddd; border-bottom:0; overflow:hidden;}
+.left-menu .menuCell{ border-bottom:1px solid #dddddd; overflow:hidden;}
+.left-menu .menuCell ul{ padding:8px 0; border-top:1px solid #dddddd;}
+.left-menu .menuCell li{ padding-left:30px; line-height:25px;}
+.left-menu .menuCell li a{ color:#666;}
+
+.titleH3{ height:40px; margin-top:10px; line-height:40px; vertical-align:middle; padding-left:15px; border:1px solid #E4E4E4; background-color:#FFFFFF !important; color:#333; border-bottom:2px solid #FF5F3D; }
+.titleH3 dt{width:30%; float:left; }
+.titleH3 dd{width:60%; float:right; text-align:right;}
+.newsList .tableB{ width:100%; border:1px solid #E4E4E4;table-layout:fixed;}
+.newsList .tableB th{ border-left:0; border-right:0;line-height:35px; vertical-align:middle; background-color:#fafafa; text-align:center;  font-size:14px;font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.newsList .tableB td{min-height:30px; height:30px; word-break : break-all ; word-wrap : break-word ;line-height:20px; padding:5px; vertical-align:middle; text-align:center;  }
+
+.newInfo{ padding:20px 25px; overflow:hidden; line-height:25px;}
+.newInfo h2{ height:35px; line-height:35px; vertical-align:middle; text-align:center;}
+.newInfo .newTime{ height:25px; line-height:25px; vertical-align:middle; text-align:center;}
+.newInfo .newDetail{ padding:10px; letter-spacing:1px;}

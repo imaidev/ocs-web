@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+/****用户登录****/
+.logo{width:990px; padding:36px 0; overflow:hidden; margin:0 auto;}
+.logo a img{vertical-align:middle;}
+.logo h2{color:#666; font-size: 24px; line-height: 24px; font-weight:700;font-family:'Microsoft Yahei'; padding: 35px 0 0 15px; float: left;}
+.loginContent{height:470px; width:100%; background:#e8e9e1; margin-bottom:-20px;}
+.loginMain{width:1200px; height:470px; margin:0 auto; background:url(../images/login.png) no-repeat center center;}
+.loginMessage{width:290px; padding:40px;float: right; margin-top:45px; margin-right:50px;background: #fff;overflow: visible; border-radius:4px;box-shadow:0px 0px 0px 4px #dbdcd5;}
+.loginF{padding-bottom:26px; overflow:hidden;}
+.loginF h2{float: left;padding: 8px 0;color: #5E5E5E;font-weight: 500;font-size: 18px;line-height: 20px;}
+.loginF a{float: right;margin-top:10px; text-decoration:none;}
+.loginF a:hover{ color:#098CD0;}
+.loginAdmin{border:1px solid #ddd; height:30px; width:290px; margin-bottom:20px; position:relative;}
+.loginAdmin label{position:absolute; top:0; left:0; background:url(../images/login_icon.png) no-repeat; background-position:-3px 0; height:30px; width:30px;}
+.loginAdmin label.password{background-position:-3px -25px;}
+.loginAdmin input.loginN{height:16px; line-height:16px; border:none; padding:7px 0 5px 40px; width:240px; outline:none;}
+.loginAdmin input.loginP{height:16px; line-height:16px; border:none; padding:7px 0 5px 40px; width:240px; outline:none;}
+.postion{position:relative;}
+.postion input.prt{position:relative; top:3px;}
+.forget{display:block; float:right; position:absolute; top:1.5px; right:0;}
+.signIn{width:290px; background:#fda123; height:40px; line-height:40px; border-radius:2px; font-family:'Microsoft Yahei'; text-align:center; margin-bottom:25px;}
+.signIn:hover{background:#f09922;}
+.signIn a{color:#fff; font-size:18px; text-decoration:none;display:block;}
+.yzm{width:290px; height:30px; line-height:30px; margin-bottom:20px; position:relative;}
+.yzm input.Vcode{width:80px; height:30px; line-height:30px; padding-left:10px; display:block; float:left;}
+.yzm a{display:block;text-decoration:none; color:#ff4400; position:absolute; top:0; right:70px;}
+.yzm a.pic{position:absolute; top:0; right:120px;}
+
+/***注册****/
+.register{overflow:hidden; border-left:1px solid #E4E4E4; border-bottom:1px solid #E4E4E4; margin-bottom:10px;}
+.register .registerHd{height:40px;line-height:40px;vertical-align:middle;border-bottom:1px solid #E4E4E4; position:relative;}
+.register .registerHd li{cursor:pointer;text-align:center;float:left;border-right:1px solid #E4E4E4; height:40px; line-height:40px; vertical-align:middle;
+border-top:1px solid #E4E4E4; padding:0 25px;}
+.register .registerHd li.on{background-color:#ffffff;border-top:3px solid #FF5F3D; height:38px;}
+.register .registerBd div{overflow:hidden; padding:5px;border-right:1px solid #E4E4E4;}
+.register .registerBd table{ width:70%; float:left; border:0; table-layout:fixed;}
+#mailbox td,#phone td{ height:50px;}
+#mailbox,#phone{ width:100%; margin-top:30px;}
+.register .registerBd ul{ width:250px; float:right; margin-right:80px; margin-top:30px;}
+.register .registerBd ul li{ overflow:hidden; margin-top:10px; padding:10px;}
+.register .registerBd ul table{table-layout:fixed; width:100%; line-height:25px;}
+#mailbox{ display:none;}
+.register input[type="text"]{display:inline-block;*display:inline;*zoom:1; height:25px; vertical-align:middle; line-height:20px; padding:0 5px; outline-style:none; color:#333;border:1px solid #cccccc;}
+.register input[type="radio"],.buyerCon input[type="checkbox"]{ display:inline-block;*display:inline;*zoom:1;}
+.register select{display:inline-block;*display:inline;*zoom:1; height:25px; vertical-align:middle; line-height:20px; outline-style:none; color:#333;border:1px solid #cccccc;}
+.register input[type="password"]{display:inline-block;*display:inline;*zoom:1; height:25px; vertical-align:middle; line-height:20px; padding:0 5px; outline-style:none; color:#333;border:1px solid #cccccc;}
+.register input[type="text"]:focus,.register input[type="password"]:focus{border:1px solid #04A1E6;}
+.re-footer{ line-height:30px; text-align:center; padding:20px 0;}
+#mailgs td,#phone td{ height:50px;}
+#mailgs{ width:100%; margin-top:30px;}
+#mailgs tr td a.huoqu{background:#2797c3;}
+#mailgs tr td a.huoqu:hover{background:#0F82AF;}
+#phone tr td a.huoqu{background:#2797c3;}
+#phone tr td a.huoqu:hover{background:#0F82AF;}
+.denglu{position:absolute; bottom:0; right:10px; color:#5e5e5e;}
+.fcM{color:#F00;}
+
+
+

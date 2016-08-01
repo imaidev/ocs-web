@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+#survey{ padding:10px 0;}
+#survey input[type="radio"],#survey input[type="checkbox"]{ display:inline-block;*display:inline;*zoom:1;float:left; margin:5px 5px 0 0;*margin:2px 0 0 0;}
+#survey input[type="text"]{display:inline-block;*display:inline;*zoom:1; height:25px; vertical-align:middle; line-height:25px; padding:0 5px; outline-style:none; color:#333;border:1px solid #bbbbbb;}
+#survey textarea{ padding:5px;}
+
+.qTitle{overflow:hidden; height:60px; line-height:60px; vertical-align:middle; border-bottom:3px solid #549e37;}
+.qTitle a{ display:block; height:60px; float:left; width:160px;}
+.qTitle h1{ display:block;height:60px; line-height:60px; width:800px; float:left; padding-left:15px;}
+.describe{ padding:15px 10px 0 10px; overflow:hidden;}
+.questionList{ overflow:hidden;padding:0 10px;}
+.questionList h3{font-weight:bold; line-height:25px; letter-spacing:1px; margin-top:15px;}
+.questionList ul{ overflow:hidden; margin-top:5px;}
+.questionList ul li{ line-height:25px; display:inline-block;*display:inline;*zoom:1;padding-right:50px;overflow:hidden; vertical-align:middle; }
+#survey .submit{ text-align:center; padding:20px 0 10px 0;}
+#survey .submit a{ padding:0 25px;}

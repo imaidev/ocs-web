@@ -1,0 +1,60 @@
+<h3 class="edit-tit">文本模块</h3>
+<div class="singleRow">
+	<!--模块使用小贴士-->
+	<div class="toolTips" style="margin-bottom: 15px;">
+		<p class="tipsTit">
+			模块使用小贴士 <a class="closeTip">X</a>
+		</p>
+		<p class="tipsMain">有趣的文字内容能增加店铺的特色气质。</p>
+	</div>
+	<!--模块使用小贴士end-->
+	<div class="form-group clearfix">
+		<label class="fb pb10">文本内容</label>
+		<div class="pr">
+			<textarea class="form-control mt0" placeholder="请输入文本" style="height: 60px; margin-top: 7px; width: 90%;" id="txtCon" onchange="obInputLength(this)" onkeyup="obInputLength(this)"></textarea>
+			<p class="help-block input-help-block">0/100</p>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function() {
+			//关闭小贴士
+			$(".closeTip").click(function() {
+				$(".toolTips").css('display', 'none');
+			})
+
+			//读取文本内容
+			$("#txtCon").val(_cfg.content);
+			obInputLength($("#txtCon")[0]);
+		})
+		//组件保存方法
+	function cfgset() {
+		//文本
+		var txtCon = $("#txtCon").val();
+		if (txtCon.length > 100) {
+			layer.msg("长度超过限制范围！", {
+				offset: 80,
+				shift: 5,
+				time: 2500
+			});
+			return;
+		}
+		if (txtCon.length == 0) {
+			layer.msg("请输入文本！", {
+				offset: 80,
+				shift: 5,
+				time: 2500
+			});
+			return;
+		}
+
+		var o = {
+			content: txtCon
+		}
+
+		_$module.textModule("reset", o);
+
+		hideEdit();
+	}
+</script>

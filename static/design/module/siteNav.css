@@ -1,0 +1,46 @@
+.site-nav{z-index: 10000; width: 100%; background: #F5F5F5; border-bottom: 1px solid #EEE;font-family: "\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";vertical-align: middle;}
+.site-nav .site-nav-bd{margin: 0 auto; width: 1210px; height: 35px; background: #F5F5F5;}
+.site-nav .site-nav-bd .site-nav-bd-l{float: left;}
+.site-nav .site-nav-bd .site-nav-bd-r{float: right;}
+.site-nav .site-nav-bd .site-nav-bd-l .menu{float: left;}
+.site-nav .site-nav-bd .site-nav-bd-r .menu{float: left;}
+.site-nav-bd .menu .menu-hd{position: relative; padding: 0 6px; height: 35px; line-height: 35px;}
+.site-nav-bd .menu .menu-hd a,.site-nav-bd .menu .menu-hd span{color:#666;}
+.site-nav-bd .menu .menu-bd{position: absolute; display: none; top: 35px; left: 0;}
+.site-nav-bd .menu.mailTop{position: relative;}
+.site-nav-bd .menu.mailTop .menu-bd{margin-left:5px;}
+.site-nav-bd .menu .menu-hd .site-nav-vertical{float: left; font-style: normal; color: #DDD;}
+.site-nav-bd .menu .menu-bd .menu-bd-panel{position: absolute; left: 0; top: 0; padding: 8px; line-height: normal; border: 1px solid #EEE; background: #FFF;}
+.site-nav .menu .menu-hd .my-cart-count{color: #f22e00;}
+/**站内信**/
+.site-nav .mailTop .storeregs-outer{position:relative;display:inline-block; overflow:hidden;white-space: nowrap;text-overflow: ellipsis;cursor:pointer; padding-left:5px; padding-right:5px;}
+.site-nav .mailTop .storeregs-outer i{width:15px; height:16px; background:url(../img/mail_icon.gif); display: inline-block; margin: -3px 5px;}
+.site-nav .mailTop:hover .storeregs-outer{background:#fff;}
+/**站内信 end**/
+/**客服中心**/
+.site-nav .custServiceCenter.pull {position: relative;}
+.site-nav .custServiceCenter.pull .menu-hd {padding:0 19px 0 6px;}
+.site-nav .custServiceCenter.pull .menu-hd span {cursor: pointer;}
+.site-nav .custServiceCenter.pull .menu-hd b {width: 10px; height: 9px; position: absolute; top: 13px; right: 6px; background: url(../img/sprite201412.png) -20px -89px no-repeat;}
+.site-nav .custServiceCenter .menu-bd {background-color: #fff; border: 1px solid #ddd; border-top: none; line-height: 29px; min-width: 87px;width:100%; margin-left: -1px;}
+.site-nav .custServiceCenter .menu-bd  li {padding: 0 6px;text-align: center;}
+.site-nav .custServiceCenter .menu-bd  li a {text-decoration: none;display: block;}
+.site-nav .custServiceCenter .menu-bd  li:hover{background-color: #C1C1C1;color:#000}
+.site-nav .custServiceCenter.pull:hover .menu-hd {background-color: #fff;}
+.site-nav .custServiceCenter.pull:hover .menu-bd {display: inline-block;}
+/**客服中心end**/
+/**用户中心**/
+.site-nav .userCenter.pull {position: relative;}
+.site-nav .userCenter.pull .menu-hd {padding:0 6px 0 6px;}
+.site-nav .userCenter.pull .menu-hd span {cursor: pointer;}
+.site-nav .userCenter .menu-bd {background-color: #fff; border: 1px solid #ddd; border-top: none; line-height: 29px; min-width: 87px;width:100%; margin-left: -1px;}
+.site-nav .userCenter .menu-bd  li {padding: 0 6px;text-align: center;}
+.site-nav .userCenter .menu-bd  li a {text-decoration: none;display: block;}
+.site-nav .userCenter .menu-bd  li:hover{background-color: #C1C1C1;color:#000}
+.site-nav .userCenter.pull:hover .menu-hd {background-color: #fff;}
+.site-nav .userCenter.pull:hover .menu-bd {display: inline-block;}
+/**用户中心end**/
+.site-nav .top_icon{position:relative; padding-left:20px;}
+.site-nav .top_icon .cart{position:absolute; width:16px; height:13px; background:url(../img/icon/cart_icon.png); left:0; top:0;}
+.site-nav .top_icon .collect{position:absolute; width:16px; height:13px; background:url(../img/icon/collect_icon.png); left:0; top:0;}
+.site-nav .top_icon .custService{position:absolute; width:16px; height:13px; background:url(../img/icon/serviceOn-top.gif); left:0; top:0;}

@@ -1,0 +1,90 @@
+<h3 class="edit-tit">标题模块</h3>
+<div class="singleRow">
+    <!--模块使用小贴士-->
+    <div class="toolTips" style="margin-bottom: 15px;">
+        <p class="tipsTit">模块使用小贴士
+            <a class="closeTip">X</a>
+        </p>
+        <p class="tipsMain">一个容易引起消费者的标题，能增加模块的点击量哦。</p>
+    </div>
+    <!--模块使用小贴士end-->
+    <div class="form-group clearfix">
+        <label class="fb pb10">文本</label>
+        <div class="pr">
+            <input type="text" id="titleInput" class="form-control mt10" placeholder="请输入文本" onchange="obInputLength(this);" onkeyup="obInputLength(this);">
+            <p class="help-block input-help-block">0/20</p>
+        </div>
+    </div>
+    <div class="form-group clearfix">
+        <label class="fb pb10">链接</label>
+        <div class="pr">
+            <input type="text" class="form-control mt10" placeholder="请输入网址" id="urlInput">
+            <span class="input-group-btn" rel="getlink">
+                    <button class="btn btn-default" type="button" > <span class="icon-url" ></span> </button>
+            </span>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+            //链接选择
+            $("span[rel='getlink']").on("click", function(e) {
+                showLinkWin("afterLinkSelected");
+                afterLinkSelected.$selectedInput = $(this).siblings();
+            })
+
+            //关闭小贴士
+            $(".closeTip").click(function() {
+                $(".toolTips").css('display', 'none');
+            })
+
+            //读取组件标题
+            var title = _$module.find(".titleContent span").text();
+            $("#titleInput").val(title);
+            obInputLength($("#titleInput")[0]);
+            //读取组件链接
+            var url = _$module.find("a").attr("href") || "";
+            $("#urlInput").val(url);
+
+        })
+        //组件保存方法
+    function cfgset() {
+        //文本
+        var title = $("#titleInput").val().trim();
+        if (title.length > 20) {
+            layer.msg("长度超过限制范围！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+        if (title.length == 0) {
+            layer.msg("请输入文本！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+        var url = $("#urlInput").val().trim();
+        if (url.length == 0) {
+            layer.msg("请输入链接！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+
+        _$module.find("a").attr("href", url);
+        _$module.find(".titleContent>span").html(title);
+
+        hideEdit();
+    }
+
+    function afterLinkSelected(url) {
+        afterLinkSelected.$selectedInput.val(url);
+    }
+</script>

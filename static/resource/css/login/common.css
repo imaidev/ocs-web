@@ -1,0 +1,373 @@
+.uc-header-logo-img{
+	/*position:relative;
+	top:10px;
+	left:0px*/;
+	/*margin-top:10px*/;
+	/*padding-top:10px*/;
+}
+.uc-copyright .nav_sub{
+	margin-bottom:5px;
+}
+/*----login start----*/
+.show-pic{
+	height:100%;
+	width:100%;
+}
+.login {
+	height:330px;
+	position:absolute; 
+	right:65px; 
+	_right:35px;
+	top:25px;
+	padding-top:35px;
+	background-color:#fff;
+}
+.main-body{
+	position: relative;
+	height:420px;
+}
+
+input.text-name,input.text-pwd,input.text-verify{
+	border:1px solid #bdc7d8;
+	vertical-align:middle;
+	width:200px;
+	padding:6px 0px;
+}
+
+input.btn-smb,a.btn-reg{
+	border:0;
+	cursor:pointer;
+}
+input.btn-smb{
+	width:97px;
+	height:30px;
+	background-position:0 0;
+}
+a.btn-reg{
+	display:block;
+	height:34px;
+	width:129px;
+	background-position:0 -40px;
+}
+/*----login end----*/
+
+/*----signup start----*/
+.signup-title{
+	position:relative;
+	margin:2px auto;
+	/*width:90%;*/
+	background:#55c6e4;
+	height:30px;
+	padding-top:15px;
+	
+}
+.signup-title span{
+	color:#fff;
+	font:12px/1.5 "Microsoft YaHei",Arial,Helvetica,sans-serif,Simsun;
+	font-weight:bold;
+	font-size:17px;
+}
+.signup-top{
+	min-height:70px;
+	width:100%;
+	background:#eeeeff;
+	height:auto;
+	overflow:hidden;
+	_height:70px;
+}
+.signup-notice{
+	border: 1px solid #f7dcaa;
+	text-align:center;
+	line-height:30px;
+	margin:20px auto 10px;
+	width:440px;
+	background:#fffeed;
+	height:30px;
+	color:#ff7800;
+}
+.signup-header{
+	/*background:url(../images/signup/input_new.gif) no-repeat 0 -310px;
+	  padding-left:30px;
+	*/
+	background:none;
+	padding-left:10px;
+	height:24px;
+	float:left;
+	margin:0px 8px 0px 20px;
+	display:inline-block;
+	_display:inline;
+}
+.signup-main{
+	position:relative;
+	margin:2px auto;
+	/*width:90%*/;
+	background:position:relative;
+	margin:2px auto;
+	background:#fff;
+	padding:15px 0px;
+	border:0px;
+	border: 1px solid #B0E3EF;
+	border-top:0;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.signup-center{
+	margin-bottom:40px;
+}
+.form-submit .btn-reg,.form-submit .btn-applyfor{
+	border:0;
+	cursor:pointer;
+	height:34px;
+}
+/*----signup end----*/
+
+
+/*！！！增加样式！！！！！！*/
+.common-page-home-login{
+	padding-top:0px;
+	background-color:#409cd2;
+}
+
+/* .common-page-home-login .wrap{
+	background:url(../images/login/uc-login-pic.jpg) no-repeat center -40px;504-80-40
+} */
+.common-page-home .uc-header-logo-img{
+	height:auto;
+	cursor:pointer;
+}
+.common-page-home .header-holder{
+	padding-top:0px;
+	height:125px;
+	background:url(../images/login/uc-common-header.jpg) no-repeat center 0px;
+}
+.common-page-home-login .header-holder{
+	background:none;
+}
+.common-page-home-login .content-holder{
+	padding-top:80px;
+}
+.common-page-home .footer-holder{
+	background: #fff;
+	margin-top:0px;
+	color:#333;
+	height: 80px;
+}
+/*.common-page-home .footer-holder-fixed{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+*/.common-page-home-login .main-body{
+	height:auto;
+}
+.common-page-home-login .show-pic{
+	height:384px; 
+}
+.login{
+	width:270px;
+	padding-top:0px;
+	position: absolute;
+	top:0px;
+	right:0px;
+	height:auto;
+}
+.common-page-home-login .form-ct{
+	padding:0px 33px;
+}
+
+.signup-title{
+	background:url(../images/login/uc-common-title.png) no-repeat center 0px;
+	margin:0px auto;
+	height:40px;
+	padding:0px;
+}
+.signup-title h1{
+	padding-top:7px;
+}
+.signup-main{
+	margin-top:0px;
+}
+.signup-title span{
+	color:#0082C9;
+}
+/*按钮*/
+input.btn-smb,input.btn-reg{
+	border:0;
+	cursor:pointer;
+}
+input.btn-smb{
+	width:107px;
+	height:30px;
+}
+input.btn-smb:hover{
+	background-position:0 -30px;
+}
+input.btn-smb-ing,input.btn-smb-ing:hover{
+	background-position:0 -60px;
+	cursor:default;
+}
+input.btn-reg,input.btn-applyfor{
+	width:190px;
+	height:34px;
+	background:url(../images/login/uc-btn-reg.png) no-repeat 0 0;
+}
+input.btn-applyfor{
+	background:url(../images/login/uc-btn-applyfor.png) no-repeat 0 0;
+}
+input.btn-reg:hover,input.btn-applyfor:hover{
+	background-position:0 -34px;
+}
+/*登录按钮区 开始*/
+.form-body dl.signup-dl{
+	padding-bottom:15px;
+	padding-left:7px;
+	border-bottom:1px dashed #C4C1BB; 
+}
+.form-body dl.signup-dl dt{
+	width:100%;text-align:left;
+}
+/*登录按钮区 结束*/
+/*其他登录方式区 开始*/
+.form-body dl.otherlogin-dl{
+	border-top:1px dashed #C4C1BB; 
+}
+.form-body dl.otherlogin-dl dt{
+	width:100%;text-align:left;
+}
+/*其他登录方式区 结束*/
+/*底部字体 开始*/
+.uc-copyright .nav_sub a {
+    color: #8FA9C0;
+}
+/*底部字体 结束*/
+/*----登录首页 描述部分 开始----*/
+.description{
+	width:100%;
+}
+.description ul{
+	padding:20px 0px;
+}
+.description ul.des-ul li
+{
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 0px;
+	float: left;
+	padding-top: 0px;
+}
+.description ul.des-ul li p
+{
+	line-height: 22px;
+	width: 245px;
+	float: left;
+	color: #666;
+	margin-left: 10px;
+	overflow: hidden;
+}
+.description ul.des-ul li p.item-dot{
+	width:310px;
+	margin-top: 20px;
+}
+.description ul.des-ul li p span
+{
+	display: block;
+	height: 22px;
+	color: #666;
+}
+.description .des-icon
+{
+	width: 87px;
+	float: left;
+	height: 67px;
+	overflow: hidden;
+}
+
+.description .des-icon1
+{
+	background: url(../images/login/des-icon1.jpg) no-repeat 0 0;
+}
+.description .des-icon2
+{
+	background: url(../images/login/des-icon2.jpg) no-repeat 0 0;
+}
+/*----登录首页 介绍部分 结束----*/
+/*----登录方式图标（市民卡等） 开始----*/
+.login-type UL
+{
+	position: relative;
+	width: 100%;
+	float: left;
+	line-height:22px;
+}
+.login-type UL LI
+{
+	float: left;
+}
+
+.login-type A.btn-login-type
+{
+	border: 1px solid #85BEEE;
+	text-align: center;
+	padding: 3px 10px;
+	background: #D3EDF7;
+	float: left;
+	color: #008BB3;
+	border-radius: 3px;
+}
+.login-type A:hover{
+	text-decoration:none;
+	background:#85BEEE;
+	color:#fff;
+	border: 1px solid #85BEEE;
+}
+/*----登录方式图标（市民卡等） 结束----*/
+/*----ca页面 开始 ----*/
+.ca-main{
+text-align:center;font-size:14px;line-height:24px;position:relative;
+margin-bottom:10px;
+}
+.ca-main .ca-header{
+	padding-top:10px;text-align:center;width:100%;
+	height:65px;font-size:26px;
+	font-weight:bold;color:#529AD7;
+	background:url(../images/login/ca-header-bg.png) repeat-x 0 0;
+}
+.ca-main .ca-cnt{
+font-size:14px;position:relative;text-align:left;width:800px;margin:0px auto 10px;height:180px;border-top:1px solid #FFF;border-bottom:1px solid #B0E3EF;
+}
+.ca-main .ca-cnt-des{
+width:600px;margin:10px auto 0px;
+}
+.ca-main .ca-submit{
+margin:10px 0px 0px 0px;text-align:center;position:relative;
+}
+.ca-main .ca-submit .opt_btn span{
+font-size:16px;font-weight:normal;
+}
+.ca-main .ca-header .ca-header-img{
+	width:298px;
+	height:29px;
+	margin:5px auto;
+}
+.ca-main .ca-header .type-card{
+	background:url(../images/login/ca-type-card.png) no-repeat 0 0;
+}
+.ca-main .ca-header .type-ezt{
+	background:url(../images/login/ca-type-ezt.png) no-repeat 0 0;
+}
+/*----ca页面 结束 ----*/
+
+/*-----警告说明 开始-----*/
+.m_warn {
+	background: rgb(254, 255, 229); 
+	margin: 0px 15px; 
+	padding: 6px; 
+	border: 1px solid rgb(249, 242, 167);
+	color: rgb(201, 0, 0); 
+	font-size: 14px; zoom: 1;
+	line-height: 18px; overflow: hidden;
+	border-radius:3px;
+}
+.m_warn .icon_secu {
+}
+/*-----警告说明 结束-----*/

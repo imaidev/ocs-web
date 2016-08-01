@@ -1,0 +1,65 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin: 0; padding: 0; }
+body { font-family: Microsoft YaHei;  }
+body, button, input, select, textarea { font: 12px/1.5 tahoma,arial,\5b8b\4f53; }
+ul, ol { list-style: none; }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+html { overflow-x:hidden; }
+body { 
+     background: url(/static/design/img/shoptplbg.jpg) 0 0 repeat;
+}
+
+.items .item, .item-list .item {display:inline-block; width: 174px; height: 380px; background: #e6e6e8; margin-left: 15px; margin-bottom: 10px; border: 1px solid #d4d4d4; -moz-box-shadow: 2px 2px 8px #333; -webkit-box-shadow: 2px 2px 8px #333; }
+.itemon{border-color: orange !important;}
+.items { margin: 15px; overflow: hidden; }
+.items .item { margin: 0 0 30px 15px; }
+.item a { color: #444; }
+.item a:hover { color: #444; text-decoration: none; }
+.item dl { height: 380px; }
+.item dd { color: #888; overflow: hidden; text-align: left; margin: 0 8px; width: 158px; }
+.item .item-preview a { display: block; height: 250px; width: 160px; border: 7px solid #fff; margin-bottom: 5px;  }
+.item .item-preview a img { width: 100%; height: 100%; display: block; }
+.item .item-info { height: 24px; line-height: 24px; width: 158px; overflow: hidden; }
+.item .item-info .item-name { display: block; float: left; color: #444; font-family: "Arial"; font-size: 14px; font-weight: 700; width: 100px; overflow: hidden; }
+
+.item .item-info-exp { height: 21px; line-height: 21px; color: #999; }
+.item .item-info-exp a { color: #999; }
+.item .item-detail { height: 36px; overflow: hidden; }
+.item .item-use { height: 36px; text-align: center;}
+
+.item .smm-btn {
+  display: inline-block;
+  line-height: 120%;
+  border-radius: 3px;
+  border: 1px solid #b7b7b7;
+  color: #2b2b2b;
+  padding: 4px 8px;
+  margin-right: 6px;
+}
+.item .inuse {
+  color: orange;
+  cursor: default;
+  border-color: orange;
+}
+.item .inuse:hover {
+  color: orange;
+  cursor: default;
+  border-color: orange;
+}
+/****·­Ò³ÑùÊ½*****/
+.toolbar-page{width:100%;}
+.toolbar-page-inner{padding-right:10px;border:1px solid #ddd;border-bottom:none;background:#f8f8f8;overflow:hidden;}
+#pagin_btm{display:block;height:30px;padding:15px;float:right;} 
+.page_skip{height:28px;padding:0 10px;border:none;font-size:12px;overflow:hidden;float:left;letter-spacing:2px;}
+.page_skip span{display:block;float:left;margin:0 5px;height:26px;line-height:26px;vertical-align:middle;}
+.jumpto{display:inline-block;*display:inline;*zoom:1;width:25px !important;height:22px !important;line-height:22px !important;margin:0 3px;border:1px solid #E4E4E4;text-align:center;vertical-align:middle;}
+.btn_skipsearch{background-color:#f5f5f5;color:#666;border:1px solid #E4E4E4;display:block;float:left;width:53px;height:25px;line-height:25px;text-align:center;margin-right:10px;margin-left:10px;}
+.btn_skipsearch:hover{filter:alpha(opacity=90);opacity:0.9;text-decoration:none;}
+.current{border:none !important;color:#FF5F3D;}
+#page_num{color:#04A1E6;float:left;}
+#page_num a{margin:0 2px 0 2px;font-family:Arial, Helvetica, sans-serif;font-size:14px;display:block;float:left;height:27px;min-width:30px;width:auto;line-height:27px;vertical-align:middle;text-align:center;border:1px solid #E4E4E4;}
+#page_num a:hover{margin:0 2px 0 2px;text-align:center;background-color:#04A1E6;color:#FFFFFF !important;border:1px solid #E4E4E4;text-decoration:none;}
+.prew{padding:0 5px;font-size:12px !important;}
+.next{padding:0 5px;font-size:12px !important;}
+#page_num .disabled{background-color:#f7f7f7 !important;cursor:default !important;color:#999 !important;}
+#page_num .disabled:hover{color:#999 !important;}

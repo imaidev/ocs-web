@@ -1,0 +1,40 @@
+﻿#area_main .cheakbox .btnok, #area_main .cheakbox .btncity{margin-left: 10px;background: #e80000;float: left;width: 80px;text-align: center;margin-right: 0;}
+#area_main .cheakbox{padding: 10px 0;margin-bottom: 10px;border: 1px solid #bfbfbf;}
+#area_main .cheakbox .cksheng, #area_main .cheakbox .ckshi, #area_main .cheakbox .ckcounty{margin-left: 7px;}
+.anchorBL{display: none;}
+.BMap_stdMpType0{left:auto !important;right:5px !important;top:50px !important;}
+
+.changeBaiduMap a{background: url(../static/lysc/portal/skins/images/viewmapbg.png) no-repeat;position: absolute;left: 0px;bottom: 0px;width: 100px;height: 100px;z-index: 1001;}
+
+.zoom_img_cont{width: 100%;height: 100%;}
+.zoom_img_posi{width: 100%;height: 100%;}
+.zoom_img_posi .map_img_cont{width: 100%;height: 100%;overflow: hidden;position:absolute;}
+.zoom_img_posi .map_img_cont #map_img{position: relative;top: 0;left: 0;}
+.zoom_img_posi #map_tip{z-index: 1;position: absolute;top: 0;left: 0;}
+
+.zoom_img_posi #map_tip .tip_item
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    font-size: 15px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-radius: 7px;
+    border:solid 1px White;
+    color: White;
+    cursor: pointer;
+    background:#AA0000;
+}
+    
+/*busy*/
+.busy_bg{position:fixed;_position:absolute;width:100%;height:100%;left:0;top:0;background:#000;opacity:0.45;-moz-opacity:0.45;filter:alpha(opacity=45);z-index:9999;text-align:center;display:none;}
+.busy_icon_cont{position:fixed;left:50%;top:50%;z-index:10000;margin:-70px 0 0 -100px;display:none;}
+.busy_icon{float:left;display:inline;width:64px;height:64px;}
+.busy_content{float:left;display:inline;width:200px;line-height:64px;margin-left:15px;color:White;font-size:16px; letter-spacing:1px;}
+#map_area area{cursor:pointer;}
+#tip_popup{position:absolute;top:0;left:0;width:1px;height:0;}

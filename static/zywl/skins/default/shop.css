@@ -1,0 +1,85 @@
+@charset "utf-8";
+/* CSS Document */
+
+#shopHeader{ width:100%; overflow:hidden; position:relative;}
+#shopHeader img{ position:absolute; left:50%; z-index:2;}
+
+#shopNav{ height:40px; width:100%; background-color:#C4D701; line-height:40px; vertical-align:middle;}
+#shopNav ul li{ float:left;}
+
+/*******绑定spirit*******/
+.shopInfo .onlineC b{ background:url(../images/sprite201411.png)  no-repeat}
+
+.shopInfo .shopName{display:inline-block;width:163px;height:100%;white-space:nowrap;overflow:hidden;text-overflow: ellipsis; padding-right:10px;}
+/****店铺顶部（名称、在线客服）****/
+#shopExtra{width:100%;background:#fff;}
+.shopExtra{height:30px;line-height:30px;}
+.shopExtra .shopName{display:inline-block;position:relative;z-index:20;}
+.shopExtra .hideCon{position:absolute;top:28px;left:0;z-index:22;width:220px;padding:10px;height:auto;min-height:100px;border:1px solid #e5e5e5;background:#fff;display:none;}
+/****店铺首页右上角鼠标滑过不出现店铺信息，解除注释则显示****/
+/*.shopName:hover  .hideCon{display:block;}*/
+.onlineServ{display:inline-block;position:relative;padding-left:20px;}
+.onlineServ b{position:absolute;top:7px;left:0;display:inline-block;width:16px;height:16px;background:green;}
+/**店铺页面在线客服**/
+.shopExtra .serviceOn{position:static;top:5px;right:10px;padding-right:26px;height:24px;display:inline-block;*display:inline;*zoom:1; overflow:hidden; background:url(../images/serviceOn.gif) no-repeat right center;}
+.shopExtra .serviceOff{position:static;top:5px;right:10px;padding-right:26px;height:24px;display:inline-block;*display:inline;*zoom:1; overflow:hidden; background:url(../images/serviceOff.png) no-repeat right center;}
+
+
+.adsBanner{width:100%;overflow:hidden; margin:0 auto; position:relative;}
+.adsBannerBd{height:100%;position:relative;}
+.adsBannerBd ul{height:100%;overflow:hidden;}
+.adsBannerBd ul li{display:block;width:100%;height:100%;}
+.adsBannerBd ul li a{margin:0 auto;height:100%;display:block;}
+.adsBannerBd ul li img{ position:absolute; left:50%; z-index:2;}
+.adsBannerHd{position:absolute;width:1000px;height:20px; margin-left:-500px; left:50%; bottom:20px;z-index:12;}
+.adsBannerHd ul{display:inline-block;*display:inline;*zoom:1;position:absolute;right:0;}
+.adsBannerHd li{float:left; margin-right:5px;  width:18px; height:18px;font-size:14px;line-height:20px;font-weight:bold;text-align:center;  background:#fff; cursor:pointer;color:#093d89;
+-moz-border-radius:10px;/*仅Firefox支持，实现圆角效果*/
+-webkit-border-radius:10px;/*仅Safari,Chrome支持，实现圆角效果*/
+border-radius:10px;/*仅Opera，Safari,Chrome支持，实现圆角效果*/
+text-indent:-9999px;
+	}
+.adsBannerHd li.on{color:#fff;background-color:#3EB036;}
+
+#shop{ padding-bottom:10px;position: relative;}
+#shop  .related-buy{ background-color:#FFFFFF;}
+.picCon li{ float:left; overflow:hidden;}
+.shopInfo{ overflow:hidden;background-color:#FFFFFF;}
+.shopInfo .onlineC{ position:relative; padding-left:30px; margin-top:5px;}
+.shopInfo .onlineC b{ display:block; width:16px; height:12px; background-position:-20px -110px; position:absolute; top:6px; left:7px;}
+.shopInfo .addFavorite{ margin-top:5px;}
+.shopInfo table{ width:95%; overflow:hidden; line-height:20px; margin:10px auto 0 auto;table-layout:fixed;}
+/* .shopInfo table td{position: relative;overflow: hidden;padding: 2px 0px;} */
+.shopInfo table td{padding: 2px 0px;}
+.shopInfo table td span{position: absolute;line-height: 24px;}
+.shopInfo table td .starLevel{vertical-align: bottom;height:20px;}
+.shop-search table{ width:90%; overflow:hidden; line-height:30px; margin:10px auto 0 auto;table-layout:fixed;}
+.shop-search .searchText{ height:20px; line-height:20px; vertical-align:middle;}
+
+.proTitle{ margin-top:10px; padding-right:20px;}
+.proTitle span{ float:left;}
+.proTitle a{ float:right; margin-top:5px; font-size:14px;}
+#shop .itemsList{background-color:#FFFFFF; padding-left:3px;}
+#shop #guess-you-like{background-color:#FFFFFF;}
+#shop .select{background-color:#FFFFFF;}
+
+
+.part{margin-top:10px;overflow:hidden;padding-bottom:20px;}
+.part .itemList{overflow:hidden;}
+.part .itemList li{width:252px;float:left;margin-left:12px;margin-top:15px;overflow:hidden;padding:15px;}
+.part .itemList li .pic{width:250px;height:250px;overflow:hidden;border:1px solid #E4E4E4; background-color:#FFFFFF;}
+.part .itemList li .name{line-height:20px;height:40px;overflow:hidden; padding:5px;font-size:14px;font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei"; background-color:#FFFFFF;}
+.part .itemList li .price{text-align:left;overflow:hidden;height:30px; padding:0 5px; background-color:#FFFFFF;}
+.part .itemList li .btn{overflow:hidden;text-align:center;height:30px; color:#FFFFFF; background-color:#FF5F3D; display:block; line-height:30px; vertical-align:middle; 
+font-size:14px;font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei"; font-weight:bold;}
+
+/*收藏店铺信息*/
+.shopInfo .addFavorite{ margin-top:5px;}
+.addFdp{ background-color:#fff; position:absolute; display:none; z-index:4; left:500px; top:20px; width:300px; height:120px; padding:40px 40px 0 60px; border:#ccc solid 5px;}
+.addFdp table{border:0;border-collapse: collapse; border-spacing: 0;}
+.addFdp table td{ vertical-align:middle;}
+.addFdp .closeMsg{ height:40px; width:40px; position:absolute; z-index:5;  top:5px; right:5px; display:block; background:url(../images/sprite201411.png) no-repeat -40px -160px;}
+.addFdp .closeMsg:hover{ background-position:-40px -200px;}
+.suc b,.fail b{ height:40px; width:40px; position:absolute; z-index:5;  top:38px; left:15px; display:block; background:url(../images/sprite201411.png) no-repeat;}
+.fail b{ background-position: 0 -200px;}
+.suc b{ background-position: 0 -160px;}

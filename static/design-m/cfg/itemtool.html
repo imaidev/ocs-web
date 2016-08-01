@@ -1,0 +1,418 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="/static/design-m/css/base.css" />
+        <link rel="stylesheet" type="text/css" href="/static/design-m/css/index.css" />
+        <link rel="stylesheet" href="/static/design-m/css/operate_center.css" />
+        <link rel="stylesheet" href="/static/design/css/mricode.pagination.css" />
+        <link rel="stylesheet" href="/static/design/js/layer/skin/layer.css" />
+        <script type="text/javascript" src="/static/design/js/jquery-1.11.1.min.js">
+        </script>
+        <script type="text/javascript" src="/static/design/js/layer/layer.js">
+        </script>
+        <script type="text/javascript" src="/static/design/js/jquery.SuperSlide.2.1.1.js">
+        </script>
+        <script type="text/javascript" src="/static/design/js/mricode.pagination.js">
+        </script>
+        <title>新增页面</title>
+    </head>
+    <body>
+        <div class="fm1 f14">
+            <div class="item_toolsmallTool">
+                <div class="item_tooltoolNav fl">
+                    <ul id="mainContentLeft">
+                    </ul>
+                </div>
+                <div class="item_tooltoolMain fl">
+                    <!--标签01-->
+                    <div class="item_tool_main">
+                        <div class="form-inline">
+                            <form id="form1">
+                                <div class="form-group fl">
+                                    <input class="form-control" style="width: 200px;" type="text" name="keyWordSearch" id="keyWordSearch" placeholder="输入关键字">
+                                </div>
+                                <div class="form-group fl" style="margin: 0.5em 0.5em;">
+                                    <label>
+                                        价格:
+                                    </label>
+                                </div>
+                                <div class="form-group fl" style="margin-right: 2em;">
+                                    <input class="form-control fl" style="width: 80px;" type="text" name="beginPrice" id="beginPrice"><input class="form-control fl" style="width: 80px; margin-left:10px;" type="text" name="endPrice" id="endPrice">
+                                </div><a class="btnBg1 btn2 radius2 mt5" onclick="ajaxPage(true)">搜索</a>
+                                <div style="padding: 6px 15px;float: right;">
+                                    <span>站点:</span>
+                                    <select id="siteSel" onchange="getSelSite(this)" style="height: 32px;border: 1px  solid #ccc; ">
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <!--搜索条件end-->
+                        <div class="item_tool_product">
+                            <ul>
+                            </ul>
+                        </div>
+                        <!--分页 begin-->
+                        <div id="pagin_btm" class="m-pagination">
+                        </div>
+                        <!--分页 end-->
+                    </div>
+                    <!--标签01end-->
+                </div>
+                <div class="item_tooltoolBottom">
+                    <div class="completeBtn" onclick="confirmSel()">
+                        完成（<span id="selectNum">0</span>）
+                    </div>
+                    <div class="goodsPhoto">
+                    </div>
+                </div>
+            </div>
+            <script>
+                jQuery(".item_toolsmallTool").slide({
+                    titCell: ".item_tooltoolNav li",
+                    mainCell: ".item_tooltoolMain",
+                    effect: "fade",
+                    autoPlay: false,
+                    trigger: "click",
+                    easing: "swing",
+                    delayTime: 500,
+                    pnLoop: false
+                });
+                var selItem = new Array(0);
+                var Items = new Array(0);
+                if (typeof ITEM_NUM == "undefined") {
+                    var ITEM_NUM = 6;
+                }
+                
+                $(function(){
+                    var scene = parent.g_scene;
+                    if (scene == "4") {
+                        $("#siteSel").parent().attr("style", "display:none");
+                        vendCategory();
+                        ajaxPage(false);
+                    }
+                    if (scene == "2") {
+                        itemTypeCat(parent.g_comid);
+                        getSite();
+                    }
+           
+                });
+                function getSelSite(obj){
+                
+                    var comId = $(obj).val();
+                   	ajaxPage(true,"");
+                    itemTypeCat(comId);
+                }
+                
+                function getSite(){
+                    $.get(parent.ctx + "/design/dataAPI/site/AjaxSiteDataApi.do?method=getAllSite", function(data){
+                        if (data.siteList) {
+                            //加载站点信息
+                            var str = "";
+                            if (parent.g_comid == parent.g_sub_comid) {
+                                str += "<option selected='selected' value='" + parent.g_sub_comid + "'>主站</option>";
+                            }
+                            else {
+                                str += "<option  value='" + parent.g_sub_comid + "'>主站</option>";
+                            }
+                            data.siteList.forEach(function(site){
+                                if (site.SITE_ID == parent.g_sub_comid) {
+                                    str += "<option selected='selected' value='" + site.SITE_ID + "'>" + site.SITE_NAME + "</option>";
+                                }
+                                else {
+                                    str += "<option value='" + site.SITE_ID + "'>" + site.SITE_NAME + "</option>";
+                                }
+                            });
+                            $("#siteSel").html(str);
+                            
+                            ajaxPage(false);
+                            
+                        }
+                    }, 'json').error(function(xhr, errorText, errorType){
+                        layer.msg("获取站点信息错误");
+                        return;
+                    });
+                }
+                
+                
+                
+                //获取网站商品类目
+                function itemTypeCat(comId){
+                    var url = parent.ctx + "/design/dataAPI/item/AjaxItemInfoDataApi.do?method=getItemTypeByComId&comId=" + comId;
+                    $.ajax({
+                        url: url,
+                        type: "POST",
+                        success: function(data){
+                            var domstr = [];
+                            domstr.push("<li class='on'>");
+                            domstr.push("<a class='inactive'>");
+                            domstr.push("<div onclick=", "ajaxPage(true,'')", ">");
+                            domstr.push("所有商品");
+                            domstr.push("</div>");
+                            domstr.push("</a>");
+                            for (var i = 1; i < data.firstList.length; i++) {
+                                var fristPath = data.firstList[i].CAT_PATH;
+                                domstr.push("<li onclick=", "ajaxPage(true,'", data.firstList[i].CAT_ID, "')>");
+                                domstr.push("<a class='inactive' onclick='menuOut(this)'>");
+                                domstr.push(data.firstList[i].CAT_NAME);
+                                domstr.push("</a>");
+                                domstr.push("<ul class='sonMenu' style='display: none;'>");
+                                for (var j = 0; j < data.secondList.length; j++) {
+                                    var secondPath = data.secondList[j].CAT_PATH;
+                                    if (secondPath.indexOf(fristPath) >= 0) {
+                                        domstr.push("<li onclick=", "ajaxPage(true,'", data.secondList[j].CAT_ID, "')>");
+                                        domstr.push("<a class='inactive' onclick='menuOut(this)'>");
+                                        domstr.push("&gt;", data.secondList[j].CAT_NAME);
+                                        domstr.push("</a>");
+                                        domstr.push("<ul class='sonMenu f12' style='display: none;'>");
+                                        for (var k = 0; k < data.thiredList.length; k++) {
+                                            var thiredPath = data.thiredList[k].CAT_PATH;
+                                            if (thiredPath.indexOf(secondPath) >= 0) {
+                                                domstr.push("<li onclick=", "ajaxPage(true,'", data.thiredList[k].CAT_ID, "')>");
+                                                domstr.push("&gt;&gt;", data.thiredList[k].CAT_NAME);
+                                                domstr.push("</li>");
+                                            }
+                                        }
+                                        domstr.push("</ul>");
+                                        domstr.push("</li>");
+                                    }
+                                    
+                                }
+                                domstr.push("</ul>");
+                                domstr.push("</li>");
+                                
+                            }
+                            var str = domstr.join("");
+                            $("#mainContentLeft").html(str);
+                        },
+                        error: function(){
+                            alert("error");
+                        },
+                        dataType: "json"
+                    
+                    });
+                }
+                
+                //获取商家自定义类目 
+                function vendCategory(){
+                    var url = parent.ctx + "/design/dataAPI/itemCategory/ItemCategoryDataApi.do?method=getVendCataByVendId&VEND_ID=" + parent.g_vendid;
+                    $.ajax({
+                        url: url,
+                        type: "POST",
+                        success: function(data){
+                            var domstr = [];
+                            domstr.push("<li class='on'>");
+                            domstr.push("<a class='inactive' onclick='menuOut(this)'>");
+                            domstr.push("<div onclick=", "ajaxPage(true,'')", ">");
+                            domstr.push("所有商品");
+                            domstr.push("</div>");
+                            domstr.push("</a>");
+                            for (var i = 0; i < data.length; i++) {
+                                domstr.push("<li>");
+                                domstr.push("<a class='inactive' onclick='menuOut(this)'>");
+                                domstr.push(data[i].CATAGORY_NAME);
+                                domstr.push("</a>");
+                                domstr.push("<ul class='sonMenu' style='display: none;'>");
+                                for (var j = 0; j < data[i].CHILD_CATAGORY.length; j++) {
+                                    domstr.push("<li onclick=", "ajaxPage(true,'", data[i].CHILD_CATAGORY[j].CATAGORY_ID, "')>");
+                                    domstr.push("&gt;", data[i].CHILD_CATAGORY[j].CATAGORY_NAME);
+                                    domstr.push("</li>");
+                                }
+                                domstr.push("</ul>");
+                                domstr.push("</li>");
+                                
+                            }
+                            var str = domstr.join("");
+                            $("#mainContentLeft").html(str);
+                        },
+                        error: function(){
+                            alert("error");
+                        },
+                        dataType: "json"
+                    
+                    });
+                    
+                }
+                
+                //ajax 翻页
+                function ajaxPage(isSearch, catId){
+                    var index = layer.load(1, {
+                        shade: [0.1, '#fff'] //0.1透明度的白色背景
+                    });
+                    
+                    
+                    if (parent.g_scene == 4) {
+                        if (catId != "" && catId != null) {
+                            var url = "" + parent.ctx + "/design/dataAPI/itemList/AjaxItemListDataApi.do?method=getItemList&vend_id=" + parent.g_vendid + "&VEND_CATID=" + catId;
+                        }
+                        else {
+                            var url = "" + parent.ctx + "/design/dataAPI/itemList/AjaxItemListDataApi.do?method=getItemList&vend_id=" + parent.g_vendid;
+                        }
+                    }
+                    if (parent.g_scene == 2) {
+                        var selComId = $("#siteSel").val();
+                        if (catId != "" && catId != null) {
+                            var url = "" + parent.ctx + "/design/dataAPI/itemList/AjaxItemListDataApi.do?method=getItemList&comId=" + selComId + "&catId=" + catId;
+                        }
+                        else {
+                            var url = "" + parent.ctx + "/design/dataAPI/itemList/AjaxItemListDataApi.do?method=getItemList&comId=" + selComId;
+                        }
+                    }
+                    
+                    if (isSearch) {
+                        $(".m-pagination").pagination('destroy');//为了删除翻页。
+                    }
+                    $(".m-pagination").pagination({
+                        pageSize: 8,
+                        showInfo: false,
+                        showJump: true,
+                        showPageSizes: false,
+                        showPageSizes: false,
+                        prevBtnText: "上一页",
+                        nextBtnText: "下一页",
+                        firstBtnText: "|<",
+                        lastBtnText: ">|",
+                        jumpBtnText: "确定",
+                        remote: {
+                            url: url,//decodeURIComponent($("#form1").serialize(),true)
+                            params: isSearch ? {
+                                "keyWordSearch": encodeURIComponent($("#keyWordSearch").val()),
+                                "beginPrice": encodeURIComponent($("#beginPrice").val()),
+                                "endPrice": encodeURIComponent($("#endPrice").val())
+                            } : "",
+                            success: function(data){
+                                if (data.list.length > 0) {
+                                    Items = new Array();
+                                    var domstr = [];
+                                    for (var i = 0; i < data.list.length; i++) {
+                                        Items.push(data.list[i]);
+                                        domstr.push("<li>");
+										 domstr.push("<a onclick='selectItem(", i, ")'>");
+                                        domstr.push("<div class='item_tool_pic'>");
+                                       // domstr.push("<a onclick='selectItem(", i, ")'>");
+                                        domstr.push("<img src='", data.list[i].IMG_URL, "' width='60' height='60'>");
+                                       // domstr.push("</a>");
+                                        domstr.push("</div>");
+                                        domstr.push("<div class='item_tool_info ml10'>");
+                                        domstr.push("<div class='item_tool_name'>");
+                                      //  domstr.push("<a onclick='selectItem(", data.list[i], ")'>");
+                                        domstr.push(data.list[i].ITEM_TITLE);
+                                       // domstr.push("</a>");
+                                        domstr.push("</div>");
+                                        domstr.push(" <div class='item_tool_name f12 fc6 mt10'>");
+                                        // domstr.push("<a href='", data.list[i].ITEM_URL, "'>");
+                                        domstr.push(data.list[i].PRICE);
+                                        // domstr.push("</a>");
+                                        domstr.push(" </div>");
+                                        domstr.push("</div>");
+										domstr.push("</a>");
+                                        domstr.push("</li>");
+                                    }
+                                    var str = domstr.join("");
+                                    $(".item_tool_product").children().html(str);
+                                }
+                                else {
+                                    $(".item_tool_product").children().html("该目录下没有商品");
+                                }
+                                layer.close(index);
+                            },
+                            totalName: 'total'
+                        
+                        }
+                    
+                    });
+                    event.stopPropagation();
+                }
+                
+                //菜单展开
+                function menuOut(obj){
+                    if ($(obj).siblings('ul').css('display') == 'none') {
+                        $(obj).siblings('ul').slideDown(100).children('li');
+                        
+                    }
+                    else {
+                        //控制自身菜单下子菜单隐藏
+                        $(obj).siblings('ul').slideUp(100);
+                    }
+                }
+                
+                
+                //选择商品
+                function selectItem(num){
+                
+                    if ((parent.items != null ? parent.items.length : "0") + selItem.length >= ITEM_NUM) {
+                        layer.msg("只能选择" + ITEM_NUM + "个商品", {
+                            offset: 80,
+                            shift: 5,
+                            time: 2500
+                        });
+                        return false;
+                    }
+                    
+                    if (selItem.length >= ITEM_NUM) {
+                        layer.msg("只能选择" + ITEM_NUM + "个商品", {
+                            offset: 80,
+                            shift: 5,
+                            time: 2500
+                        });
+                    }
+                    else {
+                        for (var i = 0; i < selItem.length; i++) {
+                            if (selItem[i].ITEM_ID == Items[num].ITEM_ID) {
+                                layer.msg("已选择该商品", {
+                                    offset: 80,
+                                    shift: 5,
+                                    time: 2500
+                                });
+                                return false;
+                            }
+                        }
+                        selItem.push(Items[num]);
+                        var domstr = [];
+                        domstr.push("<div class='buyGoods'>");
+                        domstr.push("<div class='goodPic' title='", Items[num].ITEM_TITLE, "'>");
+                        domstr.push("<img src='", Items[num].IMG_URL, "'> ");
+                        domstr.push("<div class='hiddenPic' data-num='", Items[num].ITEM_ID, "' onclick='delSelItem(this)'>x</div>");
+                        domstr.push("</div>");
+                        var str = domstr.join("");
+                        //$(".item_tooltoolBottom").children().last().after(str);
+                        $(".goodsPhoto").append(str);
+                        
+                        $(".completeBtn").children().text(selItem.length);
+                    }
+                    
+                }
+                
+                //删除选定商品
+                function delSelItem(obj){
+                    var itemId = $(obj).attr("data-num");
+                    var temp = new Array();
+                    for (var i = 0; i < selItem.length; i++) {
+                        if (selItem[i].ITEM_ID != itemId) {
+                            temp.push(selItem[i]);
+                        }
+                    }
+                    selItem = temp;
+                    $(obj).parent().parent().remove();
+                    $(".completeBtn").children().text(selItem.length);
+                }
+                
+                function getUrlParam(name){
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+                    var r = window.location.search.substr(1).match(reg); //匹配目标参数
+                    if (r != null) 
+                        return unescape(r[2]);
+                    return null; //返回参数值
+                }
+                
+                //确认选择
+                function confirmSel(){
+                    var callback = getUrlParam("callback");
+                    parent[callback](selItem);
+                    var index = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(index);
+                }
+            </script>
+        </div>
+    </body>
+</html>

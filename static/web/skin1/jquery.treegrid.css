@@ -1,0 +1,49 @@
+.TreeGrid{
+	border-collapse: collapse; 
+	font-size: 13px;
+	border: 1px solid #778899;
+}
+
+.TreeGrid .header{
+	background-color: #87CEEB;
+	font-weight: 600;
+}
+
+.TreeGrid td{
+	border: 1px solid #E6E6FA;
+	padding: 4px 3px 2px 3px;
+}
+
+.TreeGrid a{
+	text-decoration: underline;
+	color: black;
+}
+
+.TreeGrid a:hover{
+	color: blue;
+}
+
+.TreeGrid .image_hand{
+	border: 0;
+	cursor:hand;
+	text-indent:16px;
+	background:url("treegrid/folderOpen.gif") no-repeat;
+}
+
+.TreeGrid .image_nohand{
+	border: 0;
+	align:absmiddle;
+	text-indent:16px;
+	background:url("treegrid/folderClose.gif") no-repeat;
+}
+
+.TreeGrid .row_hover{
+	background-color: #E6E6FA;
+}
+
+.TreeGrid .row_active{
+	background-color: #E0FFFF;
+}
+.TreeGrid tr td img{
+width:14px;
+}

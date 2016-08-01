@@ -1,0 +1,21 @@
+/***店内搜索***/
+.shopsearch label{font-weight:normal;}
+.shopsearch .shop-search table{width:90%;overflow:hidden;line-height:30px;margin:10px auto 0 auto;table-layout:fixed;}
+.shopsearch .shop-search .searchText{height:20px;line-height:20px;vertical-align:middle;}
+.shopsearch .shop-search-w240 .keyWords{width:90%;margin:10px auto 0 auto;overflow:hidden;}
+.shopsearch .shop-search-w240 .keyWords .item{display:block;float:left;width:49%;cursor:pointer;}
+.shopsearch .btnBg1:hover {color:#fff !important; cursor:pointer;}
+
+.shopsearch .shop-search-w1210{width:1208px;border:1px solid #f1f1f1;padding:10px 0;}
+.shopsearch .shop-search-w1210 .srh-fl{float:left;width:460px;height:30px;line-height:30px;}
+.shopsearch .shop-search-w1210 .keyWords{height:32px;line-height:32px;margin-left:420px;}
+.shopsearch .shop-search-w1210 .keyWords .item{margin-left:15px;cursor:pointer;}
+.shopsearch .shop-search-w1210 .keyWords .item:first-child{margin-left:0;}
+.shopsearch .shop-search-w1210  .srhOpt{margin-top:-2px;}
+
+.shopsearch .shop-search-w960{width:958px;border:1px solid #f1f1f1;padding:10px 0;}
+.shopsearch .shop-search-w960 .srh-fl{float:left;width:460px;height:30px;line-height:30px;}
+.shopsearch .shop-search-w960 .keyWords{height:32px;line-height:32px;margin-left:420px;}
+.shopsearch .shop-search-w960 .keyWords .item{margin-left:15px;cursor:pointer;}
+.shopsearch .shop-search-w960 .keyWords .item:first-child{margin-left:0;}
+.shopsearch .shop-search-w960  .srhOpt{margin-top:-2px;}

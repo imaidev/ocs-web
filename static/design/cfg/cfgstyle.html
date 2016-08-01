@@ -1,0 +1,267 @@
+<ul>
+<li class="style-item CSS_ShowSwitch">
+	<input type="hidden" class="CSS_StyleName">
+	<p class="style-title">显示开关</p>
+	<div class="style-content">
+		<div class="style-content-c">
+			<input id="CSS_showSwitch_show" type="radio" name="CSS_showSwitch"
+				onclick="StyleTool.styleModule.CSS_ShowSwitch.switch(0);"
+				checked="checked">
+				<label for="CSS_showSwitch_show">显示</label> 
+			<input id="CSS_showSwitch_hide" type="radio" name="CSS_showSwitch" 
+				onclick="StyleTool.styleModule.CSS_ShowSwitch.switch(1);">
+				<label for="CSS_showSwitch_hide">隐藏</label> 
+		</div>
+	</div>
+</li>
+
+<li class="style-item CSS_Background">
+	<input type="hidden" class="CSS_StyleName">
+	<p class="style-title">背景</p>
+	<div class="style-content">
+		<div class="style-content-c">
+			<input id="CSS_background_default" type="radio" name="CSS_background"
+				onclick="StyleTool.styleModule.CSS_Background.switch(0);"
+				checked="checked">
+				<label for="CSS_background_default">默认</label> 
+			<input id="CSS_background_hide" type="radio" name="CSS_background" 
+				onclick="StyleTool.styleModule.CSS_Background.switch(1);">
+				<label for="CSS_background_hide">隐藏</label> 
+			<input id="CSS_background_cus" type="radio" name="CSS_background"
+				onclick="StyleTool.styleModule.CSS_Background.switch(2);">
+				<label for="CSS_background_cus">自定义</label>
+		</div>
+		<div class="style-content-h">
+			<div class="option-r CSS_Background_Color">
+				<label class="option-label">颜色：</label>
+				<input type="text" class="CSS_colorPicker" onchange="StyleTool.styleModule.CSS_Background.colorChange(this);">
+			</div>
+			<div class="option-r CSS_Background_Image">
+				<label class="option-label">图片：</label>
+				<div>
+					<input type="button" class="btn btn-info btn-sm" value="添加图片" onclick="StyleTool.styleModule.CSS_Background.selectPic();">
+					<a href="" target="_blank" style="display: none" class="CSS_Background_Image_Check">查看</a>
+				</div>
+				<div class="upload-image-msg" style="display: none">
+				</div>
+			</div>
+			<div class="option-r CSS_Background_Image" style="display: none">
+				<div class="upload-image-wrap">
+					<div class="upload-image-container">
+						<img src="">
+					</div>
+				</div>
+			</div>
+			<div class="option-r CSS_Background_Image_Repeat">
+				<label class="option-label">显示方式：</label>
+				<select class="option-select" onchange="StyleTool.styleModule.CSS_Background.imageRepeatChange();">
+					<option value="-1">不使用背景图片</option>
+					<option value="01">不平铺（居中）</option>
+					<option value="11">完全平铺</option>
+					<option value="12">拉伸平铺</option>
+					<option value="13">缩放平铺（等比例）</option>
+					<option value="21">纵向平铺（左边对齐）</option>
+					<option value="22">纵向平铺（中间对齐）</option>
+					<option value="23">纵向平铺（右边对齐）</option>
+					<option value="31">横向平铺（顶部对齐）</option>
+					<option value="32">横向平铺（中部对齐）</option>
+					<option value="33">横向平铺（底部对齐）</option>
+					<option value="02">不平铺（左对齐）</option>
+					<option value="03">不平铺（右对齐）</option>
+					<option value="04">不平铺（上对齐）</option>
+					<option value="05">不平铺（下对齐）</option>
+					<option value="06">不平铺（左上对齐）</option>
+					<option value="07">不平铺（右上对齐）</option>
+					<option value="08">不平铺（左下对齐）</option>
+					<option value="09">不平铺（右下对齐）</option>
+				</select>
+			</div>
+			<div class="option-r CSS_background_Image_Fixed" style="display: none">
+				<label class="option-label">效果：</label>
+				<input id="CSS_background_img_scroll" type="radio" name="CSS_background_img_isFixed"
+					onclick="StyleTool.styleModule.CSS_Background.imageFixedChange(0);"
+					checked="checked">
+					<label for="CSS_background_img_scroll">默认</label> 
+				<input id="CSS_background_img_fixed" type="radio" name="CSS_background_img_isFixed" 
+					onclick="StyleTool.styleModule.CSS_Background.imageFixedChange(1);">
+					<label for="CSS_background_img_fixed">锁定背景图片</label> 
+			</div>
+		</div>
+	</div>
+</li>
+
+<!-- 配置新字体时逗号左右不要保留空格，参见“楷体” -->
+<li class="style-item CSS_Font">
+	<input type="hidden" class="CSS_StyleName">
+	<p class="style-title">字体</p>
+	<div class="style-content">
+		<div class="style-content-c">
+			<input id="CSS_font_default" type="radio" name="CSS_font"
+				onclick="StyleTool.styleModule.CSS_Font.switch(0);"
+				checked="checked">
+				<label for="CSS_font_default">默认</label> 
+			<input id="CSS_font_cus" type="radio" name="CSS_font"
+				onclick="StyleTool.styleModule.CSS_Font.switch(2);">
+				<label for="CSS_font_cus">自定义</label>
+		</div>
+		<div class="style-content-h">
+			<div class="option-r">
+				<label class="option-label">字号：</label>
+				<select class="option-select CSS_Font_Size" onchange="StyleTool.styleModule.CSS_Font.sizeChange();">
+				</select>
+			</div>
+			<div class="option-r">
+				<label class="option-label" for="CSS_font_weight">加粗：</label>
+				<input type="checkbox" id="CSS_font_weight" class="option-checkbox CSS_Font_Weight" onclick="StyleTool.styleModule.CSS_Font.weightChange();">
+				<label class="option-checkbox-label" for="CSS_font_style">斜体：</label>
+				<input type="checkbox" id="CSS_font_style" class="option-checkbox CSS_Font_Style" onclick="StyleTool.styleModule.CSS_Font.styleChange();">
+			</div>
+			<div class="option-r CSS_Font_Family">
+				<label class="option-label">字体：</label> 
+				<select class="option-select" onchange="StyleTool.styleModule.CSS_Font.familyChange();">
+					<option value="SimSun">宋体</option>
+					<option value="PMingLiU">新细明体</option>
+					<option value="FangSong_GB2312">仿宋_GB2312</option>
+					<option value="微软雅黑">微软雅黑</option>
+					<option value="隶书">隶书</option>
+					<option value="幼圆">幼圆</option>
+					<option value="STKaiti">华文楷体</option>
+					<option value="方正舒体">方正舒体</option>
+					<option value="华文彩云">华文彩云</option>
+					<option value="华文行楷">华文行楷</option>
+					<option value="华文宋体">华文宋体</option>
+					<option value="楷体,楷体_GB2312,SimKai">楷体</option>
+					<option value="黑体,SimHei">黑体</option>
+					<option value="Arial">Arial</option>
+					<option value="Tahoma">Tahoma</option>
+					<option value="impact">impact</option>
+					<option value="Arial Serif">Arial Serif</option>
+					<option value="Georgia">Georgia</option>
+					<option value="Garamond">Garamond</option>
+					<option value="Times New Roman">Times New Roman</option>
+					<option value="andale mono">andale mono</option>
+					<option value="arial black,avant garde">arial black</option>
+					<option value="comic sans ms">comic sans ms</option>
+				</select>
+			</div>
+			<div class="option-r CSS_Font_Color">
+				<label class="option-label">颜色：</label>
+				<input id="CSS_font_color_default" type="radio" name="CSS_font_color"
+					onclick="StyleTool.styleModule.CSS_Font.colorSwitch(0);"
+					checked="checked">
+					<label for="CSS_font_color_default">默认</label> 
+				<input id="CSS_font_color_cus" type="radio" name="CSS_font_color"
+					onclick="StyleTool.styleModule.CSS_Font.colorSwitch(2);">
+					<label for="CSS_font_color_cus">自定义</label>
+				<input type="text" class="CSS_colorPicker hidden" onchange="StyleTool.styleModule.CSS_Font.colorChange(this);">
+			</div>
+		</div>
+	</div>
+</li>
+
+<li class="style-item CSS_Height">
+	<input type="hidden" class="CSS_StyleName">
+	<p class="style-title">高度</p>
+	<div class="style-content">
+		<div class="style-content-c">
+			<input id="CSS_height_default" type="radio" name="CSS_height"
+				onclick="StyleTool.styleModule.CSS_Height.switch(0);"
+				checked="checked">
+				<label for="CSS_height_default">默认</label> 
+			<input id="CSS_height_cus" type="radio" name="CSS_height" 
+				onclick="StyleTool.styleModule.CSS_Height.switch(2);">
+				<label for="CSS_height_hide">自定义</label> 
+			<div class="option-inline-r CSS_height_value" style="display: none">
+				<input type="text" maxlength="3" style="width:48px"
+					onkeyup="StyleTool.styleModule.CSS_Height.heightChange();" 
+					onchange="StyleTool.styleModule.CSS_Height.heightChange();" 
+					onkeypress="javascript:return StyleTool.util.isNumberKey(event);">
+				<span>像素</span>
+			</div>
+		</div>
+	</div>
+</li>
+
+<li class="style-item CSS_Border">
+	<input type="hidden" class="CSS_StyleName">
+	<p class="style-title">边框</p>
+	<div class="style-content">
+		<div class="style-content-c">
+			<input id="CSS_border_default" type="radio" name="CSS_border"
+				onclick="StyleTool.styleModule.CSS_Border.switch(0);"
+				checked="checked">
+				<label for="CSS_border_default">默认</label> 
+			<input id="CSS_border_hide" type="radio" name="CSS_border"
+				onclick="StyleTool.styleModule.CSS_Border.switch(1);">
+				<label for="CSS_border_hide">隐藏</label> 
+			<input id="CSS_border_cus" type="radio" name="CSS_border"
+				onclick="StyleTool.styleModule.CSS_Border.switch(2);">
+				<label for="CSS_border_cus">自定义</label>
+		</div>
+		<div class="style-content-h">
+			<div class="option-r CSS_Border_Color">
+				<label class="option-label">颜色：</label>
+				<input type="text" class="CSS_colorPicker" onchange="StyleTool.styleModule.CSS_Border.colorChange(this);">
+			</div>
+			<div class="option-r CSS_Border_Width">
+				<label class="option-label">宽度：</label>
+				<select class="option-select" onchange="StyleTool.styleModule.CSS_Border.widthChange();">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>
+			</div>
+			<div class="option-r CSS_Border_Style">
+				<label class="option-label">样式：</label>
+				<select class="option-select" onchange="StyleTool.styleModule.CSS_Border.styleChange();">
+					<option value="0">实线</option>
+					<option value="1">点线</option>
+					<option value="2">虚线</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</li>
+
+<li class="style-item CSS_Position">
+	<input type="hidden" class="CSS_StyleName">
+	<p class="style-title">定位</p>
+	<div class="style-content">
+		<div class="style-content-c">
+			<input id="CSS_Position_default" type="radio" name="CSS_Position"
+				onclick="StyleTool.styleModule.CSS_Position.switch(0);"
+				checked="checked">
+				<label for="CSS_Position_default">默认</label> 
+			<input id="CSS_Position_absolute" type="radio" name="CSS_Position"
+				onclick="StyleTool.styleModule.CSS_Position.switch(3);">
+				<label for="CSS_Position_absolute">相对</label> 
+			<input id="CSS_Position_fixed" type="radio" name="CSS_Position"
+				onclick="StyleTool.styleModule.CSS_Position.switch(4);">
+				<label for="CSS_Position_fixed">固定</label>
+		</div>
+		<div class="style-content-h">
+			<div class="option-r CSS_Position_top">
+				<label class="option-label">垂直偏移：</label>
+				<input type="text" style="width:48px"
+					onkeyup="StyleTool.styleModule.CSS_Position.topChange();" 
+					onchange="StyleTool.styleModule.CSS_Position.topChange();" >
+				<span>像素</span>
+			</div>
+			<div class="option-r CSS_Position_leftorMagrinLeft">
+				<label class="option-label">水平偏移：</label>
+				<input type="text" style="width:48px"
+					onkeyup="StyleTool.styleModule.CSS_Position.leftorMagrinLeftChange();" 
+					onchange="StyleTool.styleModule.CSS_Position.leftorMagrinLeftChange();" >
+				<span>像素</span>
+			</div>
+		</div>
+	</div>
+</li>
+</ul>

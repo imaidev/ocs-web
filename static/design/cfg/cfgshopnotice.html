@@ -1,0 +1,41 @@
+<div class="modal-dialog" role="document">
+	<div class="modal-content" style="width: 760px;height: 300px;padding: 5px;">
+		<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="H2">店铺公告</h4>
+		</div>
+		<iframe id="listsIframe" name="listsIframe" scrolling="no" frameborder="0"
+				width="750px;" height="200px;" ></iframe>
+	</div>
+</div>
+<script type="text/javascript">
+		// 店铺公告配置信息
+		var _$shopnotice, _cfg,_type;
+		function cfgRead($selEl) {
+			_$shopnotice = $selEl;
+			_cfg = _$shopnotice.shopnotice('config');
+			getType();
+			
+			$("#listsIframe").attr('src','/static/design/cfg/cfgshopnoticeiframe.html')
+		}
+		
+        function cfgClose(){
+        	$("#CfgModal").modal('hide');
+        }
+        function getType(){//加载字典表,公告类型
+            $.ajax({
+                url: ctx+"/base/promotion/design/notice.do?method=getType",
+                dataType: "json",
+                async:false,
+                success: function (data) {
+                	_type = data;
+                },
+                error: function() {
+                    alert("加载可配置类型时出错,请刷新页面并重试!");
+                }
+            })
+        }
+</script>

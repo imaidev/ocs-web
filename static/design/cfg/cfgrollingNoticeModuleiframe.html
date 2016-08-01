@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+    
+    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+    <script src='/static/design/js/layer/layer.js'></script>
+    
+    <script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+    <script>
+        function setSquence() {
+            var divlist = $('#EditorBox').children();
+            var len = divlist.length;
+            divlist.each(function (i,item) {
+                if (i == 0) {
+                    $(this).addClass('first')
+                    if(len>1) $(this).removeClass('last');
+                }
+                if (i == len - 1) {
+                    $(this).addClass('last');
+                    if(len>1) $(this).removeClass('first');
+                }
+                if (i>0 && i < len - 1) {
+                    $(this).removeClass('last').removeClass('first');
+                }
+                if (i % 2 == 0) {
+                    $(this).addClass('even').removeClass('odd');
+                }
+                else {
+                    $(this).addClass('odd').removeClass('even');
+                }
+            })
+            
+            setValidate();
+        }
+    	
+    	// 就将此元素插到下一个元素之后，从而实现互换顺序
+    	function actDown(Obj) {
+    		$(Obj).parent().parent().next().after($(Obj).parent().parent());
+    		// 重新设置排序规则
+    		setSquence();
+    	}
+    	
+    	// 就将此元素插到上一个元素之后，从而实现互换顺序
+    	function actUp(Obj) {
+    		$(Obj).parent().parent().after($(Obj).parent().parent().prev());
+    		// 重新设置排序规则
+    		setSquence();
+    	}
+        function addRow(title,href){
+        	var arr=[];
+        	arr.push("<div class='edit-item J_TEditItem ml0 borderb'>");
+        	arr.push("    <div class='column column1'>");
+        	arr.push("        <input type='text' name='title' value='",title,"'><span class='J_TMsg msg disappear'><i class='msg-icon'></i><span class='text'></span></span>");
+        	arr.push("    </div>");
+        	arr.push("    <div class='column column1'>");
+        	arr.push("        <input type='text' name='href' value='",href,"'><span class='J_TMsg msg disappear'><i class='msg-icon'></i><span class='text'></span></span>");
+        	arr.push("    </div>");
+        	arr.push("    <div class='column column3 J_Control'>");
+        	arr.push("        <a title='上移' class='up' href='javascript:void(0);' onclick='actUp(this)'></a>");
+        	arr.push("        <a title='下移' class='down' href='javascript:void(0);' onclick='actDown(this)'></a>");
+        	arr.push("        <a title='删除' class='delete' href='javascript:void(0);'></a>");
+        	arr.push("    </div>");
+        	arr.push("</div>"); 
+			var $div=$(arr.join(''));
+			$('#EditorBox').append($div);
+			
+			setSquence();
+        }
+        function setValidate(){
+        	$('#displaySetForm').validate({
+	            onkeyup: function(element) {$(element).valid()},
+	            rules:{
+	            	title:{required:true,maxlength:100},
+	           	},
+	            showErrors: function(errorMap, errorList) {
+	            	
+	            	if(errorList.length>0){
+	            		$.each(errorList,function(index,error){
+		            		var element=$(errorList[index].element);
+		            		var msgContainer=element.parent().find('.J_TMsg');
+		            		if(msgContainer.length>0){
+		            			msgContainer.find('span').text(error.message);
+		            			if(error.message!="")
+		            				msgContainer.removeClass('disappear').addClass('failure');
+		            			else
+		            				msgContainer.removeClass('failure').addClass('disappear');
+			           		}
+		            	})
+	            	}
+	            	else{
+	            		this.currentElements.parent().find('.J_TMsg').each(function(){
+	            			$(this).removeClass('failure').addClass('disappear');
+	            		})
+	            	}
+	            	
+	           	}
+            });
+        }
+        
+        
+        
+        $(function () {
+        	//点击添加公告
+            $('#btnAdd').click(function () {
+                /* if ($('#EditorBox').children().length >= 7) {
+                    layer.msg("最多只能添加七张图片", {
+						offset : 80,
+						shift : 5,
+						time : 3000
+					});
+                    return false;
+                } */
+                addRow('','');
+            })
+            $("#Group").delegate("a.delete", "click", function(e) {
+                $(this).closest('div.edit-item').remove();
+                setSquence();
+            })
+            
+            //点击滚动方向
+            $("#direction").change(function() {
+				if ($(this).val() == 'top'|| $(this).val() == 'down'){
+					$("#mode").hide();
+					$("#continuity").hide();
+				    $("#stopTime").show();
+				}
+				else{
+					$("#mode").show();
+					$("#continuity").show();
+				    $("#stopTime").hide();
+				}
+			});
+        	
+            //加载数据(公告图标) 
+            if(parent._cfg.iconClass=="notice-image0"){
+            	$("#classification1").click();
+            }
+            else if(parent._cfg.iconClass=="notice-image1"){
+            	$("#classification2").click();
+            }
+            else if(parent._cfg.iconClass=="notice-image2"){
+            	$("#classification3").click();
+            }
+            else{
+            	$("#classification4").click();
+            }
+            
+        	//加载数据(公告内容) 
+        	$(parent._cfg.notice).each(function(){
+            	addRow(this.title,this.href);
+            })
+            
+            //加载数据(公告内容) 
+        	$("#direction").val(parent._cfg.direction);
+        	$("#direction").change();
+            
+        	//加载数据(滚动速度)
+        	$("#speed").val(parent._cfg.speed);
+        	
+        	//加载数据(是否重复)
+        	if(parent._cfg.isrepeat=="1"){
+             	$("#continuity1").click();
+            }
+            else if(parent._cfg.isrepeat=="0"){
+             	$("#continuity2").click();
+            }
+        	
+        	//加载数据(滚动方式)
+        	$("#rollingways").val(parent._cfg.rollingways);
+        	
+        	//加载数据(停留时间按)
+        	$("#freezetime").val(parent._cfg.freezetime);
+            
+            //加载标题栏数据
+            $('#title').val(parent._$module.find('.title-box span').text().trim());
+            if(parent._$module.find('.title-box').is(":hidden")){
+            	$('input[name="showTitle"]').eq(0).attr("checked",true);	
+            }
+            else{
+            	$('input[name="showTitle"]').eq(1).attr("checked",true);
+            }
+            
+            //设置验证规则
+            setValidate();
+        })
+        
+        function cfgSet(){
+        	if(!$('#displaySetForm').valid()){
+        		return;
+        	}
+        	else{
+        		var otherTab=$("#navul>.selected").siblings();
+        		for(i=0;i<otherTab.length;i++){
+        			otherTab.click();
+        			if(!$('#displaySetForm').valid())
+        				return;
+        		}
+        	}
+        	
+        	var arr=$('#displaySetForm').serializeArray();
+        	var opt={
+        			notice:[]
+        	}
+        	
+        	currimgIndex=0;
+        	arr.forEach(function(obj){
+        		if(obj.name=="showTitle") return;
+        		if(obj.name=="title") return;
+        		if(obj.name=="href") return;
+        		
+        		opt[obj.name]=obj.value;
+        	})
+        	if(opt.tfBold==undefined) opt.tfBold="";//checkbox特殊处理
+        
+        	$('#EditorBox').children().each(function(i){
+        		if($(this).find('input[ name="title"]').val().trim()!=""){
+        			opt.notice[i]={};
+        			opt.notice[i].title=$(this).find('input[ name="title"]').val();
+        			opt.notice[i].href=$(this).find('input[ name="href"]').val();
+        		}
+        	})
+        	
+        	parent._$module.rollingNoticeModule('reset',opt);
+        	
+        	//组件标题
+        	parent._$module.find('.title-box span').text($('#title').val());
+        	if($('input[name="showTitle"]:checked').val()=="true"){
+        		parent._$module.find('.title-box').show();
+        	}
+        	else{
+        		parent._$module.find('.title-box').hide();
+        	}
+        	
+        	//关闭配置框
+        	parent.cfgClose(); 
+        }
+        
+    </script>
+</head>
+<body>
+		<div class="content fm1">
+			<div class="tab">
+				<ul class="nav clear-fix" id='navul'>
+					<li class="ks-switchable-trigger-internal6 selected" id="titleOne"><span>常规</span></li>
+					<li class="ks-switchable-trigger-internal6" id="titleTwo"><span>高级</span></li>
+				</ul>
+				<form class="main-slide-form form-default" id='displaySetForm'>
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabOne" style="display: block;">
+							<div class="edit-module">
+								<div class="edit-item">
+									<span class="fl">显示标题：</span>	
+		                            <div class="fl">
+		                                <input type="radio" class="J_TNotShowTitle  input-radio" name="showTitle" value="false">不显示
+		                                <input type="radio" class="J_TShowTitle  show-title-true input-radio" name="showTitle" value="true" checked="checked">显示
+		                                <input class="J_TTitleInput input-box title-input" id="title" type="text" maxlength="30" name="title" value="">
+		                            </div>
+		                        </div>
+							</div>
+							<div class="edit-module">
+								<div class="edit-item">
+									<span class="fl">公告图标：</span>
+									<div class="fl">
+										<input type="radio" name="iconClass" id="classification1" class="noticeLike" value="notice-image0"/>
+										<label for="classification1"><img src="../img/icon/noticeIco1.gif" /></label>
+										<input type="radio" name="iconClass" id="classification2" class="noticeLike" value='notice-image1'/>
+										<label for="classification2"><img src="../img/icon/noticeIco2.gif" /> </label>
+										<input type="radio" name="iconClass" id="classification3" class="noticeLike" value='notice-image2'/>
+										<label for="classification3"><img src="../img/icon/noticeIco3.gif" /></label>
+										<input type="radio" name="iconClass" id="classification4" class="noticeLike" value=""/>
+										<label for="classification4" class="noticeLike">无</label>
+									</div>
+								</div>
+								<div class="edit-item">
+									<span class="fl">公告列表：</span>
+									<div class="fr mr275">
+										<a class="add-one btn-style-1" id="btnAdd">添加公告</a>
+									</div>
+								</div>
+							</div>
+							<div class="edit-module" style='width: 740px;'>
+								<div class="edit-item">
+									<div id="Group">
+										<div class="edit-item  tabTit ml0">
+											<div class="column column1"><span>内容:</span></div>
+											<div class="column column1"><span>链接地址:</span></div>
+											<div class="column column3"><span>操作:</span></div>
+										</div>
+										<div id="EditorBox" class="pic-list" style="overflow-y: auto;height: 180px;">
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabTwo" style="display: none;">
+							<div class="edit-module">
+
+								<div class="edit-item ml27">
+									<span class="fl">滚动方向：</span>
+									<select id="direction" name='direction'>
+										<option value="left">向左</option>
+										<option value="right">向右</option>
+										<option value="top">向上</option>
+										<option value="down">向下</option>
+									</select>
+								</div>
+								<div class="edit-item ml27">
+									<span class="fl">滚动速度：</span>
+									<select id="speed" name="speed">
+										<option value="40">慢速</option>
+										<option value="30">普通</option>
+										<option value="20">快速</option>
+									</select>
+								</div>
+								<div class="edit-item ml27" id="stopTime" style="display: none;">
+									<span class="fl">停留时间：</span>
+									<select id='freezetime' name='freezetime'>
+										<option value="1000">1秒</option>
+										<option value="3000">3秒</option>
+										<option value="5000">5秒</option>
+										<option value="7000">7秒</option>
+									</select>
+								</div>
+								<div class="edit-item ml27" id="mode" >
+									<span class="fl">滚动方式：</span>
+									<select id='rollingways' name='rollingways'>
+										<option value="out">移出</option>
+										<option value="in">移入</option>
+									</select>
+								</div>
+								<div class="edit-item ml27" id="continuity">
+									<span class="fl">连续滚动：</span>
+									<input type="radio" id="continuity1" name="isrepeat" class="abstract" value="1"/>
+									<label for="continuity1">是&nbsp;&nbsp;</label>
+									<input type="radio" id="continuity2" name="isrepeat" class="abstract" value="0"/>
+									<label for="continuity2">否</label>
+								</div>
+							</div>
+						</div>
+
+						<p class="opt-footer ctset-opt-footer">
+							<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+							<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+						</p>
+				</form>
+				<script type="text/javascript">
+					$(function() {
+						$('#titleOne').click(function() {
+							$(this).addClass('selected');
+							$(this).siblings().removeClass('selected');
+							$("#tabOne").show();
+							$("#tabTwo").hide();
+						})
+						$('#titleTwo').click(function() {
+							$(this).addClass('selected');
+							$(this).siblings().removeClass('selected');
+							$("#tabTwo").show();
+							$("#tabOne").hide();
+						})
+										
+					})
+				</script>
+				</div>
+			</div>
+	</body>
+</html>

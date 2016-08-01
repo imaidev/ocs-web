@@ -1,0 +1,22 @@
+<?xml version="10" encoding="GBK"?>
+<chart caption="最近一月供应商销售情况" rotateNames='0' showvalues="0"
+	decimals="3" setadaptiveymin="1" linethickness="5" legendBorderAlpha='0' 
+	bgAlpha='0,0'	canvasBgAlpha='0,0' numberPrefix='%A5' showBorder='0'
+	formatNumberScale='0' numberSuffix='万元' baseFont="Arial" legendBgAlpha='0'
+	 baseFontColor="#FFFFFF" baseFontSize="13" hoverCapBgColor='#6699FF'>
+	<categories fontColor="#FFFFFF" fontSize="13" font="Arial">
+		<category name="西安长峰机电研究所(套)" />
+		<category name="内蒙古金岗重工有限公司(套)" />
+		<category name="武汉三江航天固德生物科技有限公司(吨)"/>
+	</categories>
+	<dataset parentyaxis="P" seriesname="金额">
+		<set value="470" />
+		<set value="432" />
+		<set value="420" />
+	</dataset>
+	<dataset parentyaxis="S" seriesname="数量" renderas="Column">
+		<set value="3" />
+		<set value="4" />
+		<set value="10" />
+	</dataset>
+</chart>

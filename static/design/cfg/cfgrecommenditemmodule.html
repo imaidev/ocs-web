@@ -1,0 +1,29 @@
+<div class="modal-dialog" role="document">
+	<div class="modal-content" style="width: 780px;height: 660px;padding: 5px;">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h4 class="modal-title" id="H2">宝贝推荐</h4>
+		</div>
+	<!-- 	<iframe id="recommendIframe" name="recommendIframe" scrolling="no" frameborder="0"
+				width="598px;" height="600px;" ></iframe> -->
+				
+		<iframe id="recommendIframe" name="recommendIframe" scrolling="no" frameborder="0"
+				width="760px;" height="610px;" src='/static/design/cfg/cfgrecommendshopiframe.html'></iframe>
+	</div>
+</div>
+<script>
+	var _$module;
+	var _cfg;
+	function cfgRead($selEl) {
+		_$module = $selEl;
+		_cfg = _$module.recommenditemmodule('config');
+		_wit = _$module.closest('.column').width();
+	}
+	 function cfgClose(){
+	   $("#CfgModal").modal('hide');
+	}
+	
+	
+</script>

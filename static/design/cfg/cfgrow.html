@@ -1,0 +1,110 @@
+<!-- 文件命名规则为cfg+前台操作.html,读取统一为cfgRead,cfgSet-->
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="H2">行设置</h4>
+        </div>
+        <div class="content">
+            <div class="panels">
+                <div class="panel display-set">
+                    <form method="post" class="display-set-form form-default" id="displaySetForm">
+                        <div class="control-group">
+                            <label class="group-title">与上一行的距离:</label>
+                            <input name="marginT" type="text" value="" placeholder="0~200">
+                            <span>px</span>
+                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                        </div>
+                        <div class="control-group">
+                            <label class="group-title">行内列间距离:</label>
+                            <input name="marginL" type="text" value="" placeholder="0~20">
+                            <span>px</span>
+                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                        </div>
+                    </form>
+                </div>
+                <p class="opt-footer">
+                    <a class="btn-ok" onclick="cfgSet()">保存</a>
+                    <a class="btn-cancel" onclick="cfgClose();">取消</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+	function cfgClose(){
+		$("#CfgModal").modal('hide');
+	}
+    function cfgRead($selEl) {
+        $row = $selEl;
+
+        $('#CfgModal input[name=marginT]').val(parseFloat($row.css("margin-top")));
+        if (g_scene!=3 && $row.children(".freewidthCol").length > 1 && $row.children(".screenR").length > 0) {
+            var $r = $row.children(".screenR");
+            var $l = $row.children(".screenL");
+            var ml = parseFloat($r.css("margin-left")) - parseFloat($l.width());
+
+            $('#CfgModal input[name=marginL]').val(ml);
+        } else {
+            $('#CfgModal input[name=marginL]').closest(".control-group").hide();
+        }
+        
+        setValidate();
+    }
+    function setValidate() {
+        $('#displaySetForm').validate({
+            onkeyup: function (element) { $(element).valid() },
+            rules: {
+                marginT: { max: 200, min: 0 },
+                marginL: { max: 20, min: 0 },
+            },
+            showErrors: function (errorMap, errorList) {
+                if (errorList.length > 0) {
+                    $.each(errorList, function (index, error) {
+                        var element = $(errorList[index].element);
+                        var msgContainer = element.parent().find('.J_TMsg');
+                        if (msgContainer.length > 0) {
+                            msgContainer.find('span').text(error.message);
+                            if (error.message != "")
+                                msgContainer.removeClass('disappear').addClass('failure');
+                            else
+                                msgContainer.removeClass('failure').addClass('disappear');
+                        }
+                    })
+                }
+                else {
+                    this.currentElements.parent().find('.J_TMsg').each(function () {
+                        $(this).removeClass('failure').addClass('disappear');
+                    })
+                }
+
+            }
+        });
+    }
+    function cfgSet() {
+        if (!$('#displaySetForm').valid()) {
+            return;
+        }
+
+        var mt = $('#CfgModal input[name=marginT]').val();
+        $row.css("margin-top", mt + "px");
+
+        if ($row.find(".column").length > 1) {
+            var ml = $('#CfgModal input[name=marginL]').val();
+            $row.find(".screenR").each(function () {
+                if ($(this).closest(".row")[0] == $row[0]) {
+                    var nml = parseFloat($(this).siblings('.screenL').width()) + parseFloat(ml);
+                    $(this).css("margin-left", nml + "px");
+                    $(this).attr("preset-marginl", nml);
+                }
+            })
+            showWidth();
+        }
+
+        $('#CfgModal').modal('hide');
+    }
+</script>

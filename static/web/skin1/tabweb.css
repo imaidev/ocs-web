@@ -1,0 +1,103 @@
+
+body {
+    font-family : "Microsoft Yahei","SimSun",sans-serif !important;
+    font-size : 13px !important;
+    color: #fffff;
+}
+
+
+
+li { list-style: none }
+
+
+
+
+textarea { font: 100% "Microsoft Yahei","SimSun",sans-serif }
+
+#tabnav {
+    background:#ffffff;
+    border-bottom:1px solid #cccccc;
+    padding-bottom:3px;
+    width:720px;
+}
+ 
+#tabnav ul {
+    padding:15px 10px 5px 10px;
+    list-style:none;
+    background:#ffffff;
+    border-bottom:1px solid #cccccc;
+}
+ 
+#tabnav ul li {
+    display:inline;
+    margin: 1px;
+    height:30px;
+    FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#ffffff,endColorStr=#eeeeee); 
+}
+ 
+#tabnav ul li a {
+    background:#eeeeee;  
+    padding:5px 10px 5px 10px;
+    border:1px solid #cccccc;
+	color:#6e6e6e;
+}
+ 
+#tabnav ul li a:hover {
+    background:#eeeeee;    
+}
+ 
+#tabnav ul li a.on {
+	background:#ffffff;
+    color:#3989ad;
+    padding:5px 10px 5px 10px;
+    border-top:1px solid #cccccc;
+    border-left:1px solid #cccccc;
+    border-right:1px solid #cccccc;
+    border-bottom:1px solid #ffffff;
+  
+}
+ 
+#tabnav ul li a.on:hover {
+    background:#eeeeee;
+}
+
+a
+{
+    text-decoration:none;
+    
+    }
+    
+ul, menu, dir {
+list-style-type: disc;
+}
+Inherited from body
+body {
+font-family: "Microsoft Yahei","SimSun",sans-serif !important;
+font-size: 13px !important;
+color: #fffff;
+}
+
+a:hover {
+color: #f60;
+cursor: pointer;
+}
+a {
+text-decoration: none;
+}
+a {
+text-decoration: none;
+color: #36c;
+cursor: pointer;
+}
+user agent stylesheeta:-webkit-any-link {
+color: -webkit-link;
+text-decoration: underline;
+cursor: auto;
+}
+Inherited from li#tab2
+li {
+list-style: none;
+}
+user agent stylesheetli {
+text-align: -webkit-match-parent;
+}

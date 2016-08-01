@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+    <script src="/static/resource/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+    <script>
+    
+	$(function(){
+		setSquence();
+	})
+	function setSquence() {
+		$('.EditorBox').each(function(){
+			var $this=$(this);			
+			var divlist = $this.children();
+			var len = divlist.length;
+			divlist.each(function (i,item) {
+				if (i == 0) {
+					$(this).addClass('first')
+					if(len>1) $(this).removeClass('last');
+				}
+				if (i == len - 1) {
+					$(this).addClass('last');
+					if(len>1) $(this).removeClass('first');
+				}
+				if (i>0 && i < len - 1) {
+					$(this).removeClass('last').removeClass('first');
+				}
+				if (i % 2 == 0) {
+					$(this).addClass('even').removeClass('odd');
+				}
+				else {
+					$(this).addClass('odd').removeClass('even');
+				}
+			})
+		})
+	}
+	
+	// 就将此元素插到下一个元素之后，从而实现互换顺序
+	function actDown(Obj) {
+		$(Obj).parent().parent().next().after($(Obj).parent().parent());
+		// 重新设置排序规则
+		setSquence();
+	}
+	
+	// 就将此元素插到上一个元素之后，从而实现互换顺序
+	function actUp(Obj) {
+		$(Obj).parent().parent().after($(Obj).parent().parent().prev());
+		// 重新设置排序规则
+		setSquence();
+	}
+	
+    //删除一行
+	function deleteCustomer(obj){
+		 $(obj).closest('tr').remove();
+         setSquence();
+	}
+	
+    
+	function addCustomer(customerType,customerId,customerName,customerStatus){
+		var str='<tr>'
+			+'<td width="20%"><select name="customerType" value="'+customerType+'"><option value="1">QQ</option><option value="2">平台客服</option></select></td>'
+	        +'<td width="20%"><input type="text" name="customerId" value="'+customerId+'" maxlength="30"/></td>'
+	        +'<td width="20%"><input type="text" name="customerName" value="'+customerName+'" maxlength="10"/></td>'
+			+'<td width="20%"><select name="customerStatus" value="'+customerStatus+'"><option value="1">一直在线</option><option value="2">工作时间在线</option></select></td>'
+			+'<td class="column-opt">'
+		    +'<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'
+		    +'<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'
+		    +'<a title="删除" class="delete" href="javascript:void(0);" onclick="deleteCustomer(this)"></a>'
+		    +'</td></tr>';
+		    $("#customerBox").append(str);
+		    setSquence();
+		    
+		    var customer = $("#customerBox").children().last();
+       		var typeSele = customer.find("select[name=customerType] option");
+       		for(var i=0;i<typeSele.length;i++){
+       			if(typeSele[i].value==customerType){
+       				typeSele[i].selected=true;
+       				break;
+       			}
+       		}
+       		
+       		var statusSele = customer.find("select[name=customerStatus] option");
+       		for(var i=0;i<statusSele.length;i++){
+       			if(statusSele[i].value==customerStatus){
+       				statusSele[i].selected=true;
+       				break;
+       			}
+       		}
+	}
+	
+	function deleteTime(obj){
+		 $(obj).closest('tr').remove();
+	}
+	
+	function addTime(fromDate,toDate,fromTime,toTime){
+		var str='<tr>'
+			+'<td width="37%">'
+			+'<select name="fromDate" class="per35 mr5" value="'+fromDate+'"><option value="1" selected>周一</option><option value="2">周二</option>'
+			+'<option value="3">周三</option><option value="4">周四</option><option value="5">周五</option>'
+			+'<option value="6">周六</option><option value="0">周日</option></select>'
+			+'至'
+			+'<select name="toDate" class="per35 ml5" value="'+toDate+'"><option value="1">周一</option><option value="2">周二</option>'
+			+'<option value="3">周三</option><option value="4">周四</option><option value="5" selected>周五</option>'
+			+'<option value="6">周六</option><option value="0">周日</option></select></td>'
+			+'<td width="37%"><select class="per35 mr5" name="fromTime" value="'+fromTime+'"><option value="00:00">00:00</option><option value="00:30">00:30</option>'
+			+'<option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option>'
+			+'<option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option>'
+			+'<option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option><option value="06:30">06:30</option>'
+			+'<option value="07:00">07:00</option><option value="07:30">07:30</option><option value="08:00">08:00</option><option value="08:30">08:30</option>'
+			+'<option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option>'
+			+'<option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option>'
+			+'<option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option>'
+			+'<option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option>'
+			+'<option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option>'
+			+'<option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option>'
+			+'<option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option>'
+			+'<option value="23:00">23:00</option><option value="23:30">23:30</option><option value="24:00">24:00</option></select>'
+			+'至'
+			+'<select class="per35 ml5" name="toTime" value="'+toTime+'"><option value="00:00">00:00</option><option value="00:30">00:30</option>'
+			+'<option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option>'
+			+'<option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option>'
+			+'<option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option><option value="06:30">06:30</option>'
+			+'<option value="07:00">07:00</option><option value="07:30">07:30</option><option value="08:00">08:00</option><option value="08:30">08:30</option>'
+			+'<option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option>'
+			+'<option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option>'
+			+'<option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option>'
+			+'<option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option>'
+			+'<option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option>'
+			+'<option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option>'
+			+'<option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option>'
+			+'<option value="23:00">23:00</option><option value="23:30">23:30</option><option value="24:00">24:00</option></select>'
+			+'</td><td width="26%" class="column-opt"><a title="删除" class="delete" href="javascript:void(0);" onclick="deleteTime(this)"></a>'
+			+'</td></tr>';
+		    $("#dateBox").append(str);
+		    //修改select的值
+		    var time = $("#dateBox").children().last();
+      		var fromDateSele = time.find("select[name=fromDate] option");
+      		for(var i=0;i<fromDateSele.length;i++){
+      			if(fromDateSele[i].value==fromDate){
+      				fromDateSele[i].selected=true;
+      				break;
+      			}
+      		}
+      		
+      		var toDateSele = time.find("select[name=toDate] option");
+      		for(var i=0;i<toDateSele.length;i++){
+      			if(toDateSele[i].value==toDate){
+      				toDateSele[i].selected=true;
+      				break;
+      			}
+      		}
+      		
+      		var fromTimeSele = time.find("select[name=fromTime] option");
+      		for(var i=0;i<fromTimeSele.length;i++){
+      			if(fromTimeSele[i].value==fromTime){
+      				fromTimeSele[i].selected=true;
+      				break;
+      			}
+      		}
+      		
+      		var toTimeSele = time.find("select[name=toTime] option");
+      		for(var i=0;i<toTimeSele.length;i++){
+      			if(toTimeSele[i].value==toTime){
+      				toTimeSele[i].selected=true;
+      				break;
+      			}
+      		}
+	}
+	
+	//删除一行
+	function deleteContact(obj){
+		 $(obj).closest('tr').remove();
+         setSquence();
+	}
+	
+	function addContact(contactName,contactMobile){
+		var str='<tr><td width="37%"><input type="text" name="contactName" value="'+contactName+'" maxlength="10"/></td>'
+			+'<td width="37%"><input type="text"  name="contactMobile" value="'+contactMobile+'" maxlength="30"/></td>'
+			+'<td width="26%" class="column-opt">'
+			+'<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'
+			+'<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'
+			+'<a title="删除" class="delete" href="javascript:void(0);" onclick="deleteContact(this)"></a></td></tr>';
+		    $("#contactBox").append(str);
+		    setSquence();
+	}
+	
+	$(document).ready(function(){	
+		//加载配置
+	   $('#onlineTitle').val(parent._cfg.title);
+       var qqShowStyle=parent._cfg.qqShowStyle;
+       $("input[name=qqShowStyle]").each(function () {    
+      	   if (qqShowStyle == $(this)[0].value) {    
+      		 	$(this)[0].checked = true;
+	         }    
+	      });
+       var timeFlag=parent._cfg.timeFlag;
+       $("input[name=timeFlag]").each(function () {    
+    	     if(timeFlag ==$(this)[0].value) {    
+    	    	 $(this)[0].checked=true;
+	          }    
+	      });
+       
+	   var showType=parent._cfg.showType;
+       $("input[name=showType]").each(function () {    
+    	     if(showType ==$(this)[0].value) {    
+    	    	 $(this)[0].checked = true;
+	          }    
+	      });
+       
+       var contactFlag=parent._cfg.contactFlag;
+       $("input[name=contactFlag]").each(function () {    
+    	     if(contactFlag ==$(this)[0].value) {    
+    	    	 $(this)[0].checked = true;
+	          }    
+	      });
+     
+       $(parent._cfg.onlineList).each(function(){
+       		addCustomer(this.customerType,this.customerId,this.customerName,this.customerStatus);
+       });
+       $(parent._cfg.timeList).each(function(){
+    	   addTime(this.fromDate,this.toDate,this.fromTime,this.toTime);
+       });
+       $(parent._cfg.contactList).each(function(){
+     		addContact(this.contactName,this.contactMobile);
+       });
+       //不显示时间时
+       if(parent._cfg.timeFlag=="0"){
+    	   $('#serWorkTimeOff').click();
+       }
+       if(parent._cfg.contactFlag=="0"){
+    	   $('#serContactOff').click();
+       }
+	});
+	
+	 //保存配置
+	 function cfgSet(){
+		 //校验
+		 if(!checkValid()){
+     		return;
+     	 }
+      	//组件更新
+         var qqShowStyle="";
+         $("input[name=qqShowStyle]").each(function () { 
+        	   if ($(this)[0].checked == true) {    
+        		   qqShowStyle =$(this)[0].value;
+  	        	}    
+  	      });
+         var timeFlag="";
+         $("input[name=timeFlag]").each(function () {    
+      	     if($(this)[0].checked == true) {    
+      		 	   timeFlag =$(this)[0].value;
+	          }    
+	      });
+         
+	      var showType="";
+         $("input[name=showType]").each(function () {    
+      	     if($(this)[0].checked == true) {    
+      	    	showType =$(this)[0].value;
+	          }    
+	      });
+         
+         var contactFlag="";
+         $("input[name=contactFlag]").each(function () {    
+      	     if($(this)[0].checked == true) {    
+      	    	   contactFlag =$(this)[0].value;
+	          }    
+	      });
+      	var o={
+         			title:$('#onlineTitle').val(),
+         			qqShowStyle:qqShowStyle,
+         			showType:showType,
+         			contactFlag:contactFlag,
+         			timeFlag:timeFlag,
+         			onlineList:[],
+         			timeList:[],
+         			contactList:[]
+         	}
+      		$('#customerBox').children().each(function(i){
+        		if($(this).find('input[name="customerId"]').val().trim()!=""){
+        			o.onlineList[i]={};
+            		o.onlineList[i].customerType=$(this).find('select[ name="customerType"]').val();
+            		o.onlineList[i].customerId=$(this).find('input[ name="customerId"]').val().trim();
+            		o.onlineList[i].customerName=$(this).find('input[ name="customerName"]').val().trim();
+            		o.onlineList[i].customerStatus=$(this).find('select[ name="customerStatus"]').val();
+        		}
+        	});
+      		$('#dateBox').children().each(function(i){
+        			o.timeList[i]={};
+            		o.timeList[i].fromDate=$(this).find('select[ name="fromDate"]').val();
+            		o.timeList[i].toDate=$(this).find('select[ name="toDate"]').val();
+            		o.timeList[i].fromTime=$(this).find('select[ name="fromTime"]').val();
+            		o.timeList[i].toTime=$(this).find('select[ name="toTime"]').val();
+        	});
+      		$('#contactBox').children().each(function(i){
+        		if($(this).find('input[name="contactName"]').val().trim()!=""){
+        			o.contactList[i]={};
+            		o.contactList[i].contactName=$(this).find('input[ name="contactName"]').val().trim();
+            		o.contactList[i].contactMobile=$(this).find('input[ name="contactMobile"]').val().trim();
+        		}
+        	});
+      		if(o.onlineList.length==0){
+      			alert("请添加客服");
+      			return;
+      		}
+      		if(o.timeFlag=="1"&&o.timeList.length==0){
+      			alert("请添加工作时间");
+      			return;
+      		}
+      		if(o.contactFlag=="1"&&o.contactList.length==0){
+      			alert("请添加联系方式");
+      			return;
+      		}
+         	parent._$onlinemodule.portalonlineservice('reset',o);
+         	//关闭配置框
+         	parent.cfgClose(); 
+     }
+	   
+	 function checkValid(){
+		 var flag = true;
+		 $('#customerBox').children().each(function(i){
+			 var type=$(this).find('select[name="customerType"]').val();
+			 var id=$(this).find('input[name="customerId"]').val().trim();
+			 var name=$(this).find('input[name="customerName"]').val().trim();
+			 if(id==""){
+				 alert("客服帐号不能为空");
+				 flag=false;
+				 return false;
+			 }
+			 var reg = new RegExp("^[0-9]*$");  
+			 if(type=="1"&&!reg.test(id)){
+				 alert("QQ帐号只能是数字");
+				 flag=false;
+				 return false;
+			 }
+			 if(type=="1"&&reg.test(id)&&id.length<5){
+				 alert("QQ帐号不能小于5位数字");
+				 flag=false;
+				 return false;
+			 }
+			 if(type=="2"&&escape(id).indexOf('%u') != -1){
+				 alert("客服帐号中不能包含中文字符");
+				 flag=false;
+				 return false;
+			 }
+			 if(name==""){
+				 alert("客服显示名称不能为空");
+				 flag=false;
+				 return false;
+			 }
+     	});
+		 if(flag==false){
+			 return flag;
+		 }
+		 $('#contactBox').children().each(function(i){
+     		    var conName = $(this).find('input[ name="contactName"]').val().trim();
+         		var conMobile = $(this).find('input[ name="contactMobile"]').val().trim();
+         		if(conName==""){
+         			alert("联系方式名称不能为空");
+         			flag= false;
+         			return false;
+         		}
+         		if(conMobile==""){
+         			alert("联系方式内容不能为空");
+         			flag= false;
+         			return false;
+         		}
+     	});
+		 return flag;
+	 }
+    </script>
+</head>
+<body>
+ 	<div class="content fm1" style="width:700px;">
+ 	 <form  method="post" id="portalCustomerForm" >
+		<div class="com-tab">
+			<ul class="tab-hd">	 	 
+				 <li class="tab-item on">客服列表</li>	 	 
+				 <li class="tab-item">工作时间</li>	 	 
+				 <li class="tab-item">联系方式</li>	 	 
+				 <li class="tab-item">高级</li>	
+			</ul>
+			<div class="tab-bd tab-bd-service">				
+				<div class="tab-content">
+					<div class="tabs-panel form-default">
+						<div class="set-line">
+							<div class="set-title">模块标题：</div>
+							<div class="set-ctrl"><input type="text" id="onlineTitle" name="onlineTitle" maxlength="50" value="在线客服"/></div>
+						</div>
+						<div class="set-line mb5 mt5">
+							<div class="set-title">客服列表：</div>
+							<div class="set-ctrl-r"><a class="add-one btn-style-1" href="javascript:void(0);" onclick="addCustomer('1','12345','客服名称','1');">新增客服</a></div>							
+						</div>						 
+						<div class="service-list">
+							<div class="service-header">
+								<table cellpadding="0" cellspacing="0">
+									<tr>
+										<th width="20%">客服类型</th>
+										<th width="20%">客服帐号</th>
+										<th width="20%">显示文字</th>
+										<th width="20%">状态</th>
+										<th>操作</th>
+									</tr>
+								</table>
+							</div>
+							<div class="service-body edit-module">								 
+								<table cellpadding="0" cellspacing="0">
+									<tbody class="EditorBox" id="customerBox">
+									
+									</tbody>	
+								</table>
+							</div>
+						</div>
+						<!-----service-list--end---->
+						<!-- <div class="mt10 ml5">备注：选择QQ客服只需先用该客服帐号登录<a href="#" style="color:red;" target="_blank">“QQ商家”</a>，无需复制代码。</div> -->
+					</div>
+				</div>
+				<div class="tab-content" style="display:none;">
+					<div class="tabs-panel form-default">						
+						<div class="set-line">
+							<div class="set-title95">显示工作时间：</div>
+							<div class="set-ctrl">
+								<input type="radio" checked id="serWorkTimeOn" name="timeFlag" value="1"/><span class="cursorDefault" onclick="$('#serWorkTimeOn').click();">是</span>&nbsp;&nbsp;
+								<input type="radio" id="serWorkTimeOff" name="timeFlag" value="0"/><span class="cursorDefault" onclick="$('#serWorkTimeOff').click();">否</span>
+							</div>
+						</div>						
+						<div id="serTime-text" class="set-line mb5 mt5">
+							<div class="set-title">工作时间：</div>
+							<div class="set-ctrl-r"><a class="add-one btn-style-1" href="javascript:void(0);" onclick="addTime('1','5','08:30','17:30')">新增工作时间</a></div>							
+						</div>	
+						<div id="serTime-list" class="service-list">
+							<div class="service-header">
+								<table cellpadding="0" cellspacing="0">
+									<tr>
+										<th width="37%">日期</th>
+										<th width="37%">时间</th>
+										<th width="26%">操作</th>
+									</tr>
+								</table>
+							</div>
+							<div class="service-body edit-module">								 
+								<table cellpadding="0" cellspacing="0">
+									<tbody class="EditorBox" id="dateBox">
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<script>
+							$('#serWorkTimeOn').click(function(){ 
+								$('#serTime-text').show();$('#serTime-list').show();
+							});
+							$('#serWorkTimeOff').click(function(){ 
+								$('#serTime-text').hide();$('#serTime-list').hide();
+							});
+						</script>	
+					</div>
+				</div>
+				<div class="tab-content" style="display:none;">
+					<div class="tabs-panel form-default">
+						<div class="set-line">
+							<div class="set-title95">显示联系方式：</div>
+							<div class="set-ctrl">
+								<input type="radio" checked id="serContactOn" name="contactFlag" value="1"/><span class="cursorDefault" onclick="$('#serContactOn').click();">是</span>&nbsp;&nbsp;
+								<input type="radio" id="serContactOff" name="contactFlag" value="0"/><span class="cursorDefault" onclick="$('#serContactOff').click();">否</span>
+							</div>
+						</div>
+						<div id="serContact-text" class="set-line mb5 mt5">
+							<div class="set-title">联系方式：</div>
+							<div class="set-ctrl-r"><a class="add-one btn-style-1" href="javascript:void(0);" onclick="addContact('','')">新增联系方式</a></div>							
+						</div>
+						<div id="serContact-list" class="service-list">
+							<div class="service-header">
+								<table cellpadding="0" cellspacing="0">
+									<tr>
+										<th width="37%">名称</th>
+										<th width="37%">内容</th>
+										<th width="26%">操作</th>
+									</tr>
+								</table>
+							</div>
+							<div class="service-body edit-module">								 
+								<table cellpadding="0" cellspacing="0">
+									<tbody class="EditorBox" id="contactBox">
+									
+									</tbody>
+								</table>
+							</div>	
+						</div>						
+						<script>
+							$('#serContactOn').click(function(){ 
+								$('#serContact-text').show();$('#serContact-list').show();
+							});
+							$('#serContactOff').click(function(){ 
+								$('#serContact-text').hide();$('#serContact-list').hide();
+							});
+						</script>	
+					</div>						
+				</div>
+				<div class="tab-content" style="display:none;">
+					<div class="tabs-panel form-default">
+						<div class="set-line">
+							<div class="set-title tr">展示方式：</div>
+							<div class="set-ctrl">
+								<input type="radio" checked id="setDisplayVer" name="showType" value="1"/><span class="cursorDefault" onclick="$('#setDisplayVer').click();">纵向</span>&nbsp;&nbsp;
+								<input type="radio" id="setDisplayHor" name="showType" value="2"/><span class="cursorDefault" onclick="$('#setDisplayHor').click();">横向</span>
+							</div>
+						</div>
+						<div class="set-line mt5">
+							<div class="set-title tr">QQ样式：</div>
+							<div class="set-ctrl">
+								<input type="radio" checked id="qqShowStyle0" class="qqShowStyle" name="qqShowStyle" value="0" />
+								<label for="qqShowStyle0" class="forQqShowStyle mr5 qqShowStyle0"></label>
+								<input type="radio" id="qqShowStyle1" class="qqShowStyle" name="qqShowStyle" value="1"/>
+								<label for="qqShowStyle1" class="forQqShowStyle mr5 qqShowStyle1"></label>
+								<input type="radio" id="qqShowStyle2" class="qqShowStyle" name="qqShowStyle" value="2"/>
+								<label for="qqShowStyle2" class="forQqShowStyle mr5 qqShowStyle2"></label>
+								<input type="radio" id="qqShowStyle3" class="qqShowStyle" name="qqShowStyle" value="3"/>
+								<label for="qqShowStyle3" class="forQqShowStyle mr5 qqShowStyle3"></label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="opt-footer ctset-opt-footer">
+				<a href="javascript:void(0);" class="btn-ok" onclick="cfgSet()">保存</a>
+				<a href="javascript:void(0);" class="btn-cancel" onclick="parent.cfgClose();">取消</a>
+			</p>
+		</div>
+		<!------class=com-tab--end------>
+		<script>
+			//tab切换
+			jQuery(".com-tab").slide( { titCell:".tab-hd li", mainCell:".tab-bd", effect:"fade",autoPlay:false,trigger:"click",easing:"swing",delayTime:500,pnLoop:false});
+		</script>
+		</form>
+	</div>
+
+</body>
+</html>

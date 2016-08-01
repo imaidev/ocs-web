@@ -1,0 +1,175 @@
+<div class="modal-dialog" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h4 class="modal-title" id="H1">图片组件</h4>
+		</div>
+	 	<div class="content">
+               <div class="panels">
+                   <div class="panel display-set">
+                   	  <form method="post" class="display-set-form form-default" id="displaySetForm">
+                   	  	   <div class="control-group">
+                               <label class="group-title w65">显示标题:</label>
+                               <input class="radio" name="showTitle" type="radio" value="false" id="imgradioShow">
+                               <label class="type-name" for="imgradioShow">不显示</label>
+                               <input class="radio" name="showTitle" type="radio" value="true" checked="checked" id="imgradioNotShow">
+                               <label class="type-name" for="imgradioNotShow">显示</label>
+                               <input class="input-title" maxlength="30" type="text" name="title">
+                           </div>
+                           <div class="control-group">
+                               <label class="group-title w65">高度:</label>
+                               <input name="height" type="text" value="" placeholder="为空默认100%">
+                               <span>px</span>
+                               <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                           </div>
+                           <div class="control-group">
+                               <label class="group-title w65">宽度:</label>
+                               <input name="width" type="text" value="" placeholder="为空默认100%">
+                               <span>px</span>
+                               <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                           </div>
+                           <div class="control-group">
+                               <label class="group-title w65">图片地址:</label>
+                               <input name="imgurl" type="text" value="" placeholder="请输入图片完整地址" style="width: 330px;">
+                               <a class="sys-images" onclick="selectImgModulePic()" style="right:125px;" title="选择图片"></a>
+                               <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                           </div>
+                           <div class="control-group">
+                               <label class="group-title w65">打开方式:</label>
+                               <input class="radio" name="openway" type="radio" value="false" id="opencur">
+                               <label class="type-name" for="opencur">当前页面</label>
+                               <input class="radio" name="openway" type="radio" value="true" checked="checked" id="opennew">
+                               <label class="type-name" for="opennew">新页面</label>
+                           </div>
+                           <div class="control-group">
+                               <label class="group-title w65">跳转链接:</label>
+                               <input name="imghref" type="text" value="" placeholder="不跳转可为空" style="width: 300px;">
+                           </div>
+                   	  </form>
+                   </div>
+                   <p class="opt-footer">
+	                   	<a class="btn-ok" onclick="cfgSet()">保存</a>
+	                   	<a class="btn-cancel" onclick="cfgClose();">取消</a>
+                   </p>
+               </div>
+           </div>
+	</div>
+</div>
+<script>
+var $curImgInput;
+function selectImgModulePic() {
+	var event=window.event || arguments.callee.caller.arguments[0];
+	$curImgInput=$(event.srcElement ? event.srcElement:event.target).siblings('input');
+	
+	opt ={"dir":"shop", "maxuploadsize":"2M", "callBack":"selectImgModulePicCallBack"};
+	layer.open({
+        type : 2,
+        content :  parent.ctx+"/res/tu/ResSelect.htm?dir="+opt.dir+"&maxuploadsize="+opt.maxuploadsize+"&callback="+opt.callBack,
+        title : "图片选取",
+        shadeClose: true,
+        area : ['750px','660px']
+    });
+}
+function selectImgModulePicCallBack(path){
+	$curImgInput.val(path);
+}
+function setValidate(){
+	$('#displaySetForm').validate({
+        onkeyup: function(element) {$(element).valid()},
+        rules:{
+        	height:{max:2000,min:0},
+        	width:{max:2000,min:0},
+        	imgurl:{required:true},
+       	},
+        showErrors: function(errorMap, errorList) {
+        	if(errorList.length>0){
+        		$.each(errorList,function(index,error){
+            		var element=$(errorList[index].element);
+            		var msgContainer=element.parent().find('.J_TMsg');
+            		if(msgContainer.length>0){
+            			msgContainer.find('span').text(error.message);
+            			if(error.message!="")
+            				msgContainer.removeClass('disappear').addClass('failure');
+            			else
+            				msgContainer.removeClass('failure').addClass('disappear');
+	           		}
+            	})
+        	}
+        	else{
+        		this.currentElements.parent().find('.J_TMsg').each(function(){
+        			$(this).removeClass('failure').addClass('disappear');
+        		})
+        	}
+        	
+       	}
+    });
+}
+function cfgRead($selEl) {
+    $module = $selEl;
+
+    try {
+        $('#CfgModal input[name=height]').val($module.find("img").attr("height") == "100%" ? "" : $module.find("img").attr("height"));
+        $('#CfgModal input[name=width]').val($module.find("img").attr("width") == "100%" ? "" : $module.find("img").attr("width"));
+        $('#CfgModal input[name=imgurl]').val($module.find("img").attr("src"));
+        $('#CfgModal input[name=imghref]').val($module.find("a").attr("href") == "javascript:void(0);" ? "" : $module.find("a").attr("href"));
+        
+        if($module.find("a").attr("target")=="_self"){
+        	$('#CfgModal #opencur').click();
+        }
+        else{
+        	$('#CfgModal #opennew').click();
+        }
+        //加载标题栏数据
+        $("#CfgModal input[name='title']").val($module.find('.title-box span').text().trim());
+        if($module.find('.title-box').is(":hidden")){
+        	$('#CfgModal #imgradioShow').attr("checked",true);	
+        }
+        else{
+        	$('#CfgModal #imgradioNotShow').attr("checked",true);	
+        }
+        
+        setValidate();
+    }
+    catch (e) {
+    }
+}
+function cfgSet() {
+	if(!$('#displaySetForm').valid()){
+		return;
+	}
+    $module.css("width", $('#CfgModal input[name=width]').val().trim() == "" ? "100%" : $('#CfgModal input[name=width]').val().trim());
+   
+    $module.find("img").attr("height", $('#CfgModal input[name=height]').val().trim() == "" ? "100%" : $('#CfgModal input[name=height]').val().trim());
+    $module.find("img").attr("width", $('#CfgModal input[name=width]').val().trim() == "" ? "100%" : $('#CfgModal input[name=width]').val().trim());
+    $module.find("img").attr("src",  $('#CfgModal input[name=imgurl]').val().trim());
+    
+    if($('#CfgModal input[name=imghref]').val().trim() != ""){
+    	$module.find("a").attr("href",$('#CfgModal input[name=imghref]').val().trim());
+    	
+    	if($('#CfgModal input[name=openway]:checked').val()=="true")
+    		$module.find("a").attr("target","_blank");
+    	else
+    		$module.find("a").attr("target","_self");
+    }
+    else{
+    	$module.find("a").removeAttr("href");
+    	$module.find("a").removeAttr("target")
+    }
+    
+    //组件标题
+	$module.find('.title-box span').text($("#CfgModal input[name='title']").val());
+	if($("#CfgModal input[name='showTitle']:checked").val()=="false"){
+		$module.find('.title-box').hide();
+	}
+	if($("#CfgModal input[name='showTitle']:checked").val()=="true"){
+		$module.find('.title-box').show();
+	}	
+    $('#CfgModal').modal('hide');
+}
+function cfgClose(){
+	$("#CfgModal").modal('hide');
+}
+</script>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="GBK"?>
+<chart caption='最近一个月销售情况' rotateNames='0' showValues='0'
+	divLineDecimalPrecision='1' limitsDecimalPrecision='1' PYAxisName='价格'
+	SYAxisName='数量' formatNumberScale='0' bgAlpha='0,0' canvasBgAlpha='0'>
+   <categories>
+     <category label='济南' />
+     <category label='青岛' />
+     <category label='淄博' />
+     <category label='潍坊' />
+     <category label='烟台' />
+     <category label='威海' />
+     <category label='日照' />
+   </categories>
+   <dataset  renderAs='Line' parentYAxis='P' seriesName='总量'>
+     <set value='3242' />
+     <set value='3171' />
+     <set value='700' />
+     <set value='1287' />
+     <set value='1856' />
+     <set value='987' />
+     <set value='1610' />
+   </dataset>
+   <dataset lineThickness='1' parentYAxis='S' seriesName='销售总量' >
+     <set value='174' />
+     <set value='197' />
+     <set value='155' />
+     <set value='15' />
+     <set value='66' />
+     <set value='85' />
+     <set value='37' />
+   </dataset>
+ </chart>

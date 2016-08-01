@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="/static/design/css/editor.css" rel="stylesheet">
+
+		<script src="/static/design/js/jquery.min.js"></script>
+		<link href="/static/design/js/layer/skin/layer.css" rel="stylesheet">
+		<script src="/static/design/js/layer/layer.js"></script>
+		<link rel="stylesheet" href="/static/design/js/layer/skin/layer.css" id="layui_layer_skinlayercss">
+
+		<script>
+			function setSquence() {
+	            var divlist = $('#EditorBox').children();
+	            var len = divlist.length;
+	            divlist.each(function (i,item) {
+	                if (i == 0) {
+	                    $(this).addClass('first')
+	                    if(len>1) $(this).removeClass('last');
+	                }
+	                if (i == len - 1) {
+	                    $(this).addClass('last');
+	                    if(len>1) $(this).removeClass('first');
+	                }
+	                if (i>0 && i < len - 1) {
+	                    $(this).removeClass('last').removeClass('first');
+	                }
+	                if (i % 2 == 0) {
+	                    $(this).addClass('even').removeClass('odd');
+	                }
+	                else {
+	                    $(this).addClass('odd').removeClass('even');
+	                }
+	            })
+	        }	
+			// 就将此元素插到下一个元素之后，从而实现互换顺序
+	    	function actDown(Obj) {
+	    		$(Obj).parent().parent().next().after($(Obj).parent().parent());
+	    		// 重新设置排序规则
+	    		setSquence();
+	    	}
+	    	
+	    	// 就将此元素插到上一个元素之后，从而实现互换顺序
+	    	function actUp(Obj) {
+	    		$(Obj).parent().parent().after($(Obj).parent().parent().prev());
+	    		// 重新设置排序规则
+	    		setSquence();
+	    	}
+			function addList(id,class1){
+				var str1;
+				if(class1 == 'shareopen'){
+					str1 = class1+'" style="cursor: pointer;" >[开启]';
+				}else{
+					str1 = class1+'" style="cursor: pointer;">[隐藏]';
+				}
+				
+				if(id == 'copy_wangzhi'){
+					var str = '<div id="copy_wangzhi" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' + 
+		                '<span>复制网址</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				if(id == 'qq_wb'){
+					var str = '<div id="qq_wb" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' +
+		                '<span>腾讯微博</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				if(id == 'sina_wb'){
+					var str = '<div id="sina_wb" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' +
+		                '<span>新浪微博</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				if(id == 'qq_kj'){
+					var str = '<div id="qq_kj" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' +
+		                '<span>QQ空间</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				if(id == 'kaixin001w'){
+					var str = '<div id="kaixin001w" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' +
+		                '<span>开心网</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				if(id == 'renrenw'){
+					var str = '<div id="renrenw" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' +
+		                '<span>人人网</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				if(id == 'doubanw'){
+					var str = '<div id="doubanw" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' +
+		                '<span>豆瓣网</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				if(id == 'netease_wb'){
+					var str = '<div id="netease_wb" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' +
+		                '<span>网易微博</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				if(id == 'baidu_tb'){
+					var str = '<div id="baidu_tb" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' +
+		                '<span>百度贴吧</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				if(id == 'Wei_xin'){
+					var str = '<div id="Wei_xin" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' +
+		                '<span>微信</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				if(id == 'FaceBookW'){
+					var str = '<div id="FaceBookW" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' +
+		                '<span>FaceBook</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				if(id == 'TwitterW'){
+					var str = '<div id="TwitterW" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' +
+		                '<span>Twitter</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				if(id == 'LinkedInW'){
+					var str = '<div id="LinkedInW" class="edit-item J_TEditItem">' +
+		            '<div class="column column1" name="padtop5">' +
+		                '<span>LinkedIn</span>' +
+		            '</div>' +
+		            '<div class="column column2" name="padtop5">' +
+		                '<span class="'+str1+'</span>' +
+		            '</div>' +
+		            '<div class="column column3 J_Control">'+
+		                '<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+		                '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+		        	'</div>';
+					$('#EditorBox').append(str);
+				}
+				
+				//$('#EditorBox').append(str);
+				setSquence();
+	        } 
+			$(function () {
+	            //添加分享列表
+	            $('#EditorBox').append(function(n){
+	            	addList('','');
+	            })
+	            //加载数据
+	            $(parent._cfg.shares).each(function(){
+	            	addList(this.id,this.class1);
+	            }) 
+	            //增加样式
+	            $('div[name="padtop5"]').attr("style","padding-top: 5px;");
+	            //修改显示状态
+	            $(".J_TEditItem .column2").delegate("span", "click", function(e) {
+	            	if($(this).attr('class') == 'shareopen'){
+	            		$(this).addClass('shareclose').removeClass('shareopen');
+	            		$(this).text('[隐藏]');
+	            	}else{
+	            		$(this).addClass('shareopen').removeClass('shareclose');
+	            		$(this).text('[开启]');
+	            	}
+	            }) 
+	            //分享内容
+	            $('#txtShareCon').val(parent._cfg.sharewords);
+	            //加载标题栏数据
+	            $('#title').val(parent._$module.find('.title-box span').text().trim());
+	            if(parent._$module.find('.title-box').is(":hidden")){
+	            	$('input[name="showTitle"]').eq(0).attr("checked",true);	
+	            }
+	            else{
+	            	$('input[name="showTitle"]').eq(1).attr("checked",true);
+	            }
+	        })
+	        function cfgSet(){
+				//组件更新
+	        	var o={
+	        	        sharewords:$("#txtShareCon").val(),
+	        			shares:[]
+	        	}
+	        	$('#EditorBox').children().each(function(i){
+        			o.shares[i]={};
+            		o.shares[i].id=$(this).attr('id');
+            		o.shares[i].class1=$(this).children().eq(1).children().attr('class');
+	        	})
+	        	parent._$module.sharetool('reset',o);
+	        	
+	        	//组件标题
+	        	parent._$module.find('.title-box span').text($('#title').val());
+	        	if($('input[name="showTitle"]:checked').val()=="true"){
+	        		parent._$module.find('.title-box').show();
+	        	}
+	        	else{
+	        		parent._$module.find('.title-box').hide();
+	        	}
+	        	//关闭配置框
+	        	parent.cfgClose(); 
+	        }
+		</script>
+	</head>
+
+	<body>
+		<!-- <div class="content fm1">
+			<div class="tab">
+				<ul class="nav clear-fix">
+					<li class="ks-switchable-trigger-internal6 selected"><span>常规</span></li>
+				</ul> -->
+				<form class="main-slide-form form-default" method="post" id="displaySetForm" novalidate="novalidate">
+					<div class="panels">
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabOne">
+							<div class="edit-module">
+								<div class="edit-item  edit-head" style="padding-top:17px;">
+		                            <span class="fl">显示标题：</span>
+		
+		                            <div class="fl show-title">
+		                                <input type="radio" class="J_TNotShowTitle  input-radio" name="showTitle" value="false">不显示
+		                                <input type="radio" class="J_TShowTitle  show-title-true input-radio" name="showTitle" value="true" checked="checked">显示
+		                                <input class="J_TTitleInput input-box title-input" id="title" type="text" maxlength="30" name="title" value="分享工具">
+		                            </div>
+		                        </div>
+								<!-- <div class="edit-item  edit-head">
+									<span>模块标题：</span>
+									<input id="text" type="text" value="分享工具" />
+								</div> -->
+								<div class="edit-item  edit-head">
+									<span class="fl">分享内容：</span>
+									<div class="fl">
+										<input type="radio" name="share" id="share1">
+										<label for="share1">默认</label>
+										<input type="radio" name="share" id="share2" checked="checked" />
+										<label for="share2">自定义</label>
+									</div>
+									<script type="text/javascript">
+										$('#choice-panel').find('li').hover(
+												function() {
+													$(this).addClass('hoverstyle')
+												},
+												function() {
+													$(this).removeClass('hoverstyle')
+												}
+											)
+											//滑过增加滑过样式end
+										$('#choice-panel').find('li').click(function() {
+												var $target = $(this);
+												$target.siblings().removeClass('clickstyle');
+												$target.addClass('clickstyle');
+												if ($target.hasClass('link-type3')) {
+													$('.column1').show()
+												} else {
+													$('.column1').hide()
+												}
+											})
+											//点击事件end
+										$('#tabOne').find('#share2').click(function() {
+											$('#share2Main').show()
+										})
+										$('#tabOne').find('#share1').click(function() {
+											$('#share2Main').hide()
+										})
+									</script>
+								</div>
+								<div class="edit-item  edit-head" id="share2Main">
+									<textarea id='txtShareCon' name='txtShareCon' class="sharewords" maxlength="150" placeholder="请输入自定义的输入内容" style=" resize: none; padding: 5px;"></textarea>
+								</div>
+
+								<div class="clearfloat"></div>
+								<div class="edit-item mt10">
+									<span class="fl">显示的分享网站为：</span>
+								</div>
+								<div class="edit-item  edit-head shareTittle" style="padding-bottom:5px;">
+										<div class="column column1 "><span>分享网站</span></div>
+										<div class="column column2 "><span>是否开启</span></div>
+										<div class="column column3 " style="margin-left: 20px;"><span>操作</span></div>
+									</div>
+								<div class="edit-module shareWeb"  style="width:700px;margin-left: 20px;">									
+									<div id="EditorBox" class="pic-list" style="padding-bottom:0px;">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+			<p class="opt-footer ctset-opt-footer">
+				<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+				<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+			</p>
+			</form>
+		<!-- </div> -->
+	</body>
+
+</html>

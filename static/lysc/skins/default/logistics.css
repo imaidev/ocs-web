@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+/**顶部导航***/
+.fsBanner{position: relative;width:100%;max-width:1920px;height:350px;margin: 0 auto;*overflow:hidden;}
+.fsBanner img{position: absolute;top:0;left:50%;margin:0 auto;margin-left:-960px;}
+/**公共标题***/
+.com-tit{height:80px;}
+.com-tit-bg{height:100%;width:100%;background:url(../images/com-tit-bg.jpg) repeat-x;text-align:center;}
+.com-tit-con{display:inline-block;*display:inline;zoom:1;height:54px;margin:0 auto;margin-top:13px;padding:0 50px;background:#fff;}
+.tit-zh{font-size:20px;color:#333;font-weight:700;}
+.tit-en{font-size:14px;color:#999;font-family:Arial, Helvetica, sans-serif;}
+/**物流服务-物流公司***/
+.wlCon{margin-top:20px !important;}
+.lists-cmp{overflow:hidden;margin-left:-20px;margin-top:-20px;}
+.lists-cmp li{float:left;width:590px;margin:20px 0 0 20px;overflow:hidden;}
+.cmp-img{float:left;width:218px;height:218px;border:1px solid #ddd;overflow:hidden;}
+.cmp-info{float:right;width:350px;margin-right:5px;}
+.cmp-name{margin-top:15px;color:#333;font-size:16px;}
+.cmp-item{height:24px;line-height:24px;font-size:14px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.cmp-intro{width:100%;height:66px;line-height:22px;overflow:hidden;}
+/**园区介绍***/
+.park-box{padding:20px;overflow:hidden;}
+.park-img{float:left;width:360px;height:360px;overflow:hidden;}
+.park-info{float:left;width:720px;margin-left:30px;}
+.park-tit{margin-top:40px;font-size:24px;color:#333;}
+.park-item{word-wrap: break-word;color:#333;font-size:14px;}
+/**物流列表***/
+.wlList{margin-top:-20px;margin-left:-15px;overflow:hidden;}
+.wlList li{float:left;width:388px;height:298px;overflow:hidden;border:1px solid #ddd;margin:20px 0 0 15px;}
+.wlList .item-bg{width:388px;height:170px;background:url(../images/bgimg.png) no-repeat;}
+.wlList .item-bg .tops{padding:35px 35px 15px 35px;}
+.wlList .tops .top{display:inline-block;margin-left:20px;padding:5px 13px;font-size:15px;color:#fff;text-decoration:none;}
+.wlList .tops .top:hover{text-decoration:none;}
+.wlList .tops .top:first-child{margin-left:0;}
+.wlList .tops .top01{background:#ff4300;}
+.wlList .tops .top02{background:#fce063;}
+.wlList .tops .top03{background:#52d1a4;}
+.wlList .other{max-height: 80px;padding:0 35px;overflow:hidden;color:#fff;}
+.wlList .other a{padding:0 4px;line-height:20px;color:#fff;}
+.wlList .item-info{margin:20px 35px;color:#000;}
+/**物流详情***/
+.row{overflow:hidden;}
+.rowL,.rowR{float:left;height:298px;border:1px solid #ddd;overflow:hidden;}
+.rowL{width:248px;}
+.rowR{width:938px;margin-left:10px;}
+.row02 .rowL,.row02 .rowR{height:368px;}
+.m_commontitle{height:50px;line-height:50px;background:#f7f7f7;border-top:1px solid #2179e7;border-bottom:none;position:relative;}
+.m_commontitle a{color:#999;}
+.m_commontitle b{width:4px;height:20px;background:url(../images/com-title_ico.jpg) no-repeat;display: inline-block;position:absolute;top:15px;left:20px;}
+.row .item{line-height:20px;margin-top:5px;}
+.pl60{padding-left: 60px;}
+
+.row .shopInfo{overflow:hidden;}
+.info-fl{float:left;width:560px;margin:15px 0 10px 15px;}
+.info-fr{float:right;margin-right:12px;}
+.wlBanner{position:relative;width:320px;height:220px;border:1px solid #ddd;margin-top:15px;overflow:hidden;}
+.wlBanner .wlBannerBd{height:220px;position:relative;}
+.wlBanner .wlBannerBd ul{height:100%;overflow:hidden;}
+.wlBanner .wlBannerBd ul li{display:block;width:100%;height:100%;}
+.wlBanner .wlBannerBd ul li a{height:100%;display:block;} 
+.wlBanner .wlBannerHd{z-index:1;position:absolute;bottom:5px;left:0;display:inline-block;*display:inline;*zoom:1;width: 100%;text-align:center;}
+.wlBanner .wlBannerHd li{display:inline-block;*display:inline;zoom:1;margin-right:5px;width:12px;height:12px;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%;background:#fff;cursor:pointer;}
+.wlBanner .wlBannerHd li.on{background:#2797c3;}
+.row  .route{width:100%;height:270px;overflow:hidden;line-height:30px;}
+.tjRoute{width:100%;height:250px;overflow-y:auto;overflow-x:hidden;}
+
+
+

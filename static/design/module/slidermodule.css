@@ -1,0 +1,8 @@
+.adsBanner{position:relative;width:100%;overflow:hidden;}
+.adsBanner .adsBannerBd{position:relative;}
+.adsBanner .adsBannerBd ul{height:100%;padding:0px;overflow:hidden;}
+.adsBanner .adsBannerBd ul li{display:block;width:100%;height:100%;}
+.adsBanner .adsBannerBd ul li a{height:100%;display:block;} 
+.adsBanner .adsBannerHd{z-index:1;display:inline-block;*display:inline;*zoom:1;position:absolute;bottom:10px;left:0;width: 100%;text-align:center;}
+.adsBanner .adsBannerHd li{display:inline-block;*display:inline;zoom:1;margin-right:8px;width:12px;height:12px;border-radius:50%;cursor:pointer;background:url(../images/new-icons.png) -20px -60px no-repeat;background:#fff;}
+.adsBanner .adsBannerHd li.on{background:url(../images/new-icons.png) 0px -60px no-repeat;background:#666;}

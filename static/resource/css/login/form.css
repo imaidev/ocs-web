@@ -1,0 +1,192 @@
+input,select,textarea{
+	font: 12px/1.5 "Microsoft YaHei", Arial, Helvetica, sans-serif, Simsun;
+}
+.form-ct{
+	padding:20px 45px;
+	text-align:left;
+}
+.form-ct .form-tips{
+	float:right;
+	display:block;
+	width:390px;
+	overflow:hidden;
+	margin-left:10px;
+}
+.form-title{
+	height: 30px;
+	line-height: 30px;
+	font-weight: bold;
+	font-size: 16px;
+	color: #333;
+	border-bottom: 1px solid #ECECEC;
+}
+.form-title span,.form-title h3{
+	line-height: 30px;
+	font-weight: bold;
+	font-size: 16px;
+	color: #333;
+}
+
+.form-body{
+	padding:10px 0px ;
+}
+.form-body dl{
+	display:inline-block;
+	_margin:2px 0px;
+	color: #666;
+	padding: 5px 0;
+	overflow: hidden;
+	zoom: 1;
+}
+.form-body dt, .form-body dd {
+	height: 30px;
+	line-height: 30px;
+    font-size: 14px;
+}
+.form-body dt{
+	padding-right: 5px; /*文字距离输入框过劲。*/
+	float:left;
+	width:140px;
+	text-align:right;
+	height: 30px;
+	line-height: 30px;
+	color: #666;
+}
+/*改变radio居中的问题*/
+.radiostyle{
+	margin-right: 3px;
+    vertical-align: middle;
+}
+/*改变两个单选按钮文字间的距离*/
+.form-body label.labelwidth{
+	 margin-right: 25px;
+}
+/*表单前面的那个红色小星星*/
+.form-body dt span em{
+    color: red;
+    margin-right: 3px;
+}
+.form-body select{
+    padding: 3px;
+    height:25px;
+    line-height:24px;
+    border-color: gray #D4D0C8 #D4D0C8 gray;
+    margin:3px 2px;
+	color: #666;
+	text-align: center;
+}
+.form-body dd{
+	float:left;
+	width:auto;
+	text-align:left;
+}
+.form-body .input {
+	margin: 2px;
+	width: 330px;
+	height: 20px;
+	*display:block;
+	*float:left;	
+}
+.form-body div.input {
+	float:left;
+}
+.form-body .conbox_textarea {
+	height: 110px;
+}
+.form-body textarea,.form-body .textarea {
+	margin: 2px;
+	width: 330px;
+	height: 100px;
+	resize: none;
+	*display:block;
+	*float:left;
+}
+.form-body .checkbox {
+	vertical-align: middle;
+}
+.form-body .Validform_checktip {
+	display: inline-block;
+font-size: 12px;
+	color: #999;
+}
+.form-body .dd_tip,.form-body .dd-tip{
+	padding-left: 10px;
+	float: left;
+	width: auto;
+	max-width:330px;
+}
+.input,.textarea {
+	border-color: gray #D4D0C8 #D4D0C8 gray;
+	border-style: solid;
+	border-width: 1px;
+	color: #333;
+	padding: 3px 2px 1px;
+}
+em{
+	color:red;
+}
+/*注册规则说明样式*/
+dd.check_rule{
+	font-size:12px;
+	position: relative;
+	text-align: left;
+	color: #999;
+	left: 150px;
+	width: 400px;
+	float: left;
+	/*padding: 0px 0px 15px 0px*/;
+}
+/*----校验的样式 开始----*/
+.form-body .form-tip span{
+	font-size:12px;	
+}
+.form-body .form-tip span.invalid {
+	color: #FF0000;
+	background: url(/static/resource/images/login/validate/invalid.png) no-repeat left 0px;
+}
+
+.form-body .form-tip span.valid {
+	display:inline-block;
+	width:18px;
+	height:18px;
+	margin: 6px 0;
+	
+	color: #71B83D;
+	background: url(/static/resource/images/login/validate/valid.png) no-repeat left 0px;
+}
+.form-body .form-tip {
+	float: left;
+	padding-left: 10px;
+	width: auto;
+	max-width: 330px;
+}
+.form-body .form-common-tip {
+	color: gray;
+	margin-top: 2px;
+}
+.form-body .form-common-tip span {
+	margin-top: 0;
+}
+.form-body .form-tip span {
+	padding-left: 18px;
+}
+.form-body .form-tip span.init {
+	background:none;
+}
+.form-body .form-tip span.loading {
+	color: #71B83D;
+	display:block;
+	background:url(/static/resource/css/tree/img/loading.gif) no-repeat left 1px;
+}
+/* 表单中可能需换行的文本内容样式 */
+.form-body dd label,
+.form-body .form-common-tip span,
+.form-body .form-tip span {
+	display: inline-block;
+	min-height: 20px;
+	line-height: 20px;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+/*----校验的样式 结束----*/

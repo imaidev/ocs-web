@@ -1,0 +1,168 @@
+@charset "utf-8";
+/* CSS Document */
+
+/******临沂优选******/
+/*960轮播图*/
+.carouselbox{width:960px;height: 350px;float:left;}
+.integral_flexslider { width:960px; height: 350px; position: absolute; overflow:hidden;}
+.integral_flexslider .current { overflow:hidden; height: 10px; position: absolute; bottom:12px; left: 430px; zoom:1; z-index:3 }
+.integral_flexslider .current li { width:10px; height:10px; text-align: center; font-size:0;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%;background: #fff; margin-right: 10px; cursor:pointer; float: left; }
+.integral_flexslider .current li.on { background: #2797c3; } 
+/*公告栏*/
+.extrabox{width:238px;height:338px; border:#e4e4e4 solid 1px; float:left;margin:10px 0 0 10px;}
+.extrabox-title{width:238px; height:80px; background:url(../images/highqualitybenyoute.png) no-repeat;}
+.noticeTxtBox{width:96%;margin:0 auto;margin-left:5px;}
+.noticeTxtBoxHd{height:40px;line-height:40px;padding-left:4px;border-bottom:1px dashed #ccc;}
+.noticeTxtBoxBd ul{height:120px;margin:3px 0px;overflow:hidden;}
+.noticeTxtBoxBd ul li{overflow:hidden;height:30px;*height:29px;line-height:30px;*line-height:29px;margin-left:3px;}
+.noticeTxtBoxBd ul li span{width:60px;float:left;line-height: 30px;}
+.noticeTxtBoxBd ul li a{display:inline-block;float:left;width:155px;height:30px;line-height:30px;overflow:hidden;color:#333;white-space: nowrap;text-overflow: ellipsis;-o-text-overflow: ellipsis;}
+.fr-link{width:238px;border-top:0;border-bottom:0;}
+.fr-links{width:96%;height:58px;margin:0 auto;overflow:hidden;border-bottom: #eee solid 1px;}
+.fr-links a{display:inline-block;width:70px;float:left;text-align:center;}
+.fr-links a:first-child{margin-left:0px;}
+.fr-links a img{display:inline-block;width:32px;height:32px;margin:0 auto;padding:0px;margin-left:3px;}
+.fr-links a span{display:block;width:70px;color:#B9985D;}
+.fr-links a:hover{text-decoration:none;}
+.extrabot a{height:30px;line-height:30px;width:100px; display:block; float:left; padding:0 9px;}
+/*优质产品*/
+.hqProductsbox{width:1208px; height:400px; border:#e4e4e4 solid 1px; border-top:#82ab45 solid 3px;}
+.hqProductsL{width:199px;height:400px; float:left; overflow:hidden;border-right:#e4e4e4 solid 1px;}
+.hqProductsL .hqProductsLH{width:199px; height:75px; line-height:75px; background-color:#82ab45; color:#fff; font-size:28px; text-align:center;}
+.hqProductsLmain ul{ padding:0 0 0 20px;}
+.hqProductsLmain ul li {height:35px; line-height:35px; overflow:hidden;}
+.hqProductsLmain ul li span{color:#82ab45; margin-right:5px;}
+.hqProductsLmain ul li .active{ font-weight:bold;}
+.hqProductsR{height:400px; float:left; overflow:hidden;}
+.hqProductsRscreen{height:75px;width:1005px; overflow:hidden;}
+.hqProductsRscreen ul{height:47px;margin:15px auto; text-align:center; overflow:hidden;}
+.hqProductsRscreen ul li{ display:inline-block; *display:inline; zoom:1; border:#e4e4e4 solid 1px;border-left:0; margin-left:-5px;}
+.hqProductsRscreen ul li:first-child{ border-left:#e4e4e4 solid 1px;}
+.hqProductsRscreen ul li a{width:145px;  line-height:45px; display:block; text-align:center;}
+.hqProductsRscreen ul li .active{ font-weight:bold; background-color:#82ab45; color:#fff;}
+.hqProductsRresults{height:325px; width:100%; overflow:hidden;}
+.hqProductsList{}
+.hqProductsList ul{ overflow:hidden;}
+.hqProductsList ul li{ float:left; overflow:hidden; padding:5px; width:222px; border:1px solid #fff; margin-left: 14px;}
+.hqProductsList ul li a{ cursor:pointer;}
+.hqProductsList ul li:hover{border:1px solid #82ab45;}
+.hqProductsList ul li .itemName{ height:40px; line-height:20px; overflow:hidden;}
+.hqProductsList ul li .itemName a{ color:#333;}
+.hqProductsList ul li .itemPrice{vertical-align:middle; position:relative; overflow:hidden;}
+.hqProductsList ul li .itemPrice a{display: block;    line-height: 30px;    color: #82ab45;    width: 220px;    overflow: hidden;    white-space: nowrap;    text-overflow: ellipsis;}
+/*地方产品*/
+.localProductsHd{ width:1210px; height:36px; line-height:36px; overflow:hidden;}
+.localProductsHd span{color:#e88a56; padding-left:5px;}
+.localProductsHd a{width:50px; height:22px; line-height:22px; background-color:#e88a56; text-align:center; float:right; color:#fff; margin-top:14px; }
+.localProductsbox{width:1208px; height:400px; border:#e4e4e4 solid 1px; border-top:#e88a56 solid 3px;}
+.localProductsRscreen{height:75px;width:1208px; overflow:hidden;}
+.localProductsRscreen ul{height:47px;margin:15px auto; text-align:center; overflow:hidden;}
+.localProductsRscreen ul li{ display:inline-block; *display:inline; zoom:1; border:#e4e4e4 solid 1px;border-left:0; margin-left:-5px;}
+.localProductsRscreen ul li:first-child{ border-left:#e4e4e4 solid 1px;}
+.localProductsRscreen ul li a{width:145px;  line-height:45px; display:block; text-align:center;}
+.localProductsRscreen ul li .active{ font-weight:bold; background-color:#e88a56; color:#fff;}
+.localProductsRresults{height:325px; width:100%; overflow:hidden;}
+.localProductsList{}
+.localProductsList ul{ overflow:hidden;}
+.localProductsList ul li{ float:left; overflow:hidden; padding:5px; width:222px; border:1px solid #fff; margin-left:6px;}
+.localProductsList ul li a{ cursor:pointer;}
+.localProductsList ul li:hover{border:1px solid #e88a56;}
+.localProductsList ul li .itemName{ height:40px; line-height:20px; overflow:hidden;}
+.localProductsList ul li .itemName a{ color:#333;}
+.localProductsList ul li .itemPrice{vertical-align:middle; position:relative; overflow:hidden;}
+.localProductsList ul li .itemPrice a{display: block;    line-height: 30px;    color: #e88a56;    width: 220px;    overflow: hidden;    white-space: nowrap;    text-overflow: ellipsis;}
+/*知名采购商*/
+.wkBuyerbox{width:1208px; height:400px; border:#e4e4e4 solid 1px; border-top:#338aad solid 3px;}
+.wkBuyerL{width:199px;height:400px; float:left; overflow:hidden;border-right:#e4e4e4 solid 1px;}
+.wkBuyerL .wkBuyerLH{width:199px; height:75px; line-height:75px; background-color:#338aad; color:#fff; font-size:28px; text-align:center;}
+.wkBuyerLmain ul{ padding:0 0 0 15px;}
+.wkBuyerLmain ul li {height:80px;  overflow:hidden;}
+.wkBuyerLmain ul li a{width:184px; height: 36px;  line-height: 36px;overflow:hidden;display: block;white-space: nowrap; text-overflow: ellipsis;}
+.wkBuyerLmain ul li span{color:#338aad; margin-right:5px;}
+.wkBuyerLmain ul li .sobData{height:40px; line-height:20px; overflow:hidden; padding:0 5px 0 12px;}
+.wkBuyerR{height:400px; width:1005px; float:left; overflow:hidden;}
+.wkBuyerR table{table-layout: fixed;}
+.wkBuyerR table th{border-bottom:1px solid #e4e4e4; font-weight:bold; font-size:14px; text-align:center; height:40px; line-height:40px;}
+.wkBuyerR table td{border-bottom:1px dashed #e4e4e4; text-align:center; padding:0px 5px; height:58px; line-height:58px;}
+.wkBuyerR table tr .singlebox{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.wkBuyerR table td a{text-decoration:none; display:inline-block; text-align:left;}
+.wkBuyerR table td .nameBox{height:58px; width:auto; line-height:29px; overflow:hidden;}
+.wkBuyerR table td .nameMid{height:58px;width:280px;line-height:29px;margin:0;display: table-cell;vertical-align: middle;}
+.wkBuyerR table td a:hover{text-decoration:none;}
+.wkBuyerR .handleBtn{width:80px; height:30px; line-height:30px; text-align:center; border:#0066ff solid 1px; background-color:#fff; border-radius:3px; color:#0066ff;}
+.wkBuyerR .handleBtn:hover{border:#0066ff solid 1px; background-color:#0066ff; border-radius:3px; color:#fff;}
+.wkBuyerR .handleBtnend{width:80px; height:30px; line-height:30px; text-align:center; border:#999 solid 1px; background-color:#fff; border-radius:3px; color:#999;}
+/*分类链接*/
+.sortedlinks{ background-color:#f8f8f8;}
+.sortedlinks ul {width:100%; height:230px; overflow:hidden;}
+.sortedlinks ul li{width:120px; margin:10px 26px; float:left;}
+.sortedlinks ul li table td{height:26px; line-height:26px;}
+
+
+/******临沂优选20160408******/
+.include-sum-num .num{width:18px;height:30px;float:left;margin-left:6px;margin-top:0;background:url(../images/numbg.png) top center repeat-y;}
+.num_box{padding-top: 5px;}
+.num_box div.Settled{width: 88px; float: left; height: 30px; line-height: 30px;}
+.SettledBot{position: absolute; left: 0; bottom: 0; height: 30px; line-height: 30px; background: #ff6600; text-align: center; width: 238px; color: #FFFFFF; font-weight: bold; cursor: pointer;}
+.localProductsHd span.fcGreen{color: #82ab45;}
+.h358{height: 358px !important;}
+.w240{width: 240px !important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

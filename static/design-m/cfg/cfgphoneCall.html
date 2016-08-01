@@ -1,0 +1,69 @@
+<link type="text/css" rel="stylesheet" href="/static/resource/css/jquery-validate.css" />
+<h3 class="edit-tit">电话模块</h3>
+<form id="phoneForm">
+    <div class="singleRow">
+        <!--模块使用小贴士-->
+        <div class="toolTips" style="margin-bottom: 15px;">
+            <p class="tipsTit">模块使用小贴士
+                <a class="closeTip">X</a>
+            </p>
+            <p class="tipsMain">电话号码能让消费者更容易联系到您便于更好的服务于消费者的购物需求。</p>
+        </div>
+        <!--模块使用小贴士end-->
+        <div class="form-group clearfix">
+            <label class="fb pb10">电话号码</label>
+            <div class="pr">
+                <input type="text" id="phone" name="phone" class="form-control mt10" placeholder="请输入文本" maxlength="14">
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(function() {
+        var dataVar = parent._$module.data('dataVal'); //
+        if (dataVar.contact != null) {
+            $("#phone").val(dataVar.contact);
+        } else {
+            $("#phone").val(parent._$module.find(".phoneNumber span").html());
+        }
+    });
+    jQuery.validator.addMethod("isTelorPhone", function(value, element) {
+        var tel = /^((0\d{2,3}-\d{7,8}))$/; ///^([0-9]{3,4}-)?[0-9]{7,8}$/;
+        var phone = /^((\+?86)|(\(\+86\)))?(1[3|4|5|8][0-9]\d{8})|(17[6-8]\d{8})$/;
+        return this.optional(element) || (tel.test(value)) || (value.length == 11 && phone.test(value));
+    }, "请正确填写您的电话号码。");
+    setValidate();
+
+    function setValidate() {
+        $('#phoneForm').validate({
+            onkeyup: function(element) {
+                $(element).valid()
+            },
+            rules: {
+                phone: {
+                    required: true,
+                    isTelorPhone: true
+                }
+            },
+            messages: {
+                phone: {
+                    required: "电话号码不能为空",
+                    isTelorPhone: "请正确填写您的电话号码",
+                }
+            }
+        });
+    }
+
+    //组件保存方法
+    function cfgset() {
+        if (!$('#phoneForm').valid()) {
+            return;
+        }
+        var dataval = {
+            contact: $("#phone").val()
+        };
+        parent._$module.phoneCall('reset', dataval);
+        hideEdit();
+    }
+</script>

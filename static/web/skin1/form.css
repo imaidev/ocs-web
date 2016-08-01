@@ -1,0 +1,2249 @@
+@charset "UTF-8";
+.noPermit { display: none !important }
+.ownPermit { }
+html { overflow-y: scroll }
+body {
+    font-family : "Microsoft Yahei","SimSun",sans-serif !important;
+    font-size : 13px !important;
+    color: #747474;
+}
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset,
+img { border: 0 ;vertical-align:top;}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+li { list-style: none }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { font-size: 100% }
+h1 { font-size: 18px }
+h2 { font-size: 16px }
+h3 { font-size: 14px }
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+input,
+button,
+textarea,
+select { *font-size: 100% }
+select,
+input,
+button,
+textarea { font: 100% "Microsoft Yahei","SimSun",sans-serif }
+table {
+    font-size: inherit;
+    font: 100%;
+}
+u { cursor: pointer }
+.hand { cursor: pointer }
+/* layout */
+.layouthead { }
+.layoutcenter {
+    width: 1024px;
+    margin: 0 auto;
+}
+.layoutfoot {
+    width: 100%;
+    background: #9fd1f2;
+    padding-bottom: 20px;
+}
+.layouttdleft {
+    width: 150px;
+    vertical-align: top;
+    background: #d6e8f0;
+}
+.layouttdcenter {
+    width: 820px;
+    vertical-align: top;
+    align: left;
+}
+.layouttdright {
+    vertical-align: top;
+    align: left;
+}
+pre,
+code,
+kbd,
+samp,
+tt { }
+small { font-size: 100% }
+a {
+    text-decoration: none;
+  /*  padding-bottom: 1px;
+    border-bottom: 1px solid #36c;*/
+    color: #36c;
+    cursor: pointer;
+}
+a:hover {
+    color: #f60;
+   /* border-bottom: 1px solid #f60;*/
+    cursor: pointer;
+}
+
+.flexigrid td a {
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #747474;
+    color: #747474;
+}
+.flexigrid td a:hover {
+    color: #f60;
+    border-bottom: 1px solid #f60;
+}
+.flexigrid thead a {
+    text-decoration: none;
+    padding-bottom: 1px;
+    border: none;
+    color: #747474;
+}
+.flexigrid thead a:hover {
+    color: #f60;
+    padding-bottom: 1px;
+    border: none;
+}
+abbr,
+acronym {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+ins { text-decoration: none }
+del { text-decoration: line-through }
+hr {
+    color: #D1D7DC;
+    background-color: #D1D7DC;
+    border: none;
+    height: 1px;
+}
+
+input[type='button'],
+input[type='submit'],
+input[type='text']
+button,
+.abutton {
+    margin-left: 10px;
+    padding: 8px;
+     padding-left: 15px;
+    padding-right: 15px;
+    *padding: 6px ; /*ie7*/
+    *padding-left: 8px;
+    nowhitespace: afterproperty;
+    *padding-right: 8px;
+    /*ie7*/
+    display: inline-block;
+    font-size: 12px;
+    /*background: url("button/bg.png") no-repeat left top;*/
+    vertical-align: middle;
+   /*  background-color: #3eb1f0; */
+  /*background-color:rgb(77, 152, 186);*/
+ background-color: #4D98BA;
+  /*  background-color:rgb(255, 183, 71); */
+    border: 0px solid #3eb1f0;
+    color: white;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+/*input[type='button']:hover,
+input[type='submit']:hover,
+button:hover,
+.abutton:hover {
+    background: #1a94d7;
+    cursor: pointer;
+}*/
+label {
+    font-size: 13px;
+    /*line-height: 24px;*/
+    color: #8a8a8a8a;
+    white-sapce: nowrap;
+}
+a.help {
+    width: 15px;
+    height: 16px;
+    background: url("flexgrid/bangzhu.png") no-repeat;
+    position: absolute;
+    z-index: 1;
+    margin-top: 6px;
+    margin-left: 6px;
+    border: 0px;
+}
+img.expExcel {
+    width: 16px;
+    height: 16px;
+    background: url("flexgrid/excel.jpg") no-repeat;
+    margin-left: 6px;
+    margin-right: 6px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    border: 0;
+}
+a.moreQueryCaseIconOpen {
+    width: 51px;
+    height: 18px;
+    float: right;
+    margin-top: 0px;
+    margin-right: 0px;
+    background: url("flexgrid/moreQueryCaseOpen.jpg") no-repeat;
+    display: inline-block;
+    *margin-left:-10px;/*ie7*/
+}
+
+a.moreQueryCaseIconClose {
+    width: 51px;
+    height: 18px;
+    float: right;
+    margin-top: 0px;
+    margin-right: 0px;
+    background: url("flexgrid/moreQueryCaseClose.jpg") no-repeat;
+    display: inline-block;
+    *margin-left:-10px;/*ie7*/
+}
+
+
+.moreQueryCaseIconContainer {
+    background: white;
+    height: 18px;
+}
+/* begin query page */
+.pageLable {
+    font-size : 14px;
+    color : #004f91;
+    margin-left: 16px;
+    
+    
+}
+
+label.pageLable {
+	
+    font-size: 14px;
+    word-spacing:100px;
+    color : #004f91;
+    padding:10px;
+    margin-left: 50px; 
+    margin-top: -5px; 
+      float:left;
+}
+.left { float: left }
+.right { float: right }
+.aligncenter { text-align: center }
+.divBody {
+    /* 	width: 820px;;*/
+    margin: 8px;
+}
+.queryTableContainer {
+    width: 100%;
+    background: #f8f8f8;
+    margin-top: 12px;
+    display: inline-block;
+    position:relative;
+}
+.queryTableleft {
+    width: 95%;
+    float: left;
+}
+.queryTableright {
+    width: 5%;
+    float: right;
+}
+table .queryTable { }
+table .queryTable label {
+	 display:inline-block;
+     text-align:right;
+     padding-rignt:0px;
+     zoom:1;
+     width:90px;
+}
+
+
+table .queryTable input,select{
+  margin-left:0px;
+  
+}
+
+
+table .queryTable tr { height: 40px }
+table .queryLabelTd {
+    width: 80px;
+    text-align: right;
+    padding-right: 10px;
+    height: 40px;
+}
+table .queryCaseTd {
+    width: 200px;
+    text-align: left;
+    margin-top: 10px;
+}
+.buttonContainer {
+    text-align: right;
+    margin-top: 12px;
+}
+.pageBarContainer {
+    margin-top: 12px;
+    margin-top: 0px\9; /* all ie */
+}
+/* end query page */
+u.employee,
+u.item,
+u.cust {
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px dotted #36c;
+    color: #36c;
+}
+u.employee:hover,
+u.item:hover,
+u.cust:hover {
+    color: #f60;
+    border-bottom: 1px dotted #f60;
+}
+.flexigrid u.employee,
+.flexigrid u.item,
+.flexigrid u.cust {
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px dotted #747474;
+    color: #747474;
+}
+.flexigrid u.employee:hover,
+.flexigrid u.item:hover,
+.flexigrid u.cust:hover {
+    text-decoration: none;
+    padding-bottom: 1px;
+    color: #f60;
+    border-bottom: 1px dotted #f60;
+}
+a u.employee,
+a u.item a,
+a u.cust a,
+u.employee a,
+u.item a,
+u.cust a {
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #36c;
+    color: #36c;
+}
+a u.employee:hover,
+a u.item:hover,
+a u.cust:hover,
+u.employee a:hover,
+u.item a:hover,
+u.cust a:hover {
+    color: #f60;
+    border-bottom: 1px solid #f60;
+}
+.flexigrid  a u.employee,
+.flexigrid a u.item a,
+.flexigrid a u.cust a,
+.flexigrid u.employee a,
+.flexigrid u.item a,
+.flexigrid u.cust a {
+    text-decoration: none;
+    padding-bottom: 1px;
+}
+.flexigrid a u.employee:hover,
+.flexigrid a u.item:hover,
+.flexigrid a u.cust:hover,
+.flexigrid u.employee a:hover,
+.flexigrid u.item a:hover,
+.flexigrid u.cust a:hover {
+    color: #f60;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border: none;
+}
+.ui-helper-reset a,
+.ui-helper-reset a:hover { border-bottom: 0px solid #f60 }
+/* begin loading ctrl */
+.loadingImg { background-image: url("loading/icon_waiting.gif") }
+/* end loading ctrl */
+.hengxian {
+    background: url("flexgrid/hengxian.png") repeat;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 40px;
+}
+input.dateImg {
+    background-image: url("datepicker/rili.png");
+    background-position: 98% 50%;
+    background-repeat: no-repeat;
+}
+input[type='text'] {
+    width: 150px;
+    height: 24px;
+    border: 1px;
+    border-style: double solid  solid solid;
+    /* 	border-style: dotted solid double dashed;  */  
+    /* 	background-color: transparent;  */
+    border-color: #ccc;
+    cursor: default;
+    display: inline;
+    font-family : "Microsoft Yahei","SimSun",sans-serif !important;
+    color: #304e82;
+    font-size: 13px;
+}
+/*  RADIO and checkbox  ////////////////////////////////////// */
+.jRadioWrapper {
+    /*float: left; */
+    z-index: 0;
+}
+.jNiceRadio {
+    background: url("selectbox/radio.png") no-repeat top;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+    top: -1px;
+    left: 0px;
+}
+.jNiceCheckbox {
+    background: url("selectbox/checkbox.png") no-repeat top;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+    left: 0px;
+}
+.ui-multiselect-checkboxes label .jNiceCheckbox {
+    /* fixed multiselect.js in ie7 display a little topper under font-size: 12px */;
+   *top: 4px;
+}
+/*safria chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+	.ui-multiselect-checkboxes label .jNiceCheckbox { top: 0px }
+}
+.ui-multiselect-checkboxes,
+.ui-multiselect { font-size: 12px }
+.jNiceChecked { background-position: bottom }
+.jNiceWrapper select {
+    margin: 0px;
+    padding: 0px;
+    border: currentColor;
+}
+.jNiceSelectWrapper {
+    left: 0px;
+    top: 0px;
+    height: 17px;
+    position: absolute;
+    z-index: 2;
+}
+.jNiceWrapper {
+    position: relative;
+    padding-right: 5px;
+    padding-right: 20px\9; /*ie8 9 IE10pp4*/
+    *padding-right: 20px; /*ie7*/
+}
+.jNiceWrapper input { moz-outline: none }
+.jNiceHidden {
+    /* position: absolute;;
+    z-index: -1;*/
+    opacity: 0;
+    /* display: none; */
+    display: \9; /* all ie */
+    width: 0px\9; /* all ie */
+    height: 0px\9; /* all ie */
+}
+/*select combo  ////////////////////////////////////////////////  */
+.ui-multiselect {
+    padding: 2px 0 2px 4px;
+    text-align: left;
+}
+.ui-multiselect span.ui-icon { float: right }
+.ui-multiselect-single .ui-multiselect-checkboxes input {
+    position: absolute !important;
+    top: auto !important;
+    left: -9999px;
+}
+.ui-multiselect-single .ui-multiselect-checkboxes label { padding: 5px !important }
+.ui-multiselect-header {
+    margin-bottom: 3px;
+    padding: 3px 0 3px 4px;
+}
+.ui-multiselect-header ul { font-size: 0.9em }
+.ui-multiselect-header ul li {
+    float: left;
+    padding: 0 10px 0 0;
+}
+.ui-multiselect-header a { text-decoration: none }
+.ui-multiselect-header a:hover { text-decoration: underline }
+.ui-multiselect-header span.ui-icon { float: left }
+.ui-multiselect-header li.ui-multiselect-close {
+    float: right;
+    text-align: right;
+    padding-right: 0;
+}
+.ui-multiselect-menu {
+    display: none;
+    padding: 3px;
+    position: absolute;
+    z-index: 10000;
+    text-align: left;
+}
+.ui-multiselect-checkboxes { position: relative /* fixes bug in IE6/7 */; overflow-y:auto }
+.ui-multiselect-checkboxes label {
+    cursor: pointer;
+    display: block;
+    border: 1px solid transparent;
+    padding: 3px 1px;
+}
+.ui-multiselect-checkboxes label input {
+    position: relative;
+    top: 1px;
+}
+.ui-multiselect-checkboxes li {
+    clear: both;
+    font-size: 0.9em;
+    padding-right: 3px;
+}
+.ui-multiselect-checkboxes li.ui-multiselect-optgroup-label {
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid;
+}
+.ui-multiselect-checkboxes li.ui-multiselect-optgroup-label a {
+    display: block;
+    padding: 3px;
+    margin: 1px 0;
+    text-decoration: none;
+}
+/* remove label borders in IE6 because IE6 does not support transparency */
+* html .ui-multiselect-checkboxes label { border: none }
+/* //fengfeng add begin 20120516  include style.css's content */
+h1,
+h2,
+p { margin: 10px 0 }
+.hidden { visibility: hidden }
+.message {
+    padding: 10px;
+    margin: 15px 0;
+    display: block;
+    text-align: left;
+}
+.message-title {
+    font-weight: bold;
+    font-size: 1.25em;
+}
+.message-body { margin-top: 4px }
+/* .error, .notice, .success { padding:.8em; margin-bottom:1em; border:2px solid #ddd }_NO__DOTCOMMA__AFTER__*/
+/* .error { background:#FBE3E4; color:#8a1f11; border-color:#FBC2C4 }_NO__DOTCOMMA__AFTER__*/
+.notice {
+    background: #FFF6BF;
+    color: #514721;
+    border-color: #FFD324;
+}
+.success {
+    background: #E6EFC2;
+    color: #264409;
+    border-color: #C6D880;
+}
+.error a { color: #8a1f11 }
+.notice a { color: #514721 }
+.success a { color: #264409 }
+/* //fengfeng add end 20120516 include style.css's content
+ */
+/* //fengfeng add begin 20120516 include jquery.multiselect.filter.css's content
+ */
+.ui-multiselect-hasfilter ul {
+    position: relative;
+    top: 2px;
+}
+.ui-multiselect-filter {
+    float: left;
+    margin-right: 10px;
+    font-size: 11px;
+}
+.ui-multiselect-filter input {
+    width: 100px;
+    font-size: 10px;
+    margin-left: 5px;
+    height: 15px;
+    padding: 2px;
+    border: 1px solid #292929;
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+}
+/* //fengfeng add end 20120516 include jquery.multiselect.filter.css's content
+ */
+/* begin validate contral */
+label.error {
+    background: white;
+    border: 0px;
+    padding: 0px;
+    margin-bottom: 0px;
+    color: red !important;
+    margin-left: 5px !important;
+    display: none;
+}
+.error {
+    background: white;
+    border: 0px;
+    padding: 0px;
+    margin-bottom: 0px;
+    color: red !important;
+    margin-left: 5px !important;
+    display: none;
+}
+/* end validate contral */
+/* 
+ * jQuery UI Datepicker 1.8.18
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Datepicker#theming
+ */
+.ui-datepicker {
+    width: 17em;
+    padding: .2em .2em 0;
+    display: none;
+}
+/*
+ *增加时间组件样式begin
+ *add by zhaowj
+ */
+.ui-datepicker .timepicker-hour{
+position:absolute;
+background:white;
+width:98%;
+font-size:0.95em;
+}
+.ui-datepicker .timepicker-hour table tr td {
+cursor:pointer;
+}
+/*
+ *增加时间组件样式end
+ *add by zhaowj
+ */
+.ui-datepicker .ui-datepicker-header {
+    position: relative;
+    padding: .2em 0;
+}
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+    position: absolute;
+    top: 2px;
+    width: 1.8em;
+    height: 1.8em;
+}
+.ui-datepicker .ui-datepicker-prev-hover,
+.ui-datepicker .ui-datepicker-next-hover { top: 1px }
+.ui-datepicker .ui-datepicker-prev { left: 2px }
+.ui-datepicker .ui-datepicker-next { right: 2px }
+.ui-datepicker .ui-datepicker-prev-hover { left: 1px }
+.ui-datepicker .ui-datepicker-next-hover { right: 1px }
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
+    top: 50%;
+    margin-top: -8px;
+}
+.ui-datepicker .ui-datepicker-title {
+    margin: 0 2.3em;
+    line-height: 1.8em;
+    text-align: center;
+}
+.ui-datepicker .ui-datepicker-title select {
+    font-size: 1em;
+    margin: 1px 0;
+}
+.ui-datepicker select.ui-datepicker-month-year { width: 100% }
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year { width: 49% }
+.ui-datepicker table {
+    width: 100%;
+    font-size: .9em;
+    border-collapse: collapse;
+    margin: 0 0 .4em;
+}
+.ui-datepicker th {
+    padding: .7em .3em;
+    text-align: center;
+    font-weight: bold;
+    border: 0;
+}
+.ui-datepicker td {
+    border: 0;
+    padding: 1px;
+}
+.ui-datepicker td span,
+.ui-datepicker td a {
+    display: block;
+    padding: .2em;
+    text-align: right;
+    text-decoration: none;
+}
+.ui-datepicker .ui-datepicker-buttonpane {
+    background-image: none;
+    margin: .7em 0 0 0;
+    padding: 0 .2em;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+    float: right;
+    margin: .5em .2em .4em;
+    cursor: pointer;
+    padding: .2em .6em .3em .6em;
+    width: auto;
+    overflow: visible;
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float: left }
+/* with multiple calendars */
+.ui-datepicker.ui-datepicker-multi { width: auto }
+.ui-datepicker-multi .ui-datepicker-group { float: left }
+.ui-datepicker-multi .ui-datepicker-group table {
+    width: 95%;
+    margin: 0 auto .4em;
+}
+.ui-datepicker-multi-2 .ui-datepicker-group { width: 50% }
+.ui-datepicker-multi-3 .ui-datepicker-group { width: 33.3% }
+.ui-datepicker-multi-4 .ui-datepicker-group { width: 25% }
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header { border-left-width: 0 }
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header { border-left-width: 0 }
+.ui-datepicker-multi .ui-datepicker-buttonpane { clear: left }
+.ui-datepicker-row-break {
+    clear: both;
+    width: 100%;
+    font-size: 0em;
+}
+/* RTL support */
+.ui-datepicker-rtl { direction: rtl }
+.ui-datepicker-rtl .ui-datepicker-prev {
+    right: 2px;
+    left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next {
+    left: 2px;
+    right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+    right: 1px;
+    left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+    left: 1px;
+    right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane { clear: right }
+.ui-datepicker-rtl .ui-datepicker-buttonpane button { float: left }
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current { float: right }
+.ui-datepicker-rtl .ui-datepicker-group { float: right }
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header {
+    border-right-width: 0;
+    border-left-width: 1px;
+}
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+    border-right-width: 0;
+    border-left-width: 1px;
+}
+/* IE6 IFRAME FIX (taken from datepicker 1.5.3 */
+.ui-datepicker-cover {
+    display: none; /*sorry for IE5*/
+    display: block; /*sorry for IE5_NO__DOTCOMMA__AFTER__*/ position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}
+/* 
+alert css
+ */
+#popup_container {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    min-width: 270px; /* Dialog will be no smaller than this */
+    max-width: 600px; /* Dialog will wrap after this width */
+    background: #FFF;
+    border: solid 0px #3EB1F0;
+    color: #000;
+    /*-moz-border-radius: 5px;;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;*/
+}
+#popup_title {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    height: 14px;
+    width: 100%;
+    color: transparent;
+    background: url(alert/title.jpg) repeat 0px bottom;
+    border: solid 0px #FFF;
+    border-bottom: solid 0px #999;
+    cursor: default;
+    padding: 0em;
+    margin: 0em;
+}
+#popup_content {
+    background: 16px 16px no-repeat url(alert/info.gif);
+    padding: 1em 1.75em;
+    margin: 0em;
+}
+#popup_content.alert { background-image: url(alert/important.gif) }
+#popup_content.jsuccess { background-image: url(alert/success.png) }
+#popup_content.jerror { background-image: url(alert/error.png) }
+#popup_content.confirm { background-image: url(alert/important.gif) }
+#popup_content.prompt { background-image: url(alert/help.gif) }
+#popup_message { padding: 12px 5px 10px 48px }
+#popup_panel {
+    text-align: right;
+    margin: 1em 0em 0em 1em;
+}
+#popup_panel input {
+    margin: 0px;
+    padding: 0px;
+    width: 50px;
+    height: 25px;
+}
+#popup_panel input:focus {
+    background: #1a94d7;
+    margin: 0px;
+    padding: 0px;
+    width: 50px;
+    height: 25px;
+}
+#popup_prompt { margin: .5em 0em }
+#popupMaskAlert {
+    position: absolute;
+    z-index: 200;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    /* this hack is so it works in IE: ;
+    * I find setting the color in the css gives me more flexibility : ;
+    * than the PNG solution.: ;*/
+    background-color: transparent;
+    /* this hack is for opera support: ;
+    * you can uncomment the background-image if you don't care about opera.: ;
+    * this gives you the flexibility to use any bg color that you want, instead of the png: ;*/
+    background-image: url("help/maskBG.png"); /*  // For browsers Moz, Opera, etc. */
+    background-repeat: repeat;
+    display: none;
+}
+/**
+ * POPUP CONTAINER STYLES
+ */
+#popupMask {
+    position: absolute;
+    z-index: 200;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    /* this hack is so it works in IE: ;
+    * I find setting the color in the css gives me more flexibility : ;
+    * than the PNG solution.: ;*/
+    background-color: transparent !important;
+    /* this hack is for opera support: ;
+    * you can uncomment the background-image if you don't care about opera.: ;
+    * this gives you the flexibility to use any bg color that you want, instead of the png: ;*/
+    background-image: url("help/maskBG.png") !important; /* // For browsers Moz, Opera, etc. */
+    background-repeat: repeat;
+    display: none;
+}
+#popupContainer {
+    /* 	opacity: 1; */
+    /* filter: alpha(opacity=100); */
+}
+
+.floatWindowOuter
+{
+    display:none;
+    position:absolute;
+    z-index:11;
+    backgroud:transparent;
+    border:0px solid black;
+}
+.floatWindow
+{
+    width:auto; 
+    height:auto; 
+    border-width:1px;
+    border-color:transparent;
+    border-style: solid;
+}
+
+.floatWindowOnArrow
+{
+    position: absolute;
+    z-index: 100;
+    background-image: url("tagtip/OnArrow.png");
+    background-repeat:no-repeat;
+    background-position: 6px 0px;
+    WIDTH: 30px; 
+    HEIGHT: 10px; 
+}
+
+.floatWindowUnArrow
+{
+    position: absolute;
+    z-index: 100;
+    background-image: url("tagtip/UnArrow.png");
+    background-repeat:no-repeat;
+    background-position: 6px 0px;
+    WIDTH: 30px; 
+    HEIGHT: 10px; 
+ 	margin-top:-2px;
+}
+
+.floatWindowOn
+{
+    margin-TOP: 6px;
+    border-width:3px;
+    border-color:#ededed;
+    border-style: solid;
+}
+
+.floatWindowUn
+{
+    margin-bottom: -2px;
+    border-width:3px;
+    border-color:#ededed;
+    border-style: solid;
+}
+
+.floatWindowBody
+{
+    border-width:1px;
+    border-color:#cccccc;
+    border-style: solid;
+    BACKGROUND-COLOR: #ffffff; 
+}
+.content-main{
+	margin: 0px auto;
+}
+.content-center{
+	height:auto;
+	font-family : "SimSun",sans-serif;
+    font-size : 12px;
+	color: #333333;
+}
+.content-center>div{
+	width: 304px;
+}
+.content-con .spliter{
+	margin-left:10px;
+	margin-right:10px;
+}
+#top-disc{
+	width: 100%;
+	height: 100px;
+}
+#top-disc s{
+	width:64px;
+	height:64px;
+	margin-left:10px;
+	margin-top:5px;
+	float: left;
+}
+#top-disc>div{
+	width: 215px;
+	float: right;
+}
+#top-disc>div>div{
+	line-height: 25px;
+}
+#top-disc .position{
+	width:13px;
+	height:25px;
+	background:url(tagtip/position.png);
+	position: absolute;
+	margin-top: 3px;
+	cursor:pointer;
+}
+#top-disc .name{
+	color: #0a8cd2;
+}
+#top-disc img{
+	position: absolute;
+	top: 5px;
+}
+#cen-disc{
+	padding-left: 20px;
+}
+#cen-disc div{
+	height: 25px;
+	line-height: 25px;
+}
+#cen-disc .date span{
+	float: left;
+}
+#cen-disc .date b{
+	width:20px;
+	height:24px;
+	background:url(tagtip/sgb.png);
+	margin-left:10px;
+	float: left;
+	cursor:pointer;
+}
+#cen-disc ul{
+	height: 25px;
+}
+#cen-disc ul li{
+	float: left;
+	line-height: 25px;
+	margin-right: 10px;
+}
+#foo-link{
+	padding-left: 20px;
+	padding-bottom:10px;
+}
+#foo-link ul{
+	height: 25px;
+}
+#foo-link ul li{
+	float: left;
+	line-height: 25px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+
+/* Rule 2 of css/1.css */
+.x-window { ZOOM: 1 }
+/* Rule 4 of css/1.css */
+.x-window-bwrap {
+    Z-INDEX: 1;
+    ZOOM: 1;
+    POSITION: relative;
+}
+/* Rule 5 of css/1.css */
+.x-window-bwrap { OVERFLOW: hidden }
+/* Rule 6 of css/1.css */
+.x-window-bl {
+    PADDING-LEFT: 6px;
+    BACKGROUND: url(help/default/window/left-corners.png) no-repeat 0px bottom;
+    ZOOM: 1;
+}
+/* Rule 7 of css/1.css */
+.x-window-br {
+    PADDING-RIGHT: 6px;
+    BACKGROUND: url(help/default/window/right-corners.png) no-repeat right bottom;
+    ZOOM: 1;
+}
+/* Rule 8 of css/1.css */
+.x-window-bc {
+    BACKGROUND: url(help/default/window/top-bottom.png) repeat-x 0px bottom;
+    ZOOM: 1;
+}
+/* Rule 9 of css/1.css */
+.x-window-bc .x-window-footer {
+    FONT-SIZE: 0px;
+    PADDING-BOTTOM: 6px;
+    LINE-HEIGHT: 0;
+    ZOOM: 1;
+}
+/* Rule 31 of css/1.css */
+.x-window-ml {
+    PADDING-LEFT: 6px;
+    BACKGROUND: url(help/default/window/left-right.png) repeat-y 0px 0px;
+    ZOOM: 1;
+}
+/* Rule 32 of css/1.css */
+.x-window-mr {
+    PADDING-RIGHT: 6px;
+    BACKGROUND: url(help/default/window/left-right.png) repeat-y right 0px;
+    ZOOM: 1;
+}
+/* Rule 33 of css/1.css */
+.x-window-mc {
+    BORDER-RIGHT: #99bbe8 1px solid;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: #99bbe8 1px solid;
+    PADDING-LEFT: 0px;
+    BACKGROUND: #dfe8f6;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    FONT: 11px tahoma, arial, helvetica, sans-serif;
+    BORDER-LEFT: #99bbe8 1px solid;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: #99bbe8 1px solid;
+}
+/* Rule 34 of css/1.css */
+.x-window-plain .x-window-mc {
+    BORDER-RIGHT: #dfe8f6 1px solid;
+    BORDER-TOP: #a3bae9 1px solid;
+    BACKGROUND: #cad9ec;
+    BORDER-LEFT: #a3bae9 1px solid;
+    BORDER-BOTTOM: #dfe8f6 1px solid;
+}
+/* Rule 36 of css/1.css */
+.x-window-dlg .x-window-mc {
+    BORDER-TOP-WIDTH: 0px;
+    BORDER-LEFT-WIDTH: 0px;
+    BORDER-BOTTOM-WIDTH: 0px;
+    BORDER-RIGHT-WIDTH: 0px;
+}
+/* Rule 57 of css/1.css */
+.x-window-tl {
+    PADDING-LEFT: 6px;
+    Z-INDEX: 1;
+    BACKGROUND: url(help/default/window/left-corners.png) no-repeat 0px 0px;
+    ZOOM: 1;
+    POSITION: relative;
+}
+/* Rule 58 of css/1.css */
+.x-window-tr {
+    PADDING-RIGHT: 6px;
+    BACKGROUND: url(help/default/window/right-corners.png) no-repeat right 0px;
+}
+/* Rule 59 of css/1.css */
+.x-window-tc {
+    BACKGROUND: url(help/default/window/top-bottom.png) repeat-x 0px 0px;
+    OVERFLOW: hidden;
+    ZOOM: 1;
+}
+/* Rule 60 of css/1.css */
+.x-unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+}
+/* Rule 61 of css/1.css */
+.x-window-header {
+    OVERFLOW: hidden;
+    ZOOM: 1;
+}
+/* Rule 62 of css/1.css */
+.x-window-tl .x-window-header {
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 4px;
+    FONT: bold 11px tahoma, arial, verdana, sans-serif;
+    COLOR: #15428b;
+    PADDING-TOP: 5px;
+}
+/* Rule 63 of css/1.css */
+.x-window-draggable { CURSOR: default }
+/* Rule 64 of css/1.css */
+.x-unselectable * {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+}
+/* Rule 65 of css/1.css */
+.x-window-header-text { CURSOR: pointer }
+/* Rule 66 of css/1.css */
+.x-window-draggable .x-window-header-text { CURSOR: default }
+/* Rule 67 of css/1.css */
+.x-window-dlg .x-window-header-text { FONT-SIZE: 12px }
+/* Rule 68 of css/1.css */
+.x-tool {
+    BACKGROUND: url(help/default/window/tool-sprites.gif) no-repeat;
+    FLOAT: right;
+    MARGIN-LEFT: 2px;
+    OVERFLOW: hidden;
+    WIDTH: 15px;
+    CURSOR: pointer;
+    HEIGHT: 15px;
+}
+/* Rule 69 of css/1.css */
+.x-tool-close { BACKGROUND-POSITION: 0px 0px }
+/* begin detail page*/
+.dotLine {
+    border-bottom: 1px dotted #ccc;
+    margin-bottom: 8px;
+    color: black;
+    width: 100%;
+}
+.boxContainer {
+    border: 1px solid #ccc;
+    margin: 6px;
+    padding-bottom: 24px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.valueCla {
+    display: block;
+    height: 27px;
+    line-height: 27px;
+    border-bottom: 1px dotted black;
+}
+.vLine { border-right: 1px solid #ccc }
+/* end detail page*/
+.topBackButton{
+
+   
+   display: inline-block; 
+   white-space: nowrap; 
+   padding-left: 10px;
+   float:left; 
+}
+.topBackButtonHead{
+    height:31px;
+    width:19px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/button_head.png");
+   background-repeat: no-repeat; 
+    cursor: pointer;
+   vertical-align:bottom;
+}
+.topBackButtonBody{
+  
+   position:relative;
+  left:-4px;
+  top:0px;
+  padding:0px 10px 0px 10px;
+   height:31px;
+   display: inline-block; 
+   white-space: nowrap; 
+   text-align:center;
+   line-height: 31px;
+    background-image: url("button/button_body.png");
+   background-repeat: repeat-x; 
+   vertical-align:bottom;
+   cursor: pointer;
+   color: white;
+   font-size: 12px; 
+}
+.topBackButtonRoot{
+   position:relative;
+  left:-4px;
+  top:0px;
+   height:31px;
+   width:5px;
+   display: inline-block; 
+   white-space: nowrap; 
+    background-image: url("button/button_root.png");
+   background-repeat: no-repeat; 
+    vertical-align:bottom;
+     cursor: pointer;
+      -webkit-border-radius:0px 2px 2px 0px;
+    -moz-border-radius:0px 2px 2px 0px;
+    border-radius:0px 2px 2px 0px;
+}
+
+.topBackButtonHeadHover{
+	 height:31px;
+    width:19px;
+   
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/button_head2.png");
+   background-repeat: no-repeat; 
+    cursor: pointer;
+   vertical-align:bottom;
+	}
+.topBackButtonBodyHover{
+	 
+   position:relative;
+  left:-4px;
+  top:0px;
+  padding:0px 10px 0px 10px;
+   height:31px;
+   display: inline-block; 
+   white-space: nowrap; 
+   text-align:center;
+   line-height: 31px;
+    background-image: url("button/button_body2.png");
+   background-repeat: repeat-x; 
+   vertical-align:bottom;
+   cursor: pointer;
+   color: white;
+   font-size: 12px;
+	}
+.topBackButtonRootHover{
+	  position:relative;
+      left:-4px;
+      top:0px;
+      height:31px;
+      width:5px;
+   display: inline-block; 
+   white-space: nowrap; 
+    background-image: url("button/button_root2.png");
+   background-repeat: no-repeat; 
+    vertical-align:bottom;
+     cursor: pointer;
+      -webkit-border-radius:0px 2px 2px 0px;
+    -moz-border-radius:0px 2px 2px 0px;
+    border-radius:0px 2px 2px 0px; 
+	}
+
+/*第一套样式下的baseButton*/
+.baseButton{
+ display: inline-block; 
+ white-space: nowrap; 
+}
+.baseButtonHead{
+   height:32px;
+   width:3px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/baseButtonHead.png");
+   background-repeat: no-repeat; 
+   cursor: pointer;
+   vertical-align:bottom;
+}
+.baseButtonBody{
+  position:relative;
+  top:0px;
+  padding:0px 10px 0px 10px;
+  height:32px;
+  display: inline-block; 
+  white-space: nowrap; 
+  text-align:center;
+  line-height: 32px;
+   background-image: url("button/baseButtonBody.png");
+   background-repeat: repeat-x; 
+   vertical-align:bottom;
+   cursor: pointer;
+   color: white;
+   font-size: 12px; 
+}
+.baseButtonRoot{
+   position:relative;  
+   top:0px;
+   height:32px;
+   width:3px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/baseButtonRoot.png");
+   background-repeat: no-repeat; 
+   vertical-align:bottom;
+   cursor: pointer;
+   -webkit-border-radius:0px 2px 2px 0px;
+   -moz-border-radius:0px 2px 2px 0px;
+   border-radius:0px 2px 2px 0px;
+}
+.baseButtonHeadHover{
+   height:32px;
+   width:3px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/baseButtonHead.png");
+   background-position:0px -32px;
+   background-repeat: no-repeat; 
+   cursor: pointer;
+   vertical-align:bottom;
+}
+.baseButtonBodyHover{
+  position:relative;
+  top:0px;
+  padding:0px 10px 0px 10px;
+  height:32px;
+  display: inline-block; 
+  white-space: nowrap; 
+  text-align:center;
+  line-height: 32px;
+   background-image: url("button/baseButtonBody.png");
+   background-position:0px -32px;
+   background-repeat: repeat-x; 
+   vertical-align:bottom;
+   cursor: pointer;
+   color: white;
+   font-size: 12px; 
+}
+.baseButtonRootHover{
+   position:relative;  
+   top:0px;
+   height:32px;
+   width:3px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/baseButtonRoot.png");
+   background-position:0px -32px;
+   background-repeat: no-repeat; 
+   vertical-align:bottom;
+   cursor: pointer;
+   -webkit-border-radius:0px 2px 2px 0px;
+   -moz-border-radius:0px 2px 2px 0px;
+   border-radius:0px 2px 2px 0px;
+}
+
+
+/* white button div*/
+.whiteButton{
+ display: inline-block; 
+ white-space: nowrap; 
+ padding-left:10px;
+}
+
+.whiteButtonHead{
+    height:24px;
+    width:3px;
+    display: inline-block; 
+    white-space: nowrap; 
+    background-image: url("button/whiteButton_head.png");
+    background-repeat: no-repeat; 
+    cursor: pointer;
+    vertical-align:bottom;
+}
+.whiteButtonBody{
+  
+   position:relative;
+   top:0px;
+   padding:0px 10px 0px 10px;
+   height:24px;
+   display: inline-block; 
+   white-space: nowrap; 
+   text-align:center;
+   line-height: 24px;
+   background-image: url("button/whiteButton_body.png");
+   background-repeat: repeat-x; 
+   vertical-align:bottom;
+   cursor: pointer;
+   
+   font-size: 12px; 
+}
+.whiteButtonRoot{
+   position:relative;
+   top:0px;
+   height:24px;
+   width:3px;
+   display: inline-block; 
+   white-space: nowrap; 
+    background-image: url("button/whiteButton_root.png");
+   background-repeat: no-repeat; 
+    vertical-align:bottom;
+     cursor: pointer;
+      -webkit-border-radius:0px 2px 2px 0px;
+    -moz-border-radius:0px 2px 2px 0px;
+    border-radius:0px 2px 2px 0px;
+}
+
+/* blue button div*/
+.topFunButton{
+ Letter-spacing:2px;
+ display: inline-block; 
+ white-space: nowrap; 
+
+}
+.topFunButtonHead{
+    height:31px;
+    width:19px;
+    margin-left:-10px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/topFunButton_head.png");
+   background-repeat: no-repeat; 
+    cursor: pointer;
+   vertical-align:bottom;
+}
+.topFunButtonBody{
+  
+  position:relative;
+  left:-16px;
+  top:0px;
+   padding:0px 10px 0px 10px;
+   height:31px;
+   display: inline-block; 
+   white-space: nowrap; 
+   text-align:center;
+   line-height: 31px;
+   background-image: url("button/button_body.png");
+   background-repeat: repeat-x; 
+   vertical-align:bottom;
+   cursor: pointer;
+   color: white;
+   font-size: 12px; 
+}
+.topFunButtonRoot{
+   position:relative;
+  left:-16px;
+  top:0px;
+   height:31px;
+   width:5px;
+   display: inline-block; 
+   white-space: nowrap; 
+    background-image: url("button/button_root.png");
+   background-repeat: no-repeat; 
+    vertical-align:bottom;
+     cursor: pointer;
+      -webkit-border-radius:0px 2px 2px 0px;
+    -moz-border-radius:0px 2px 2px 0px;
+    border-radius:0px 2px 2px 0px;
+}
+
+.topFunButtonHeadHover{
+   height:31px;
+   width:19px;
+   margin-left:-10px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/topFunButton_head2.png");
+   background-repeat: no-repeat; 
+    cursor: pointer;
+   vertical-align:bottom;
+}
+.topFunButtonBodyHover{
+  
+  position:relative;
+  left:-16px;
+  top:0px;
+  padding:0px 10px 0px 10px;
+   height:31px;
+   display: inline-block; 
+   white-space: nowrap; 
+   text-align:center;
+   line-height: 31px;
+    background-image: url("button/button_body2.png");
+   background-repeat: repeat-x; 
+   vertical-align:bottom;
+   cursor: pointer;
+   color: white;
+   font-size: 12px; 
+}
+
+.topFunButtonRootHover{
+   position:relative;
+   left:-16px;
+   top:0px;
+   height:31px;
+   width:5px;
+   display: inline-block; 
+   white-space: nowrap; 
+    background-image: url("button/button_root2.png");
+   background-repeat: no-repeat; 
+   vertical-align:bottom;
+   cursor: pointer;
+   -webkit-border-radius:0px 2px 2px 0px;
+   -moz-border-radius:0px 2px 2px 0px;
+   border-radius:0px 2px 2px 0px;
+}
+/* button: right bottom corner has an dot icon */
+.topAssistButton{
+  
+  position:relative;
+  left:-16px;
+  top:0px;
+  padding:0px 10px 0px 10px;
+   height:31px;
+   display: inline-block; 
+   white-space: nowrap; 
+   text-align:center;
+   line-height: 31px;
+    background-image: url("button/button_body.png");
+   background-repeat: repeat-x; 
+   vertical-align:bottom;
+   cursor: pointer;
+   color: white;
+   font-size: 12px; 
+}
+.topAssistButtonRoot{
+   position:relative;
+  left:-16px;
+  top:0px;
+   height:31px;
+   width:11px;
+   display: inline-block; 
+   white-space: nowrap; 
+    background-image: url("button/rightButton_end.png");
+   background-repeat: no-repeat; 
+    vertical-align:bottom;
+     cursor: pointer;
+      -webkit-border-radius:0px 2px 2px 0px;
+    -moz-border-radius:0px 2px 2px 0px;
+    border-radius:0px 2px 2px 0px;
+}
+.topAssistButtonHover{
+  
+  position:relative;
+  left:-16px;
+  top:0px;
+  padding:0px 10px 0px 10px;
+   height:31px;
+   display: inline-block; 
+   white-space: nowrap; 
+   text-align:center;
+   line-height: 31px;
+    background-image: url("button/button_body2.png");
+   background-repeat: repeat-x; 
+   vertical-align:bottom;
+   cursor: pointer;
+   color: white;
+   font-size: 12px; 
+}
+.topAssistButtonRootHover{
+   position:relative;
+  left:-16px;
+  top:0px;
+   height:31px;
+   width:11px;
+   display: inline-block; 
+   white-space: nowrap; 
+    background-image: url("button/rightButton_end2.png");
+   background-repeat: no-repeat; 
+    vertical-align:bottom;
+     cursor: pointer;
+      -webkit-border-radius:0px 2px 2px 0px;
+    -moz-border-radius:0px 2px 2px 0px;
+    border-radius:0px 2px 2px 0px;
+}
+/*-----zhaowj-----
+---向右箭头按钮样式开始---*/
+/* arrowbutton   div */
+.topOrderButton{
+   display: inline-block; 
+   white-space: nowrap; 
+   padding-left: 10px; 
+}
+.rightFirstTopOrderButtonHead{
+   height:31px;
+   width:4px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/rightFirstTopOrderButton_head.png");
+   background-repeat: no-repeat; 
+   cursor: pointer;
+   vertical-align:bottom;
+}
+.topOrderButtonHead{
+   margin-left:-10px;
+   height:31px;
+   width:13px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/topOrderButton_head.png");
+   background-repeat: no-repeat; 
+   cursor: pointer;
+   vertical-align:bottom;
+   
+   
+}
+.topOrderButtonBody{
+   position:relative;
+   top:0px;
+   padding:0px 10px 0px 10px;
+   height:31px;
+   display: inline-block; 
+   white-space: nowrap; 
+   text-align:center;
+   line-height: 31px;
+   background-image: url("button/topOrderButton_body.png");
+   background-repeat: repeat-x; 
+   vertical-align:bottom;
+   cursor: pointer;
+   color: white;
+   font-size: 12px; 
+     
+}
+.topOrderButtonRoot{
+   position:relative;
+   left:-4px;
+   top:0px;
+   height:31px;
+   width:15px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/topOrderButton_root.png");
+   background-repeat: no-repeat; 
+   vertical-align:bottom;
+   cursor: pointer;
+   -webkit-border-radius:0px 2px 2px 0px;
+   -moz-border-radius:0px 2px 2px 0px;
+   border-radius:0px 2px 2px 0px;
+}
+.rightFirstTopOrderButtonHeadHover{
+   height:31px;
+   width:4px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image:url("button/rightFirstTopOrderButton_head1.png");
+   background-repeat: no-repeat; 
+   cursor: pointer;
+   vertical-align:bottom;
+	
+}
+.rightFirstTopOrderButtonHeadClick{
+   height:31px;
+   width:5px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image:url("button/rightFirstTopOrderButton_head2.png");
+   background-repeat: no-repeat; 
+   cursor: pointer;
+   vertical-align:bottom;
+	
+	
+}
+.topOrderButtonHeadHover{
+   margin-left:-10px;
+   height:31px;
+   width:13px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/topOrderButton_head1.png");
+   background-repeat: no-repeat; 
+   cursor: pointer;
+   vertical-align:bottom;
+	
+	
+	
+}
+.topOrderButtonHeadClick{
+   margin-left:-10px;
+   height:31px;
+   width:13px;
+   display: inline-block; 
+   white-space: nowrap; 
+   background-image: url("button/topOrderButton_head2.png");
+   background-repeat: no-repeat; 
+   cursor: pointer;
+   vertical-align:bottom;
+	
+}
+.topOrderButtonBodyHover{
+ 
+   position:relative;
+   top:0px;
+   padding:0px 10px 0px 10px;
+   height:31px;
+   display: inline-block; 
+   white-space: nowrap; 
+   text-align:center;
+   line-height: 31px;
+  background-image: url("button/topOrderButton_body1.png");
+   background-repeat: repeat-x; 
+   vertical-align:bottom;
+   cursor: pointer;
+   color: white;
+   font-size: 12px; 
+		
+}
+.topOrderButtonBodyClick{
+
+   position:relative;
+   top:0px;
+   padding:0px 10px 0px 10px;
+   height:31px;
+   display: inline-block; 
+   white-space: nowrap; 
+   text-align:center;
+   line-height: 31px;
+   background-image: url("button/topOrderButton_body2.png");
+   background-repeat: repeat-x; 
+   vertical-align:bottom;
+   cursor: pointer;
+   color: white;
+   font-size: 12px; 
+}
+.topOrderButtonRootHover{
+	
+  position:relative;
+  left:-4px;
+  top:0px;
+  height:31px;
+  width:15px;
+  display: inline-block; 
+  white-space: nowrap; 
+  background-image: url("button/topOrderButton_root1.png");
+   background-repeat: no-repeat; 
+    vertical-align:bottom;
+     cursor: pointer;
+      -webkit-border-radius:0px 2px 2px 0px;
+    -moz-border-radius:0px 2px 2px 0px;
+    border-radius:0px 2px 2px 0px;
+	
+}
+.topOrderButtonRootClick{
+  position:relative;
+  left:-4px;
+  top:0px;
+  height:31px;
+  width:15px;
+  display: inline-block; 
+  white-space: nowrap; 
+  background-image: url("button/topOrderButton_root2.png");
+  background-repeat: no-repeat; 
+  vertical-align:bottom;
+  cursor: pointer;
+  -webkit-border-radius:0px 2px 2px 0px;
+  -moz-border-radius:0px 2px 2px 0px;
+  border-radius:0px 2px 2px 0px;
+}
+
+
+
+
+/*
+.rightArrowButton{  
+   display: inline-block; 
+   white-space: nowrap; 
+   padding-left: 10px;
+}
+
+.rightArrowButtonNotFirst{
+   padding-left: 0px !important;
+   margin-left:-10px;
+   float:right;
+   *float:none;
+}
+.rightFirstArrowButtonBodyClick{
+	   background-image: url("button/rightArrowClick_first.png")!important;
+}
+.rightArrowButtonBodyClick{
+	background-image: url("button/rightArrowClick.png")!important;
+}
+.rightFirstArrowButtonBodyHover{
+	   background-image: url("button/rightArrowHover_first.png")!important;
+}
+.rightArrowButtonBodyHover{
+	background-image: url("button/rightArrowHover.png")!important;
+}
+.rightFirstArrowButtonBody{	  
+  left:-4px;
+  top:0px;
+  padding:0px 24px 0px 25px;
+   height:31px;
+   display: inline-block; 
+   white-space: nowrap; 
+   text-align:center;
+   line-height: 31px;
+   background-image: url("button/rightArrow_first.png");
+   vertical-align:bottom;
+   cursor: pointer;
+   repeate:no-repeat;
+   color: white;
+   font-size: 12px;
+  width:72px;
+ }
+.rightArrowButtonBody{	  
+  left:-2px;
+  top:0px;
+  padding:0px 21px 0px 21px;
+   height:31px;
+   display: inline-block; 
+   white-space: nowrap; 
+   text-align:center;
+   line-height: 31px;
+   background-image: url("button/rightArrow.png");
+   vertical-align:bottom;
+   cursor: pointer;
+   repeate:no-repeat;
+   color: white;
+   font-size: 12px;
+   width:72px;
+} */
+/*-----zhaowj-----
+---向右箭头按钮样式结束---*/
+
+
+.dataConButton{
+
+    margin-left: 10px;
+    padding: 8px;
+     padding-left: 15px;
+    padding-right: 15px;
+    *padding: 6px ; /*ie7*/
+    *padding-left: 8px;
+    nowhitespace: afterproperty;
+    *padding-right: 8px;
+    /*ie7*/
+    display: inline-block;
+    font-size: 12px;
+    /*background: url("button/bg.png") no-repeat left top;*/
+    vertical-align: middle;
+   /*  background-color: #3eb1f0; */
+  /*background-color:rgb(77, 152, 186);*/
+ background-color: #4D98BA;
+  /*  background-color:rgb(255, 183, 71); */
+    border: 0px solid #3eb1f0;
+    color: white;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+/*tab页的样式*/
+#tabnav {
+    background:#ffffff;
+    border-bottom:1px solid #cccccc;
+    padding-bottom:3px;
+    width:720px;      
+}
+ 
+#tabnav ul {
+    padding:15px 10px 5px 10px;
+    list-style:none;
+    background:#ffffff;
+    border-bottom:1px solid #1679D3;
+}
+ 
+#tabnav ul li {
+    display:inline;
+    margin: 1px;
+    height:20px;
+    FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#ffffff,endColorStr=#eeeeee); 
+}
+ 
+#tabnav ul li a {
+	background-image:url("tab/tabBody.png");
+	background-position:0 -24px;
+    background-color:#d8edf2;  
+    padding:2px 10px 5px 10px;
+    border:1px solid #cccccc;
+	color:#000000;
+	hide-focus: expression(this.hideFocus=true);  /* for ie 5+ */
+    outline: none;  /* for firefox 1.5 + */
+    margin-left:3px;
+   
+}
+#tabHead{
+	background-image:url("tab/tabHead.png");
+	background-position:0 -24px;
+	color:#000000;
+	hide-focus: expression(this.hideFocus=true);  /* for ie 5+ */
+    width:3px;
+    height:24px;   
+}
+#tabRoot{
+  position:relative;
+   width:3px;
+   height:24px;
+   background:url("tab/tabHead.png") no-repeat;
+}
+ 
+#tabnav ul li a:hover {
+    background:#369ce7 url("tab/tabBody.png") ; 
+    color:#ffffff;      
+} 
+#tabnav ul li a.on {
+	background:#369ce7;
+    color:#ffffff;
+    padding:2px 10px 5px 10px;
+    border-top:1px solid #cccccc;
+    border-left:1px solid #cccccc;
+    border-right:1px solid #cccccc;
+    border-bottom:1px solid #1679D3;
+    background-image:url("tab/tabBody.png") ;
+    
+  
+}
+ 
+#tabnav ul li a.on:hover {
+    background:#1196ee;
+    color:#ffffff;
+}
+/* autocomplete begin*/
+.ac_results {
+	padding: 0px;
+	border: 1px solid WindowFrame;
+	background-color: Window;
+	overflow: hidden;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results iframe {
+	display:none;/*sorry for IE5*/
+	display/**/:block;/*sorry for IE5*/
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:-1;
+	filter:mask();
+	width:3000px;
+	height:3000px;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: pointer;
+	display: block;
+	width: 100%;
+	font: menu;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background : Window url('./indicator.gif') right center no-repeat;
+}
+
+.ac_over {
+	background-color: Highlight;
+	color: HighlightText;
+}
+/* autocomplete end */
+/*折叠明细页样式开始*/
+.foldContentView{
+	padding-top:3px;
+    position:relative;
+    width:850px; 
+
+}
+
+.foldTitle{
+
+    /*  background-color:rgb(227,229,228); */
+     height:24px;
+    
+     
+}
+.fold{
+float:left;
+margin-left:10px;
+}
+.foldContent{
+
+/*     background-color:rgb(227,229,228); */
+overflow:hidden;
+}
+a.foldIcon{
+
+    width: 24px;
+    height: 24px;
+    float: right;
+    margin-top: 0px;
+   /*  margin-right: 10%; */
+    background-color:blue;
+     background: url("button/fold.png") no-repeat;
+    display: inline;
+}
+a.foldIconOpen {
+    width: 24px;
+    height: 24px;
+    float: right;
+    margin-top: 0px;
+   /*  margin-right: 10%; */
+    background-color:blue;
+     background: url("button/fold.png") no-repeat;
+    display: inline;
+}
+a.unfoldIcon {
+    width: 24px;
+    height: 24px;
+    float: right;
+    margin-top: 0px;
+  /*   margin-right: 10%; */
+    background-color:blue;
+     background: url("button/unfold.png") no-repeat;
+    display: inline;
+}
+
+a.foldIcon12{
+  
+    width: 5%;
+    height: 24px;
+    float: right;
+    margin-top: 0px;
+    background-color:blue;
+     background: url("images/fold.png") no-repeat;
+    display: inline;
+
+}
+.fold_head{
+	background-color:rgb(172,172,172);
+	height:1px;
+	width:40px;
+	margin-top:8px;
+	margin-right:8px;
+	float:left;
+	
+	}
+.fold_Body{
+	background-color:rgb(172,172,172);
+	height:1px;
+	width:70%;
+	margin-top:8px;
+	margin-right:8px;
+	float:right;
+	}
+	
+.fold_end{
+	
+	background-color:rgb(172,172,172);
+	height:1px;
+	width:40px;
+	margin-top:8px;
+	margin-right:8px;
+	float:right;	
+	}
+/*折叠明细页样式结束*/
+.centerLabel{
+	margin-left:20px;
+}
+.searchBtn{
+	background-image:url("button/search.jpg");
+	position:absolute;
+	bottom:2px;
+	right:15px;
+	
+	width:36px;
+	height:33px;
+	cursor:pointer;
+	hide-focus: expression(this.hideFocus=true);  /* for ie 5+ */
+	outline: none;  /* for firefox 1.5 + */
+}
+/*明细页面111begin*/
+.detailContainer{
+    width: 100%;
+    background: #f8f8f8;
+    margin-top: 16px;
+    display: inline-block;
+    position:relative;
+    border:1px #cdd5e0 solid;
+    color:#353535;
+    magrin-top:12px;
+}
+.detailSmallBox{
+  height:30px;
+  line-height:30px;
+  background-color:#ffffff;
+  float:left;
+  margin-left:5px;
+  border:1px solid #dfe9eb;
+  padding-left:15px;
+  padding-right:15px;
+  margin-top:5px;
+  margin-bottom:5px;
+ 
+}
+/*1111111edn*/
+/*明细页面222begin*/
+.detailTable{
+ background:#f8f8f8;
+ margin:12px auto;
+}
+.detailTrBorder{
+  border-bottom:1px solid #ffffff;
+}
+.detailLeftTd{
+ text-align:right;
+ border-right:4px solid #fff;
+ border-bottom:2px solid #ffffff;
+ padding-right:10px;
+ padding-top:15px;
+ padding-bottom:15px;
+}
+.detailRightTd{
+ text-align:left;
+ border-left:4px solid #fff;
+ border-bottom:2px solid #ffffff;
+ padding-left:10px;
+ padding-top:15px;
+ padding-bottom:15px;
+}
+/*明细页面333begin*/
+.doubleDetailContainer{
+ margin:12px auto;
+}
+.doubleTitle{
+ float:left;
+ margin-bottom:20px;
+ width:
+}
+.doubleTitle_Head{
+  margin-top:8px;
+  margin-right:8px;
+  height:1px;
+  float:left;
+  background:#bbd7e5;
+  width:100px;
+}
+.doubleTitle_End{
+  margin-top:8px;
+  margin-left:8px;
+  height:1px;
+  float:left;
+  background:#bbd7e5;
+  width:80%;
+}
+.doubleLeftTable{
+ background:#f8f8f8;
+ float:left;
+ margin-top:50px;
+ margin-left:-100px;
+}
+.doubleRightTable{
+ background:#f8f8f8;
+ float:left;
+ margin-left:20px;
+ margin-top:50px;
+}
+.doubleFirstTd{
+ text-align:right;
+ padding-right:10px;
+ padding-top:15px;
+ padding-bottom:15px;
+ border-left:5px solid #c0e4a7;
+ border-right:2px solid #ffffff;
+ border-bottom:1px solid #ffffff;
+}
+.doubleSecondTd{
+ text-align:right;
+ padding-right:10px;
+ padding-top:15px;
+ padding-bottom:15px;
+ border-left:5px solid #bbd7e5;
+ border-right:4px solid #ffffff;
+ border-bottom:2px solid #ffffff;
+}
+
+
+.buttonRightContainer {
+    text-align: right;
+    margin-top:16px;
+}

@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+ul.pagination {
+	display: block;
+	margin: 0 auto;
+	min-width: 16px;
+	overflow: hidden;
+	zoom: 1;
+}
+ul.pagination li {
+	float: left;
+	display: block;
+	width: 16px;
+	height: 12px;
+}
+ul.pagination li a {
+	float: left;
+	display: block;
+	width: 12px;
+	height: 0;
+	padding-top: 12px;
+	margin-left: 2px;
+	background: url(../images/btn/pagination.png) no-repeat 0 0;
+}
+ul.pagination li.current a {
+	background-position: 0 -12px;
+}
+.slides_prev, .slides_next {
+	position: absolute;
+	display: block;
+	width: 29px;
+	height: 0px;
+	padding-top: 55px;
+	top: 39%;
+	left: 0;
+	z-index: 101;
+	overflow: hidden;
+	background: url(../images/btn/gtvSplit.png) no-repeat 0 0;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	cursor: pointer;
+}
+.slides_next {
+	left: auto;
+	right: 0;
+	background-position: 0 -60px;
+}
+.slides_prev:hover, .slides_next:hover {
+	opacity: 1.0;
+	filter: alpha(opacity=100);
+}

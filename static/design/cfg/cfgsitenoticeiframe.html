@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+    <script src='/static/design/js/layer/layer.js'></script>
+    <script type="text/javascript">
+        $(function () {
+            //加载已有配置数据
+            if(parent._cfg.type ){
+            	if(parent._cfg.type=='01'){
+        	    	$("select[name='showType']").val('01');
+        	    }else if(parent._cfg.type=='02'){
+        	    	$("select[name='showType']").val('02');
+        	    }
+            	changeScope();
+            }
+            $("#MARKET_NAME").val(parent._cfg.market_name);
+            //if(parent._cfg.type=='01'){$("#MARKET_ID").val(parent._cfg.subtype);}else{}
+            $("#MARKET_ID").val(parent._cfg.subtype);
+            if(parent._cfg.showmarquee==undefined ){
+            	$("input[name='showmarquee']:eq(1)").attr("checked",'checked');
+	    	}else{
+	    		if(parent._cfg.showmarquee){
+	    			if(parent._cfg.showmarquee=='true'){
+	        	    	$("input[name='showmarquee']:eq(0)").attr("checked",'checked');
+	        	    }else if(parent._cfg.showmarquee=='false'){
+	        	    	$("input[name='showmarquee']:eq(1)").attr("checked",'checked');
+	        	    }
+	    		}
+	    	}
+        })
+        //save function
+        function cfgSet(){//------------------save start------------------------------
+        	//var showType = $('#showType').val();
+        	//if (showType == '' || showType == null) {alert('加载公告类型时出错,请关闭配置窗口并重试!');return ;}
+         	var noticeScope = $("#showType").val();
+         	var market_name='';
+         	if("02"==noticeScope){ market_name=$('#MARKET_NAME').val();}
+         	//组件更新
+        	var o={
+        		type:        $('#showType').val(),//$("input[name='showType']:checked").val(),//,
+        		vistorurl:   '/base/promotion/design/notice.do?method=getShopNotices',
+        		showmarquee: $("input[name='showmarquee']:checked").val(),
+        		subtype:     $('#MARKET_ID').val(),
+        		market_name: market_name
+        	}
+        	//console.log('===o=='+JSON.stringify(o));
+        	if(o.subtype==''){alert('未能获取到 子类型,请关闭配置窗口并重试!');return ;}
+        	parent._$sitenotice.sitenotice('reset',o);
+         	parent.cfgClose();
+        }
+        //------------------save end----------------------------------------------
+       var channel;
+        function changeScope(){
+		 var noticeScope = $("#showType").val();
+		 var marStr="";
+		 if("02"==noticeScope){
+			 $("#subscope").empty();
+			 marStr=
+		 		"<input type='hidden' name='MARKET_ID' id='MARKET_ID' value=''/>"+
+		 		"<input type='text' name='MARKET_NAME' id='MARKET_NAME' value='' onclick='showMarketInfo2()' readonly='readonly'/>";
+		 		$("#subscope").html(marStr);
+		 }else if("01"==noticeScope){
+			 $("#subscope").empty();
+			 marStr=
+		 		"<select id='MARKET_ID' name='MARKET_ID'>"+
+		 		"<option value=''>---请选择---</option>";
+		 		var options='';
+		 		//getType('channel');
+		 		$.ajax({
+	                url: parent.ctx+"/base/promotion/design/notice.do?method=getType&site=channel",
+	                dataType: "json",
+	                success: function (data) {
+	                	options=setval(data);
+	                	$("#subscope").html(marStr+options+'</select>');
+	                },
+	                error: function() {
+	                    alert("加载可配置类型时出错,请刷新页面并重试!");
+	                }
+            	})
+		 }
+	}
+    function setval(data){
+    	var options='';
+    	$(data).each(function(i){//根据之前选择,设置为选中...
+        	if(parent._cfg.subtype==$(this)[0].NAME){
+        		options+="<option value='"+$(this)[0].NAME+"' selected=\"selected\">"+$(this)[0].VALUE+"</option>";   
+        	}else{
+        		options+="<option value='"+$(this)[0].NAME+"'>"+$(this)[0].VALUE+"</option>";   
+        	}
+        })
+        return options;
+    }
+	function showMarketInfo2() {
+		layer.open({
+			type : 2,
+			title : "所属市场选择",
+			content :  parent.ctx+"/base/promotion/design/marketHelp.htm?callback=itemCallback2", 
+	        shadeClose: true,
+	        area : ['580px','200px']
+		});
+	}
+	function itemCallback2(win) {
+		if (win != undefined && win != null) {
+			$("#MARKET_ID").val(win.split(',')[0]);
+			$("#MARKET_NAME").val(win.split(',')[1]);
+		}
+	}
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div class="tab">
+            <form class="main-slide-form form-default" method="post" id="displaySetForm" novalidate="novalidate">
+                <div class="panels">
+                    <div class="panel content-set ks-switchable-panel-internal7" id="tabContent" style="display: none;">
+                        <div class="edit-module">
+                            <div class="edit-item  edit-head">
+                                <div class="column column1"><span>内容</span></div>
+                                <div class="column column2"><span>链接地址</span></div>
+                                <div class="column column3"><span>操作</span></div>
+                            </div>
+                            <div id="EditorBox" class="pic-list">
+                            </div>
+                            <div class="bottom">
+                            </div>
+                        </div>
+                        <div id="J_Tadget" class="tadget-box"></div>
+                    </div>
+                    <div class="panel display-set hidden ks-switchable-panel-internal7 pl23" id="tabDisplay" style="display: block;">
+                        <div class="control-group4">
+                            <label class="control-label">公告范围：</label>
+                            <div class="control show-title">
+                                <select id='showType' name="showType" onchange="changeScope()">
+                                	<option value="">请选择</option>
+                                	<option value="01">频道</option>
+                                	<option value="02">市场</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group4">
+                        	<label class="control-label">子范围：</label>
+                        	<div class="control show-title" id="subscope">
+                        	</div>
+                        </div>
+                        <div class="control-group4">
+                            <label class="control-label">是否滚动：</label>
+                            <div class="control show-title">
+                                <input type="radio" class="J_TNotShowTitle input-radio" name="showmarquee" value="true" checked="checked">是
+                                <input type="radio" class="J_TShowTitle show-title-true input-radio" name="showmarquee" value="false" >否
+                            </div>
+                        </div>
+                        <!--<div class="control-group">
+                            <label class="control-label">是否显示更多:</label>
+                            <div class="control show-title">
+                                <input type="radio" class="J_TNotShowTitle input-radio" name="showmore" value="true" checked="checked">是
+                                <input type="radio" class="J_TShowTitle show-title-true input-radio" name="showmore" value="false" >否
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+                <p class="opt-footer ctset-opt-footer">
+                    <a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+                    <a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick='parent.cfgClose();'>取消</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+function getType(type){
+    $.ajax({
+        url: parent.ctx+"/base/promotion/design/notice.do?method=getType&site="+type,
+        dataType: "json",
+        success: function (data) {
+        	channel = data;
+        },
+        error: function() {
+            alert("加载可配置类型时出错,请关闭配置窗口并重试!");
+        }
+    })
+}
+</script>
+</html>

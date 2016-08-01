@@ -1,0 +1,1443 @@
+/*��������start*/
+/*�´�Ԫ��*/
+.indexElement {
+	width: 113px;
+	height: 522px;
+	position: fixed;
+	top: 80px;
+	z-index: 99999;
+}
+
+#bg {
+	width: 100%;
+	margin: 0 auto;
+	clear: both;
+	background: url(../images/index/bg.jpg) no-repeat center top;
+}
+
+#bgRe {
+	width: 100%;
+	margin: 0 auto;
+	clear: both;
+	background: url(../images/index/bgRe.jpg) repeat-x top;
+}
+/*banner��ʼ*/
+.rslides {
+	position: relative;
+	list-style: none;
+	overflow: hidden;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.rslides li {
+	position: absolute;
+	display: none;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+
+.rslides li:first-child {
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.rslides img {
+	display: block;
+	height: auto;
+	float: left;
+	width: 100%;
+	border: 0;
+}
+
+#slider2 {
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	margin: 0 auto;
+}
+
+.rslides_tabs {
+	position: absolute;
+	list-style: none;
+	padding: 0;
+	font-size: 18px;
+	list-style: none;
+	margin: -30px auto 0;
+	max-width: 760px;
+	text-align: right;
+	width: 100%;
+	padding: 5px 0;
+	z-index: 3;
+}
+
+.rslides_tabs li {
+	display: inline;
+	float: none;
+	margin-right: 5px;
+}
+
+.rslides_tabs a {
+	font-weight: bold;
+	width: auto;
+	line-height: 20px;
+	padding: 0px 6px;
+	height: auto;
+	background: transparent;
+	display: inline;
+	color: #ff6600;
+	font-weight: bold;
+	background-color: #ffffff;
+}
+
+.rslides_tabs li:first-child {
+	margin-left: 0;
+}
+
+.rslides_tabs .rslides_here a {
+	background-color: #ff6600;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+/*banner����*/
+#mainContentTop {
+	width: 1200px;
+	overflow: hidden;
+	margin: 0 auto;
+	position: relative;
+}
+
+#adsFla {
+	position: relative;
+	float: left;
+	margin-left: 240px;
+	width: 750px;
+	height: 300px;
+	overflow: hidden;
+}
+
+#banner {
+	width: 760px;
+	height: 303px;
+	overflow: hidden;
+	z-index: -1;
+}
+/*banner�ײ���͸���ɫ*/
+#ban_bottom {
+	position: absolute;
+	width: 760px;
+	height: 25px;
+	background-color: #000;
+	top: 395px;
+	opacity: 0.2;
+	left: 0px;
+}
+
+#btn {
+	display: inline;
+	width: 200px;
+	hegiht: 25px;
+	float: left;
+	top: 395px;
+	right: 2px;
+	position: absolute;
+	z-index: 1;
+}
+
+#btn a {
+	background-color: #686868;
+	margin-left: 15px;
+	color: #ffffff;
+	float: left;
+	width: 25px;
+	height: 25px;
+	line-height: 23px;
+	text-align: center;
+	font-family: "΢���ź�";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+}
+
+#btn a.activeSlide {
+	background-color: #cc0000;
+}
+
+#btn a:hover {
+	background-color: #cc0000;
+}
+
+#mainContentTopR {
+	width: 200px;
+	float: right;
+	overflow: hidden;
+}
+
+#mainContentTop .logo {
+	width: 960px;
+	overflow: hidden;
+	height: 40px;
+	clear: both;
+	float: right;
+}
+
+/*ѡ�1*/
+#lib_Tab {
+	width: 198px;
+	height: 195px;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid #dddddd;
+}
+
+/*�˵�class*/
+.lib_Menubox {
+	height: 28px;
+	line-height: 28px;
+	position: relative;
+	border-bottom: 1px solid #dddddd;
+}
+
+.lib_Menubox ul {
+	position: absolute;
+	left: 0;
+	height: 28px;
+	text-align: center;
+	width: 198px;
+}
+
+.lib_Menubox li {
+	float: left;
+	display: block;
+	cursor: pointer;
+	color: #505050;
+	font-size: 14px;
+	font-family: "\9ED1\4F53 ", "SimHei";
+	height: 28px;
+	line-height: 28px;
+	border-right: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	letter-spacing: 2px;
+	background-color: #f3f3f3;
+}
+
+.lib_Menubox li .hover {
+	border-bottom: none;
+	background: #ffffff;
+	border-top: :1px solid #dddddd;
+	color: #fcad1c;
+	border-right: 1px solid #dddddd;
+	height: 29px;
+	line-height: 28px;
+}
+
+.lib_Contentbox {
+	height: 156px;
+	width: 208px;
+	margin-top: 0px;
+	border-top: none;
+	background-color: #ffffff;
+	padding-top: 5px;
+	text-align: left;
+	line-height: 2;
+	overflow: hidden;
+}
+
+.lib_Contentbox a {
+	color: #505050;
+}
+
+#login {
+	width: 175px;
+	margin: 0 auto;
+}
+
+#login li {
+	margin-top: 5px;
+	white-space: nowrap;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+#login li .name {
+	text-align: justify;
+	text-justify: distribute-all-lines;
+	text-align-last: justify;
+	width: 45px;
+	float: left;
+	overflow: hidden;
+}
+
+#login li .colon {
+	width: 15px;
+	float: left;
+	overflow: hidden;
+}
+
+#login li .nameText {
+	overflow: hidden;
+	width: 115px;
+	float: left;
+}
+
+#login li .nameText input {
+	display: block;
+	height: 18px;
+	line-height: 18px;
+	vertical-align: middle;
+	text-align: left;
+	width: 110px;
+}
+
+#login li .text-verify {
+	display: block;
+	float: left;
+	width: 50px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	vertical-align: middle;
+	text-align: left;
+}
+
+#login .verify {
+	overflow: hidden;
+}
+
+#login .verify a {
+	display: block;
+	float: left;
+	overflow: hidden;
+	margin-left: 2px;
+}
+
+#login li .a {
+	display: block;
+	float: left;
+	width: 56px;
+	text-align: center;
+}
+
+.lib_Contentbox .login {
+	width: 55px;
+	margin-right: 8px;
+	height: 20px;
+	display: block;
+	background: url(../images/index/loginBtn.jpg) no-repeat;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 20px;
+	float: left;
+	overflow: hidden;
+}
+
+.lib_Contentbox .loginIframe {scrolling ="no";
+	width: 183px;
+	height: 150px;
+	border: none;
+	padding: none;
+}
+
+#servicePhone {
+	margin-top: 10px;
+	width: 208px;
+	height: 104px;
+	border: 1px solid #dddddd;
+	overflow: hidden;
+}
+/*������Ʒ*/
+#mainContentBottom {
+	width: 1200px;
+	height: 315px;
+	margin: 0 auto;
+	overflow: hidden;
+	display: none;
+}
+
+#promotion {
+	float: left;
+	overflow: hidden;
+	position: relative;
+	width: 771px;
+	height: 163px;
+}
+
+.promotion_sale {
+	line-height: 33px;
+	vertical-align: middle;
+	width: 755px;
+	height: 33px;
+	margin-left: 15px;
+	background: url(../images/index/hot.jpg) 95px center no-repeat;
+}
+
+.sale_slide {
+	display: inline-block;
+	height: 35px;
+	float: right;
+	line-height: 40px;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.sale_slide span {
+	display: inline-block;
+}
+
+.sale_slide a {
+	display: inline-block;
+	height: 17px;
+	width: 21px;
+	padding: 0;
+	cursor: pointer;
+}
+
+.sale_slide .a1 {
+	background: url(../images/index/arrowLeft.jpg) no-repeat center bottom;
+}
+
+.sale_slide .a1:hover {
+	background: url(../images/index/arrowLeftH.jpg) no-repeat center bottom;
+}
+
+.sale_slide .a2 {
+	background: url(../images/index/arrowRight.jpg) no-repeat bottom left;
+}
+
+.sale_slide .a2:hover {
+	background: url(../images/index/arrowRightH.jpg) no-repeat bottom left;
+}
+
+.promotion_img {
+	position: relative;
+	float: left;
+	margin-left: 1px;
+	height: 130px;
+	width: 771px;
+	overflow: hidden;
+}
+
+#promotion_img {
+	position: absolute;
+	overflow: hidden;
+	width: 3080px;
+	height: 130px;
+}
+
+#promotion_img li {
+	float: left;
+	display: block;
+	display: inline;
+	margin-left: 5px;
+	width: 142px;
+	height: 126px;
+	background-color: #ffffff;
+	overflow: hidden;
+	margin-left: 10px;
+	border: 1px solid #dddddd;
+}
+
+#prefecture {
+	margin-top: 10px;
+	padding-top: 5px;
+	margin-left: 10px;
+	width: 759px;
+	height: 132px;
+	overflow: hidden;
+	border: 1px solid #dddddd;
+}
+
+#prefecture li {
+	float: left;
+	margin-left: 12px;
+	width: 240px;
+	height: 126px;
+	overflow: hidden;
+}
+/*����ɷѡ�������ѯ,*/
+.publicService {
+	width: 198px;
+	height: 163px;
+}
+
+#publicService .slib_Menubox {
+	height: 28px;
+	line-height: 28px;
+	position: relative;
+	border-bottom: 1px solid #dddddd;
+}
+
+#publicService .slib_Menubox ul {
+	position: absolute;
+	left: 0;
+	height: 28px;
+	text-align: center;
+	width: 208px;
+}
+
+#publicService .slib_Menubox li {
+	float: left;
+	display: block;
+	cursor: pointer;
+	color: #505050;
+	font-size: 14px;
+	font-family: "\9ED1\4F53 ", "SimHei";
+	height: 28px;
+	line-height: 28px;
+	border-right: 1px solid #dddddd;
+	border-top: 1px solid #dddddd;
+	letter-spacing: 2px;
+	background-color: #f3f3f3;
+	border-bottom: 1px solid #dddddd;
+}
+
+#publicService .slib_Menubox li.hover {
+	border-bottom: none;
+	background: #ffffff;
+	border-top: 2px solid #66af00;
+	color: #66af00;
+	border-right: 1px solid #dddddd;
+	height: 28px;
+	line-height: 28px;
+}
+
+#publicService .slib_Contentbox {
+	height: 152px;
+	width: 208px;
+	margin-top: 0px;
+	border-top: none;
+	background-color: #ffffff;
+	padding-top: 3px;
+	text-align: left;
+	line-height: 20px;
+	overflow: hidden;
+}
+
+.publicService li {
+	text-align: center;
+	display: block;
+	width: 66px;
+	height: 78px;
+	float: left !important;
+	overflow: hidden;
+}
+
+.publicService li a {
+	display: block;
+	width: 44px;
+	height: 44px;
+	margin: 8px auto 3px auto;
+}
+
+.publicService li span {
+	display: block;
+	width: 68px;
+	margin: 0 auto;
+}
+
+.publicService li .pA1 {
+	background: url(../images/index/pSearch1.jpg) no-repeat center center;
+}
+
+.publicService li .pA1:hover {
+	background: url(../images/index/pSearch1H.jpg) no-repeat center center;
+}
+
+.publicService li .pA2 {
+	background: url(../images/index/pSearch2.jpg) no-repeat center center;
+}
+
+.publicService li .pA2:hover {
+	background: url(../images/index/pSearch2H.jpg) no-repeat center center;
+}
+
+.publicService li .pA3 {
+	background: url(../images/index/pSearch3.jpg) no-repeat center center;
+}
+
+.publicService li .pA3:hover {
+	background: url(../images/index/pSearch3H.jpg) no-repeat center center;
+}
+
+.publicService li .pA4 {
+	background: url(../images/index/pSearch4.jpg) no-repeat center center;
+}
+
+.publicService li .pA4:hover {
+	background: url(../images/index/pSearch4H.jpg) no-repeat center center;
+}
+
+.publicService li .pA5 {
+	background: url(../images/index/pSearch5.jpg) no-repeat center center;
+}
+
+.publicService li .pA5:hover {
+	background: url(../images/index/pSearch5H.jpg) no-repeat center center;
+}
+
+.publicService li .pA6 {
+	background: url(../images/index/pSearch6.jpg) no-repeat center center;
+}
+
+.publicService li .pA6:hover {
+	background: url(../images/index/pSearch6H.jpg) no-repeat center center;
+}
+
+.publicService li .yA1 {
+	background: url(../images/index/ySearch1.jpg) no-repeat center center;
+}
+
+.publicService li .yA1:hover {
+	background: url(../images/index/ySearch1H.jpg) no-repeat center center;
+}
+
+.publicService li .yA2 {
+	background: url(../images/index/ySearch2.jpg) no-repeat center center;
+}
+
+.publicService li .yA2:hover {
+	background: url(../images/index/ySearch2H.jpg) no-repeat center center;
+}
+
+.publicService li .yA3 {
+	background: url(../images/index/ySearch3.jpg) no-repeat center center;
+}
+
+.publicService li .yA3:hover {
+	background: url(../images/index/ySearch3H.jpg) no-repeat center center;
+}
+
+.publicService li .yA4 {
+	background: url(../images/index/ySearch4.jpg) no-repeat center center;
+}
+
+.publicService li .yA4:hover {
+	background: url(../images/index/ySearch4H.jpg) no-repeat center center;
+}
+
+.publicService li .yA5 {
+	background: url(../images/index/ySearch5.jpg) no-repeat center center;
+}
+
+.publicService li .yA5:hover {
+	background: url(../images/index/ySearch5H.jpg) no-repeat center center;
+}
+
+.publicService li .yA6 {
+	background: url(../images/index/ySearch6.jpg) no-repeat center center;
+}
+
+.publicService li .yA6:hover {
+	background: url(../images/index/ySearch6H.jpg) no-repeat center center;
+}
+/*oneFloor-twoFloor*/
+.floor {
+	width: 1200px;
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+#oneFloor {
+	height: 660px;
+}
+
+#twoFloor {
+	width: 1198px;
+	height: 350px;
+	overflow: hidden;
+	border: 1px solid #dddddd;
+}
+
+.floor a {
+	color: #666666;
+}
+
+.fTitle {
+	height: 36px;
+	width: 1200px;
+	border-bottom: 1px solid #dddddd;
+	background-color: #f3f3f3;
+}
+
+.floor1-2 {
+	width: 1198px;
+	border: 1px solid #dddddd;
+	float: left;
+	overflow: hidden;
+}
+
+.floor1-2 .dd {
+	height: 620px;
+	width: 1198px;
+	overflow: hidden;
+}
+
+.floor1-2 .ddLeft {
+	width: 153px;
+	float: left;
+}
+
+.floor1-2 .ddLeft li {
+	display: block;
+	height: 52px;
+	border-bottom: 1px solid #dddddd;
+	overflow: hidden;
+}
+
+.floor1-2 .ddLeft .moreBrand {
+	float: left;
+	width: 153px;
+	height: 35px;
+	line-height: 35px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.floor1-2 .ddMid {
+	width: 197px;
+	float: left;
+	overflow: hidden;
+}
+
+.floor1-2 .ddMid a {
+	display: block;
+	overflow: hidden;
+	border-right: 1px solid #dddddd;
+	border-left: 1px solid #dddddd;
+}
+
+.floor1-2 .ddRight {
+	width: 845px;
+	height: 620px;
+	overflow: hidden;
+	float: right;
+}
+
+.floor1-2 .ddRight2 {
+	width: 1001px;
+	float: left;
+	overflow: hidden;
+}
+
+.floor1-2 .ddRight2 li {
+	display: block;
+	float: left;
+	width: 199px;
+	height: 155px;
+	overflow: hidden;
+	border-right: 1px dashed #dddddd;
+	border-bottom: 1px dashed #dddddd;
+}
+
+.floor1-2 .ddRight li {
+	display: block;
+	float: left;
+	width: 210px;
+	height: 155px;
+	overflow: hidden;
+	border-right: 1px dashed #dddddd;
+	border-bottom: 1px dashed #dddddd;
+}
+
+.floor1-2 .fName {
+	padding: 15px 0 0 10px;
+	width: 88px;
+	float: left;
+}
+
+.floor1-2 .fPrice {
+	margin-top: 15px;
+	font-family: "arial";
+	color: #fe6601;
+}
+
+.floor1-2 .fImg {
+	width: 100px;
+	float: right;
+	height: 155px;
+	overflow: hidden;
+}
+
+.floor .floorRight {
+	width: 210px;
+	overflow: hidden;
+	float: right;
+	height: 660px;
+}
+
+.floor .floorRight .FRTop {
+	height: 168px;
+	width: 208px;
+	border: 1px solid #dddddd;
+	overflow: hidden;
+}
+
+.floor .floorRight .FRBottom {
+	margin-top: 10px;
+	height: 168px;
+	width: 208px;
+	border: 1px solid #dddddd;
+}
+
+.floor .floorRight .dt {
+	padding-left: 10px;
+	color: #505050;
+	font-size: 14px;
+	font-family: "\9ED1\4F53 ", "SimHei";
+	height: 29px;
+	background-color: #f3f3f3;
+	line-height: 29px;
+	vertical-align: middle;
+	border-bottom: 1px solid #dddddd;
+}
+
+.floor .floorRight .dd {
+	padding: 2px;
+}
+
+.floor .floorRight .oneCard1 {
+	padding: 45px 20px 0 20px;
+	height: 75px;
+	background: url(../images/index/oneCard1.jpg) no-repeat center center;
+}
+
+.floor .floorRight .oneCard1 .oneCardA1 {
+	height: 65px;
+	width: 65px;
+	display: inline-block;
+	float: left;
+	background: url(../images/index/oneCard2.jpg) no-repeat center center;
+}
+
+.floor .floorRight .oneCard1 .oneCardA1:hover {
+	background: url(../images/index/oneCard2H.jpg) no-repeat center center;
+}
+
+.floor .floorRight .oneCard1 .oneCardA2 {
+	height: 65px;
+	width: 65px;
+	display: inline-block;
+	float: right;
+	background: url(../images/index/oneCard3.jpg) no-repeat center center;
+}
+
+.floor .floorRight .oneCard1 .oneCardA2:hover {
+	background: url(../images/index/oneCard3H.jpg) no-repeat center center;
+}
+
+.floor .floorRight .oneCard2 {
+	height: 50px;
+	line-height: 50px;
+	vertical-align: middle;
+	font-size: 14px;
+	font-family: "\5B8B\4F53", "SimSun ";
+	color: #666666;
+}
+
+.floor .floorRight .oneCard2 span {
+	display: inline-block;
+	float: left;
+	margin-left: 15px;
+}
+
+.floor .floorRight .oneCard2 a {
+	display: inline-block;
+	background: url(../images/index/oneCard4.jpg) no-repeat top left;
+	height: 25px;
+	width: 80px;
+	margin-top: 12px;
+}
+
+.floor .floorRight .oneCard2 a:hover {
+	background: url(../images/index/oneCard4H.jpg) no-repeat top left;
+}
+/*ads01*/
+.ads {
+	width: 1200px;
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+/*3-4floor*/
+.floor3-4 {
+	width: 978px;
+	height: 348px;
+	border: 1px solid #dddddd;
+	float: left;
+	overflow: hidden;
+}
+
+#threeFloor {
+	height: 350px;
+}
+
+.floor3-4 .dd {
+	height: 310px;
+	width: 978px;
+	overflow: hidden;
+}
+
+.floor3-4 .dd .ddLeft1 {
+	width: 199px;
+	float: left;
+	border-right: 1px solid #dddddd;
+}
+
+.floor3-4 .dd .ddRight1 {
+	width: 778px;
+	float: right;
+}
+
+.floor3-4 .dd .ddRight1 li {
+	width: 193.5px;
+	display: block;
+	float: left;
+	height: 312px;
+	overflow: hidden;
+	border-right: 1px dashed #dddddd;
+	border-bottom: 1px dashed #dddddd;
+}
+
+.floor3-4 .fName {
+	padding: 15px 0 0 10px;
+	width: 83px;
+	float: left;
+}
+
+.floor3-4 .fPrice {
+	margin-top: 10px;
+	font-family: "arial";
+	color: #fe6601;
+}
+
+.floor3-4 .fImg {
+	width: 90px;
+	float: right;
+}
+
+.floor4 {
+	margin-top: 10px;
+	width: 1198px;
+	border: 1px solid #dddddd;
+	overflow: hidden;
+}
+
+.floor4 .dd {
+	height: 313px;
+	width: 1198px;
+	overflow: hidden;
+}
+
+.floor4 .dd .ddLeft2 {
+	width: 199px;
+	float: left;
+	border-right: 1px solid #dddddd;
+}
+
+.floor4 .dd .ddRight2 {
+	margin-left: 10px;
+	width: 988px;
+	float: left;
+}
+
+.floor4 .dd .ddRight2 li {
+	width: 187px;
+	display: block;
+	float: left;
+	padding: 10px 10px 10px 0;
+}
+
+/*��ʱ�9�*/
+.floor5 {
+	margin-top: 10px;
+	width: 1198px;
+	border: 1px solid #dddddd;
+	overflow: hidden;
+}
+
+.floor5 .dd {
+	overflow: hidden;
+	width: 1198px;
+}
+/*��������end*/
+
+/*����t�� start*/
+#friendLink {
+	height: 34px;
+	width: 1198px;
+	line-height: 35px;
+	vertical-align: middle;
+	margin: 10px auto;
+	text-align: center;
+	overflow: hidden;
+	background-color: #f3f3f3;
+	border: 1px solid #dddddd;
+	padding: 10px 0;
+}
+
+#friendLink ul li {
+	overflow: hidden;
+	border-left: 1px solid #dddddd;
+	float: left;
+	height: 35px;
+}
+
+/*����t��end*/
+#indexBg {
+	background: url(../images/index/indexBg2.jpg) no-repeat center top;
+	width: 100%;
+	margin: 0 auto;
+}
+/*tab*/
+#tab1 {
+	width: 198px;
+	border: 1px solid #cdcdcd;
+	overflow: hidden;
+}
+
+#tab2 {
+	width: 198px;
+	border: 1px solid #cdcdcd;
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+#tab3 {
+	width: 198px;
+	border: 1px solid #cdcdcd;
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.tabTitle {
+	height: 32px;
+	overflow: hidden;
+	font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft YaHei";
+	color: #669900;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.tabTitle li {
+	cursor: pointer;
+	float: left;
+	height: 31px;
+	line-height: 31px;
+	vertical-align: middle;
+	text-align: left;
+	background-color: #e1e0e0;
+}
+
+.tabTitle li span {
+	margin-left: 10px;
+}
+
+.tabTitle .liActive {
+	color: #78a30c;
+	background-color: #ffffff;
+}
+
+.tabCon {
+	overflow: hidden;
+	padding: 10px 5px 10px 5px;
+}
+
+.tabCon li {
+	line-height: 20px;
+	font-size: 12px;
+	font-family: "\5B8B\4F53", "SimSun";
+	color: #666666;
+}
+
+.tabCon li a {
+	color: #666666;
+}
+
+/*��Ҫ��ѯ��Ҫ��ֵ*/
+.onecard3 {
+	width: 198px;
+	border: 1px solid #cdcdcd;
+	overflow: hidden;
+	height: 48px;
+	margin-top: 10px;
+}
+
+.ggw {
+	margin-top: 10px;
+	width: 198px;
+	border: 1px solid #cdcdcd;
+	overflow: hidden;
+	height: 100px;
+}
+
+.ggw		.ggwDt {
+	height: 25px;
+	line-height: 24px;
+	vertical-align: middle;
+	padding-left: 10px;
+	font-size: 14px;
+	font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft YaHei";
+	font-weight: bold;
+	color: #669900;
+	text-align: left;
+}
+
+.ggw		.ggwDd {
+	height: 80px;
+	overflow: hidden;
+}
+
+#mainContentTopL {
+	width: 1000px;
+	overflow: hidden;
+	float: left;
+}
+
+/*��������*/
+#cuxiao {
+	margin-top: 10px;
+	height: 250px;
+	overflow: hidden;
+	width: 750px;
+	margin-left: 240px;
+	background-color: #ffffff;
+	border-top: 1px solid #cdcdcd;
+	border-bottom: 1px solid #cdcdcd;
+}
+
+#cuxiao .cuxiaoM {
+	width: 679px;
+	overflow: hidden;
+	float: left;
+	position: relative;
+	height: 250px;
+}
+
+.cuxiaoSlide {
+	position: absolute;
+	overflow: hidden;
+	width: 10000px;
+	height: 250px;
+	overflow: hidden;
+	left: 0;
+	top: 0;
+}
+
+#cuxiao .cuxiaoM ul {
+	float: left;
+	overflow: hidden;
+}
+
+#cuxiao .cuxiaoM li {
+	border-left: 1px solid #f2f2f2;
+	width: 225px;
+	height: 250px;
+	float: left;
+	overflow: hidden;
+}
+
+#cuxiao .cuxiaoL {
+	height: 250px;
+	width: 35px;
+	background: url(../images/index/left-a.jpg) no-repeat center center;
+	overflow: hidden;
+	display: block;
+	float: left;
+}
+
+#cuxiao .cuxiaoL:hover {
+	background: url(../images/index/left-b.jpg) no-repeat center center;
+}
+
+#cuxiao .cuxiaoR {
+	height: 250px;
+	width: 35px;
+	background: url(../images/index/right-a.jpg) no-repeat center center;
+	overflow: hidden;
+	display: block;
+	float: right;
+}
+
+#cuxiao .cuxiaoR:hover {
+	background: url(../images/index/right-b.jpg) no-repeat center center;
+}
+
+#zhuanqu {
+	height: 137px;
+	width: 750px;
+	margin-left: 240px;
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+#zhuanqu .zhuanquM {
+	width: 688px;
+	overflow: hidden;
+	float: left;
+	position: relative;
+	height: 137px;
+}
+
+.zhuanquSlide {
+	position: absolute;
+	overflow: hidden;
+	width: 10000px;
+	height: 137px;
+	overflow: hidden;
+	left: 0;
+	top: 0;
+}
+
+.zhuanquSlide ul {
+	float: left;
+	overflow: hidden;
+}
+
+#zhuanquSlide  li {
+	padding-left: 9px;
+	width: 220px;
+	height: 137px;
+	float: left;
+	overflow: hidden;
+}
+
+#zhuanquSlide  li	.zhuanquTitle {
+	height: 26px;
+	line-height: 26px;
+	vertical-align: middle;
+	padding-left: 5px;
+	letter-spacing: 1px;
+	font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft YaHei";
+	color: #000;
+	font-size: 14px;
+}
+
+#zhuanqu .zhuanquL {
+	height: 137px;
+	width: 30px;
+	background: url(../images/index/zhuanquL-a.jpg) no-repeat center center;
+	overflow: hidden;
+	display: block;
+	float: left;
+}
+
+#zhuanqu .zhuanquL:hover {
+	background: url(../images/index/zhuanquL-b.jpg) no-repeat center center;
+}
+
+#zhuanqu .zhuanquR {
+	height: 137px;
+	width: 30px;
+	background: url(../images/index/zhuanquR-a.jpg) no-repeat center center;
+	overflow: hidden;
+	display: block;
+	float: right;
+}
+
+#zhuanqu .zhuanquR:hover {
+	background: url(../images/index/zhuanquR-b.jpg) no-repeat center center;
+}
+
+#xinpin {
+	width: 989px;
+	overflow: hidden;
+	border: 1px solid #cdcdcd;
+	margin-top: 10px;
+}
+
+#xinpin .xinpinDt {
+	height: 35px;
+	border-bottom: 2px solid #ababab;
+	padding-left: 15px;
+	line-height: 35px;
+	vertical-align: middle;
+	font-size: 16px;
+	font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft YaHei";
+	color: #e4393c;
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+
+#xinpin .xinpinDd {
+	overflow: hidden;
+	height: 252px;
+	overflow: hidden;
+}
+
+#xinpin .xinpinDd li {
+	width: 197px;
+	border-left: 1px solid #f2f2f2;
+	overflow: hidden;
+	float: left;
+}
+
+.floorXin {
+	overflow: hidden;
+	margin-top: 10px;
+	width: 1200px;
+	border-bottom: 1px solid #cdcdcd;
+}
+
+.floorXin	.floorXinDt {
+	height: 50px;
+	border-bottom: 3px solid #ababab;
+}
+
+.floorXin	.floorXinDt	.floorXinDtL {
+	text-align: center;
+	line-height: 50px;
+	vertical-align: middle;
+	font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft YaHei";
+	color: #666666;
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	width: 230px;
+	height: 50px;
+	overflow: hidden;
+	position: relative;
+	float: left;
+	background: url(../images/index/floorXin2.png) no-repeat 10px center;
+}
+
+.floorXin	.floorXinDt	.floorXinDtL span {
+	display: block;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	font-family: "Arial";
+	font-size: 18px;
+	font-weight: bold;
+	color: #ffffff;
+	top: -3px;
+	left: 12px;
+	z-index: 2px;
+}
+
+.floorXin	.floorXinDt	.floorXinDtR {
+	width: 970px;
+	height: 50px;
+	float: left;
+	position: relative;
+}
+
+.floorXin	.floorXinDt	.floorXinDtR ul {
+	width: 970px;
+	height: 50px;
+	position: absolute;
+	top: 3px;
+	z-index: 2;
+}
+
+.floorXin	.floorXinDt	.floorXinDtR li {
+	cursor: pointer;
+	padding-top: 10px;
+	width: 194px;
+	height: 37px;
+	float: left;
+	top: 3px;
+	font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft YaHei";
+	color: #666666;
+	font-size: 14px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 37px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+.floorXin	.floorXinDt	.floorXinDtR li.activeF {
+	border-bottom: 3px solid #e6393d;
+	color: #e6393d;
+}
+
+.floorXin	.floorXinDt	.floorXinDtR li.activeF:after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent; /*transparenty͸��һ��ʡ�ԣ�ʵ��3����״*/
+	border-right: 6px solid transparent;
+	border-bottom: 6px solid #e6393d;
+	margin: -5px auto 0 auto;
+}
+
+.floorXin	.floorXinDd {
+	width: 1200px;
+	overflow: hidden;
+	height: 390px;
+}
+
+.floorXin	.floorXinDd	.floorXinDdL {
+	width: 230px;
+	height: 390px;
+	overflow: hidden;
+	float: left;
+}
+
+.floorXin	.floorXinDd	.floorXinDdR {
+	width: 970px;
+	float: left;
+	height: 390px;
+	overflow: hidden;
+	float: left;
+}
+
+.floorXin	.floorXinDd	.floorXinDdR li {
+	width: 193px;
+	overflow: hidden;
+	height: 195px;
+	float: left;
+	border-left: 1px solid #cdcdcd;
+	border-bottom: 1px solid #cdcdcd;
+}
+
+.floorXin	.floorXinDd	.floorXinDdR li	.picX {
+	height: 130px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.floorXin	.floorXinDd	.floorXinDdR li	.nameX {
+	height: 36px;
+	padding: 0 15px;
+	line-height: 18px;
+	vertical-align: middle;
+	font-size: 12px;
+	font-family: "\5B8B\4F53", "SimSun";
+	color: #666666;
+	overflow: hidden;
+	letter-spacing: 1px;
+}
+
+.floorXin	.floorXinDd	.floorXinDdR li	.priceX {
+	height: 24px;
+	line-height: 24px;
+	vertical-align: middle;
+	padding: 0 10px;
+	overflow: hidden;
+}
+
+.floorXin	.floorXinDd	.floorXinDdR li	.priceX .yshR {
+	float: right;
+	color: #999999;
+	font-size: 12px;
+}
+
+.floorXin	.floorXinDd	.floorXinDdR li	.priceX .cxjT {
+	font-size: 12px;
+	color: #cb0000;
+}
+
+.floorXin	.floorXinDd	.floorXinDdR li	.priceX .cxjD {
+	font-size: 16px;
+	font-family: "Arial";
+	font-weight: bold;
+	color: #cb0000;
+	letter-spacing: 0;
+}

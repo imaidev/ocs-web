@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+
+    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+    <script src='/static/design/js/layer/layer.js'></script>
+
+    <link href="/static/design/js/spectrum/spectrum.css" rel="stylesheet" />
+    <script src="/static/design/js/spectrum/spectrum.js"></script>
+
+    <script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+    <script>
+        function setValidate() {
+            $('#displaySetForm').validate({
+                onkeyup: function (element) { $(element).valid() },
+                rules: {
+                    stretch_time: { required: true, max: 30, min: 0 },
+                    stretch_width: { required: true, max: 4096, min: 0 },
+                    stretch_height: { required: true, max: 2048, min: 0 },
+                    stretch_src: { required: true },
+
+                    mask_top: { required: true, max: 2048, min: 0 },
+                    mask_time: { required: true, max: 30, min: 0 },
+                    mask_width: { required: true, max: 4096, min: 0 },
+                    mask_height: { required: true, max: 2048, min: 0 },
+                    mask_src: { required: true },
+
+                    wings_top: { required: true, max: 2048, min: 0 },
+                    wings_width: { required: true, max: 4096, min: 0 },
+                    wings_height: { required: true, max: 2048, min: 0 },
+                    wings_pic_src_1: { required: true },
+                    wings_pic_src_2: { required: true },
+
+                },
+                showErrors: function (errorMap, errorList) {
+
+                    if (errorList.length > 0) {
+                        $.each(errorList, function (index, error) {
+                            var element = $(errorList[index].element);
+                            var msgContainer = element.parent().find('.J_TMsg');
+                            if (msgContainer.length > 0) {
+                                msgContainer.find('span').text(error.message);
+                                if (error.message != "")
+                                    msgContainer.removeClass('disappear').addClass('failure');
+                                else
+                                    msgContainer.removeClass('failure').addClass('disappear');
+                            }
+                        })
+                    }
+                    else {
+                        this.currentElements.parent().find('.J_TMsg').each(function () {
+                            $(this).removeClass('failure').addClass('disappear');
+                        })
+                    }
+
+                }
+            });
+        }
+
+        $(function () {
+            $('#classification1').click(function () {//对联式
+                $("#Appoint").hide();
+                $("#Group").hide();
+                $("#antitheticalCouplet").show();
+            })
+            $('#classification2').click(function () {//遮罩式
+                $("#Appoint").show();
+                $("#Group").hide();
+                $("#antitheticalCouplet").hide();
+            })
+            $('#classification3').click(function () {//顶部弹出式
+                $("#Appoint").hide();
+                $("#Group").show();
+                $("#antitheticalCouplet").hide();
+            })
+
+            //加载数据(广告类型）
+            if (parent._cfg.type == "wings") {
+                $("#classification1").click();
+            }
+            else if (parent._cfg.type == "mask") {
+                $("#classification2").click();
+            }
+            else if (parent._cfg.type == "stretch") {
+                $("#classification3").click();
+            }
+
+            //加载数据(对联式 是否固定)
+            if (parent._cfg.wings_isfixed == "fixed") {
+                $("#wings_isfixed1").click();
+            }
+            else if (parent._cfg.wings_isfixed == "absolute") {
+                $("#wings_isfixed2").click();
+            }
+            $("#wings_top").val(parent._cfg.wings_top);
+            $("#wings_width").val(parent._cfg.wings_width);
+            $("#wings_height").val(parent._cfg.wings_height);
+
+            //加载数据(对联式 图片) 
+            $("#wings_pic_href_1").val(parent._cfg.wings_pic_href_1);
+            $("#wings_pic_src_1").val(parent._cfg.wings_pic_src_1);
+            $("#wings_pic_type_1").val(parent._cfg.wings_pic_type_1);
+
+            $("#wings_pic_href_2").val(parent._cfg.wings_pic_href_2);
+            $("#wings_pic_src_2").val(parent._cfg.wings_pic_src_2);
+            $("#wings_pic_type_2").val(parent._cfg.wings_pic_type_2);
+
+            //加载数据(遮罩式) 
+            if (parent._cfg.mask_isfixed == "fixed") {
+                $("#mask_isfixed1").click();
+            }
+            else if (parent._cfg.mask_isfixed == "absolute") {
+                $("#mask_isfixed2").click();
+            }
+            $("#mask_top").val(parent._cfg.mask_top);
+            $("#mask_src").val(parent._cfg.mask_src);
+            $("#mask_href").val(parent._cfg.mask_href);
+
+            $("#mask_width").val(parent._cfg.mask_width);
+            $("#mask_height").val(parent._cfg.mask_height);
+            $("#mask_time").val(parent._cfg.mask_time);
+
+            //加载数据（伸缩式）
+            $("#stretch_src").val(parent._cfg.stretch_src);
+            $("#stretch_href").val(parent._cfg.stretch_href);
+            $("#stretch_width").val(parent._cfg.stretch_width);
+            $("#stretch_height").val(parent._cfg.stretch_height);
+            $("#stretch_time").val(parent._cfg.stretch_time);
+            $("#stretch_bgColor").val(parent._cfg.stretch_bgColor);
+            $("#stretch_bgColor").spectrum({
+                color: parent._cfg.stretch_bgColor,
+                preferredFormat: "hex6",
+                showInput: true
+            });
+
+            //设置验证规则
+            setValidate();
+        })
+
+        function cfgSet() {
+            if (!$('#displaySetForm').valid()) {
+                return;
+            }
+
+            var arr = $('#displaySetForm').serializeArray();
+            var opt = {}
+            arr.forEach(function (obj) {
+                opt[obj.name] = obj.value;
+            })
+
+            parent._$module.customAdModule('reset', opt);
+            //关闭配置框
+            parent.cfgClose();
+        }
+
+
+        var $curImgInput;
+        var $curImgType;
+        function selectPic() {
+        	var event=window.event || arguments.callee.caller.arguments[0];
+            $curImgInput = $(event.srcElement ? event.srcElement : event.target).siblings('input.J_ImgUrl');
+            $curImgType = $(event.srcElement ? event.srcElement : event.target).siblings('input.J_ImgType');
+
+            opt = { "dir": "shop", "maxuploadsize": "2M", "callBack": "selectPicCallBack" };
+            layer.open({
+                type: 2,
+                content: parent.ctx + "/res/tu/ResSelect.htm?dir=" + opt.dir + "&maxuploadsize=" + opt.maxuploadsize + "&callback=" + opt.callBack,
+                title: "图片选取",
+                shadeClose: true,
+                area: ['750px', '500px']
+            });
+        }
+        function selectPicCallBack(path) {
+            $curImgInput.val(path);
+            $curImgType.val("pic");
+        }
+
+
+        function selectSwf() {
+        	var event=window.event || arguments.callee.caller.arguments[0];
+            $curImgInput = $(event.srcElement ? event.srcElement : event.target).siblings('input.J_ImgUrl');
+            $curImgType = $(event.srcElement ? event.srcElement : event.target).siblings('input.J_ImgType');
+            layer.open({
+                type: 2,
+                area: ['750px', '500px'],
+                title: '视频管理',
+                shade: 0.6,
+                moveType: 1,
+                shift: -1,
+                content: '/static/design/cfg/cfgvideochooseiframe.html?sourceType=swf&callBack=addLocalVideoCallBack'
+            });
+        }
+
+        function addLocalVideoCallBack(obj) {
+            $curImgInput.val(obj.url);
+            $curImgType.val("swf");
+        }
+
+        function checkSource(url) {
+            var flag = false;
+            if ($curImgInput.val() == url) flag = true;
+            return flag;
+        }
+
+        function clearRow() {
+        	var event=window.event || arguments.callee.caller.arguments[0];
+            $(event.srcElement ? event.srcElement : event.target).parent().parent().find('input').val("");
+        }
+    </script>
+</head>
+<body>
+    <div class="content fm1">
+        <div class="tab">
+            <form class="main-slide-form form-default" id="displaySetForm">
+                <div class="panels">
+                    <div class="panel content-set ks-switchable-panel-internal7" id="tabOne" style="display: block;">
+                        <div class="edit-module w700">
+                            <div class="edit-item">
+                                <span class="fl renovationOption">选择广告类型：</span>
+                                <div class="fl">
+                                    <input type="radio" name="type" id="classification1" class="classification" value="wings" />
+                                    <label for="classification1">对联式 </label>
+                                    <input type="radio" name="type" id="classification2" class="classification" value="mask" />
+                                    <label for="classification2">遮罩式 </label>
+                                    <input type="radio" name="type" id="classification3" class="classification" value="stretch" />
+                                    <label for="classification3">顶部弹出式</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-module w700">
+                            <div class="edit-item">
+                                <!--对联式-->
+                                <div id="antitheticalCouplet">
+                                    <div class="antithetical h23">
+                                        <span class="fl renovationOption">是否固定：</span>
+                                        <div class="fl">
+                                            <label>
+                                                <input type="radio" name="wings_isfixed" id="wings_isfixed1" value="fixed">是</label>
+                                            <label>
+                                                <input type="radio" name="wings_isfixed" id="wings_isfixed2" value="absolute">否</label>
+                                        </div>
+                                    </div>
+                                    <div class="antithetical h23 mt5">
+                                        <span class="fl renovationOption">顶部边距：</span>
+                                        <div class="fl">
+                                            <input type="text" class="w40" id="wings_top" name="wings_top"><span class="tips">px</span>
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="antithetical h23 mt5">
+                                        <span class="fl renovationOption">广告宽度：</span>
+                                        <div class="fl">
+                                            <input type="text" class="w40" name="wings_width" id="wings_width"><span class="tips">px</span>
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="antithetical h23 mt5">
+                                        <span class="fl renovationOption">广告高度：</span>
+                                        <div class="fl">
+                                            <input type="text" class="w40" name="wings_height" id="wings_height"><span class="tips">px</span>
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="antithetical mt10 p5 tabTit" style="width: auto;">
+                                        <div class="column column1 "><span>链接图片</span></div>
+                                        <div class="column column2 "><span>链接地址</span></div>
+                                        <div class="column column3  w90"><span>操作</span></div>
+                                    </div>
+                                    <div class="edit-item  first even ba clearB mL0">
+                                        <div class="column column1 ">
+                                            <input class="J_ImgUrl " type="text" name="wings_pic_src_1" id="wings_pic_src_1">
+                                            <input class="J_ImgType" type="hidden" name="wings_pic_type_1" id="wings_pic_type_1" />
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                            <a class="sys-images sys-magicImages r15" onclick="selectPic()" title="选择图片"></a>
+                                            <a class="swfUpload" onclick="selectSwf()" title="选择Flash"></a>
+                                        </div>
+                                        <div class="column column2 ">
+                                            <input class="J_LinkUrl " type="text" name="wings_pic_href_1" id="wings_pic_href_1">
+                                        </div>
+                                        <div class="column column3 J_Control  w90">
+                                            <a title="清空" class="w70 ml33" onclick="clearRow()">清空</a>
+                                        </div>
+                                    </div>
+                                    <div class="edit-item  last odd clearB mL0">
+                                        <div class="column column1 ">
+                                            <input class="J_ImgUrl " type="text" name="wings_pic_src_2" id="wings_pic_src_2">
+                                            <input class="J_ImgType" type="hidden" name="wings_pic_type_2" id="wings_pic_type_2" />
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                            <a class="sys-images sys-magicImages r15" onclick="selectPic()" title="选择图片"></a>
+                                            <a class="swfUpload" onclick="selectSwf()" title="选择Flash"></a>
+                                        </div>
+                                        <div class="column column2 ">
+                                            <input class="J_LinkUrl " type="text" name="wings_pic_href_2" id="wings_pic_href_2">
+                                        </div>
+                                        <div class="column column3 J_Control  w90">
+                                            <a title="清空" class="w70 ml33" onclick="clearRow()">清空</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--遮罩式-->
+                                <div style="display: none;" id="Appoint">
+                                    <div class="antithetical h23">
+                                        <span class="fl renovationOption">是否固定：</span>
+                                        <div class="fl">
+                                            <label>
+                                                <input type="radio" name="mask_isfixed" id="mask_isfixed1" value="fixed">是</label>
+                                            <label>
+                                                <input type="radio" name="mask_isfixed" id="mask_isfixed2" value="absolute">否</label>
+                                        </div>
+                                    </div>
+                                    <div class="antithetical h23 mt5">
+                                        <span class="fl renovationOption">顶部边距：</span>
+                                        <div class="fl">
+                                            <input type="text" class="w40" id="mask_top" name="mask_top"><span class="tips">px</span>
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="antithetical h23 mt5">
+                                        <span class="fl renovationOption">停留时间：</span>
+                                        <div class="fl">
+                                            <input type="text" class="w40" id="mask_time" name="mask_time"><span class="tips">秒</span>
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="antithetical h23 mt5">
+                                        <span class="fl renovationOption">广告宽度：</span>
+                                        <div class="fl">
+                                            <input type="text" class="w40" name="mask_width" id="mask_width"><span class="tips">px</span>
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="antithetical h23 mt5">
+                                        <span class="fl renovationOption">广告高度：</span>
+                                        <div class="fl">
+                                            <input type="text" class="w40" name="mask_height" id="mask_height"><span class="tips">px</span>
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="antithetical mt10 p5 tabTit" style="width: auto;">
+                                        <div class="column column1 "><span>链接图片</span></div>
+                                        <div class="column column2 "><span>链接地址</span></div>
+                                        <div class="column column3  w90"><span>操作</span></div>
+                                    </div>
+                                    <div class="edit-item  first even clearB mL0 ba">
+                                        <div class="column column1 ">
+                                            <input class="J_ImgUrl " type="text" name="mask_src" id="mask_src">
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                            <a class="sys-images sys-magicImages r15" onclick="selectPic()" title="选择图片"></a>
+                                        </div>
+                                        <div class="column column2 ">
+                                            <input class="J_LinkUrl " type="text" name="mask_href" id="mask_href">
+                                        </div>
+                                        <div class="column column3 J_Control  w90">
+                                            <a title="清空" class="w70 ml33" onclick="clearRow()">清空</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--顶部弹出式-->
+                                <div id="Group" style="display: none;">
+                                    <div class="antithetical h23">
+                                        <span class="fl renovationOption">停留时间：</span>
+                                        <div class="fl">
+                                            <input type="text" class="w40" id="stretch_time" name="stretch_time" /><span class="tips">秒</span>
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="antithetical h23 mt5">
+                                        <span class="fl renovationOption">背景颜色：</span>
+                                        <div class="fl">
+                                            <input type="text" class="CSS_colorPicker" id="stretch_bgColor" name="stretch_bgColor">
+                                        </div>
+                                    </div>
+                                    <div class="antithetical h23 mt5">
+                                        <span class="fl renovationOption">广告宽度：</span>
+                                        <div class="fl">
+                                            <input type="text" class="w40" name="stretch_width" id="stretch_width"><span class="tips">px</span>
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="antithetical h23 mt5">
+                                        <span class="fl renovationOption">广告高度：</span>
+                                        <div class="fl">
+                                            <input type="text" class="w40" name="stretch_height" id="stretch_height"><span class="tips">px</span>
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="antithetical mt10 p5 tabTit" style="width: auto;">
+                                        <div class="column column1 "><span>链接图片</span></div>
+                                        <div class="column column2 "><span>链接地址</span></div>
+                                        <div class="column column3  w90"><span>操作:</span></div>
+                                    </div>
+                                    <div class="edit-item  first even clearB mL0 ba">
+                                        <div class="column column1 ">
+                                            <input class="J_ImgUrl " type="text" name="stretch_src" id="stretch_src">
+                                            <span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+                                            <a class="sys-images sys-magicImages r15" onclick="selectPic()" title="选择图片"></a>
+                                        </div>
+                                        <div class="column column2 ">
+                                            <input class="J_LinkUrl " type="text" id="stretch_href" name="stretch_href">
+                                        </div>
+                                        <div class="column column3 J_Control  w90">
+                                            <a title="清空" class="w70" onclick="clearRow()">清空</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p class="opt-footer ctset-opt-footer">
+                        <a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+                        <a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

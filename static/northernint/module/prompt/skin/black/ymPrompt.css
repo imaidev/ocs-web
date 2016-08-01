@@ -1,0 +1,51 @@
+/*container*/
+#ym-window{overflow:hidden;
+	font-size:14px;font-family:"\5B8B\4F53","??????";
+	filter:progid:DXImageTransform.Microsoft.Shadow(Color=#ff666666, Strength=5, Direction=135);
+}
+
+.ym-tl{background-color:#fafafa;border-top:3px solid #747474;border-left:3px solid #747474;border-right:3px solid #747474;}
+
+.ym-tc{background-color:#fafafa;overflow:hidden;height:41px;line-height:37px;}
+.ym-ttc{height:3px; }
+.ym-header-text{font-weight:bold;color:#333;margin-left:18px;*margin-left:14px;float:left;font-size: 16px;font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.ym-header-tools{float:right;margin-top:5px}
+
+/*body*/
+.ym-ml{background:#747474;padding-left:3px}
+.ym-mr{padding-right:3px}
+.ym-mc{background:#fff;padding:0}
+.ym-body{overflow:hidden;padding:0;}
+
+/*button*/
+.ym-btn{text-align:center;background:#FFFFFF;}
+
+/*footer*/
+.ym-bc{background:#747474;height:3px;font-size:2px}
+
+.ymPrompt_alert{
+	padding-left:90px;
+	background:url(images/info.gif) no-repeat 30px 50%
+}
+.ymPrompt_succeed{
+	padding-left:90px;
+	background:url(images/right.gif) no-repeat 30px 50%
+}
+.ymPrompt_error{
+	padding-left:90px;
+	background:url(images/err.gif) no-repeat 30px 50%
+}
+.ymPrompt_confirm{
+	padding-left:90px;
+	background:url(images/ask.gif) no-repeat 30px 50%
+}
+.ymPrompt_close{cursor:pointer;background:url(images/close.png) no-repeat 0 0;width:30px;height:30px;margin-right:18px; text-indent: 50px;}
+.ymPrompt_close:hover{background:url(images/close_hover.png) no-repeat 0 0;}
+.ymPrompt_alert .ym-content,.ymPrompt_succeed .ym-content,.ymPrompt_error .ym-content,.ymPrompt_confirm .ym-content{padding:30px 20px 0px 10px}
+
+/*???????????*/
+input.btnStyle{
+	background-color:#ff5f3d;
+	width:80px;height:30px;line-height:30px;
+	color:#fff;border:0;margin:10px 0 20px 0;
+}

@@ -1,0 +1,54 @@
+.m_sum .modify { 
+		float: right;
+		font-size: 14px;
+	}
+	
+	a.modify-tip {
+		width: 40px;
+		height: 40px;
+		padding: 10px 10px 2px;
+	}
+	
+	.m_sum dd {
+		width: 180px;
+	}
+	
+	.m_sum dt {
+		width: 100px;
+	}
+	
+	.info-show .m_contain {
+		width: 340px;
+		margin-left: 170px;
+		margin-top: 0px;
+	}
+	
+	.info-modify .m_contain input {
+		width: 160px;
+	}
+	
+	.m_contain {
+		background: transparent;
+	}
+	
+	.info-modify .m_contain {
+		width: 500px;
+		margin: 0 auto;
+	}
+	
+	.info-modify .m_contain .check_rule {
+		width: 250px;
+		left: 110px;
+	}
+	
+	.m_contain .form-tip {
+		padding-left: 0px;
+	}
+	.form-body dl{
+		padding:0px;
+	}
+	.form-body dd.is_public{
+		width:100px;
+		float:right;
+		margin-right: 15px;
+	}

@@ -1,0 +1,150 @@
+<h3 class="edit-tit">单列图片模块</h3>
+<div class="singleRow">
+    <div class="toolTips">
+        <p class="tipsTit">
+            模块使用小贴士<a class="closeTip">X</a>
+        </p>
+        <div>
+            图片建议尺寸：608*336
+        </div>
+        <div>
+            单列图片模块适用于精美大图展示
+        </div>
+    </div>
+    <!--模块使用小贴士-->
+    <div class="pl15 pr15">
+        <div>
+            <label class="fb pb10">
+                图片
+            </label>
+            <div id="add-img" class="mt10" onclick="selectPic()">
+                <img height="100%">
+                <div class="layer">
+                    <div class="img-plus">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <p class="mt5">
+                建议选择608*336尺寸的图片，类型:jpg、png
+            </p>
+        </div>
+    </div>
+    <!--模块使用小贴士-->
+    <div class="form-group clearfix">
+        <label class="fb pb10">
+            文本
+        </label>
+        <div class="pr">
+            <input type="text" id="title" class="form-control mt10" placeholder="请输入文本" onkeyup="titleUrlShow(this)">
+            <p class="help-block input-help-block">
+                0/10
+            </p>
+        </div>
+    </div>
+    <!--文本-->
+    <div class="form-group clearfix">
+        <label class="fb pb10">
+            链接
+        </label>
+        <div class="pr">
+            <input type="text" class="form-control mt10" id="link" placeholder="请输入网址"><span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="showLinkWin('callBackLink')">
+                    <span class="icon-url"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+    <!--链接-->
+</div>
+<script>
+    $(".closeTip").click(function(){
+    
+        $(".toolTips").css('display', 'none');
+        
+    });
+    var imgPath = "";
+    
+    $(function(){
+        var dataVar = parent._cfg;
+        
+        if (dataVar.imgPath != null&&dataVar.imgPath!="") {
+            selectPicCallBack(dataVar.imgPath);
+        }
+        if (dataVar.title != null || dataVar.url != null) {
+            $("#title").val(dataVar.title);
+            $("#title").next().text(dataVar.title.length + "/10");
+            $("#link").val(dataVar.url);
+        }
+        
+    })
+    
+    
+    
+    //文本框相关js
+    function titleUrlShow(obj){
+        var title = $(obj).val();
+        
+        if (title.length > 10) {
+            $(obj).addClass("beyond");
+        }
+        else {
+            $(obj).removeClass("beyond");
+        }
+        $(obj).next().text(title.length + "/10");
+    }
+    
+    //连接小工具回调函数
+    function callBackLink(url){
+        $("#link").val(url);
+    }
+    
+    function selectPic(){
+    
+        opt = {
+            "dir": "shop",
+            "maxuploadsize": "2M",
+            "callBack": "selectPicCallBack"
+        };
+        layer.open({
+            type: 2,
+            content: parent.ctx + "/res/tu/ResSelect.htm?dir=" + opt.dir + "&maxuploadsize=" + opt.maxuploadsize + "&callback=" + opt.callBack,
+            title: "图片选取",
+            shadeClose: true,
+            area: ['1050px', '500px']
+        });
+    }
+    
+    function selectPicCallBack(path){
+    
+        var domstr = [];
+        domstr.push(" <img src='", path, "' height='100%'>");
+        domstr.push("<div id='reload-tips' class='layer'>");
+        domstr.push(" <p>重新上传</p>");
+        domstr.push("</div>");
+        var str = domstr.join("");
+        $("#add-img").html(str);
+        imgPath = path;
+    }
+    
+    
+    //组件保存方法
+    function cfgset(){
+        var title = $("#title").val();
+        if (title.length > 10) {
+            layer.msg("标题长度超过限制范围！", {
+                offset: 80,
+                shift: 5,
+                time: 2500
+            });
+            return;
+        }
+        var dataval = {
+            imgPath: imgPath,
+            url: $("#link").val(),
+            title: $("#title").val()
+        };
+        _$module.oneColumnImg('reset', dataval);
+        hideEdit();
+    }
+</script>

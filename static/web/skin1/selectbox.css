@@ -1,0 +1,152 @@
+
+
+/* checkBox *//* Radio Buttons */
+
+input[type='checkbox']
+{
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+  background: url("mobile/check.png") no-repeat scroll center top transparent;
+  border-radius: 0px;
+  font: inherit;
+  margin:  0 3px 0 7px;
+   text-shadow: 0 1px 0 rgb(240, 240, 240);
+  top:0px; 
+  border:0px solid white;/*È¥µôºÚ±ß  */
+}
+input[type='radio'] {
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+  background: url("mobile/radio.png") no-repeat scroll center top transparent;
+  border-radius: 0px;
+  border:0px solid white;/*È¥µôºÚ±ß  */
+  font: inherit;
+  margin: 0 3px 0 7px;
+  text-shadow: 0 1px 0 rgb(240, 240, 240);
+  top:0px;
+}
+
+input[type='checkbox'] {
+  bottom: 0px;
+  height: 25px;
+  position: relative;
+  vertical-align: middle;
+  width: 25px;
+}
+
+input[type='radio'] {
+  /* OVERRIDE */
+  border-radius: 100%;
+  bottom: 0px;
+  height: 25px;
+  position: relative;
+  vertical-align: middle;
+  width: 25px;
+}
+
+/* checkbox Checked ********************************************************************/
+
+input[type='checkbox']:checked::before {
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+  background: url("mobile/checked.png") no-repeat top left transparent;
+  content: '';
+  display: block;
+  height:25px;
+   width: 25px;
+   
+}
+
+input[type='radio']:checked::before {
+   -webkit-appearance: none;
+  -webkit-user-select: none;
+  background: url("mobile/radioed.png") no-repeat scroll center bottom transparent;
+  content: '';
+  display: block;
+  height: 25px;
+   width: 25px;
+}
+
+/*checkbox  Hover **********************************************************************
+
+input[type='checkbox']:enabled:hover,
+input[type='radio']:enabled:hover {
+   background-image: -webkit-linear-gradient(#f0f0f0, #f0f0f0 38%, #e0e0e0); 
+   border-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12),
+      inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  color: #331899; 
+}*/
+
+/*checkbox  Active *********************************************************************/
+
+input[type='checkbox']:enabled:active,
+input[type='radio']:enabled:active {
+ /*  background-image: -webkit-linear-gradient(#e7e7e7, #e7e7e7 38%, #d7d7d7); */
+  box-shadow: none;
+  text-shadow: none;
+}
+
+/*checkbox  Disabled *******************************************************************/
+
+input[type='checkbox']:disabled,
+input[type='radio']:disabled {
+  opacity: .5;
+}
+
+/* checkbox Focus **********************************************************************/
+
+
+input[type='checkbox']:enabled:focus,
+input[type='radio']:enabled:focus {
+  /* OVERRIDE */
+  -webkit-transition: border-color 200ms;
+  /* We use border color because it follows the border radius (unlike outline).
+   * This is particularly noticeable on mac. */
+  border-color: rgb(77, 144, 254);
+  outline: none;
+}
+
+/* Checkbox/radio helpers ******************************************************
+ *
+ * .checkbox and .radio classes wrap labels. Checkboxes and radios should use
+ * these classes with the markup structure:
+ *
+ *   <div class="checkbox">
+ *     <label>
+ *       <input type="checkbox"></input>
+ *       <span>
+ *     </label>
+ *   </div>
+ */
+
+.checkbox,
+.radio {
+  margin: 0.65em 0.65em;
+}
+
+.checkbox label,
+.radio label {
+  /* Don't expand horizontally: <http://crbug.com/112091>. */
+ display: -webkit-inline-box;
+   margin: 1px 0 0px 0 0;
+}
+
+.checkbox label input ~ span,
+.radio label input ~ span {
+  -webkit-margin-start: 0.6em;
+   border-color: rgb(77, 144, 254);
+   border-wide:2px;
+  /* Make sure long spans wrap at the same horizontal position they start. */
+  display: block;
+}
+
+.checkbox label:hover,
+.radio label:hover {
+  color: black;
+}
+
+label > input[type=checkbox]:disabled ~ span,
+label > input[type=radio]:disabled ~ span {
+  color: #999;
+}

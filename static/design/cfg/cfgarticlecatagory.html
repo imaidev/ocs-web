@@ -1,0 +1,29 @@
+<div class="modal-dialog" role="document" style="width:604px;">
+		<div class="modal-content">
+				<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="H2">文章分类</h4>
+				</div>
+				<iframe id="moduleIframe" name="moduleIframe" scrolling="no" frameborder="0"
+						width="600px;" height="400px;" ></iframe>
+		</div>
+</div>
+
+<script>
+		var _$module;
+		var _moduleCfg;
+		// 文章分类配置信息
+		function cfgRead($selEl) {
+				_$module = $selEl;
+				_moduleCfg = _$module.articlecatagory('config');
+				$("#moduleIframe").attr("src", ctx + "/design/article/ArticleCatagoryEdit.htm?vendId="+g_vendid+"&random="+Math.random());
+		}
+		
+		// 关闭窗口
+		function cfgClose(){
+    		$("#CfgModal").modal('hide');
+    }
+</script>

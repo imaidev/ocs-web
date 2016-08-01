@@ -1,0 +1,317 @@
+@charset "utf-8";
+/* CSS Document */
+/*补充start*/
+.cartShopTitle {
+	padding: 20px 0 5px 18px;
+	font-family: "\5B8B\4F53", "SimSun";
+	font-size: 14px;
+	color: #666666;
+	height: 20px;
+	line-height: 20px;
+	vertical-align: middle;
+	letter-spacing: 1px;
+	border-bottom: 1px solid #dddddd;
+}
+
+.cartYHInfo {
+	line-height: 30px;
+	background-color: #FFEBE7;
+	line-height: 30px;
+	vertical-align: middle;
+	font-family: "\5B8B\4F53", "SimSun";
+	font-size: 12px;
+	padding-left: 30px;
+	letter-spacing: 1px;
+	color: #FE4400;
+}
+/**补充end**/
+#myCart {
+	width: 1200px;
+	height: auto;
+	margin: 0px auto;
+}
+
+#cartTitle {
+	display: block;
+	width: 1200px;
+	height: 75px;
+	margin: 0 auto;
+	line-height: 75px;
+	vertical-align: middle;
+}
+
+#cartTitle dt {
+	height: 75px;
+	float: left;
+	background: url(../images/cart_logo.jpg) no-repeat left center;
+}
+
+#cartTitle dt span {
+	margin-left: 60px;
+}
+
+#cartTitle dd {
+	height: 75px;
+	float: right;
+}
+
+#cartTitle dd.leading {
+	width: 42px;
+	background: url(../images/cart_pic01.jpg) no-repeat center;
+}
+
+#cartItemsList {
+	width: 1198px;
+	border: 1px solid #dddddd;
+	overflow: hidden;
+}
+
+#cartItemsList .listDt {
+	height: 34px;
+	border-bottom: 1px solid #dddddd;
+	background-color: #f3f3f3;
+}
+
+#cartItemsList .listDt li {
+	height: 34px;
+	float: left;
+	display: block;
+	line-height: 34px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+#cartItemsList li.cartSep {
+	width: 2px;
+	height: 34px;
+	background-color: #ffffff;
+}
+
+#cartItemsList .listDd {
+	background-color: #fffdee;
+	border-bottom: 1px solid #dddddd;
+	padding: 15px 0 15px 0;
+	min-height: 52px;
+	height: auto;
+}
+
+#cartItemsList .listDd li {
+	overflow: hidden;
+	float: left;
+	display: block;
+	min-height: 52px;
+}
+
+#cartItemsList .listDd li input {
+	float: left;
+	display: block;
+	height: 20px;
+	width: 35px;
+	line-height: 20px;
+	vertical-align: middle;
+	text-align: center;
+	margin-top: 15px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#cartItemsList .listDd li span {
+	cursor: pointer;
+	background-color: #ffffff;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 10px;
+	margin-top: 20px;
+	float: left;
+	display: block;
+	width: 10px;
+	height: 10px;
+	border: 1px solid #dddddd;
+}
+
+#cartItemsList .listDd li img {
+	border: 1px solid #dddddd;
+}
+
+#cartItemsList .listDd li .a {
+	display: block;
+	float: left;
+	text-align: left;
+	width: 430px;
+	margin-left: 10px;
+}
+
+#cartItemsList .delete {
+	height: 40px;
+	padding-left: 30px;
+	background-color: #fffdee !important;
+	line-height: 40px;
+	vertical-align: middle;
+	padding-right: 20px;
+	border-bottom: 1px solid #dddddd;
+	color: #F00;
+}
+
+#cartItemsList .acounts {
+	text-align: right;
+	line-height: 70px;
+	vertical-align: middle;
+	height: 70px;
+	padding-right: 20px;
+	padding-left: 30px;
+	background-color: #f3f3f3;
+}
+
+#cartItemsList .acounts a {
+	color: #145899;
+	font-weight: normal;
+}
+
+.cartMid {
+	width: 1198px;
+	overflow: hidden;
+	margin-top: 10px;
+	border: 1px solid #dddddd;
+}
+
+.cartMid .title {
+	background-color: #f3f3f3;
+	height: 30px;
+	overflow: hidden;
+	padding-left: 10px;
+	line-height: 30px;
+	letter-spacing: 2px;
+	vertical-align: middle;
+}
+
+.cartMid .con {
+	line-height: 20px;
+	overflow: hidden;
+	padding: 10px 30px;
+	color: #666666;
+	letter-spacing: 2px;
+}
+
+.cartFooter {
+	margin-top: 10px;
+	width: 1198px;
+	height: 75px;
+	padding-top: 20px;
+}
+
+.cartBtn {
+	display: block;
+	line-height: 36px;
+	vertical-align: middle;
+	text-align: center;
+	background: url(../images/cartBtn.jpg) no-repeat;
+	height: 36px;
+	width: 80px;
+	float: left;
+}
+
+.cartFooter .a {
+	background: url(../images/goAcount.jpg) no-repeat;
+	line-height: 44px;
+	vertical-align: middle;
+	text-align: center;
+	display: block;
+	display: inline;
+	width: 155px;
+	height: 44px;
+	float: right;
+}
+
+/*** 加入购物车成***/
+#addCardS {
+	width: 1200px;
+	overflow: hidden;
+	margin: 0 auto;
+	font-size: 14px;
+	font-family: "\5B8B\4F53", "SimSun";
+	color: #333333;
+}
+
+#addCardS .itemTJ {
+	width: 978px;
+	border: 1px solid #dddddd;
+	float: left;
+	overflow: hidden;
+}
+
+#addCardS .itemTJ li {
+	height: 110px;
+	padding: 20px 25px 20px 10px;
+	width: 290px;
+	float: left;
+	overflow: hidden;
+	line-height: 20px;
+	font-size: 12px;
+}
+
+#addCardS .itemTJ li .img {
+	height: 110px;
+	width: 110px;
+	overflow: hidden;
+	float: left;
+}
+
+#addCardS .itemTJ li .tjRight {
+	width: 170px;
+	float: right;
+	padding: 5px;
+	overflow: hidden;
+}
+
+#addCardS .itemTJ .itemTJTitle {
+	background-color: #F2F2F2;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	padding: 0 10px;
+}
+
+#addCardS .myCartS {
+	width: 208px;
+	border-top: 2px solid #999999;
+	border-left: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	overflow: hidden;
+	float: right;
+}
+
+#addCardS .myCartS .myCartSTitle {
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	background: #F2F2F2;
+}
+
+#addCardS .myCartS li {
+	padding: 15px 10px;
+	width: 188px;
+	overflow: hidden;
+	border-bottom: 1px solid #dddddd;
+	line-height: 18px;
+	font-size: 12px;
+}
+
+#addCardS .myCartS  .myCartSLeft {
+	height: 60px;
+	width: 60px;
+	float: left;
+	overflow: hidden;
+}
+
+#addCardS .myCartS  .myCartSRight {
+	width: 120px;
+	overflow: hidden;
+	float: right;
+}
+
+#addCardS .myCartS  .itemTJBottom {
+	padding: 10px 20px;
+	line-height: 20px;
+	font-size: 12px;
+}

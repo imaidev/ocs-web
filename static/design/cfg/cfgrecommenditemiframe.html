@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+    <link href='/static/design/js/spectrum/spectrum.css' rel="stylesheet"/>
+    <script src="/static/design/js/jquery.min.js"></script>
+    <script src='/static/design/js/layer/layer.js'></script>
+    <script src='/static/design/js/spectrum/spectrum.js'></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+    <script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+     
+    <!--<link href="/static/design/css/base.css" rel="stylesheet" /> -->
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content">
+        <div class="tab">
+            <ul class="nav clear-fix">
+                <li class="ks-switchable-trigger-internal6 selected" id="titleContent"><span>商品设置</span></li>
+                <li class="ks-switchable-trigger-internal6" id="titleDisplay"><span>显示设置</span></li>
+            </ul>
+            <form class="main-slide-form form-default" method="post" id="displaySetForm" novalidate="novalidate">
+                <input name=backcolor1 id="backcolor1" value="" type="hidden"/>
+                <div class="panels">
+                    <div class="panel content-set ks-switchable-panel-internal7" id="tabContent" style="display: block;">
+                        <div class="edit-module">
+                            <div class="edit-item shareTittle">
+                                <div class="column column1"><span>商品名称</span></div>
+                                <div class="column column2"><span>商品图片</span></div>
+                                <div class="column column3"><span>执行操作</span></div>
+                            </div>
+                            <div id="EditorBox" class="pic-list pb0 borderBn">
+                                
+                            </div>
+                            <div class="bottom">
+                                <a class="add-one btn-style-1" href="javascript:selectItem();" id="btnAdd">选择商品</a>
+                            </div>
+                        </div>
+                        <div id="J_Tadget" class="tadget-box"></div>
+                    </div>
+                    <div class="panel display-set hidden ks-switchable-panel-internal7 pl23" id="tabDisplay" style="display: none;">
+                        <div class="control-group4">
+                            <label class="control-label">显示标题：</label>
+                            <div class="control show-title">
+                                <input type="radio" class="J_TNotShowTitle input-radio" name="isshow" value="0">不显示
+                                <input type="radio" class="J_TShowTitle show-title-true input-radio" name="isshow" value="1" checked="checked">显示
+                                <input class="J_TTitleInput input-box title-input" id="title" type="text" maxlength="30" name="title" value="商品推荐"/>
+                            </div>
+                        </div>
+					<!-- 展示设置  -->
+					<div class="control-group4">
+						<label class="control-label">背景颜色：</label>
+						<div style="padding-left:70px;margin-bottom:10px;">
+							<input type="text" id="backcolor" class="boardColorPicker" value="" onchange="changeColor1()">
+						</div>
+					</div>
+					<!--<div class="control-group4">
+						<label class="control-label">背景图片</label>
+						<div class="control">
+							    <a title="选择图片" class="btn-style-1 J_TadgetSelect" href="javascript:void(0);" data-spm-anchor-id="0.0.0.0" onclick="selectPic()">选择文件</a>
+								<img id="backpics" name="backpics" src="" alt="" width="40px" height="40px" />
+								<a title="删除图片" class="linkButton" href="javascript:void(0);" data-spm-anchor-id="0.0.0.0" onclick="delPic()">删除</a>
+						</div>
+					</div>
+					<div class="control-group4">
+						<label class="control-label">显示方式</label>
+						<div class="col-sm-8">
+							<div class="input-group">
+								<input type="text" id="showtype" name="showtype" value="" placeholder="暂未使用" class="form-control">
+							</div>
+						</div>
+					</div>-->
+					<div class="control-group4">
+						<label class="control-label">透明度：</label>
+						<div class="control">
+							<input class="input-box short J_Height" type="text" id="opacit" name="opacit" value="" />px 请设置在0-100px之间
+						</div>
+					</div>
+					<div class="control-group4">
+						<label class="control-label">图片宽度：</label>
+						<div class="control">
+							<input class="input-box short J_Height" type="text" id="widght" name="widght" value=""/>px 请设置在80-200px之间
+						</div>
+					</div>
+					<!-- 高度 -->
+					<div class="control-group4">
+						<label class="control-label">图片高度：</label>
+						<div class="control">
+							<input class="input-box short J_Height" type="text" name="mhight" id="mhight" value=""/>px 请设置在80-200px之间
+						</div>
+					</div>                        
+					<!--<div class="form-group4">
+						<label class="col-sm-4 control-label">边距</label>
+						<div class="col-sm-8">
+							<div class="input-group">
+								<input type="text" id="margin" name="margin" placeholder="暂未使用" value="" class="form-control">
+								<div class="input-group-addon">px</div>
+							</div>
+						</div>
+					</div>-->
+					<!-- 辅助功能  
+					<div class="form-group4">
+						<label class="col-sm-4 control-label">图片上传</label>
+						<div class="col-sm-8">
+							<div class="input-group">
+								<input type="text" id="pic" name="pic" value="">
+							</div>
+						</div>
+					</div>
+					-->
+					<!-- 是否显示模块标题 已有,替换
+					<div class="control-group4">
+						<label class="control-label">是否显示模块标题:</label>
+						<div class="control show-title">
+							<input type="radio" name="isshow" class="J_TNotShowTitle input-radio" value="1" checked="checked"/>是
+							<input type="radio" name="isshow" class="J_TShowTitle show-title-true input-radio" value="0"/>否
+						</div>
+					</div>-->
+					<!-- 图片切换效果 -->
+					<div class="control-group4">
+						<label class="control-label">滚动方向：</label>
+						<div class="control">
+								<input type="radio" name="direction" class="J_TNotShowTitle input-radio" value="up"/>上
+								<input type="radio" name="direction" class="J_TNotShowTitle input-radio" value="down"/>下
+								<input type="radio" name="direction" class="J_TNotShowTitle input-radio " value="left" checked="checked"/>左
+								<input type="radio" name="direction" class="J_TNotShowTitle input-radio" value="right"/>右
+						</div>
+					</div>
+					<div class="control-group4">
+						<label class="control-label">滚动方式：</label>
+						<div class="control">
+								<input type="radio" name="behavior" value="scroll" class="J_TNotShowTitle input-radio" checked="checked"/>重复滚动		
+								<input type="radio" name="behavior" value="alternate" class="J_TNotShowTitle input-radio"/>来回滚动
+								<input type="radio" name="behavior" value="slide" class="J_TNotShowTitle input-radio"/>不重复滚动
+						</div>
+					</div>
+					<div class="control-group4">
+						<label class="control-label">滚动速度：</label>
+						<div class="control">
+								<input type="radio" name="speed" value="1" checked="checked" class="J_TNotShowTitle input-radio"/>1pixels
+								<input type="radio" name="speed" value="2" class="J_TNotShowTitle input-radio"/>2pixels
+								<input type="radio" name="speed" value="3" class="J_TNotShowTitle input-radio"/>3pixels
+								<input type="radio" name="speed" value="4" class="J_TNotShowTitle input-radio"/>4pixels
+								<input type="radio" name="speed" value="5" class="J_TNotShowTitle input-radio"/>5pixels
+						</div>
+					</div>
+                    </div>
+                </div>
+                <p class="opt-footer ctset-opt-footer">
+                    <a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+                    <a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick='parent.cfgClose();'>取消</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+$(function () {
+	$('#titleContent').click(function () {
+        $(this).addClass('selected');
+        $(this).siblings().removeClass('selected');
+        $("#tabContent").show();
+        $("#tabDisplay").hide();
+    })
+    $('#titleDisplay').click(function () {
+        $(this).addClass('selected');
+        $(this).siblings().removeClass('selected');
+        $("#tabDisplay").show();
+        $("#tabContent").hide();loadColor();
+    })
+    $('#btnAdd').click(function () {
+        if ($('#EditorBox').children().length == 7) {
+            alert('最多只能添加7个');
+            return false;
+        }
+    })
+     $(".panels").delegate("a.delete", "click", function(e) {
+     	$(this).closest('div.edit-item').remove();
+     })
+     //加载数据
+     if(parent._cfg == undefined ){
+ 		return false;
+ 	}else{
+         cfgRead(parent._cfg);
+         $(parent._cfg.item).each(function(){
+        	 addRow(JSON.stringify(this),2);
+         })
+ 	}
+});
+function cfgRead(obj) {
+	if(obj!='' && obj != undefined && obj !='{}'){//如果是修改,读取原有数据显示 
+		var json=JSON.parse(JSON.stringify(obj));
+		$('#backcolor').val(json.backcolor);
+		$("#backpic").val(json.backpic);
+		$("#opacit").val(json.opacit);
+		$("#widght").val(json.widght);
+	    if(json.isshow==1){
+	    	$("input[name='isshow']:eq(0)").attr("checked",true);
+	    	parent.$ri.find('.title-box').show();
+	    }else{
+	    	$("input[name='isshow']:eq(1)").attr("checked",true);
+	    	parent.$ri.find('.title-box').hide();
+	    }
+	    
+	    if(json.direction=='up'){
+	    	$("input[name='direction']:eq(0)").attr("checked",'checked');
+	    }else if(json.direction=='down'){
+	    	$("input[name='direction']:eq(1)").attr("checked",'checked');
+	    }else if(json.direction=='left'){
+	    	$("input[name='direction']:eq(2)").attr("checked",'checked');
+	    }else if(json.direction=='right'){
+	    	$("input[name='direction']:eq(3)").attr("checked",'checked');
+	    }
+	    if(json.behavior=='scroll'){
+	    	$("input[name='behavior']:eq(0)").attr("checked",'checked');
+	    }else if(json.behavior=='alternate'){
+	    	$("input[name='behavior']:eq(1)").attr("checked",'checked');
+	    }else if(json.behavior=='slide'){
+	    	$("input[name='behavior']:eq(2)").attr("checked",'checked');
+	    }
+	    if(json.speed==1){
+	    	$("input[name='speed']:eq(0)").attr("checked",'checked');
+	    }else if(json.speed==2){
+	    	$("input[name='speed']:eq(1)").attr("checked",'checked');
+	    }else if(json.speed==3){
+	    	$("input[name='speed']:eq(2)").attr("checked",'checked');
+	    }else if(json.speed==4){
+	    	$("input[name='speed']:eq(3)").attr("checked",'checked');
+	    }else if(json.speed==5){
+	    	$("input[name='speed']:eq(4)").attr("checked",'checked');
+	    }
+		$('#mhight').val(json.mhight);
+
+	}//--if end-------------------------------
+}
+var itemArr = new Array();
+function cfgSet(){
+	var o={};
+	var $obj=parent.$ri.find('#rm');//$ri.find(".site-nav-bd marquee");
+	
+	readItem();
+	if(itemArr.length==0){
+		alert("请选择商品!");
+		return false;
+	}
+	var backcolor = $('#backcolor').val();
+	if(backcolor!=''){
+		$obj.css('background-color', backcolor);
+		o.backcolor=backcolor;
+	}
+	var widght=$('#widght').val();
+	if(widght!=''){
+		parent.$ri.css('widght',widght);
+		o.widght=widght;
+	}
+	var direction = $("input[name='direction']:checked").val();
+	if(direction!=''){
+		$obj.attr('direction', direction);
+		o.direction=direction;
+	}
+	var behavior=$("input[name='behavior']:checked").val();
+	if(behavior!=''){
+		$obj.attr('behavior', behavior);
+		o.behavior=behavior;
+	}
+	var scrollamount = $("input[name='speed']:checked").val();
+	if(scrollamount!=''){
+		$obj.attr('scrollamount', scrollamount);
+		o.scrollamount=scrollamount;
+	}
+	var opacit=$("#opacit").val();
+	if(opacit != ''){
+		if(isNum(opacit)==false){alert("透明度,请输入整数数字类型!");return;}
+		if(opacit > 100 || opacit < 0){
+			 alert("请输入合理透明度!");
+			 $('#opacit').focus();
+		     return false;
+		}
+		o.opacit=opacit;
+	}else{
+		opacit=100;
+		o.opacit=opacit;
+	}
+	var widght = $('#widght').val();
+	if(widght!=''){
+		if(isNum(widght)==false){alert("图片宽度,请输入整数数字类型!");return;}
+		if(widght > 200 || widght < 80){
+			 alert("请输入合理的图片宽度!");
+			 $('#widght').focus();
+		     return false;
+		}
+		o.widght=widght;
+	}else{
+		widght=100;
+		o.widght=widght;
+	}
+	var mhight=$("#mhight").val();
+	if(mhight!=''){
+		if(isNum(mhight)==false){alert("图片高度,请输入整数数字类型!");return;}
+		if(mhight > 200 || mhight < 80){
+			 alert("请输入合理的图片高度!");
+			 $('#mhight').focus();
+		     return false;
+		}
+		o.mhight=mhight;
+	}else{
+		mhight=100;
+		o.mhight=mhight;
+	}
+	var isshow = $("input[name='isshow']:checked").val();//alert('isshow-'+isshow);
+	if(isshow==1){
+		parent.$ri.find('.title-box').show();
+    }else{
+    	parent.$ri.find('.title-box').hide();
+	}
+	o.item=itemArr;
+	
+	var itemHtml="";
+	itemHtml = "<div class='recGoods recGoods-1210'>"+
+		"<div class='goodLists goodLists-seven'><ul>";
+	var itemHtml2="";
+	for(var i in itemArr){// /item/201602031454270206155832613585.html
+		itemHtml2+="<li class='goodList'>"+
+		"<a href=\"/item/"+itemArr[i].item_id+".html\" target=\"_blank\"><div class='good-pic'><img calss='lazy' src='"+itemArr[i].imgurl+"' data-original='design/img/firstimg01.jpg' "+
+		"alt='"+itemArr[i].item_name+"' width='"+widght+"' height='"+mhight+"' style='filter:alpha(opacity="+opacit+");opacity:"+opacit/100+";'></div>"+
+		"<div class='good-item good-name'>"+itemArr[i].item_name+"</div>";
+		itemHtml2+="<div class='good-item good-price'><span class='fcR f14'>￥"+itemArr[i].price+"</span></div>";
+		itemHtml2+="</a></li>";
+	}
+	itemHtml+=itemHtml2+"</ul></div></div>";
+	$obj.html(itemHtml);
+	parent.$ri.attr("data-val",JSON.stringify(o));
+	parent.$ri.recommenditem('reset',o);
+	parent.cfgClose();
+}
+
+function loadColor(initColor){//---OK---
+	$(".boardColorPicker").spectrum({
+	       color: initColor,
+	       preferredFormat: "hex6",
+	       showInput: true
+	});
+}
+function changeColor1(){//---OK--- 
+	var backcolor = $(".boardColorPicker").val(); 
+	$("#backcolor1").val(backcolor);
+}
+function selectPic(){//---OK---
+	layer.open({
+        type : 2,
+        content :  parent.ctx+"/res/tu/ResSelect.htm?dir=shop&maxuploadsize=2M&callback=callBackPic", 
+        title : "图片选取",
+        shadeClose: true,
+        area : ['750px','500px']
+    });
+}
+function callBackPic(path){//---OK---
+	$("#backpic").val(path);
+	$("#backpics").attr("src", path);
+}
+function delPic(){
+	$("#backpic").val('');
+	$("#backpics").attr("src", '');
+}
+function selectItem(){//---OK---
+	layer.open({
+        type : 2,  ///ecweb/design/shop/RecommendItem.htm
+        content :  parent.ctx+"/base/promotion/design/recommendItem.htm?callback=callBackItem", 
+        title : "选择推荐商品",
+        shadeClose: true,
+        area : ['700px','500px']
+    });
+}
+function callBackItem(val){//---OK---
+	addRow(val,1);
+}
+var itemIdAy = new Array();
+function val(ary){
+	var nary=ary.sort(sortNumber);
+	for(var i=0;i<ary.length;i++){
+		if (nary[i]==nary[i+1]){
+	        return 1;
+	    }
+	}
+}
+function sortNumber(a,b){
+	return a - b
+}
+function addRow(objArr,type){//---OK---
+	if(objArr == '' || objArr == undefined){return;}
+	var win ;
+	if(type==1){
+		win = objArr.split(',');	
+	}else if(type==2){
+		win = JSON.parse(objArr);
+	}
+	var itemId="", itemName="", skuId="", img="", price="", qty="";
+	if(win != null && win != undefined ){
+		if(type==1){
+			itemId=win[0];itemName=win[2];img=win[4]; price=win[5];
+		}else if(type==2){
+			itemId=win.item_id;	itemName=win.item_name; img=win.imgurl;	price=win.price;
+		}
+		itemIdAy.push(itemId);
+		if(val(itemIdAy)==1){itemIdAy.pop(); alert('此商品已经选择,请检查!');return;}
+		if(itemName.length>10){itemName=itemName.substr(0,10)+'***';}
+		var tmp=(itemIdAy.length % 2==0)?'even':'odd';
+		var str = '<div class="edit-item J_TEditItem borderb ' + tmp + '" style="width:700px;margin-left:20px">' +
+	    '<div class="column column1 goodslisthg ellipsis"><input type="hidden" name=\"ITEM_ID\" value=\"'+itemId+'\"/>' +
+	        '<span name=\"itemname\">'+ itemName+'</span><input type="hidden" name=\"price\" value=\"'+price+'\"/>'
+	    +'</div>' 
+	    + '<div class="column column2">' +
+	        '<span><img name=\"imgUrl\" src=\"'+img+'\" width=\"40\" height=\"40\"/></span>' +
+	    '</div>' +
+	    '<div class="column column3 J_Control goodslisthg"><a title="删除" class="delete" href="javascript:del(\''+itemId+'\');"></a></div>' +
+		'</div>';
+		$('#EditorBox').append(str);
+	}
+}
+function del(itemId){
+	itemIdAy.splice(1,1);
+}
+function isNum(str){
+	var re=/^[\d]+$/;
+	return re.test(str);
+}
+/*function addRowcfg(objArr){//---OK---
+	if(objArr == '' || objArr == undefined){return;}
+	var win = JSON.parse(objArr);
+	var itemId="", itemName="", img="", price="";
+	if(win != null && win != undefined ){
+		itemId=win.item_id;	itemName=win.item_name; img=win.imgurl;	price=win.price;
+		itemIdAy.push(itemId);
+		if(val(itemIdAy)==1){itemIdAy.pop(); alert('此商品已经选择,请检查!');return;}
+		var str = '<div class="edit-item J_TEditItem">' +
+	    '<div class="column column1"><input type="hidden" name=\"ITEM_ID\" value=\"'+itemId+'\"/>' +
+	        '<span name=\"itemname\">'+ itemName+'</span><input type="hidden" name=\"price\" value=\"'+price+'\"/>'
+	    +'</div>' 
+	    + '<div class="column column2">' +
+	        '<span><img name=\"imgUrl\" src=\"'+img+'\" width=\"40\" height=\"40\"/></span>' +
+	    '</div>' +
+	    '<div class="column column3 J_Control goodslisthg"><a title="删除" class="delete" href="javascript:void(0);"></a></div>' +
+		'</div>';
+		$('#EditorBox').append(str);
+	}
+}*/
+function delrows(obj){//---OK---
+	layer.confirm('确认要删除吗?', {
+        btn: ['已确定', '犹豫下'],
+        title: "系统提示"
+    },function(index) {		
+		$(obj).parent().parent().remove();//删除整行,[为当前选择商品]
+		layer.close(index);
+	},function(index) {});
+}
+function readItem(){//---OK---//读取选择的商品,添加到数组中,以便进行展示
+	var eb = $('#EditorBox').children().length;
+	if (eb == 0) {return ;}
+	var items=$('.J_TEditItem');
+	items.each(function(i){
+	    var item={};
+		var $this=$(this);
+		item.item_id=$this.find("[name='ITEM_ID']").val();
+		item.item_name=$this.find("span[name='itemname']").text();
+		//item.skuid=$this.find("span[name='skuid']").val();
+		item.price=$this.find("input[name='price']").val();
+		item.imgurl=$this.find("img[name='imgUrl']").attr('src');
+		itemArr.push(item);
+	});
+}
+</script>
+</html>

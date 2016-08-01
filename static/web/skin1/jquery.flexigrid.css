@@ -1,0 +1,399 @@
+@charset "UTF-8";
+/* CSS Document */
+table {
+font-size: 13px;color: #304e82;
+}
+th {
+font-weight: normal;
+}
+
+.flexigrid {
+	position: relative;
+	border: 0px solid #eee;
+	overflow: hidden;
+}
+.flexigridFixedHeight {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.ie6fullwidthbug {
+	border-right: 0px solid #ccc;
+	padding-right: 2px;
+}
+
+.flexigrid div.nDiv {
+	background: #eee url(flexgrid/line.gif) repeat-y -1px top;
+	border-top: 0px;
+	overflow: auto;
+	left: 0px;
+	position: absolute;
+	z-index: 999;
+	float: left;
+}
+
+.flexigrid div.nDiv table {
+	margin: 2px;
+}
+
+.flexigrid div.hDivBox {
+	float: left;
+	padding-right: 0px;
+}
+
+.flexigrid div.nDiv td {
+	padding: 2px 3px;
+	cursor: default;
+}
+.flexigrid div.hDiv th div.desc {
+	background: url(flexgrid/dn.png) no-repeat center top;
+}
+
+.flexigrid div.hDiv th div.asc {
+	background: url(flexgrid/up.png) no-repeat center top;
+}
+.flexigrid div.nDiv tr:hover td,.flexigrid div.nDiv tr.ndcolover td {
+	background: #d5effc url(flexgrid/hl.png) repeat-x top;
+	border: 1px solid #a8d8eb;
+}
+
+.flexigrid div.nDiv td.ndcol1 {
+	border-right: 1px solid #ccc;
+}
+
+.flexigrid div.nDiv td.ndcol2 {
+	border-left: 1px solid #fff;
+	padding-right: 10px;
+}
+
+.flexigrid div.nDiv tr:hover td.ndcol1,.flexigrid div.nDiv tr.ndcolover td.ndcol1{
+	border-right: 1px solid #d2e3ec;
+}
+
+.flexigrid div.nDiv tr:hover td.ndcol2,.flexigrid div.nDiv tr.ndcolover td.ndcol2{
+	border-left: 1px solid #eef8ff;
+}
+
+.flexigrid div.nBtn {
+	position: absolute;
+	z-index: 900;
+	top: 0px;
+	left: 0px;
+	margin-top: 0px;
+	cursor: pointer;
+	display: none;	
+}
+
+.flexigrid div.nBtn div {
+	height: 22px;
+	width: 12px;
+	float: left;	
+	background: url(flexgrid/ddn.png) no-repeat center;
+}
+
+.flexigrid div.nBtn.srtd {
+	background: url(flexgrid/wbg.gif) repeat-x 0px -1px;
+}
+
+
+.flexigrid div.hDiv {
+	position: relative;
+	overflow: hidden;
+	background-color:white;
+	border: 1px solid #eee;
+}
+
+.flexigrid div.cDrag {
+	float: left;
+	position: absolute;
+	z-index: 2;
+	overflow: visible;
+}
+
+.flexigrid div.cDrag div {
+	float: left;
+	background: none;
+	display: block;
+	position: absolute;
+	height: 24px;
+	width: 5px;
+	cursor: col-resize;
+}
+
+.flexigrid div.cDrag div:hover,.flexigrid div.cDrag div.dragging {
+	background: url(flexgrid/line.gif) repeat-y 2px center;
+}
+
+.flexigrid div.bDiv {
+	overflow: auto;
+	position: relative;
+	border:1px solid #eee;
+	border-left:0px;
+	height:100%;
+}
+.flexigrid div.bDivFixedHeight {
+	overflow-x: hidden;
+}
+.flexigrid div.bDiv table {	
+	width:auto;
+}
+
+.flexigrid div.hDiv th,.flexigrid  div.bDiv td{
+	overflow: hidden;
+	vertical-align: top !important;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.flexigrid div.hDiv th div,.flexigrid  div.bDiv td  div,div.colCopy div{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.flexigrid div.hDiv th,div.colCopy {
+	cursor: default;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+div.colCopy {
+	background: #afeeee !important;
+	border: 1px solid #ccc;
+	border-bottom: 0px;
+	overflow: hidden;
+}
+
+.flexigrid div.hDiv th.sorted {
+	border-bottom: 0px solid #ccc;
+}
+
+.flexigrid div.hDiv th.thOver {	
+}
+
+.flexigrid div.hDiv th.thOver div,.flexigrid div.hDiv th.sorted.thOver div {
+	padding-bottom: 4px;	
+}
+
+.flexigrid div.hDiv th.sorted div {
+	border-bottom: 0px solid #ccc;
+	padding-bottom: 5px;
+	background: #f3f3f3;
+}
+
+.flexigrid div.hDiv th.thMove {
+	background: #fff;
+	color: #fff;
+}
+
+.flexigrid div.hDiv th.sorted.thMove div {
+	padding-bottom: 4px
+}
+
+.flexigrid div.hDiv th.thMove div {
+	background: #fff !important;
+}
+
+.flexigrid div.hDiv th div.sdesc {
+	background: url(flexgrid/dn.png) no-repeat center top;
+}
+
+.flexigrid div.hDiv th div.sasc {
+	background: url(flexgrid/up.png) no-repeat center top;
+}
+
+.flexigrid div.bDiv td{
+	border-bottom: 1px solid #eee;
+	vertical-align: top;
+	white-space: nowrap;
+	border-left: 1px solid #eee;
+}
+.flexigrid div.hDiv th div {	
+}
+
+.flexigrid span.cdropleft {
+	display: block;
+	background: url(flexgrid/prev.gif) no-repeat -4px center;
+	width: 24px;
+	height: 24px;
+	position: relative;
+	top: -24px;
+	margin-bottom: -24px;
+	z-index: 3;
+}
+
+.flexigrid div.hDiv span.cdropright {
+	display: block;
+	background: url(flexgrid/next.gif) no-repeat 12px center;
+	width: 24px;
+	height: 24px;
+	float: right;
+	position: relative;
+	top: -24px;
+	margin-bottom: -24px;
+}
+
+.flexigrid div.bDiv td div {
+	border-top: 0px;
+	height: 15px;line-height:15px;
+	padding: 0px;
+	margin: 0px;
+	padding-top:5px;
+	padding-bottom:5px;
+	vertical-align:middle;
+}
+
+.flexigrid tr td.sorted {
+	background: #f3f3f3;
+}
+
+.flexigrid tr td.sorted div {	
+}
+
+.flexigrid tr.erow td {
+	background: #f8f8f8;
+	border-bottom: 1px solid #f8f8f8;
+}
+
+.flexigrid tr.erow td.sorted {
+	background: #e3e3e3;
+	border-bottom: 1px solid #e3e3e3;
+}
+
+.flexigrid tr.erow td.sorted div {	
+}
+
+.flexigrid div.bDiv tr:hover td,.flexigrid div.bDiv tr:hover td.sorted,.flexigrid div.bDiv tr.trOver td.sorted,.flexigrid div.bDiv tr.trOver td{
+	background: #dae9f1;
+	border-bottom: 1px dotted #dae9f1;
+}
+
+.flexigrid div.bDiv tr.trSelected:hover td,.flexigrid div.bDiv tr.trSelected:hover td.sorted,.flexigrid div.bDiv tr.trOver.trSelected td.sorted,.flexigrid div.bDiv tr.trOver.trSelected td,.flexigrid tr.trSelected td.sorted,.flexigrid tr.trSelected td{
+	background: #acd7ee;	
+}
+/* ie adjustments */
+.flexigrid.ie div.hDiv th div,.flexigrid.ie  div.bDiv td  div,div.colCopy.ie div
+	/* common inner cell properties*/ {
+	overflow: hidden;
+}
+/*pagebar.jsp*/
+.curPage {
+display:inline-block;
+color:red;
+border:1px solid #cccccc;
+padding-left:6px;
+padding-right:6px;
+line-height:18px;
+height:18px;
+text-align:center;
+font-size:12px;
+vertical-align:middle;
+}
+.pageNum {
+display:inline-block;
+white-sapce: nowrap;
+border:1px solid #cccccc;
+padding-left:6px;
+padding-right:6px;
+line-height:18px;
+height:18px;
+text-align:center;
+font-size:12px;
+vertical-align:middle;
+color: #747474;
+}
+.pageNum:hover{
+	text-decoration:none;
+	color: #747474; /*color:#36C;*/
+	background-color:#dae9f1;
+	border:1px solid #acd7ee;
+}
+.sortedline{
+text-align:center;
+}
+/*skin2 style*/
+.newNextPageNum{
+
+    margin: 0px;
+    width:57px;
+    height:20px;
+   /*  padding-left: 5px;
+    padding-right: 5px; */
+   /*  padding:2px; */
+    nowhitespace: afterproperty;
+    /*ie7*/
+    display: inline-block;
+    font-size: 12px;
+    background: url(button/nextPage.png) no-repeat;
+    vertical-align: middle;
+background-color:rgb(244,244,244);
+    border: 0px solid #3eb1f0;
+    color: white;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.newPrePageNum{
+ 
+    margin: 0px;
+    width:57px;
+    height:20px;
+   /*  padding-left: 5px;
+    padding-right: 5px; */
+   /*  padding:2px; */
+    nowhitespace: afterproperty;
+    /*ie7*/
+    display: inline-block;
+    font-size: 12px;
+    background: url(button/prePage.png) no-repeat;
+    vertical-align: middle;
+background-color:rgb(244,244,244);
+    border: 0px solid #3eb1f0;
+    color: white;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.newPageNum{
+text-decoration: none;
+    *padding-left: 8px;
+    nowhitespace: afterproperty;
+    *padding-right: 8px;
+    /*ie7*/
+    
+    padding-left:5px;
+    padding-right:5px;
+    display: inline-block;
+    font-size: 12px;
+
+    vertical-align: middle;
+ /*    border: 1px solid #3eb1f0; */
+    color: #747474;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.newCurPageNum{
+    *padding-left: 8px;
+    nowhitespace: afterproperty;
+    *padding-right: 8px;
+    /*ie7*/
+     background-color:rgb(77, 152, 186);
+    padding-left:5px;
+    padding-right:5px;
+    display: inline-block;
+    font-size: 12px;
+
+    vertical-align: middle;
+ /*    border: 1px solid #3eb1f0; */
+    color: white;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+     text-decoration: none;
+}

@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+/****好中差评人物图标、列表td文本对齐等****/
+.evalIcon{display:inline-block;width:19px;height:19px;line-height:19px;vertical-align: middle;margin-right: 3px;background:url(../images/sprite201411.png) no-repeat;}
+.goodEval{background-position:-90px 0px;}
+.zEval{background-position:-110px 0px;}
+.badEval{background-position:-130px 0px;}
+.shopIcon{display:inline-block;height: 16px;line-height:15px;padding-left:20px;background: url(../images/sprite201411.png) -150px 0px no-repeat;}
+.myComment .evalTable td{padding: 10px 5px 5px 5px;text-align:left;letter-spacing: 1px;vertical-align: top;}
+.myComment .evalInfo div p{line-height:18px;}
+
+/****商品信息部分：图片、名称、描述****/
+.proCon{width:180px;}
+.proCon .proImg{display:block;width:180px;height:180px;margin:0 auto;}
+.proCon .proName{height: 36px;line-height: 18px;overflow: hidden;}
+.proCon .proDes{height: 54px;line-height: 18px;overflow: hidden;}
+
+/****填写评价部分：好中差评单选框、用户评价内容及晒单****/
+.evalCon{width:680px;overflow:hidden;}
+.radioG{line-height:24px;height:24px;vertical-align:middle;overflow:hidden;}
+.evalCon input[type="radio"]{vertical-align:middle;margin-right:3px;}
+.evalCon textarea{border:0 none;width: 630px;height: 115px;}
+.evalCon textarea:focus{outline:0;}
+.uploadImg{position: relative;height:60px;}
+.uploadImg .b-btn1{position:absolute;top:5px;left:5px;}
+.uploadImg .imgG{position:absolute;top:0;left:150px;width:360px;}
+.uploadImg  p{position:absolute;top:10px;right:0;}
+
+/****追加评论部分****/   
+.addEvalT{position:relative;}
+.addEvalT p{position:absolute;top:0;right:70px;height: 40px;line-height: 40px;}
+
+/****星级评价部分****/
+.starRating dl{margin-bottom:15px;}
+.starRating dt{display:block;float:left;line-height: 20px;}
+.starZj{overflow: hidden;line-height: 20px;vertical-align: middle;}
+.star {float:left;width:20px;height:20px;overflow:hidden;cursor:pointer;background:url(../images/sprite201411.png) -110px -210px no-repeat;}
+.starZj  li.hover{background:url(../images/sprite201411.png) -80px -210px no-repeat;}

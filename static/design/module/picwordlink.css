@@ -1,0 +1,15 @@
+
+/***图文链接组件 ***/
+img {border: 0; vertical-align: top;}
+.graphicsText {position:relative;height:auto;_zoom:1;min-height:5px;max-height:none; _height:5px; _height:100%;overflow-x:hidden;}
+.link-v-container {line-height:23px;}
+.link-h-container {float:left;padding:5px;display:inline-block;white-space:nowrap;}
+.link-p-container {float: left;margin: 5px;}
+a.link-h{white-space:nowrap}
+
+/***图文展示组件 ***/
+.graphicalInfo{position:relative;height:auto;_zoom:1;min-height:5px;max-height:none; _height:5px; _height:100%;overflow-x:hidden;}
+.richContent {line-height: 1.8;padding: 0;white-space: normal;word-wrap: break-word;word-break: normal;overflow: hidden;width: 100%;text-align: left;}
+.richContent2 {width: auto;    overflow: visible;}
+.textImg2 {float: left;margin: 5px 10px 5px 5px;position: relative;}
+

@@ -1,0 +1,134 @@
+@charset "utf-8";
+/* CSS Document */
+#quertion {
+	width: 1188px;
+	border: 6px solid #ffab17;
+	margin: 15px auto;
+	overflow: hidden;
+}
+
+#quertion .qContent {
+	font-family: "\5B8B\4F53", "SimSun";
+	font-size: 15px;
+	line-height: 1.5;
+	width: 990px;
+	margin: 0 auto;
+	clear: both;
+	padding-bottom: 20px;
+}
+
+#quertion .qContent .title {
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+	vertical-align: middle;
+	margin-top: 10px;
+	color: #c78d0f;
+	font-size: 18px;
+	font-family: "\9ED1\4F53 ", "SimHei";
+	border-bottom: 1px solid #cbcbcb;
+	margin-bottom: 10px;
+}
+
+#quertion .qContent dt {
+	padding-left: 5px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	background-color: #FFFCEB;
+	margin-top: 10px;
+}
+
+#quertion .qContent dd {
+	padding-left: 20px;
+}
+
+#submitBtn {
+	
+}
+
+#submitBtn a {
+	width: 100px;
+	height: 30px;
+	background: url(../images/questionnaire/submit.jpg) no-repeat center
+		center;
+	display: block;
+	float: left;
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: center;
+	letter-spacing: 10px;
+	font-size: 16px;
+	color: #6a430f;
+	margin: 20px;
+}
+
+#question2 {
+	width: 1200px;
+	overflow: hidden;
+	margin: 20px auto;
+	background-color: #ede5d8;
+}
+
+#question2 .header {
+	width: 1200px;
+	height: 328px;
+}
+
+#question2 .bottom {
+	line-height: 30px;
+	font-size: 14px;
+	font-family: "\5B8B\4F53", "SimSun";
+	color: #5e5e5e;
+	width: 1200px;
+	overflow: hidden;
+	margin: 0 auto;
+	background: url(../images/questionnaire/qheader_02.jpg) no-repeat center
+		top;
+}
+
+#question2 .bottom .bContent {
+	width: 990px;
+	margin: 0 auto;
+	background-color: #ffffff;
+	border: 6px solid #eda400;
+	overflow: hidden;
+}
+
+#question2 .bottom .bContent .fillInfo {
+	width: 875px;
+	margin: 20px auto;
+	overflow: hidden;
+	padding: 10px 20px;
+	background-color: #ede5d8;
+}
+
+#question2 .bottom .bContent .fillInfo input {
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	vertical-align: middle;
+}
+
+#question2 .bottom .bContent .a {
+	display: block;
+	width: 180px;
+	height: 42px;
+	margin: 20px auto;
+}
+
+#question2 .bottom .bContent .content {
+	width: 890px;
+	margin: 20px auto;
+	clear: both;
+}
+
+#question2 .bottom .bContent .content li {
+	margin-top: 15px;
+}
+
+#question2 .bottom .bImg {
+	width: 1200px;
+	height: 117px;
+	overflow: hidden;
+}

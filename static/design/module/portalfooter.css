@@ -1,0 +1,10 @@
+@charset "utf-8";/* CSS Document*/
+/**footer***/
+#footer{width:100%;overflow:hidden;color:#333;background:#e3e3e3;padding-bottom:10px;}
+#footer .footer{ padding:15px;padding-top:0;text-align:center; line-height:28px;}
+.footer-inner{display:inline-block;*display:inline;*zoom:1;padding:20px 100px;text-align:center;font-size:13px;}
+.footer-inner a:hover{text-decoration:none;}
+.footer-inner p{margin-bottom:5px;}
+.footer-inner p a{color:#444;}
+.footerLinks{margin-top:10px;}
+.footerLinks  span{display:inline-block;height:30px;margin-left:5px;}

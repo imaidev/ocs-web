@@ -1,0 +1,14 @@
+<?xml version="10" encoding="GBK"?>
+<graph bgAlpha='0,0'	canvasBgAlpha='0,0' showNames="1" showValues="0" showBorder='0'
+			formatNumberScale="0" decimalPrecision="0"  setadaptiveymin="1" setadaptivesymin="1"
+			caption="最近一周用户注册数量" clickURL='JavaScript:showBdChartValue();' rotateLabels='0'
+			baseFontColor="#FFFFFF" baseFontSize="13" baseFont="Arial" lineThickness='0'  rotateYAxisName='1'
+			anchorBgColor='#FFFFFF' showhovercap='1' numberSuffix='人' hoverCapBgColor='#6699FF'>
+	 <set value="184" label="周一"/> 
+	 <set value="196" label="周二"/> 
+	 <set value="212" label="周三"/> 
+	 <set value="198" label="周四"/> 
+	 <set value="207" label="周五"/> 
+	 <set value="191" label="周六"/> 
+	 <set value="194" label="周日"/> 
+</graph>

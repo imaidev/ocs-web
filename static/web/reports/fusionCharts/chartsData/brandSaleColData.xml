@@ -1,0 +1,30 @@
+<?xml version="10" encoding="GBK"?>
+<chart caption="最近一周品牌销售统计" rotateNames='0' showvalues="0"
+	decimals="3" setadaptiveymin="1" setadaptivesymin="1" linethickness="5"
+	bgAlpha='0,0'	canvasBgAlpha='0,0' numberPrefix='%A5' showBorder='0'
+	clickURL='JavaScript:showBdChartValue();'>
+	<categories >
+		<category name="电力装备" />
+		<category name="新材料" />
+		<category name="化工" />
+		<category name="医疗器械" />
+		<category name="卫星应用" />
+		<category name="高端定制" />
+	</categories>
+	<dataset parentyaxis="P" seriesname="金额">
+		<set value="642" />
+		<set value="442" />
+		<set value="241" />
+		<set value="730" />
+		<set value="241" />
+		<set value="857" />
+	</dataset>
+	<dataset parentyaxis="S" seriesname="数量" renderas="Column">
+		<set value="87" />
+		<set value="100" />
+		<set value="87" />
+		<set value="456" />
+		<set value="134" />
+		<set value="500" />
+	</dataset>
+</chart>

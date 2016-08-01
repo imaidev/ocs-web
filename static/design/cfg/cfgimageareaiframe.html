@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+		<head>
+		    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		    <link href="/static/design/css/editor.css" rel="stylesheet" />
+		    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+		    <link  href="/static/design/js/jquery.imgareaselect/css/imgareaselect-animated.css" type="text/css" rel="stylesheet" />
+		    <script src="/static/resource/js/jquery-1.11.1.min.js"></script>
+		    <script src="/static/design/js/layer/layer.js"></script>
+		    <script type="text/javascript" src="/static/design/js/jquery.imgareaselect/jquery.imgareaselect.js"></script>
+		</head>
+		
+		<body>
+		    <div class="content fm1" style="padding-top:0px;">
+				    <div class="tab">
+				        <form class="main-slide-form form-default" style="margin-top:0px;">
+				        		<input type="hidden" id="hotX1" name="hotX1" value=""/>
+				        		<input type="hidden" id="hotY1" name="hotY1" value=""/>
+				        		<input type="hidden" id="hotX2" name="hotX2" value=""/>
+				        		<input type="hidden" id="hotY2" name="hotY2" value=""/>
+				        		<input type="hidden" id="editHotId" name="editHotId" value=""/>
+				            <div>
+				                <div id="tabOne">
+				                    <div class="edit-module w850">
+				                        <div class="edit-item  edit-head">
+				                            <span>模块标题：</span>
+				                            <input type="radio" id="showTitle1" name="showTitle" onclick="changeTitle('1');" value="1">
+																		<label for="showTitle1">不显示</label>&nbsp;&nbsp;
+																		<input type="radio" id="showTitle2" name="showTitle" onclick="changeTitle('2');" value="2">
+																		<label for="showTitle2" style="margin-right: 5px;">显示</label>
+																		<input type="text" id="titleContent" value="热区图片" /><span style="color: red;">*</span>
+				                        </div>
+				                        <div class="edit-item  edit-head">
+				                            <span class="fl">背景图片：</span>
+				                            <a class="add-one btn-style-1  fr mb5 mr10" onclick="addImage();">选择图片</a>
+				                        </div>
+				                        <div class="pitureZoneup" style="max-height:290px;text-align: left;" id="imageAreaDiv"><img id="imageAreaSelect" src="/static/design/img/hotspotsdefault.jpg"/></div>
+				                        <div class="mt10 h25">
+				                            <a class="add-one btn-style-1  fr mb5 mr10" onclick="addHotArea();">新增热区</a>
+				                        </div>
+				                        <div class="edit-item pitureZoneSet">
+				                            <table width="100%" class="pitureZone">
+				                                <tr>
+				                                    <th width="14%">热区名称</th>
+				                                    <th width="20%">热区坐标</th>
+				                                    <th width="20%">打开方式</th>
+				                                    <th width="20%">热区链接</th>
+				                                    <th width="10%">操作</th>
+				                                </tr>
+				                            </table>
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
+				        </form>
+				    </div>
+				    <p class="opt-footer ctset-opt-footer">
+				        <a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+				        <a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+				    </p>
+				</div>
+		</body>
+</html>
+<script type="text/javascript">		
+		
+		// 图片最大宽度
+		var imagemaxwidth = 1210;
+		// 图片最大高度
+		var imagemaxheight = 650;
+	
+		// 上传附图
+		function addImage() {
+				layer.open({
+		        type : 2,
+		        content :  parent.ctx+"/res/tu/ResSelect.htm?dir=shop&maxuploadsize=2M&callback=selectImageCallBack",
+		        title : "图片选取",
+		        shadeClose: true,
+		        area : ['750px','550px']
+	    	});
+		}
+		
+		// 选取图片返回图片路径
+		function selectImageCallBack(path) {
+				$("#imageAreaSelect").attr("src", path).width(parent._$module.find("img").width());
+		}
+		
+		// 新增图片热区
+		function addHotArea() {
+
+				var x1 = $("#imageAreaDiv").scrollLeft();
+				var y1 = $("#imageAreaDiv").scrollTop();
+				var x2 = $("#imageAreaDiv").scrollLeft()+100;
+				var y2 = $("#imageAreaDiv").scrollTop()+100;
+				$('#hotX1').val(x1);
+		    $('#hotY1').val(y1);
+		    $('#hotX2').val(x2);
+		    $('#hotY2').val(y2);
+
+				//$("#imageAreaDiv").scrollLeft(x1);
+				//$("#imageAreaDiv").scrollTop(y1);
+				
+				// 增加热区
+				//$("#imageAreaSelect").imgAreaSelect({ x1: x1, y1: y1, x2: x2, y2: y2, onSelectChange: preview });
+			
+				// 新增行
+				addRow(x1+','+y1+','+x2+','+y2, "", "");
+				
+				// 图片高度
+				var imageHeight = $("#imageAreaSelect").height()+65;
+				if (imageHeight > imagemaxheight) {
+						imageHeight = imagemaxheight;
+				}
+				
+				// 显示图片区域
+				parent.showImageArea(($("#imageAreaSelect").width()+30)+"px", imageHeight+"px");
+		}
+		
+		// 编辑图片热区
+		function editHotArea() {
+				var hotArea = $('#'+$('#editHotId').val()).find("td").eq(1).text();
+				var hotAreaArray = hotArea.split(",");
+
+				$("#imageAreaDiv").scrollLeft(hotAreaArray[0]-(hotAreaArray[2]-hotAreaArray[0]));
+				$("#imageAreaDiv").scrollTop(hotAreaArray[1]-(hotAreaArray[3]-hotAreaArray[1]));
+				
+				$('#hotX1').val(hotAreaArray[0]);
+		    $('#hotY1').val(hotAreaArray[1]);
+		    $('#hotX2').val(hotAreaArray[2]);
+		    $('#hotY2').val(hotAreaArray[3]);
+				
+				// 增加热区
+				// $("#imageAreaSelect").imgAreaSelect({ x1: hotAreaArray[0], y1: hotAreaArray[1], x2: hotAreaArray[2], y2: hotAreaArray[3], onSelectChange: preview });
+				$('#'+$('#editHotId').val()).find('input[name="hothref"]').focus();
+				
+				// 图片高度
+				var imageHeight = $("#imageAreaSelect").height()+65;
+				if (imageHeight > imagemaxheight) {
+						imageHeight = imagemaxheight;
+				}
+				
+				// 显示图片区域
+				parent.showImageArea(($("#imageAreaSelect").width()+30)+"px", imageHeight+"px");
+		}
+		
+		// 显示热区坐标
+		function preview(img, selection) {
+		    if (!selection.width || !selection.height)
+		        return;
+		    
+		    var scaleX = 100 / selection.width;
+		    var scaleY = 100 / selection.height;
+		
+		    $('#preview img').css({
+		        width: Math.round(scaleX * 300),
+		        height: Math.round(scaleY * 300),
+		        marginLeft: -Math.round(scaleX * selection.x1),
+		        marginTop: -Math.round(scaleY * selection.y1)
+		    });
+		
+		    $('#hotX1').val(selection.x1);
+		    $('#hotY1').val(selection.y1);
+		    $('#hotX2').val(selection.x1+selection.width);
+		    $('#hotY2').val(selection.y1+selection.height); 
+		    $('#'+$('#editHotId').val()).find("td").eq(1).text(selection.x1+","+selection.y1+","+$('#hotX2').val()+","+$('#hotY2').val());
+		    $('.pitureZoneup').find("#"+$('#editHotId').val()+"div").css({"top":selection.y1+"px","left":selection.x1+"px","width":selection.width+"px","height":selection.height+"px"});
+		}
+			
+		$(document).ready(function(){
+			
+				$("#imageAreaSelect").attr("src",parent._moduleCfg.imgsrc).width(parent._$module.find("img").width());
+				
+				// 加载标题栏数据
+        $('#titleContent').val(parent._$module.find('.title-box span').text().trim());
+        if (parent._$module.find('.title-box').is(":hidden")){
+        	$('input[name="showTitle"]').eq(0).attr("checked",true);	
+        	changeTitle("1");
+        }
+        else{
+        	$('input[name="showTitle"]').eq(1).attr("checked",true);
+        	changeTitle("2");
+        }
+        
+        // 选择热区点击事件
+				$(".pitureZone").delegate(".selHot","click",function(e){ 
+						$("#editHotId").val($(this).parent().parent().attr("id"));
+						
+						// 编辑热区
+						editHotArea();
+				}).delegate(".delHot","click",function(e){ 
+						$("#editHotId").val($(this).parent().parent().attr("id"));
+						$('.pitureZoneup').find("#"+$('#editHotId').val()+"div").remove();
+						$(this).parent().parent().remove();
+						$("#editHotId").val("");
+						// 增加热区
+						$("#imageAreaSelect").imgAreaSelect({ remove: true });
+				});
+				
+				//加载数据
+        $(parent._moduleCfg.areas).each(function(){
+        		addRow(this.hotarea,this.hottarget,this.hothref);
+        })
+		});
+		
+		// 保存设置
+    function cfgSet() {
+        //组件标题
+	    	parent._$module.find('.title-box span').text($('#titleContent').val());
+	    	if($('input[name="showTitle"]:checked').val()=="2"){
+	    		parent._$module.find('.title-box').show();
+	    	}
+	    	else{
+	    		parent._$module.find('.title-box').hide();
+	    	}
+        
+        // 组件更新
+	    	var obj={
+	    		imgsrc:$("#imageAreaSelect").attr("src"),
+	   			areas:[]
+	    	}
+	    	
+	    	$(".pitureZoneSet").find("table tr:not(:first)").each(function(i) {
+						obj.areas[i]={};
+						obj.areas[i].hotarea=$(this).find("td").eq(1).text();
+						obj.areas[i].hottarget=$(this).find("input[name^='openTarget']:checked").val();
+						obj.areas[i].hothref=$(this).find('input[name="hothref"]').val();
+				});
+				
+				parent._$module.imagearea('reset',obj);
+
+        //关闭配置框
+    		parent.cfgClose(); 
+    }
+    
+    // 改变标题
+    function changeTitle(flag) {
+    	if (flag == '1') {
+   			$('#titleContent').hide();
+   			$('#titleContent').next().hide();
+    	} else {
+   			$('#titleContent').show();	
+   			$('#titleContent').next().show();
+    	}
+    }
+    
+    // 动态新增行
+		function addRow(hotArea, hotTarget, hotHref) {
+				var count = 1;
+				var ishas = false;
+				var hotName = "图片热区"+count;
+				var hotAreaArray = hotArea.split(",");
+				
+				// 查找是否存在热区名称
+				while (true) {
+						hotName = "图片热区"+count;
+						$(".pitureZoneSet").find("table tr:not(:first)").each(function() {
+								if (hotName == $(this).find("td:first").text()) {
+										ishas = true;
+								}
+						});
+						if (ishas) {
+								count++;
+								ishas = false;
+						} else {
+								break;
+						}
+				}
+				
+				var hotId = "hotAreaTr"+count;
+				var openTarget1 = "";
+				var openTarget2 = "";
+				if (hotTarget == "_blank") {
+						openTarget2 = checked="checked";
+				} else {
+						openTarget1 = checked="checked";
+				}
+
+				var str = '<tr id='+hotId+'>' +
+				    '<td>'+hotName+'</td>' +
+				    '<td>'+hotArea+'</td>' +
+				    '<td><input type="radio" name="openTarget'+count+'" value="_self" '+openTarget1+'/><label>当前窗口</label>&nbsp;&nbsp;<input type="radio" name="openTarget'+count+'" value="_blank" '+openTarget2+'/><label>新窗口</label></td>' +
+				    '<td><input type="text" name="hothref" value="'+hotHref+'" class="w120"></td>' +
+				    '<td><a class="selHot">选择</a>&nbsp;<a class="delHot">删除</a></td>' +
+				    '</tr>';
+				$('.pitureZone').append(str);
+				$('.pitureZoneup').append('<div id="'+hotId+'div" style="top: '+hotAreaArray[1]+'px; left: '+hotAreaArray[0]+'px; width: '+(hotAreaArray[2]-hotAreaArray[0])+'px;height: '+(hotAreaArray[3]-hotAreaArray[1])+'px;">'+hotName+'</div>');
+				$("#editHotId").val(hotId);
+				$('#'+$('#editHotId').val()).find('input[name="hothref"]').focus();
+				
+		}
+		
+		// 设置热区
+		function setHotArea(x1, y1, x2, y2) {
+				$('#hotX1').val(x1);
+		    $('#hotY1').val(y1);
+		    $('#hotX2').val(x2);
+		    $('#hotY2').val(y2); 
+		    $('#'+$('#editHotId').val()).find("td").eq(1).text(x1+","+y1+","+$('#hotX2').val()+","+$('#hotY2').val());
+		    $('.pitureZoneup').find("#"+$('#editHotId').val()+"div").css({"top":y1+"px","left":x1+"px","width":(x2-x1)+"px","height":(y2-y1)+"px"});	
+		}
+</script>

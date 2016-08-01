@@ -1,0 +1,45 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/****头部****/
+.logo{width:990px; padding:24px 0; overflow:hidden; margin:0 auto;}
+.logo a img{vertical-align:middle;}
+.logo h2{color:#5e5e5e; font-size: 22px; line-height: 120px; font-family:'Microsoft Yahei'; padding: 10px 0 0 27px; float: left;}
+.loginContent{height:470px; width:100%; background:#2797c3; margin-bottom:-20px;}
+/***注册****/
+.register{overflow:hidden; border-left:1px solid #E4E4E4; border-bottom:1px solid #E4E4E4; margin-bottom:10px;}
+.register .registerHd{height:40px;line-height:40px;vertical-align:middle; position:relative;}
+.register .registerHd li{cursor:pointer;text-align:center;float:left;border-right:1px solid #E4E4E4; height:40px; line-height:40px; vertical-align:middle;
+border-top:1px solid #E4E4E4; padding:0 25px;}
+.register .registerHd li.on{background-color:#ffffff;border-top:3px solid #FF5F3D; height:38px;}
+.register .registerBd div{overflow:hidden; padding:5px;border:1px solid #E4E4E4;}
+.register .registerBd table{ width:100%; float:left; border:0; table-layout:fixed;}
+#mailbox td,#phone td{ height:50px;}
+#mailbox,#phone{ width:100%; margin-top:30px;}
+.register .registerBd ul{ width:250px; float:right; margin-right:80px; margin-top:30px;}
+.register .registerBd ul li{ overflow:hidden; margin-top:10px; padding:10px;}
+.register .registerBd ul table{table-layout:fixed; width:100%; line-height:25px;}
+#mailbox{ display:none;}
+.register input[type="text"]{display:inline-block;*display:inline;*zoom:1; height:35px;line-height:35px; vertical-align:middle; padding:0 5px; outline-style:none; color:#333;border:1px solid #cccccc;font-family: "\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.register input[type="radio"],.buyerCon input[type="checkbox"]{ display:inline-block;*display:inline;*zoom:1;}
+.register select{display:inline-block;*display:inline;*zoom:1; height:25px; vertical-align:middle; line-height:20px; outline-style:none; color:#333;border:1px solid #cccccc;}
+.register input[type="password"]{display:inline-block;*display:inline;*zoom:1; height:25px; vertical-align:middle; line-height:20px; padding:0 5px; outline-style:none; color:#333;border:1px solid #cccccc;}
+.register input[type="text"]:focus,.register input[type="password"]:focus{border:1px solid #04A1E6;}
+.re-footer{ line-height:30px; text-align:center; padding:20px 0;}
+#mailgs td,#phone td{ height:50px;}
+#mailgs{ width:100%; margin-top:30px;}
+#mailgs tr td a.huoqu{background:#2797c3;}
+#mailgs tr td a.huoqu:hover{background:#0F82AF;}
+#phone tr td a.huoqu{background:#2797c3;}
+#phone tr td a.huoqu:hover{background:#0F82AF;}
+.denglu{position:absolute; bottom:0; right:10px; color:#5e5e5e;}
+.fcM{color:#F00;}
+.bln{border-left: none;}
+.borderN{border: none;}
+.w240{width: 240px !important;}
+.w130{width: 130px !important;}
+.registeredBtn{height: 35px;line-height: 35px;background: #2797c3;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;vertical-align:middle;color:#FFFFFF;padding: 0 28px;display:inline-block;*display:inline;*zoom:1; text-decoration: none; border: none;cursor: pointer;}
+.registeredBtn:hover{background: #0F82AF;text-decoration: none; color: #fff;}
+.markPlace{position: absolute; top: 40px;right: 110px; width: 384px;height: 319px;overflow: hidden;padding: 0 !important;margin: 0 !important;}
+.markPlace img{height: 100%;width: 100%;}
+.prt2{position: relative;top: 2px;}
+#phone input[type="password"]{height:31px !important; line-height:31px !important;}

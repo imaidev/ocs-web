@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+/*****绑定sprite******/
+/*****绑定sprite******/
+.select .sel-more b,.select .sel-more:hover b,.select .show b,.select .show:hover b,
+.pagin a.prewP,.pagin a:hover.prewP,.pagin a.nextP,.pagin a:hover.nextP,
+#refilter .item h3 b,#refilter .item h3:hover b,#refilter .item h3.hover b,#refilter .item h3.hover:hover b{background:url(../images/sprite201411.png) no-repeat;}
+ 
+#itemsList{ margin:0 auto; padding:0 0 10px 0; overflow:hidden;}
+.itemListCon{overflow:hidden;} 
+#hotRe li{ float:left; margin-left:10px;}
+#hotRe li:first-child{margin-left:0;}
+.select{overflow:hidden;}
+.select .sel-dd{ width:80%; float:left; overflow:hidden; padding:10px 0; line-height:40px;}
+.select .sel-dd a{white-space: nowrap;height:25px;line-height:25px;vertical-align:middle;padding:0 10px;margin-left:5px;cursor:pointer;color:#666;display:inline-block;*display:inline;*zoom:1;}
+.select .sel-dd a.hover{display:inline-block;*display:inline;*zoom:1;}
+.select .sel-dd a:hover{ text-decoration:none;}
+.select .sel-dt{margin-top:17px;width:10%;text-align:right;line-height:25px;vertical-align:middle;height:25px;float:left; color:#999;}
+.select .sel-more{ cursor:pointer; width:60px; float:left;margin-top:17px; line-height:25px; vertical-align:middle; height:25px;display:block; text-align:center;margin-left:20px; position:relative;}
+.select .sel-more .up{ display:none;}
+.select .sel-more .ex{ display:inline;}
+.select .show .up{ display:inline;}
+.select .show .ex{ display:none;}
+.select .sel-more b{ background-position: -20px -90px; display:block; height:6px; width:10px; position:absolute; top:10px; right:5px;}
+.select .sel-more:hover b{ background-position: -20px -100px; display:block; }
+.select .show b{ background-position: -30px -90px ; display:block; height:6px; width:10px; position:absolute; top:10px; right:5px;}
+.select .show:hover b{ background-position: -30px -100px; display:block; height:6px; width:10px;}
+
+.select .sel-dd .hide{ display:none;}
+.sel-search,.sel-brand,.sel-deliver{overflow:hidden;}
+.searchText{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;color:#666;border:1px solid #bbbbbb;}
+.sel-deliver .searchText{ height:20px; line-height:20px; width:50px;padding:0 5px;}
+.sel-search .searchText{ width:160px; padding:0 5px; height:25px; line-height:22px;}
+.sel-search{ padding:10px 10px 7px 0; text-align:right;}
+.searchBtn{ padding:0; border:0; height:24px; width:50px; color:#FFFFFF;line-height:24px; vertical-align:middle; letter-spacing:1px; text-align:center;margin-left:10px; cursor:pointer;} 
+.selected{background-color:#04a1e6;color:#ffffff !important;}
+
+
+.order,pagin{display:inline-block;*display:inline;*zoom:1;}
+.order{ float:left;}
+.order span{white-space:nowrap; height:25px;line-height:25px;padding:0 10px;margin-left:10px;cursor:pointer;color:#666; background-color:#FFFFFF;display:inline-block;*display:inline;*zoom:1; border:1px solid #dddddd;position: relative;}
+.order span b{position: absolute;top:7px;right: 8px;width: 9px;height: 11px;overflow: hidden;font-size: 0;background:url(../images/sprite201411.png) no-repeat;display: none;}
+.order span.hover{color:#FFFFFF; background-color:#04a1e6;}
+.order span.up a,.order span.down a{padding-right:15px;}
+.order span.up b{display: block;background-position:-70px -90px;}
+.order span.down b{display: block;background-position:-60px -90px;}
+
+.pagin{ float:right; padding-right:70px; overflow:hidden; position:relative;}
+.pagin a{ overflow:hidden;white-space:nowrap; height:25px;line-height:25px; width:25px;  margin-left:10px;cursor:pointer;display:inline-block;*display:inline;*zoom:1; position:absolute; top:7px;}
+.pagin a.prewP{ background-position:0 -60px; right:40px;}
+.pagin a:hover.prewP{ background-position:0 0;}
+.pagin a.nextP{ background-position: -30px -60px; right:10px;}
+.pagin a:hover.nextP{ background-position:-30px 0;}
+
+.itemsList ul{ overflow:hidden; margin-left:-10px;}
+.itemsList ul li{ float:left; overflow:hidden; padding:10px; width:220px; height:330px; border:1px solid #ddd; margin-top:10px; margin-left:10px;}
+.itemsList ul li a{ cursor:pointer;}
+.itemsList ul li:hover{border:1px solid #04a1e6;}
+.itemsList ul li .itemName{ max-height:40px; line-height:20px; overflow:hidden; padding:5px 0;}
+.itemsList ul li .itemName a{ color:#333;}
+.itemsList ul li .shopInfo{ overflow:hidden; padding:3px 0; font-size:12px;}
+.itemsList ul li .itemPrice{ line-height:30px; vertical-align:middle; position:relative; overflow:hidden;}
+.commentSum{ height:20px; line-height:20px; vertical-align:middle; overflow:hidden; display:none;}
+.itemsList .service{ height:25px; overflow:hidden;}
+/******商品搜索列表（一行3个）*******/
+.select .pl15{padding:0 15px;}
+.sel-deliver .importantWord{height:20px; line-height:20px; width:150px;padding:0 5px;}
+.fn{float: none;}
+.titleH .floatL{float:left;}
+.itemstyles a.bln{border-left: none;}
+.itemsList ul li.w304{width: 304px;height:420px;}
+.valueF{display: block; float: left; width:110px; overflow: hidden; line-height:30px; height: 30px; word-break: break-all;}
+.itemstyles .btnlist.active{background:#fff url(../images/icon-btn-switch-list.png) 0 -40px no-repeat; width:40px; height:40px;}
+
+/******列表显示方式切换*******/
+.itemstyles{float:right; overflow:hidden;}
+.itemstyles a{ overflow:hidden;height:40px; float:left;cursor:pointer; display:block;}
+.itemstyles a.btngrid{background:url(../images/icon-btn-switch-grid.png) no-repeat; width:40px; height:40px; border-left:#ddd solid 1px;}
+.itemstyles a.btngrid:hover{background-position:0 -40px; background-color:#fff;}
+.itemstyles .btngrid.active{background:#fff url(../images/icon-btn-switch-grid.png) 0 -40px no-repeat; width:40px; height:40px; border-left:#ddd solid 1px;}
+.itemstyles a.btnlist{ background:url(../images/icon-btn-switch-list.png) no-repeat; width:40px; height:40px; border-left:#ddd solid 1px;}
+.itemstyles a.btnlist:hover{background-position:0 -40px; background-color:#fff;}
+.itemstyles .btnlist.active{background:#fff url(../images/icon-btn-switch-list.png) 0 -40px no-repeat; width:40px; height:40px; border-left:#ddd solid 1px;}
+
+/******列表样式*******/
+.itemsList2 li{ min-height:120px; padding:15px 10px; border-bottom:1px solid #ddd; overflow:auto; zoom:1;}
+.itemsList2 li:hover{ background:#F8F8F8;}
+.itemsList2 .itemList_pic{ width:120px;}
+.itemsList2 .itemList_des{ width:600px;}
+.itemsList2 .itemList_shopinfo{ width:200px;}
+.itemsList2 .itemList_des span { border-left: 1px solid #efefef;display: block;float: left; height: 35px;line-height: 20px; overflow: hidden; padding: 0 10px; width: 75px; word-break: break-all;}
+.itemsList2 .itemList_des span i { color: #ff5f3d;font-size: 16px; margin-bottom: 7px;}
+.itemsList2 .itemList_des span em{ font-size:12px; color:#999;}
+.itemsList2 .itemList_des span i, .itemsList2 .itemList_des span em { -moz-binding: url("ellipsis.xml#ellipsis");display: inline-block; float: left;   height: 14px;line-height: 14px;overflow: hidden;text-overflow: ellipsis; white-space: nowrap;width: 100%; word-break: break-all;}
+i {font-style: normal;}
+.itemsList2 .itemList_des span.first {border: medium none;}
+	
+/******商铺列表*******/
+.shopList{ overflow:hidden;}
+.shopList ul{overflow:hidden;}
+.shopList ul li{ border:1px solid #E4E4E4; overflow:hidden; margin-top:10px; padding:20px 30px;}
+.shopList ul li .shopL{ width:160px; height:160px; overflow:hidden; float:left;}
+.shopList ul li .shopC{ float:left; width:340px; position:relative; min-height:120px; padding:10px 0 30px 20px; overflow:hidden;}
+.shopList ul li .shopC .shopName{ height:30px; line-height:30px; vertical-align:middle; overflow:hidden;}
+.shopList ul li .shopC .mainBus{ max-height:50px; line-height:25px; vertical-align:middle;overflow:hidden;}
+.shopList ul li .shopC .shopService{ height:25px; position:absolute; bottom:5px; left:20px; overflow:hidden;}
+.shopList ul li .shopR{ width:540px; overflow:hidden;  float:right;}
+.shopList ul li .shopItem{ width:160px; float:left; margin-left:15px; overflow:hidden;}
+.shopList ul li .shopItem a{ display:block; width:160px; height:160px; overflow:hidden;}
+.shopList ul li .shopItem p{ height:20px; line-height:20px; vertical-align:middle; text-align:center;}

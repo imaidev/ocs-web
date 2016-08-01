@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+#container{ width:100%; overflow:hidden;}
+.w1200 { min-width:1200px;}
+.w1200 .w{ width:1200px; margin:0 auto; overflow:hidden;}
+.bannerImg img{display:block;width:1200px;height:300px;}
+/*******团购部分样式*****/
+.tuan{overflow:hidden; margin:0 auto;}
+.tuan li{position:relative;height:400px; overflow:hidden; margin-top:20px; border:1px solid #E4E4E4;}
+.tuan li .leftC{float:left;height:400px;width:400px;overflow:hidden;position:relative;}
+.row_soldout{position: absolute;right: 50%;top: 80px;width: 158px;height: 158px;overflow: hidden;background: url(../images/deal_soldout_end1.png) top center no-repeat;_background: transparent none;margin-right: -79px;z-index: 2;cursor: pointer;}
+.tuan li .itemPic{display:block;height:100%;width:100%;overflow:hidden;}
+.tuan li .rightC{float:left;width:720px;overflow:hidden;margin-left:30px;}
+.tuan li .rightC .right-a{display: block;cursor: pointer;text-decoration: none;}
+.tuan li .r-top{display: inline-block;width: 100%;padding-bottom:10px;margin-bottom: 15px;margin-top:20px;border-bottom: 1px #eee solid;}
+.tuan li .r-top-img{width: 60px;height: 40px;border-radius: 4px;vertical-align: bottom;overflow: hidden;margin-right: 10px;margin-top: -2px;border: 1px solid #eee;}
+/**限时抢购***/
+.numtimer_box{margin-top:15px;margin-right:20px;color: #414141;}
+.numtimer_box .buy_num{overflow: hidden;vertical-align: middle;display: inline-block;*display:inline;*zoom:1;}
+.numtimer_box .countDown{overflow: hidden;vertical-align: middle;display: inline-block;*display:inline;*zoom:1;}
+.numtimer_box .countDown .countDownDt{display: inline-block;*display:inline;zoom:1;}
+.numtimer_box .countDown .countDownDd{display: inline-block;*display:inline;zoom:1;vertical-align: middle;}
+.numtimer_box .countDown ul{overflow: hidden;display: inline-block;}
+.numtimer_box .countDown ul li{float: left;height: 100%;width: auto !important;display: inline-block;margin: 0 2px;padding:0;border:none;color: #ec2b8c;font-weight: 700}
+.numtimer_box .countDown ul li.split{color:#333;font-weight:normal;}
+.r_pro_des{height:100px;margin-bottom: 15px;margin-top: 10px;overflow: hidden;padding-top: 5px;word-wrap: break-word;word-break: break-all;font-size: 15px;line-height: 27px;color: #393939;}
+
+
+.choose-amount label{display:block;float:left;height: 28px;line-height: 28px;font-size: 14px;}
+.choose-amount-item{width:100px;height:28px;margin-top:20px;overflow:hidden;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;background-color:#FFFFFF;}
+.choose-amount-item .amount-minus,.choose-amount-item .amount-plus{display:block;height:28px;width:28px;float:left;cursor:pointer;}
+.choose-amount-item  b{ width:12px; height:12px; display:block; margin:8px auto 0 auto; overflow:hidden;background: url(../images/sprite201411.png) no-repeat;}
+.choose-amount-item .item-amount{display:block;outline:none;width:42px;border:0;height:28px;line-height:28px;vertical-align:middle;float:left; text-align:center;}
+.choose-amount-item .amount-minus b{ background-position: -20px -125px;}
+.choose-amount-item .amount-minus:hover b{ background-position:0 -125px;}
+.choose-amount-item .amount-plus b{ background-position: -20px -140px;}
+.choose-amount-item .amount-plus:hover b{ background-position: 0 -140px;}
+.r-bottom{margin-top:10px;}
+.r_pric_box{height: 54px;width: 345px;overflow: hidden;}
+.r_pric_box .big_pic{font-size: 36px;color: #ec2b8c;}
+.r_pric_box .currency_arial{font-size: 20px;margin-right: 5px;}
+.r_pric_box .original{color: #5d5d5d;text-decoration: line-through;font-size: 16px;}
+.r_pric_box .org_cx{height: 17px;width: 30px;background: #efbe53;padding: 4px 4px 2px;color: #fff;vertical-align: 3px;margin-left: 3px;}
+.advance_head{float: left;display: inline-block;width: 320px;font-size: 13px;color: #afaeae;}
+.advance_head span{float: left;margin-top: 8px;}
+.advance_head em {font-size: 16px;color: #393939;padding-right: 3px;}
+
+.shopping_car_layout{position:absolute;bottom: 41px;right: 45px;width: 70px;}
+.shopping_car_layout a{display:block;}
+.shopping_car_layout span{display: inline-block;width:63px;height:53px;padding-top: 10px;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%;color:#fff;text-align: center;font-size: 14px;text-decoration:none;}
+.shopping_car_layout span.advance_car_btn{background:#EC2B8B;}
+.shopping_car_layout span.sold_car_btn{background:#575756;}
+
+
+
+.itemList{margin-top:20px;margin-left:-10px;zoom:1}
+.itemList li{position:relative;float: left;width:280px;height:533px;margin:0px 0px 10px 10px;padding:10px 5px;border: 1px solid #eee;}
+.itemList li a{cursor: pointer;text-decoration: none;}
+.itemList li .itemPic{position: relative;margin-bottom:10px;display:block;overflow: hidden;margin: 0 auto;width: 260px;}
+.itemList li .r_pro_name{height:25px;line-height:25px;overflow: hidden;}
+.itemList li .r_pro_des{height:50px;line-height: 170%;margin-top: 0px;margin-bottom:10px;}
+.itemList li .pro_logo{display: block;width: 60px;height: 40px;margin-top: 10px;border-radius: 4px;border: 1px solid #eee;}
+.itemList li .pro_img{display:block;margin:0 auto;margin-top:5px;}
+.itemList li .r-bottom{position: absolute;bottom: 10px;left:5px;width: 97%;margin-top:0px;overflow: hidden;}
+.itemList li .r_pric_box{width: auto;}
+.itemList li .advance_head{width: auto;}
+.itemList li .numtimer_box{margin-top: 10px;*margin-top:13px;margin-right:0px;}
+.itemList li .numtimer_box .countDown ul li{margin:0px;}
+.itemList li  .shopping_car_layout{bottom:50px;right:20px;z-index: 2;width: 50px;}
+.itemList li  .shopping_car_layout span{width:46px;height:41px;padding-top:5px;font-size:12px;}
+

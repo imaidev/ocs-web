@@ -1,0 +1,215 @@
+<script id="tcatblock" type="text/html">
+	<div class="catBlock">
+		<div class="mb15 mt25 overH pr">
+			<label class="linkTit">分类</label>
+			<div class="linkMain w90p">
+				<div class="linkInfo w100p">
+					<div class="pr">
+						<input rel="catname" class="modularTit fm1" type="text" placeholder="请输入文本" onchange="obInputLength(this);" onkeyup="obInputLength(this);" value="<%=txt%>" />
+						<div class="titNumber">0/9</div>
+					</div>
+				</div>
+			</div>
+			<div class="sortMain top0">
+				<span class="closeBtn"></span>
+				<span class="downBtn"></span>
+				<span class="upBtn"></span>
+			</div>
+		</div>
+
+		<div class="mb15 mt25 overH">
+			<label class="linkTit">链接</label>
+			<div class="linkMain w90p">
+				<div class="linkInfo w100p">
+					<input rel="caturl" class="fm1" type="text" placeholder="请输入网址" value="<%=url%>" />
+					<div class="linkAddress">
+						<span rel="getlink"> <a></a> </span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<h3 class="edit-tit">热门类目模块</h3>
+<div class="toolTips">
+	<p class="tipsTit">
+		模块使用小贴士 <a class="closeTip">X</a>
+	</p>
+	<p class="tipsMain">展示店铺内运营类目，点击类目可以快速进入相关类目商品列表页</p>
+</div>
+<div class="catBox">
+</div>
+<div class="mb15 mt25 overH" style="margin-top: 100px;">
+	<div class="linkMain w90p">
+		<div class="linkInfo w100p">
+			<div class="addImgBtn">添加0/6</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	var HOTCAT_MINCOUNT = 2; //热门类目模块最小类目数
+	var HOTCAT_MAXCOUNT = 6; //热门类目模块最大类目数
+
+	$(function() {
+		//下移按钮
+		$(".catBox").delegate("span.downBtn", "click", function(e) {
+			e.preventDefault();
+
+			var $elem = $(this).parents(".catBlock");
+			$elem.next().after($elem);
+		})
+
+		//上移按钮
+		$(".catBox").delegate("span.upBtn", "click", function(e) {
+			e.preventDefault();
+
+			var $elem = $(this).parents(".catBlock");
+			$elem.after($elem.prev());
+		})
+
+		//删除按钮
+		$(".catBox").delegate("span.closeBtn", "click", function(e) {
+			if ($(".catBox").children().length > HOTCAT_MINCOUNT) {
+				$(this).parents(".catBlock").remove();
+				calImgblockCount();
+			} else {
+				layer.msg("该模块可编辑数最少为" + HOTCAT_MINCOUNT + "个！", {
+					offset: 80,
+					shift: 5,
+					time: 2500
+				});
+			}
+		})
+
+		//链接选择
+		$(".catBox").delegate("span[rel='getlink']", "click", function(e) {
+			showLinkWin("afterLinkSelected");
+			afterLinkSelected.$selectedInput = $(this).parent().siblings();
+		})
+
+		//关闭小贴士
+		$(".closeTip").click(function() {
+			$(".toolTips").css('display', 'none');
+		})
+
+		//添加模块
+		$(".addImgBtn").click(function() {
+			if ($(".catBox").children().length < HOTCAT_MAXCOUNT) {
+				tpl = {
+					templateid: 'tcatblock',
+					data: {
+						txt: "",
+						url: ""
+					}
+				};
+				var html = bt(tpl.templateid, tpl.data);
+
+				$(".catBox").append(html);
+				calImgblockCount();
+			} else {
+				layer.msg("该模块可编辑数最多为" + HOTCAT_MAXCOUNT + "个！", {
+					offset: 80,
+					shift: 5,
+					time: 2500
+				});
+			}
+		})
+
+		//读取组件图片和链接
+		var $hotSon = _$module.find(".hotSon");
+		var hotSonArr = [];
+		$hotSon.each(function(i, item) {
+			tpl = {
+				templateid: 'tcatblock',
+				data: {
+					txt: $(this).find("span:eq(0)").text() || "",
+					url: $(this).attr("href") || ""
+				}
+			};
+			var html = bt(tpl.templateid, tpl.data);
+
+			hotSonArr.push(html)
+		})
+		if (hotSonArr.length < HOTCAT_MINCOUNT) {
+			for (var i = imgblockArr.length; i < HOTCAT_MINCOUNT; i++) {
+				tpl = {
+					templateid: 'tcatblock',
+					data: {
+						txt: "",
+						url: ""
+					}
+				};
+				var html = bt(tpl.templateid, tpl.data);
+
+				hotSonArr.push(html)
+			}
+		}
+		$(".catBox").html(hotSonArr.join(""));
+		$(".catBox input[rel=catname]").each(function() {
+			obInputLength(this);
+		});
+		//添加按钮图片数目
+		calImgblockCount();
+	})
+
+	//组件保存方法
+	function cfgset() {
+		//保存图片和链接
+		var arr = [],
+			counts = 0,
+			overLength = false;
+		$(".catBox .catBlock").each(function() {
+			var $this = $(this);
+			var catname = $this.find("input[rel=catname]").val() || "",
+				caturl = $this.find("input[rel=caturl]").val() || "";
+			catname = catname.trim();
+			caturl = caturl.trim();
+
+			if (catname.length > 9) {
+				overLength = true;
+				return false;
+			}
+
+			if (catname && caturl) {
+				arr.push('<a class="hotSon" ', (caturl ? ' href="' + caturl + '"' : ''), '>');
+					arr.push(' <div class="hotMain">');
+						arr.push('<div class="hotL">');
+							arr.push('<span class="hotInfo">', catname, '</span>');
+						arr.push('</div>');
+					arr.push('<span class="hotR">&gt;</span>');
+					arr.push('</div>');
+				arr.push('</a>');
+				counts++;
+			}
+		})
+		if (overLength) {
+			layer.msg("类目文本超长！", {
+				offset: 80,
+				shift: 5,
+				time: 2500
+			});
+			return;
+		}
+		if (counts < HOTCAT_MINCOUNT) {
+			layer.msg("请完善至少" + HOTCAT_MINCOUNT + "个类目！", {
+				offset: 80,
+				shift: 5,
+				time: 2500
+			});
+			return;
+		}
+
+		_$module.find(".doubleMain").html(arr.join(""));
+		hideEdit();
+	}
+
+	function calImgblockCount() {
+		$(".addImgBtn").text("添加" + $(".catBox").children().length + "/" + HOTCAT_MAXCOUNT);
+	}
+
+	function afterLinkSelected(url) {
+		afterLinkSelected.$selectedInput.val(url);
+	}
+</script>

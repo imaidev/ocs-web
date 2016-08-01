@@ -1,0 +1,352 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>一站搜搜索工具</title>
+<link rel="stylesheet" type="text/css" href="/static/design/css/base.css"/>
+<link rel="stylesheet" type="text/css" href="/static/design/css/editor.css"/>
+<link href="/static/design/js/layer/skin/layer.css" rel="stylesheet">
+<script type="text/javascript" src="/static/design/js/jquery-1.11.1.min.js"></script>
+
+<script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>	
+<script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>	
+<script src="/static/design/js/layer/layer.js"></script>
+
+<script>
+	var $curValue;
+	$(function(){
+		setSquence();
+		$('.edit-srh-list').find('div.check-btn').click(function(){ 
+			var event=window.event || arguments.callee.caller.arguments[0];
+			var me = $(this);
+			if( me.hasClass('not-check') ){
+				me.removeClass('not-check').addClass('is-check');	
+				/***is-default***/	
+				if(  me.hasClass('is-default')  ){
+					$("#EditorBox").find('.is-check.is-default').removeClass('is-check').addClass('not-check');
+					me.removeClass('not-check').addClass('is-check');
+					
+				}						
+			}else{	// is-check
+				if(me.parent().hasClass("column4")){
+					me.removeClass('is-check').addClass('not-check');
+					
+					$curValue=$(event.srcElement ? event.srcElement:event.target).siblings('input[name="isDef"]');
+					$curValue.val("0");
+				}
+			}
+		});
+	})
+	function cgIschecked(obj){
+		var event=window.event || arguments.callee.caller.arguments[0];
+	var me = $(obj);
+			if( me.hasClass('not-check') ){
+				me.removeClass('not-check').addClass('is-check');
+				if(me.parent().hasClass("column4")){
+					$curValue=$(event.srcElement ? event.srcElement:event.target).siblings('input[name="isShow"]');
+					$curValue.val("1");
+				}else{
+					$curValue=$(event.srcElement ? event.srcElement:event.target).siblings('input[name="isDef"]');
+					$curValue.val("1");
+				}
+				/***is-default***/	
+				if(  me.hasClass('is-default')  ){
+					$("#EditorBox").find('.is-check.is-default').removeClass('is-check').addClass('not-check');
+					me.removeClass('not-check').addClass('is-check');
+					if(me.parent().hasClass("column4")){
+							$curValue=$(event.srcElement ? event.srcElement:event.target).siblings('input[name="isShow"]');
+							$curValue.val("1");
+						}else{
+							$("input[name='isDef']").each(function () {
+								$(this).val("0");
+							})
+							$curValue=$(event.srcElement ? event.srcElement:event.target).siblings('input[name="isDef"]');
+							$curValue.val("1");
+							
+						}
+				}						
+			}else{	// is-check
+				if(me.parent().hasClass("column4")){
+					me.removeClass('is-check').addClass('not-check');
+					$curValue=$(event.srcElement ? event.srcElement:event.target).siblings('input[name="isShow"]');
+					$curValue.val("0");
+				}
+			}
+	}
+	function setSquence() {
+		var divlist = $('#EditorBox').children();
+		var len = divlist.length;
+		divlist.each(function (i,item) {
+			if (i == 0) {
+				$(this).addClass('first')
+				if(len>1) $(this).removeClass('last');
+			}
+			if (i == len - 1) {
+				$(this).addClass('last');
+				if(len>1) $(this).removeClass('first');
+			}
+			if (i>0 && i < len - 1) {
+				$(this).removeClass('last').removeClass('first');
+			}
+			if (i % 2 == 0) {
+				$(this).addClass('even').removeClass('odd');
+			}
+			else {
+				$(this).addClass('odd').removeClass('even');
+			}
+		})
+	}
+	
+	// 就将此元素插到下一个元素之后，从而实现互换顺序
+	function actDown(Obj) {
+		$(Obj).parent().parent().next().after($(Obj).parent().parent());
+		// 重新设置排序规则
+		setSquence();
+	}
+	
+	// 就将此元素插到上一个元素之后，从而实现互换顺序
+	function actUp(Obj) {
+		$(Obj).parent().parent().after($(Obj).parent().parent().prev());
+		// 重新设置排序规则
+		setSquence();
+	}
+	
+</script>
+<script>
+        $(function(){
+	      //加载数据
+	      //获取下拉列表的数据
+	        var url =  parent.ctx+"/design/dataAPI/base/OneSearchDataApi.do?method=getLatitudeInfo";
+	        	$.ajax({
+	        		url : url,
+	        		type :"POST",
+	        		success:function(data){
+	        			for(var i=0;i<data.length;i++){
+	        				var opts = parent._$module.data("data-val").oneser;
+	        				if(opts != undefined){
+	        					$(opts).each(function(){
+		        					if(data[i].searchLatitud==this.enName){
+		        						addRow(this.enName,this.showName,this.prompt,this.isShow,this.isDef,this.keyWors,this.searchUrl);
+			        				}
+		        		        });
+	        				}else{
+	        					if(i==0){
+	        						addRow(data[i].searchLatitud,data[i].searchName,'','1','1','',data[i].searchUrl);
+	        					}else{
+	        						addRow(data[i].searchLatitud,data[i].searchName,'','1','','',data[i].searchUrl);
+	        					}
+	        				}
+	        			}
+	        		},
+	        		error:function(e){
+	        		},
+	        		dataType : "json"
+	        	});
+	      //默认加载的样式  现提供两个样式可供用户选择
+	       	$('#cssType').val(parent._cfg.cssType);
+	      	if("2"==parent._cfg.cssType){
+	      		$('.item-tabs').addClass("clickstyle");
+	      	}else if("1"==parent._cfg.cssType){
+	      		$('.item-select').addClass("clickstyle");
+	      		//$('#cssType').val("1");
+	      	}else if("3"==parent._cfg.cssType){
+				$('.item-station').addClass("clickstyle");
+			}
+	       	
+	      setValidate();
+	      
+        });
+        function addRow(enName,showName,prompt,isShow,isDef,keyWors,searchUrl){
+        	 var isShowstr="",isDefstr="";
+        	 if("1"==isShow){
+        		 isShowstr+='<div class="column column4"> <input name="isShow" value="1" style="display:none"> <div class="check-btn is-check" onclick="cgIschecked(this)"></div></div>';
+			 }else{
+				 isShowstr+='<div class="column column4"><input name="isShow" value="0" style="display:none"> <div class="check-btn not-check" onclick="cgIschecked(this)"></div></div>';
+			 }
+        	 if("1"==isDef){
+        		isDefstr+='<div class="column column5"> <input name="isDef" value="1" style="display:none"> <div class="check-btn is-check is-default" onclick="cgIschecked(this)"></div></div>';
+        	 }else{
+		 		isDefstr+='<div class="column column5"> <input name="isDef" value="0" style="display:none"> <div class="check-btn not-check is-default" onclick="cgIschecked(this)"></div></div>';
+        	 }
+    			var str = "";
+    			str+='<div class="edit-item mt0">'+
+    				 '<div class="column column2"><input name="enName" value="'+enName+'" style="display:none">'+enName+'</div>'+
+    				 '<div class="column column1"><input type="text" name="showName" placeholder="显示名称" value ="'+showName+'"><span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span></div>'+
+    				 '<div class="column column3"><input type="text" name="prompt" placeholder="默认提示语" value ="'+prompt+'"></div>'+
+    				 isShowstr+ 
+    				 isDefstr+	
+    				'<input name="searchUrl" value="'+searchUrl+'" style="display:none">'+
+    				 '<div class="column column6 column-opt">'+
+    					' <a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'+
+    					 '<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'+
+    					 '<input name="keyWors" type="text" value="'+keyWors+'" style="display:none"/>'+
+    					' <a title="维护" class="maintain" href="javascript:void(0);" onclick="addKeyWords()"></a>'+
+    				' </div>'+
+    			'</div>';
+    			$('#EditorBox').append(str);
+    			setSquence();
+            }
+      //增加数据校验项
+      function setValidate(){
+      	$('#latitudeSetForm').validate({
+	            onkeyup: function(element) {$(element).valid()},
+	            rules:{
+	            	showName:{required:true,maxlength:20},
+	           	},
+	            showErrors: function(errorMap, errorList) {
+	            	
+	            	if(errorList.length>0){
+	            		$.each(errorList,function(index,error){
+		            		var element=$(errorList[index].element);
+		            		var msgContainer=element.parent().parent().find('.J_TMsg');
+		            		if(msgContainer.length>0){
+		            			msgContainer.find('span').text(error.message);
+		            			if(error.message!="")
+		            				msgContainer.removeClass('disappear').addClass('failure');
+		            			else
+		            				msgContainer.removeClass('failure').addClass('disappear');
+			           		}
+		            	})
+	            	}
+	            	else{
+	            		this.currentElements.parent().parent().find('.J_TMsg').each(function(){
+	            			$(this).removeClass('failure').addClass('disappear');
+	            		})
+	            	}
+	            	
+	           	}
+          });
+      }
+      //保存方法
+      function cfgSet(){
+        	if(!$('#latitudeSetForm').valid()){
+        		return;
+        	}
+         	//组件更新
+        	var o={
+        			cssType:$('#cssType').val(),
+        			oneser:[]
+        	}
+         	var isreturn =true;
+        	$('#EditorBox').children().each(function(i){
+        		if($(this).find('input[ name="enName"]').val().trim()!=""){
+        			var isShow = $(this).find('input[ name="isShow"]').val();
+        			var isDef=$(this).find('input[ name="isDef"]').val();
+        			if("1"==isDef && "0"==isShow){
+        				alert($(this).find('input[ name="showName"]').val()+"是默认纬度，不允许将其隐藏！");
+        				isreturn=false;
+        				return;
+        			}
+        			o.oneser[i]={};
+            		o.oneser[i].enName=$(this).find('input[ name="enName"]').val();
+            		o.oneser[i].showName=$(this).find('input[ name="showName"]').val();
+            		o.oneser[i].prompt=$(this).find('input[ name="prompt"]').val();
+            		o.oneser[i].isShow=$(this).find('input[ name="isShow"]').val();
+            		o.oneser[i].isDef=$(this).find('input[ name="isDef"]').val();
+            		o.oneser[i].keyWors=$(this).find('input[ name="keyWors"]').val();
+            		o.oneser[i].searchUrl=$(this).find('input[ name="searchUrl"]').val();
+        		}
+        	})
+        	if(isreturn){
+        		parent._$module.oneSearch('reset',o);
+            	//关闭配置框
+            	parent.cfgClose(); 
+        	}
+        	
+        }
+      function setKeyWordsCallBack(path){
+      	$curkerWordInput.val(path);
+      }
+      var $curkerWordInput;
+      function addKeyWords() {
+    	  var event=window.event || arguments.callee.caller.arguments[0];
+      	$curkerWordInput=$(event.srcElement ? event.srcElement:event.target).siblings('input[name="keyWors"]');
+  		layer.open({
+  	        type : 2,
+  	        content : "/static/design/cfg/cfgkeyWords.html?callBack=setKeyWordsCallBack&keyWords="+$curkerWordInput.val(),
+  	        title : "关键词维护",
+  	        shadeClose: true,
+  	        area : ['820px','500px']
+  	    });
+  	}
+</script>
+</head>
+<body>
+	<form method="post" id="latitudeSetForm" novalidate="novalidate">
+	<input id="cssType" value="" style="display: none">
+	
+	<div class="content fm1" style="padding-top:0;">
+		<div class="main-slide-form form-default" style="margin-top:0;">	
+			<div class="ml20">
+				<div class="edit-item mt10">
+					<span class="f14 fc3">展现形式：</span>
+				</div>
+				<div class="srh-showList">
+					<dl class="srh-layout item-select">
+						 <dt class="itemsLayoutShot">
+							 <a>
+								 <span></span>
+							 </a>
+						 </dt>
+					</dl>
+					<dl class="srh-layout item-tabs">
+						 <dt class="itemsLayoutShot">
+							 <a>
+								 <span></span>
+							 </a>
+						 </dt>
+					 </dl>
+					 <dl class="srh-layout item-station">
+						 <dt class="itemsLayoutShot">
+							 <a>
+								 <span></span>
+							 </a>
+						 </dt>
+					 </dl>
+				</div>
+				<script>
+					$('.srh-showList').find('.srh-layout').click(function() {
+						var $this = $(this);
+						$this.siblings().removeClass('clickstyle');
+						$this.addClass('clickstyle');
+						if($('.item-select').hasClass("clickstyle")){
+							$("#cssType").val("1");
+						}else if($('.item-tabs').hasClass("clickstyle")){
+							$("#cssType").val("2");
+						}else if($('.item-station').hasClass("clickstyle")){
+							$("#cssType").val("3");
+						}
+					})
+				</script>
+			</div>
+			
+			<div>
+				<div class="edit-item mt20 ml20">
+					<span class="f14 fc3">搜索纬度维护：</span>
+				</div>
+				<div class="edit-module edit-module-srh ml20">
+					<div class="edit-item sercherWO">
+						<div class="column column1"><span>纬度英文名称</span></div>
+						<div class="column column2"><span>显示名称</span></div>
+						<div class="column column3"><span>默认提示语</span></div>
+						<div class="column column4"><span>是否显示</span></div>
+						<div class="column column5"><span>是否默认</span></div>
+						<div class="column column6"><span>操作</span></div>
+					</div>
+					
+					<div id="EditorBox" class="pic-list edit-srh-list pb0">
+						
+					</div>
+				</div>
+			</div>
+			
+			<p class="opt-footer ctset-opt-footer">
+				<a href="javascript:void(0);" class="btn-ok" onclick="cfgSet()">保存</a>
+				<a href="javascript:void(0);" class="btn-cancel" onclick='parent.cfgClose();'>取消</a>
+			</p>
+		</div>	
+	</div>
+	</from>
+</body>
+</html>

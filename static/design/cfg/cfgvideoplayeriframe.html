@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="/static/design/css/editor.css" rel="stylesheet">
+		<link href="/static/design/js/layer/skin/layer.css" rel="stylesheet">
+
+		<script src="/static/design/js/jquery.min.js"></script>
+		<script src="/static/design/js/jquery-validation-1.14.0/jquery.validate.js"></script>
+		<script src="/static/design/js/jquery-validation-1.14.0/localization/messages_zh.js"></script>
+		<script src="/static/design/js/layer/layer.js"></script>
+	</head>
+	<style>
+		.form-default .edit-module .edit-item .w320 {
+			width: 320px;
+		}
+		
+		.form-default .edit-module {
+			width: 700px;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		function setSquence() {
+	        var divlist = $('#EditorBox').children();
+	        var len = divlist.length;
+	        divlist.each(function (i,item) {
+	            if (i == 0) {
+	                $(this).addClass('first')
+	                if(len>1) $(this).removeClass('last');
+	            }
+	            if (i == len - 1) {
+	                $(this).addClass('last');
+	                if(len>1) $(this).removeClass('first');
+	            }
+	            if (i>0 && i < len - 1) {
+	                $(this).removeClass('last').removeClass('first');
+	            }
+	            if (i % 2 == 0) {
+	                $(this).addClass('even').removeClass('odd');
+	            }
+	            else {
+	                $(this).addClass('odd').removeClass('even');
+	            }
+	        })
+	        
+	        //setValidate();
+	    }
+		
+		// 就将此元素插到下一个元素之后，从而实现互换顺序
+		function actDown(Obj) {
+			$(Obj).parent().parent().next().after($(Obj).parent().parent());
+			// 重新设置排序规则
+			setSquence();
+		}
+		
+		// 就将此元素插到上一个元素之后，从而实现互换顺序
+		function actUp(Obj) {
+			$(Obj).parent().parent().after($(Obj).parent().parent().prev());
+			// 重新设置排序规则
+			setSquence();
+		}
+	    function addRow(sourceName,sourceSrc,sourceType){
+	    	var type = {
+   	            "webm": {"ie":"off","chrome":"on","firefox":"on","opera":"on","safari":"off"},
+   	            "mp4": {"ie":"on","chrome":"on","firefox":"off","opera":"off","safari":"on"},
+   	            "ogg": {"ie":"off","chrome":"on","firefox":"on","opera":"on","safari":"off"}
+	    	};
+	    	var browser = {
+	    		"ie":{"on":{"icon":"ieOn", "title":"支持IE浏览器"},"off":{"icon":"ieOff", "title":"不支持IE浏览器"}},
+	    		"chrome":{"on":{"icon":"chromeOn", "title":"支持谷歌chrome浏览器"},"off":{"icon":"chromeOff", "title":"不支持谷歌chrome浏览器"}},
+	    		"firefox":{"on":{"icon":"firefoxOn", "title":"支持火狐浏览器"},"off":{"icon":"firefoxOff", "title":"不支持火狐浏览器"}},
+	    		"opera":{"on":{"icon":"operaOn", "title":"支持欧朋浏览器"},"off":{"icon":"operaOff", "title":"不支持欧朋浏览器"}},
+	    		"safari":{"on":{"icon":"safariOn", "title":"支持Safari浏览器"},"off":{"icon":"safariOff", "title":"不支持Safari浏览器"}}
+	    	};
+	    	var str = ' <div class="edit-item ml0">'
+					 +'		<div class="column column1 w320">'
+					 +'			<a class="webvideos '+sourceType+'"></a>'
+					 +'			<div class="videoName" title="'+sourceName+'">'+sourceName+'</div>'
+					 +'			<input type="hidden" name="sourceSrc" value="'+sourceSrc+'"/>'
+					 +'			<input type="hidden" name="sourceName" value="'+sourceName+'"/>'
+					 +'			<input type="hidden" name="sourceType" value="'+sourceType+'"/>'
+					 +'		</div>'
+					 +'		<div class="column column1 w125">'
+					 +'			<div class="fl '+browser.ie[type[sourceType].ie].icon+'" title="'+browser.ie[type[sourceType].ie].title+'"></div>'
+					 +'			<div class="fl '+browser.chrome[type[sourceType].chrome].icon+'" title="'+browser.chrome[type[sourceType].chrome].title+'"></div>'
+					 +'			<div class="fl '+browser.firefox[type[sourceType].firefox].icon+'" title="'+browser.firefox[type[sourceType].firefox].title+'"></div>'
+					 +'			<div class="fl '+browser.opera[type[sourceType].opera].icon+'" title="'+browser.opera[type[sourceType].opera].title+'"></div>'
+					 +'			<div class="fl '+browser.safari[type[sourceType].safari].icon+'" title="'+browser.safari[type[sourceType].safari].title+'"></div>'
+					 +'		</div>'
+					 +'		<div class="column column3 ml20">'
+					 +'			<a title="上移" class="up" href="javascript:void(0);" onclick="actUp(this)"></a>'
+					 +'			<a title="下移" class="down" href="javascript:void(0);" onclick="actDown(this)"></a>'
+					 +'			<a title="删除" class="delete" href="javascript:void(0);"></a>'
+					 +'		</div>'
+					 +'	</div>';
+	
+			$('#EditorBox').append(str);
+			setSquence();
+	    }
+	    
+	    function addLocalVideo() {
+            if ($('#EditorBox').children().length == 3) {
+                alert('最多只能添加三个视频源');
+                return false;
+            }
+            layer.open({
+                type: 2, 
+                area: ['750px','500px'],
+                title: '视频管理',
+                shade: 0.6, 
+                moveType: 1, 
+                shift: -1,
+                content: '/static/design/cfg/cfgvideochooseiframe.html?sourceType=mp4|ogg|ogv|webm&callBack=addLocalVideoCallBack'
+            }); 
+        }
+	    
+	    function addLocalVideoCallBack(obj) {
+	    	if (obj.type == "ogv") obj.type = "ogg";
+			addRow(obj.name,obj.url,obj.type);
+	    }
+	    
+	    function addOnlineVideo() {
+            if ($('#EditorBox').children().length == 3) {
+                alert('最多只能添加三个视频源');
+                return false;
+            }
+            
+            layer.open({
+                type: 1,
+                area: ['400px', '250px'],
+                title: '添加网络地址',
+                shade: 0.6, 
+                moveType: 1,
+                shift: -1,
+                content: '<div style="padding:40px 40px 0 40px;"><p style="margin-bottom:10px;">请输入网址并选择对应的视频格式：</p>'
+                		 +'<form><input type="text" name="onlineUrl" style="width:260px">'
+                		 +'<select style="height: 22px;margin-left: 3px;"><option value="mp4">mp4</option><option value="ogg">ogg</option><option value="webm">webm</option></select>'
+                		 +'<span class="V_Msg msg hidden" style="margin-top:10px;"><i class="msg-icon"></i><span class="text"></span></span></form>'
+                		 +'</div>',
+                btn: ['添加', '取消'],
+                success: function(layero, index) {
+                	$(layero).find("form").validate({
+                		onkeyup: function(element) {$(element).valid()},
+        	            rules:{
+        	            	onlineUrl:{url:true,maxlength:1000}
+        	           	},  
+        				showErrors: function(errorMap, errorList) {
+        	            	if(errorList.length>0){
+        	            		$.each(errorList,function(index,error){
+        		            		var element=$(errorList[index].element);
+        		            		var msgContainer=element.parent().find('.V_Msg');
+        		            		if(msgContainer.length>0){
+        		            			msgContainer.find('span').text(error.message);
+        		            			if(error.message!="")
+        		            				msgContainer.removeClass('hidden').addClass('failure');
+        		            			else
+        		            				msgContainer.removeClass('failure').addClass('hidden');
+        			           		}
+        		            	})
+        	            	}
+        	            	else{
+        	            		this.currentElements.parent().find('.V_Msg').each(function(){
+        	            			$(this).removeClass('failure').addClass('hidden');
+        	            		})
+        	            	}
+        	            	
+        	           	}
+                    });
+                	$(layero).find("input").focus();
+                },
+                yes: function(index, layero){
+                	if(!$(layero).find("form").valid()){
+                		return;
+                	}
+                	var url = $(layero).find("input").val();
+                	var type = $(layero).find("select").val();
+		            addRow(url,url,type);
+                    layer.close(index); //如果设定了yes回调，需进行手工关闭
+                }
+            });              
+        }
+	    
+	    function selectPosterPic() {
+	    	opt ={"dir":"shop", "maxuploadsize":"2M", "callBack":"selectPosterPicCallBack"};
+	    	layer.open({
+	            type : 2,
+	            content :  parent.ctx+"/res/tu/ResSelect.htm?dir="+opt.dir+"&maxuploadsize="+opt.maxuploadsize+"&callback="+opt.callBack,
+	            title : "图片选取",
+	            shadeClose: true,
+	            area : ['750px','500px']
+	        });
+	    }
+	    
+	    function selectPosterPicCallBack(path) {
+	    	$("#choosePic").find("img").attr("src", path);
+	    	$("#choosePic").find("input").val(path);
+	    	$("#choosePic").find("input").valid();
+	    }
+	    
+	    function setValidate(){
+        	$('#displaySetForm').validate({
+        		onkeyup: function(element) {$(element).valid()},
+	            rules:{
+	            	videoSize:{required:true,digits:true,max:1210,min:150},
+	            	moduleTitle:{maxlength:8},
+	            	posterPic:{required:function(){
+	            		if ($('input[name=video-poster]:checked').attr("id") == "video-poster2") {
+            				return true;
+	            		} else {
+	            			return false;
+	            		}
+	            	}}
+	           	},
+	           	messages:{
+	           		videoSize:{required:"必须输入视频尺寸"},
+	            	posterPic:{required:"请选择图片"}
+	           	},
+				showErrors: function(errorMap, errorList) {
+	            	if(errorList.length>0){
+	            		$.each(errorList,function(index,error){
+		            		var element=$(errorList[index].element);
+		            		var msgContainer=element.parent().find('.V_Msg');
+		            		if(msgContainer.length>0){
+		            			msgContainer.find('span').text(error.message);
+		            			if(error.message!="")
+		            				msgContainer.removeClass('hidden').addClass('failure');
+		            			else
+		            				msgContainer.removeClass('failure').addClass('hidden');
+			           		}
+		            	})
+	            	}
+	            	else{
+	            		this.currentElements.parent().find('.V_Msg').each(function(){
+	            			$(this).removeClass('failure').addClass('hidden');
+	            		})
+	            	}
+	            	
+	           	}
+            });
+        }
+	    
+	    $(function() {
+			$('#titleOne').click(function() {
+				$(this).addClass('selected');
+				$(this).siblings().removeClass('selected');
+				$("#tabOne").show();
+				$("#tabTwo").hide();
+			})
+			$('#titleTwo').click(function() {
+				$(this).addClass('selected');
+				$(this).siblings().removeClass('selected');
+				$("#tabTwo").show();
+				$("#tabOne").hide();
+			})
+			$("#tabOne").delegate("a.delete", "click", function(e) {
+            	if ($(this).closest('div.edit-item').siblings().length == 0) {
+            		alert('至少保留一个视频源');
+            		return false;
+            	}
+                $(this).closest('div.edit-item').remove();
+                setSquence();
+            });
+			$('#video-controls1').click(function() {
+				$('input[name=video-autoplay]').removeAttr('disabled');
+			})
+			$('#video-controls2').click(function() {
+				$('#video-autoplay1')[0].click();
+				$('input[name=video-autoplay]').attr('disabled', 'disabled');
+			})
+			$('#video-autoplay1').click(function() {
+				$('input[name=video-preload]').attr('disabled', 'disabled');
+			})
+			$('#video-autoplay2').click(function() {
+				$('input[name=video-preload]').removeAttr('disabled');
+			})
+			$('#video-poster1').click(function() {
+				$("#choosePic").hide();
+			})
+			$('#video-poster2').click(function() {
+				$("#choosePic").show();
+				if($("#choosePic").find("input").val() == "") {
+					var defaultPic = "/static/design/img/default.png";
+					$("#choosePic").find("img").attr("src", defaultPic);
+				}
+			})
+			
+			
+			if (parent._cfg.preload == "auto") {
+				$('#video-preload1')[0].click();
+			} else {
+				$('#video-preload2')[0].click();
+			}
+			
+			if (parent._cfg.autoplay) {
+				$('#video-autoplay1')[0].click();
+			} else {
+				$('#video-autoplay2')[0].click();
+			}
+			
+			if (parent._cfg.controls) {
+				$('#video-controls1')[0].click();
+			} else {
+				$('#video-controls2')[0].click();
+			}
+			
+			if (parent._cfg.loop) {
+				$('#video-loop1')[0].click();
+			} else {
+				$('#video-loop2')[0].click();
+			}
+			
+			if (parent._cfg.muted) {
+				$('#video-muted1')[0].click();
+			} else {
+				$('#video-muted2')[0].click();
+			}
+			
+			$('#module-title').val(parent._cfg.moduleTitle);
+			$('#video-width').val(parent._cfg.width);
+			$('#video-height').val(parent._cfg.height);
+			
+			if (parent._cfg.poster == "") {
+				$('#video-poster1')[0].click();
+			} else {
+				$("#choosePic").find("img").attr("src", parent._cfg.poster);
+		    	$("#choosePic").find("input").val(parent._cfg.poster);
+				$('#video-poster2')[0].click();
+			}
+
+			$(parent._cfg.source).each(function(){
+            	addRow(this.name, this.src, this.type);
+            });
+			
+			setValidate();
+		})
+		
+		function checkSource(url) {
+	    	var flag = false;
+	    	$('#EditorBox').children().each(function(i){
+        		if ($(this).find('input[name="sourceSrc"]').val() == url) flag = true;
+        	});
+        	return flag;
+	    }
+		
+		function cfgSet(){
+        	if(!$('#displaySetForm').valid()){
+        		return;
+        	}
+         	//组件更新
+        	var o={
+        			moduleTitle:$('#module-title').val(),
+        			width:$('#video-width').val(),
+        			height:$('#video-height').val(),
+        			controls:$('input[name=video-controls]:checked').attr("id")=="video-controls1"?true:false,
+      				autoplay:$('input[name=video-autoplay]:checked').attr("id")=="video-autoplay1"?true:false,
+      				preload:$('input[name=video-preload]:checked').attr("id")=="video-preload1"?"auto":"none",
+      				loop:$('input[name=video-loop]:checked').attr("id")=="video-loop1"?true:false,
+      				muted:$('input[name=video-muted]:checked').attr("id")=="video-muted1"?true:false,
+      				poster:$('input[name=video-poster]:checked').attr("id")=="video-poster1"?"":$("#choosePic").find("input").val(),
+        			source:[]
+        	}
+        	$('#EditorBox').children().each(function(i){
+        		o.source[i]={};
+        		o.source[i].name=$(this).find('input[name="sourceName"]').val();
+        		o.source[i].src=$(this).find('input[name="sourceSrc"]').val();
+        		o.source[i].type=$(this).find('input[name="sourceType"]').val();
+        	})
+        	parent._$module.videoplayer('reset',o);
+        	
+        	//关闭配置框
+        	parent.cfgClose(); 
+        }
+	</script>
+
+	<body>
+		<div class="content fm1">
+			<div class="tab">
+				<ul class="nav clear-fix">
+					<li class="ks-switchable-trigger-internal6 selected" id="titleOne"><span>常规</span></li>
+					<li class="ks-switchable-trigger-internal6" id="titleTwo"><span>高级</span></li>
+				</ul>
+				<form class="main-slide-form form-default" id="displaySetForm">
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabOne" style="display: block;">
+							<div class="edit-module">
+								<div class="edit-item">
+									<span>模块标题：</span>
+									<input id="module-title" name="moduleTitle" type="text" value="在线视频" />
+									<span class="V_Msg msg hidden" style="margin-top:0;"><i class="msg-icon"></i><span class="text"></span></span>
+								</div>
+							</div>
+							<div class="edit-module">
+								<div class="edit-item">
+									<span class="fl">视频列表：</span>
+								</div>
+							</div>
+							<div class="edit-module" style="margin-top: -13px;">
+								<div class="edit-item">
+									<div class="video-tips">
+										<p>只支持mp4、ogg、webm格式的视频文件，本地上传时单个文件不能超过10M。</p>
+										<p>由于不同浏览器支持的视频格式不同，为保证不同浏览器下的良好观感，建议同一视频上传多种格式。</p>
+										<p>当视频来源有多个时，按照从上到下的顺序依次尝试加载，直到加载到浏览器支持的视频。</p>
+									</div>
+									<div class="fr">
+										<a class="add-one btn-style-1" onclick="addLocalVideo()">本地文件</a>
+										<a class="add-one btn-style-1" onclick="addOnlineVideo()">网络地址</a>
+									</div>
+								</div>
+							</div>
+							<div class="edit-module">
+								<div class="edit-item">
+									<div id="Group">
+										<div class="edit-item tabTit ml0 w670">											
+											<div class="column column1 w320"><span>视频</span></div>
+											<div class="column column1 w125"><span>浏览器支持</span></div>
+											<div class="column column3 ml70"><span>操作</span></div>
+										</div>
+										<div id="EditorBox" class="pic-list pb0">
+
+										</div>
+									</div>
+								</div>
+							</div>				
+						</div>
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabTwo" style="display: none;">
+							<div class="edit-module">								
+								<div class="edit-item" id="video-controls">
+									<span class="fl">显示控制按钮：</span>
+									<input type="radio" id="video-controls1" name="video-controls" class="abstract"/>
+									<label for="video-controls1">是&nbsp;&nbsp;</label>
+									<input type="radio" id="video-controls2" name="video-controls" class="abstract"/>
+									<label for="video-controls2">否</label>
+									<span class="tip">&nbsp;&nbsp;若选择不显示控制按钮，则“自动播放”必须选择“是”，否则视频将无法播放。</span>
+								</div>								
+							</div>
+							<div class="edit-module">								
+								<div class="edit-item" id="video-preload">
+									<span class="fl">视频加载方式：</span>
+									<input type="radio" id="video-preload1" name="video-preload" class="abstract"/>
+									<label for="video-preload1">进入页面后加载&nbsp;&nbsp;</label>
+									<input type="radio" id="video-preload2" name="video-preload" class="abstract"/>
+									<label for="video-preload2">点击播放按钮后加载</label>
+									<span class="tip">&nbsp;&nbsp;若“自动播放”选择“是”，则该选项将不会起作用。</span>
+								</div>								
+							</div>
+							<div class="edit-module">								
+								<div class="edit-item" id="video-autoplay">
+									<span class="fl">自动播放：</span>
+									<input type="radio" id="video-autoplay1" name="video-autoplay" class="abstract"/>
+									<label for="video-autoplay1">是&nbsp;&nbsp;</label>
+									<input type="radio" id="video-autoplay2" name="video-autoplay" class="abstract"/>
+									<label for="video-autoplay2">否</label>
+								</div>								
+							</div>
+							<div class="edit-module">								
+								<div class="edit-item" id="video-loop">
+									<span class="fl">循环播放：</span>
+									<input type="radio" id="video-loop1" name="video-loop" class="abstract"/>
+									<label for="video-loop1">是&nbsp;&nbsp;</label>
+									<input type="radio" id="video-loop2" name="video-loop" class="abstract"/>
+									<label for="video-loop2">否</label>
+								</div>								
+							</div>
+							<div class="edit-module">								
+								<div class="edit-item" id="video-muted">
+									<span class="fl">初始静音：</span>
+									<input type="radio" id="video-muted1" name="video-muted" class="abstract"/>
+									<label for="video-muted1">是&nbsp;&nbsp;</label>
+									<input type="radio" id="video-muted2" name="video-muted" class="abstract"/>
+									<label for="video-muted2">否</label>
+									<span class="tip">&nbsp;&nbsp;若选择“是”，则页面加载后视频会被自动设置为静音。</span>
+								</div>								
+							</div>
+							<div class="edit-module">
+								<div class="edit-item">
+									<span class="fl">视频尺寸：</span>	
+									<span>宽：</span><input id="video-width" name="videoSize" type="text" class="w40 mr10"/><span>像素&nbsp;&nbsp;&nbsp;</span>
+									<span>高：</span><input id="video-height" name="videoSize" type="text" class="w40 mr10"/><span>像素</span>
+									<span class="V_Msg msg hidden" style="margin-top:0;"><i class="msg-icon"></i><span class="text"></span></span>
+								</div>
+							</div>
+							<div class="edit-module" style="max-height: 170px;">
+								<div class="edit-item">
+									<span class="fl">片头图片：</span>
+									<input type="radio" id="video-poster1" name="video-poster" class="abstract"/>
+									<label for="video-poster1">无&nbsp;&nbsp;</label>
+									<input type="radio" id="video-poster2" name="video-poster" class="abstract"/>
+									<label for="video-poster2">自定义</label>
+									<div id="choosePic" style="display: inline-block;">
+										<a class="add-one btn-style-1 ml25" onclick="selectPosterPic()">选择图片</a>
+										<input type="text" name="posterPic" value="" style="visibility: hidden;width:0;height:0;"/> 
+										<span class="V_Msg msg hidden" style="position: absolute; top: 35px; left: 185px;"><i class="msg-icon"></i><span class="text"></span></span>
+								<div class="edit-item preview" style="display: inline-block;vertical-align: top; border: 1px solid #000000; margin-left: 20px;">
+											<img src="">
+										</div>
+									</div>							
+								</div>
+							</div>
+						</div>
+
+						<p class="opt-footer ctset-opt-footer">
+							<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+							<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+						</p>
+				</form>
+				</div>
+			</div>
+	</body>
+
+</html>

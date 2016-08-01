@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+		<head>
+		    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		    <link  href="/static/design/js/jquery.imgareaselect/css/imgareaselect-animated.css" type="text/css" rel="stylesheet" />
+		    <script src="/static/resource/js/jquery-1.11.1.min.js"></script>
+		    <script type="text/javascript" src="/static/design/js/jquery.imgareaselect/jquery.imgareaselect.js"></script>
+		    <style type="text/css">
+		    		a{text-decoration:none;font-size:12px;}
+						a:hover{text-decoration:underline;}
+						.btn-ok{border:0 none;background-color:#1a98e1;color:#fff;cursor:pointer;display:inline-block;line-height:12px;vertical-align:middle;padding:6px 9px;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;}
+						.btn-ok:hover, .btn-ok-hover{color:#fff;background-color:#1888c9;}
+						.btn-cancel{border:0 none;background:none repeat scroll 0 0 transparent;color:#000;cursor:pointer;display:inline-block;line-height:12px;vertical-align:middle;padding:6px 9px;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;}
+				</style>
+		</head>
+		
+		<body>
+				<div style="float:right;margin-bottom:3px;margin-right:8px;">
+						<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="confirmArea()">确定</a>
+        		<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="cancelArea();">取消</a>
+				</div>
+				<form>
+        		<input type="hidden" id="hotX1" name="hotX1" value=""/>
+        		<input type="hidden" id="hotY1" name="hotY1" value=""/>
+        		<input type="hidden" id="hotX2" name="hotX2" value=""/>
+        		<input type="hidden" id="hotY2" name="hotY2" value=""/>
+            <div id="imageAreaDiv"><img id="imageAreaSelect" src="/static/design/img/hotspotsdefault.jpg"/></div>
+        </form>
+        <div style="float:right;margin-bottom:3px;margin-right:8px;">
+						<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="confirmArea()">确定</a>
+        		<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="cancelArea();">取消</a>
+				</div>
+		</body>
+</html>
+<script type="text/javascript">		
+
+		// 新增图片热区
+		function addHotArea() {
+
+				var x1 = $(subWeb).find("#hotX1").val();
+				var y1 = $(subWeb).find("#hotY1").val();
+				var x2 = $(subWeb).find("#hotX2").val();
+				var y2 = $(subWeb).find("#hotY2").val();
+
+				//$("#imageAreaDiv").scrollLeft(x1);
+				//$("#imageAreaDiv").scrollTop(y1);
+				
+				// 增加热区
+				$("#imageAreaSelect").imgAreaSelect({ x1: x1, y1: y1, x2: x2, y2: y2, onSelectChange: preview });
+		}
+		
+		// 编辑图片热区
+		function editHotArea() {
+				var hotArea = $('#'+$('#editHotId').val()).find("td").eq(1).text();
+				var hotAreaArray = hotArea.split(",");
+
+				$("#imageAreaDiv").scrollLeft(hotAreaArray[0]-(hotAreaArray[2]-hotAreaArray[0]));
+				$("#imageAreaDiv").scrollTop(hotAreaArray[1]-(hotAreaArray[3]-hotAreaArray[1]));
+				
+				// 增加热区
+				$("#imageAreaSelect").imgAreaSelect({ x1: hotAreaArray[0], y1: hotAreaArray[1], x2: hotAreaArray[2], y2: hotAreaArray[3], onSelectChange: preview });
+				$('#'+$('#editHotId').val()).find('input[name="hothref"]').focus();
+		}
+		
+		// 显示热区坐标
+		function preview(img, selection) {
+		    if (!selection.width || !selection.height)
+		        return;
+		    
+		    var scaleX = 100 / selection.width;
+		    var scaleY = 100 / selection.height;
+		
+		    $('#preview img').css({
+		        width: Math.round(scaleX * 300),
+		        height: Math.round(scaleY * 300),
+		        marginLeft: -Math.round(scaleX * selection.x1),
+		        marginTop: -Math.round(scaleY * selection.y1)
+		    });
+		
+		    $('#hotX1').val(selection.x1);
+		    $('#hotY1').val(selection.y1);
+		    $('#hotX2').val(selection.x1+selection.width);
+		    $('#hotY2').val(selection.y1+selection.height); 
+		}
+		
+		var ifm;
+		var subWeb;
+		$(document).ready(function(){
+				ifm = window.parent.document.getElementById("moduleIframe"); 
+				subWeb = window.parent.document.frames ? window.parent.document.frames["moduleIframe"].document : ifm.contentDocument;
+				$("#imageAreaSelect").attr("src", $(subWeb).find("img").attr("src")).width(parent._$module.find("img").width());
+				// 新增热区
+				addHotArea();
+		});
+		
+		// 确定设置
+    function confirmArea() {
+    		// 设置热区
+				parent.window.frames["moduleIframe"].setHotArea($('#hotX1').val(),$('#hotY1').val(),$('#hotX2').val(),$('#hotY2').val());
+
+        cancelArea();
+    }
+    
+    // 取消
+    function cancelArea() {
+    		var index = parent.layer.getFrameIndex(window.name);
+				parent.layer.close(index);
+    }
+</script>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/static/design/css/editor.css" rel="stylesheet" />
+    <script src="/static/design/js/jquery.min.js"></script>
+    <script src="/static/resource/js/kindeditor4/kindeditor.js"></script>
+    <link href="/static/design/js/layer/skin/layer.css" rel="stylesheet" />
+    <script src="/static/resource/js/layer/layer.min.js" ></script>
+    <script>
+    var editor1,editor2;   
+	$(document).ready(function(){	
+		//加载富文本框
+		KindEditor.ready(function(K) {
+				editor2 = K.create('textarea[name="textContent2"]', {
+				kid:"textContent2", 
+				minWidth:480,
+				width:700,
+				items:["source", "|", "undo", "redo", "|", "cut", "copy", "paste",
+						"plainpaste", "wordpaste", "|", "justifyleft", "justifycenter", "justifyright",
+				 		"justifyfull", "insertorderedlist", "insertunorderedlist", "indent", "outdent",
+				 		"quickformat", "selectall", "fullscreen",
+				 		"formatblock", "fontname", "fontsize",  "forecolor", "hilitecolor", "bold",
+				 		"italic", "underline", "lineheight", "removeformat", "|", "image",
+				 		"table", "hr","link" ],
+				height:352,
+				resizeType:0,
+			    rcUrl:parent.ctx+"/resUpload.res?method=init&dir=portal&type=image&callback=uploadCallBack&maxuploadsize=2M"
+				}); 
+				
+				editor1 = K.create('textarea[name="textContent1"]', {
+					kid:"textContent1", 
+					minWidth:480,
+					width:480,
+					items:["source", "|", "undo", "redo", "|", "cut", "copy", "paste",
+							"plainpaste", "wordpaste", "|", "justifyleft", "justifycenter", "justifyright",
+					 		"justifyfull", "insertorderedlist", "insertunorderedlist", "indent", "outdent",
+					 		"quickformat", "selectall", "fullscreen",
+					 		"formatblock", "fontname", "fontsize",  "forecolor", "hilitecolor", "bold",
+					 		"italic", "underline", "lineheight", "removeformat", "|", "image",
+					 		"table", "hr","link" ],
+					height:352,
+					resizeType:0,
+				    rcUrl:parent.ctx+"/resUpload.res?method=init&dir=portal&type=image&callback=uploadCallBack&maxuploadsize=2M"
+					}); 
+			});
+		//加载配置
+       $('#textImageTitle').val(parent._cfg.title);
+       var sty = parent._cfg.style;
+       $('li').each(function(){
+    		if($(this).index()==sty){
+    			$(this).addClass("clickstyle");
+    		}
+    	});
+       if(sty==0||sty=="0"){
+    	  $("#hasImage").hide();
+		  $("#textOnly").show();
+       	}else {
+       	  $("#hasImage").show();
+		  $("#textOnly").hide();
+	   }
+       $('#picture').val(parent._cfg.picture);
+       $('#showImage').attr("src",parent._cfg.picture);
+       $('#imageHeight').val(parent._cfg.imageHeight);
+       $('#imageWidth').val(parent._cfg.imageWidth);
+       $('#imageDesc').val(parent._cfg.imageDesc);
+       $('#urlAddress').val(parent._cfg.urlAddress);
+       $('#openWay').val(parent._cfg.openWay);
+       $('#openWay2').val(parent._cfg.openWay2);
+       $('#isMore').val(parent._cfg.isMore);
+       $("#channelSelect").val(parent._cfg.moreHref);
+       if(parent._cfg.isMore=="1"){
+    	   $('#radio5').click();
+       }else{
+    	   $('#radio6').click();
+       }
+       var sele = $("#openWay");
+       for(var i=0;i<sele;i++){
+    	   if(sele[i].option.value==parent._cfg.openWay){
+    		   sele[i].option.selected=true;
+    		   break;
+    	   }
+       }
+       var moreDis = $("#openWay2");
+       for(var i=0;i<moreDis;i++){
+    	   if(moreDis[i].option.value==parent._cfg.openWay2){
+    		   moreDis[i].option.selected=true;
+    		   break;
+    	   }
+       }
+      var decodeContent=decodeURI(decodeURI(parent._cfg.textContent));
+      $("#textContent1").val(decodeContent);	
+      $("#textContent2").val(decodeContent);	
+      getChannelDatas();
+	});
+	
+	
+	function callBackPic(path){
+    	$("#picture").val(path);
+    	$('#showImage').attr("src",path);
+    }
+	//上传图片
+    function selectPic(){
+    	$.layer({
+	        type : 2,
+	        iframe : {
+	            src :  parent.ctx+"/res/tu/ResSelect.htm?dir=design&maxuploadsize=2M&callback=callBackPic"
+	        },
+	        title : "图片选取",
+	        shadeClose: true,
+	        offset:['50px' , ''],
+	        area : ['750px','500px']
+	    });
+    }
+
+	
+	 //保存配置
+	 if(parent._cfg.style!=0&&parent._cfg.style!="0"){
+		 hasImagestyle = (parent._cfg.style).toString();
+	 }else{
+		 hasImagestyle = "0";
+	 }
+	 function cfgSet(){
+		//选中的是第几个样式
+      	//组件更新
+         var moreUrl="#";
+		 var moreHrefSle = document.getElementById("moreHref");  
+		 var channel = $("#channelSelect").val();
+		 for(var i=0;i<moreHrefSle.options.length;i++){
+	    	   if(moreHrefSle.options[i].value==channel){
+	    		   moreUrl=moreHrefSle.options[i].getAttribute("path");    
+	    		   break;
+	    	   }
+	     }
+		 var content = editor1.html();
+		 if(hasImagestyle=="0"){
+			 content=editor2.html();
+		 }
+      	if(check()){
+      		var o={
+         			title:$('#textImageTitle').val(),
+         			style:hasImagestyle,
+         			picture:$('#picture').val(),
+         			imageHeight:$('#imageHeight').val(),
+         			imageWidth:$('#imageWidth').val(),
+         			imageDesc:$('#imageDesc').val(),
+         			urlAddress:$('#urlAddress').val(),
+         			openWay:$('#openWay').val(),
+         			textContent:encodeURI(encodeURI(content)),
+         			isMore:$('#isMore').val(),
+         			openWay2:$('#openWay2').val(),
+         			moreHref:$("#channelSelect").val(),
+         			moreHrefUrl:moreUrl
+         	}
+         	parent._$textmodule.textimagedisplay('reset',o);
+         	//关闭配置框
+         	parent.cfgClose(); 
+      	}
+     }
+	 
+	 function getChannelDatas(){
+		 $.post(parent.ctx+"/design/portal/PortalChannel.do?method=queryChannel&random="+Math.random(), "",
+		            function(resultList){
+							$("#moreHref").empty();
+							var str ="";
+							str = str + "<option value=''>请选择...</option>";
+		            		var channelResult = resultList.CHANNEL_RESULT;
+		            		var portalIndexPage = resultList.PORTAL_INDEX_PAGE;
+		            		for(var i=0;i<channelResult.length;i++){
+		            			str = str + "<option value='"+channelResult[i].CHANNEL_ID+"' path='"+channelResult[i].CHANNEL_URL+"'>"+channelResult[i].CHANNEL_NAME+"</option>";
+		            			var second = channelResult[i].CHILD_CHANNEL;
+		            			if(second.length!=0){
+		            				for(var j=0;j<second.length;j++){
+		            					str = str + "<option value='"+second[j].CHANNEL_ID+"' path='"+second[j].CHANNEL_URL+"'>&nbsp;|-"+second[j].CHANNEL_NAME+"</option>";
+		            					var third = second[j].THRID_CHANNEL;
+		            					if(third.length!=0){
+		            						for(var k=0;k<third.length;k++){
+		            							str = str + "<option value='"+third[k].CHANNEL_ID+"' path='"+third[k].CHANNEL_URL+"'>&nbsp;&nbsp;|-"+third[k].CHANNEL_NAME+"</option>";
+		            						}
+		            					}
+		            				}
+		            			}
+		            		}
+		            		
+		            		$("#moreHref").append(str);
+		            		
+		            },'json');
+	 }
+	 
+	 function changeChannel(){
+		 var moreHref = document.getElementById("moreHref");  
+		 for(var i=0;i<moreHref.options.length;i++){
+	    	   if(moreHref.options[i].selected==true){
+	    		   $("#channelSelect").val(moreHref.options[i].value);
+	    		   break;
+	    	   }
+	     }
+	 }
+	 
+	 function putValue(){
+		 var moreHref = document.getElementById("moreHref");  
+		 var channel = $("#channelSelect").val();
+	       for(var i=0;i<moreHref.options.length;i++){
+	    	   if(moreHref.options[i].value==channel){
+	    		   moreHref.options[i].selected=true;
+	    		   break;
+	    	   }
+	       }
+	 }
+	 
+	 function check(){
+		 if(hasImagestyle!="0"){
+			 var picture = $("#picture").val();
+			 if(picture==""){
+				 alert("图片文件不能为空");  
+				 return false;
+			 }
+			 var reg = new RegExp("^[0-9]*$");  
+			 var imageHeight = $("#imageHeight").val();
+			 var imageWidth = $("#imageWidth").val();
+			 if(imageHeight==""||!reg.test(imageHeight)){
+				 alert("图片高度格式不正确");  
+				 return false;
+			 }
+			 if(imageWidth==""||!reg.test(imageWidth)){
+				 alert("图片宽度格式不正确");  
+				 return false;
+			 }
+		 } 
+		 return true;
+	 }
+    </script>
+</head>
+<body>
+  <div class="content fm1" style="padding-top:0">
+			<div class="tab">
+				<ul class="nav clear-fix">
+					<li class="ks-switchable-trigger-internal6 selected" id="titleOne"><span>常规</span></li>
+					<li class="ks-switchable-trigger-internal6" id="titleTwo" onclick="putValue()"><span>高级</span></li>
+				</ul>
+				<form class="main-slide-form form-default">
+					<div class="panels">
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabOne" style="display: block;">
+							<div class="edit-module">
+								<div class="edit-item  edit-head">
+									<span>模块标题：</span>
+									<input type="text" id="textImageTitle" value="图文展示" maxlength="50"/>
+								</div>
+								<div class="edit-item  edit-head">
+									<span class="Modulestyle">模块样式：</span>
+									<div class="MoudulesyuleMain">
+										<ul id="choice-panel" class="choice-panel">
+											<li  class="link-type2">
+												<div class="img-container tc">
+													<a class="imag"><img src="/static/design/img/richpic05.jpg">
+													</a>
+												</div>
+											</li>
+											<li>
+												<div class="img-container">
+													<a class="imag"><img src="/static/design/img/richpic08.jpg">
+													</a>
+												</div>
+											</li>
+											<li>
+												<div class="img-container">
+													<a class="imag"><img src="/static/design/img/richpic09.jpg">
+													</a>
+												</div>
+											</li>
+											<li>
+												<div class="img-container">
+													<a class="imag"><img src="/static/design/img/richpic17.jpg">
+													</a>
+												</div>
+											</li>
+											<li>
+												<div class="img-container">
+													<a class="imag"><img src="/static/design/img/richpic10.jpg">
+													</a>
+												</div>
+											</li>
+											<li>
+												<div class="img-container">
+													<a class="imag"><img src="/static/design/img/richpic11.jpg">
+													</a>
+												</div>
+											</li>
+											<li>
+												<div class="img-container">
+													<a class="imag"><img src="/static/design/img/richpic12.jpg">
+													</a>
+												</div>
+											</li>
+										</ul>
+
+									</div>
+									<script type="text/javascript">
+										$('#choice-panel').find('li').hover(
+												function() {
+													$(this).addClass('hoverstyle')
+												},
+												function() {
+													$(this).removeClass('hoverstyle')
+												}
+											)
+											//滑过增加滑过样式end
+										$('#choice-panel').find('li').click(function() {
+												var $target = $(this);
+												$target.siblings().removeClass('clickstyle');
+												$target.addClass('clickstyle');
+												var newStyle=$target.index().toString();
+												var oldStyle=hasImagestyle;
+												if ($target.hasClass('link-type2')) {
+													$("#hasImage").hide();
+													$("#textOnly").show();
+													if(oldStyle!=newStyle){
+														editor2.html(editor1.html());
+													}
+												} else {
+													$("#hasImage").show();
+													$("#textOnly").hide();
+													if(oldStyle=="0"){
+														editor1.html(editor2.html());
+													}
+												}
+												hasImagestyle=$target.index().toString();
+											})
+											//点击事件end
+									</script>
+								</div>
+								<div class="clearfloat"></div>
+								<div class="edit-item mt10">
+									<span class="fl">模块内容:</span>
+								</div>
+								<div id="hasImage" style="display:none">
+									<div class="edit-module Graphics editText">
+										<div id="EditorBox">
+	
+											<div class="edit-item J_TEditItem first even ml0">
+												<div class="column column1 showPic mt25">
+													<span>图片文件：</span>
+													<input class="J_ImgUrl magicPhoto" type="text" name="picture" id="picture"  value="">
+													<a class="sys-images editImg" onclick="selectPic()"></a><span class="J_TMsg msg disappear"><i class="msg-icon"></i><span class="text"></span></span>
+												</div>
+												<div class="column column2 showPic mt15">
+													<span>图片尺寸：</span>
+													<span>高：</span>
+													<input id="imageHeight" type="text" value=""/>
+													<span>宽：</span>
+													<input id="imageWidth" type="text" value="" />
+												</div>（单位为像素（px））
+												<div class="column column4 showPic mt15">
+													<span>链接地址：</span>
+													<input class="J_LinkUrl magicPhoto" type="text" id="urlAddress" name="urlAddress" value="">
+												</div>（以http://开头）
+												<div class="column column5 showPic mt15">
+													<span>打开方式：</span>
+													<select class="moreWid" id="openWay">
+														<option value="_blank">新窗口</option>
+														<option value="_self">当前窗口</option>
+													</select>
+												</div>
+												<div class="column column4 showPic mt15">
+													<span>图片描述：</span>
+													<input class="J_LinkUrl magicPhoto" type="text" name="imageDesc" id="imageDesc" value="">
+												</div>
+												<div class="column column4 w100 ml65 mt15" style="margin-bottom:1px;">
+													<img src="" id="showImage" width="100%" height="100%" />
+												</div>
+											</div>
+										 </div>
+									</div>
+									<div class="wordPlug" style="border:none">
+									<table style="margin: 0px auto;">
+				                    <tbody>
+				                        <tr>
+				                            <td>
+			                            		<div id="editContentDiv">
+														<textarea name="textContent1" id="textContent1" style="width:480px;height:350px"></textarea>
+												</div>
+				                            </td>
+				                        </tr>
+				                    </tbody>
+				                </table>
+								</div>
+							</div>
+							<div id="textOnly">
+								<div class="wordPlug" style="border:none;padding-left:50px;">
+									<table style="margin: 0px auto;">
+				                    <tbody>
+				                        <tr>
+				                            <td>
+			                            		<div id="editContentDiv">
+														<textarea name="textContent2" id="textContent2" style="width:700px;height:350px"></textarea>
+												</div>
+				                            </td>
+				                        </tr>
+				                    </tbody>
+				                </table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel content-set ks-switchable-panel-internal7" id="tabTwo" style="display: none;height:470px;">
+						<div class="edit-module">
+						<input id="isMore" type="hidden" value=""/>
+						<input id="channelSelect" type="hidden" value=""/>
+							<div id="selectCardStyleWarp" class="selectCardStyleWarp edit-item">
+								<div class="photoCartContainer" id="mouseCover2">
+									<div class="Mainset ml65R">
+										<div>
+											<p class="h30"><span class="fr mr10 pr65"><input type="radio" id="radio5" name="moreDis" value="1"><label for="radio5">是</label></span>
+												<span class="fr mr10"><input type="radio" id="radio6" name="moreDis"  value="0"><label for="radio6">否</label></span>
+												<span class="fr">显示“更多”：</span></p>
+											<div id="mousecoverSet4" style="display: none;">
+												<p class="h30">
+													<span class="fl graphic">“更多”链接：</span>
+													<select id="moreHref" val="" class="graphicPresentation"  onchange="changeChannel()">
+														<option value="">请选择...</option>
+													</select>
+													<span class="fl graphic">打开方式：</span>
+													<select id="openWay2" class="graphicPresentation" val="">
+														<option value="_blank">新窗口</option>
+														<option value="_self">当前窗口</option>
+													</select>
+												</p>
+											</div>
+										</div>
+										<script>
+											$('#radio5').click(function() {
+												$("#mousecoverSet4").show();
+												$("#isMore").val("1");
+											})
+											$('#radio6').click(function() {
+												$("#mousecoverSet4").hide();
+												$("#isMore").val("0");
+											})
+										</script>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<p class="opt-footer ctset-opt-footer">
+						<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+						<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+					</p>
+				</form>
+				<script type="text/javascript">
+					$(function() {
+						$('#titleOne').click(function() {
+							$(this).addClass('selected');
+							$(this).siblings().removeClass('selected');
+							$("#tabOne").show();
+							$("#tabTwo").hide();
+						})
+						$('#titleTwo').click(function() {
+							$(this).addClass('selected');
+							$(this).siblings().removeClass('selected');
+							$("#tabTwo").show();
+							$("#tabOne").hide();
+						})
+					})
+				</script>
+			</div>
+		</div>
+
+</body>
+</html>

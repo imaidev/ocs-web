@@ -1,0 +1,35 @@
+<div class="modal-dialog" role="document" style="width:654px;">
+		<div class="modal-content">
+				<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="H2">门户导航</h4>
+				</div>
+				<iframe id="listsIframe" name="listsIframe" scrolling="no" frameborder="0"
+						width="652px;" height="480px;" ></iframe>
+		</div>
+</div>
+
+<script>
+		var $portalchannel;
+		// 门户栏目配置信息
+		function cfgRead($selEl) {
+				$portalchannel = $selEl;
+				$("#listsIframe").attr("src", ctx + "/design/portal/PortalChannel.htm?random="+Math.random());
+		}
+		
+		// 门户栏目显示
+		function cfgSet(operType) {
+		    // 保存
+		    if (operType == "save") {
+		    		// 重新渲染导航组件
+		    		$portalchannel.portalchannel("reset");
+		    		
+		    		// 保存页面元素
+		    		//saveModel();
+		    }
+		    $('#CfgModal').modal('hide');
+		}
+</script>

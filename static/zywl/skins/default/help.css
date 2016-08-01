@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+#help{ margin:0 auto; padding:10px 0; overflow:hidden;}
+.helpCon{ padding:15px; overflow:hidden; line-height:2;}
+.helpCon img{ margin-left:10px; max-width:90%;}
+.helpCon table{ border:1px solid #E4E4E4;table-layout:fixed;}
+.helpCon table td{border:1px solid #E4E4E4;table-layout:fixed;}
+.help-tit{ padding:5px 0;}
+.help-tit2{ padding:5px 15px 0 25px;}
+.help-box{ padding:5px 15px 20px 25px;border-bottom:1px dotted #dddddd;}
+.help-box2{ padding:5px 15px 20px 50px;border-bottom:1px dotted #dddddd;}
+.left-menu{ border:1px solid #dddddd; border-bottom:0; overflow:hidden;}
+.left-menu .menuCell{ border-bottom:1px solid #dddddd; overflow:hidden;}
+.left-menu .menuCell ul{ padding:8px 0; border-top:1px solid #dddddd;}
+.left-menu .menuCell li{ padding-left:30px; line-height:25px;}
+.left-menu .menuCell li a{ color:#666;}
+.titleH3{ height:40px; margin-top:10px; line-height:40px; vertical-align:middle; padding-left:15px; border:1px solid #E4E4E4; background-color:#FFFFFF !important; color:#333; border-bottom:2px solid #FF5F3D; }
+.titleH3 dt{width:30%; float:left; }
+.titleH3 dd{width:60%; float:right; text-align:right;}
+.newsList .tableB{ width:100%; border:1px solid #E4E4E4;table-layout:fixed;}
+.newsList .tableB th{ border-left:0; border-right:0;line-height:35px; vertical-align:middle; background-color:#fafafa; text-align:center;  font-size:14px;font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei";}
+.newsList .tableB td{min-height:30px; height:30px; word-break : break-all ; word-wrap : break-word ;line-height:20px; padding:5px; vertical-align:middle; text-align:center;  }
+.newInfo{ padding:20px 25px; overflow:hidden; line-height:25px;}
+.newInfo h2{ height:35px; line-height:35px; vertical-align:middle; text-align:center;}
+.newInfo .newTime{ height:25px; line-height:25px; vertical-align:middle; text-align:center;}
+.newInfo .newDetail{ padding:10px; letter-spacing:1px;}
+.helpMain p{text-indent: 2em; line-height: 25px;}
+.LeftMenu ul.selected{display: block; border-bottom: none;}
+.LeftMenu ul.selected li{padding-left:5px;line-height:25px;}
+.LeftMenu ul.selected li a{font-size: 12px;}
+.helpList{overflow:hidden;width:170px;margin:0 auto;padding-bottom:5px;}
+.LeftMenu h4{font-size: 14px; cursor: pointer;}
+.identification{height: 2px; width: 2px; border-radius: px; background:#666; float: left; margin-top: 12px; margin-right: 3px;}
+.helpMain table.postage{width: 80%; border: 1px solid #E4E4E4; margin-left: 10%;}
+.helpMain table.postage th{height: 30px; line-height: 30px; text-align: center;border: 1px solid #E4E4E4; background: #FAFAFA;}
+.helpMain table.postage td{height: 30px; line-height: 30px; border: 1px solid #E4E4E4; text-align: center; padding: 5px;}
+.helpMain table.postage td.tl{text-align: left; padding-left: 40px;}
+.ml40{margin-left: 40px;}
+.ml60{margin-left: 60px;}
+.ml80{margin-left: 80px;}
+.textL{text-align: left !important;}
+.tdUnder{text-decoration: underline;}
+/**************左侧及右侧顶部公共样式******************/
+.mainCon{overflow: hidden;}
+#left{width:190px;overflow:hidden;float:left;}
+#right{width:1000px;float:right;overflow:hidden;}
+.LeftMenu{overflow:hidden;margin-bottom:30px;}
+.menuList{overflow:hidden;width:160px;margin:0 auto;padding-bottom:5px;}
+.LeftMenu  b{display:inline-block;*display:inline;*zoom:1;overflow:hidden;position:absolute;}
+.LeftMenu h2{height:40px;vertical-align:middle;line-height:40px;position:relative;padding-left:40px;background:#ff4400;color:#fff;}
+.LeftMenu h2 b{background:url(../images/seller_ico.png) no-repeat;display:block;height:16px;width:16px;top:13px;left:15px;}
+.LeftMenu h3{cursor:pointer;position:relative; font-weight: bold;}
+.LeftMenu h3 b{background:url(../images/arrow_right.png) no-repeat;display:block;height:9px;width:6px;top:17px;left:2px;}
+.LeftMenu h3.show b{background:url(../images/arrow_down.png);display:block;height:6px;width:9px;top:17px;left:2px;}
+.LeftMenu ul{display:none;border-bottom:1px solid #E4E4E4;padding-bottom:5px;}
+.LeftMenu ul.hover{display:block;}
+.LeftMenu ul li{padding-left:20px;line-height:25px;}
+.LeftMenu ul li a{color:#666; font-size: 14px; text-decoration: none;}
+.LeftMenu ul li a.active{color:#ff4400;}
+.LeftMenu .titleH {height: 40px;line-height: 40px;padding-left: 15px;vertical-align: middle;}
+.common-title{background:#F4F4F4;height:40px;line-height:40px;padding-left:20px;border-bottom:1px solid #ff4400;}
+.common-title b{background:url(../images/icon-blue.png) no-repeat;display:block;height:16px;width:4px;position:absolute;top:13px;left:10px;}

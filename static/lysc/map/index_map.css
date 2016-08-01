@@ -1,0 +1,123 @@
+﻿#area_main .cheakbox .btnok, #area_main .cheakbox .btncity
+{
+    margin-left: 10px;
+    background: #e80000;
+    float: left;
+    width: 80px;
+    text-align: center;
+    margin-right: 0;
+}
+#area_main .cheakbox
+{
+    padding: 10px 0;
+    margin-bottom: 10px;
+    border: 1px solid #bfbfbf;
+}
+#area_main .cheakbox .cksheng, #area_main .cheakbox .ckshi, #area_main .cheakbox .ckcounty
+{
+    margin-left: 7px;
+}
+.anchorBL
+{
+    display: none;
+}
+#mask
+{
+    position: absolute;
+    filter: alpha(opacity=0);
+    background-color: #777;
+    z-index: 1002;
+    margin-left: 300px;
+    opacity: 0.2;
+    -moz-opacity: 0.5;
+    overflow: hidden;
+    height: 518px;
+    width: 910px;
+}
+.viewmapbg
+{
+    cursor: pointer;
+}
+.zoom_img_cont
+{
+    width: 910px;
+    height: 518px;
+}
+.zoom_img_posi
+{
+    width: 910px;
+    height: 518px;
+}
+.zoom_img_posi .map_img_cont
+{
+    width: 910px;
+    height: 518px;
+    overflow: hidden;
+}
+.zoom_img_posi .map_img_cont #map_img
+{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.zoom_img_posi #map_tip
+{
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.zoom_img_posi #map_tip .tip_item
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 20px;
+    line-height: 19px;
+    font-size: 10px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-radius: 4px;
+    border:solid 2px White;
+    color: White;
+    cursor: pointer;
+}
+.secS-srh
+{
+    position: absolute;
+    background: white;
+    z-index: 1000;
+}
+#mapContainer
+{
+    left: 300px;
+}
+
+#baiduMap
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 910px;
+    height: 518px;
+    visibility: collapse;
+}
+
+@-webkit-keyframes pulseBInner{
+  0% {
+      opacity: 0.3; 
+  }
+  100% {
+      opacity: 1; 
+  }
+}
+.tip_item:hover
+{
+    animation:pulseBInner 1.5s infinite alternate;
+    -moz-animation:pulseBInner 1.5s infinite alternate;
+    -webkit-animation:pulseBInner 1.5s infinite alternate;
+    -o-animation:pulseBInner 1.5s infinite alternate;
+    }

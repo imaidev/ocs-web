@@ -1,0 +1,55 @@
+<html><head>
+
+<title>上传文件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="upload.css" rel="stylesheet" type="text/css">
+<link href="jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css">
+<script src="jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
+<script src="upload/html5upload.js" type="text/javascript"></script>
+<script src="upload/jquery.swfupload.js" type="text/javascript"></script>
+<script src="upload/swfupload.js" type="text/javascript"></script>
+<script src="swfobject.js" type="text/javascript"></script>
+<script src="fileupload.js" type="text/javascript"></script>
+</head>
+<body style="width:1600px;height:740px;">
+	<input type="button" value="submit" onclick="initView()" id="uuuuuuuuuuuuuuuuu" style="width:100px;">
+	
+	
+	<div id="dialog-message" class="dn"></div>
+	
+	
+	
+	<div id="resultimg" class="dn"></div>
+
+<script>
+var userId="SUPERADMIN";
+var queuestatus =$('#queuestatus');
+var fsUploadProgress = $("#fsUploadProgress");
+var divs = fsUploadProgress[0]; //JQUERY תDOM
+var fileSelectedNum =0;  
+var filesQueuedNum=0;
+var fileFailNum =0;
+var isUpload = false;
+var initFlashFlag =false;
+var result="";
+</script>
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-uploadbox" style="display: block; z-index: 1002; outline: 0px; height: auto; width: 548px; top: 112.5px; left: 400.5px;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-uploadbox">上传文件</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="uploadbox" style="padding: 0px; display: block; width: auto; min-height: 110px; height: auto;" class="dn ui-dialog-content ui-widget-content" scrolltop="0" scrollleft="0">
+		<div id="fsUploadProgress"> 
+			<p id="queuestatus"></p>
+			<ol id="log"></ol>
+		</div>
+
+		<div class="upload-buttonpane" style="background: #F0F0F0; padding:0.9em 1.4em 1em 0.4em; border-top: 1px solid #F5F6F7;"> 
+			<!--<button id="uploadbtn"  class="atMC ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only small-btn" aria-disabled="false" ><span>继续添加</span></button>-->
+			<div id="uploadfirstwrapper" class="atMC blueBtn r2">
+			
+<object  width="168" height="43" class="swfupload" id="SWFUpload_0" data="http://10.10.10.151:8080/ecv6/jsp/flash/upload/swfupload.swf?preventswfcaching=1413874564938" type="application/x-shockwave-flash">
+
+			
+			<param name="wmode" value="transparent"><param name="movie" value="http://10.10.10.151:8080/ecv6/jsp/flash/upload/swfupload.swf?preventswfcaching=1413878993762"><param name="quality" value="high"><param name="menu" value="false"><param name="allowScriptAccess" value="always"><param name="flashvars" value="movieName=SWFUpload_0&amp;uploadURL=http%3A%2F%2F10.10.10.151%3A8080%2FDocCenterService%2Fupload&amp;useQueryString=false&amp;requeueOnError=false&amp;httpSuccess=&amp;assumeSuccessTimeout=0&amp;params=&amp;filePostName=uploadfile&amp;fileTypes=*.*&amp;fileTypesDescription=All%20files&amp;fileSizeLimit=2%20MB&amp;fileUploadLimit=0&amp;fileQueueLimit=0&amp;debugEnabled=false&amp;buttonImageURL=&amp;buttonWidth=168&amp;buttonHeight=43&amp;buttonText=%3Cspan%20class%3D%22btnStyle%22%3E%E9%80%89%E6%8B%A9%E7%94%B5%E8%84%91%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%3C%2Fspan%3E&amp;buttonTextTopPadding=13&amp;buttonTextLeftPadding=0&amp;buttonTextStyle=.btnStyle%20%7B%20color%3A%20%23FFFFFF%3B%20font-size%3A16px%3Btext-align%3Acenter%7D&amp;buttonAction=-110&amp;buttonDisabled=false&amp;buttonCursor=-2"></object></div>
+			<button id="cancelbtn" class="pt10 r r2 ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only small-btn" aria-disabled="false"><span>关闭</span></button>
+			<div class="clearfix">&nbsp;</div>
+		</div>
+	</div></div><div class="ui-widget-overlay" style="width: 1608px; height: 756px; z-index: 1001;"></div></body></html>

@@ -1,0 +1,159 @@
+@charset "utf-8";
+/* CSS Document */
+/*******店铺相关页公共头部搜索部分*******/
+body{background:#f0f0f0;}
+.store{z-index:100;width:1200px;height:60px;margin:0 auto;position:relative;margin-top:5px;padding-bottom:15px !important;}
+.sroreNav{margin:0 auto;vertical-align:middle;color:#333;}
+.storeregs{display:inline-block;*display:inline;position:relative;cursor:pointer;}
+.storeregs-outer{position:relative;display:inline-block;width:330px;height:34px;line-height:34px;text-align:center;background:#F1F1F1;color:#444; border:1px solid #ddd; overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.storeregs-outer em{position:absolute;top:16px;right:5px;display:inline-block;width:8px;height:5px;background:url(../images/icon-greyAUp.png) no-repeat;}
+.storeregs:hover em{top:16px;background:url(../images/icon-greyADown.png) no-repeat;}
+.storeregs-inner{display:none;position:absolute;top:35px;left:0px; line-height:25px;width:360px;color:#333; border:1px solid #ddd; background:#fff;}
+.storeregs-inner a{display:block;text-decoration:none;}
+.storeregs:hover .storeregs-inner{display:block;}
+.sroreNav .searchCon{position:relative;float:right;display:block;width:410px;height:40px;margin-left:10px;background:#f60;letter-spacing:1px;z-index:3;}
+.sroreNav .srh-inner{width:348px;}
+.sroreNav .searchCon input{position:absolute;top:5px;left:95px;width:220px;height:26px;line-height:26px;border:0;border-left:1px solid #ddd;outline-style:none;vertical-align:middle;padding-left:4px;padding-bottom:0px !important;background:#fff;}
+.sroreNav .searchCon a.btnA{position:absolute;right:0;top:0;display:block;width:60px;height:40px;background:#f60;}
+.sroreNav .searchCon a.btnA em{display:inline-block;position:absolute;top:50%;left:50%;width:23px;height:20px;margin-top:-10px;margin-left:-11px;background:url(../images/icon-srh.png) no-repeat;}
+.FavBtn,.hasFavBtn{position:relative; padding-left:35px;}
+.FavBtn b{position:absolute; background:url(../images/iconbg.png) 0 -243px no-repeat; width:16px; height:15px; top:7px; left:10px;}
+.hasFavBtn b{position:absolute;top:7px;left:10px;background:url(../images/iconbg.png) -20px -243px no-repeat;width:16px;height:15px;}
+.addF a{color:#888;}
+/*****店铺分类导航样式*****/
+.navList li.nav-cates:hover .nav-cateLists{display:block;}
+.nav-cates{position:relative;}
+.nav-cateLists{position:absolute;display:none;top:40px;left:0px;width:168px;background:#ddd;padding:7px 0 10px 0;}
+.nav-cateLists .items{background:#ddd;}
+.nav-cateLists .items:hover{background:#eee;}
+.nav-cateLists .items a{display:block;margin:0px 10px;height:38px;line-height:38px;color:#333;font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+/*****店铺相关页标题部分*****/
+.storeList_title02{position:relative;height:40px; line-height:40px; border-bottom:2px solid #f60;background:#fff; border-top-left-radius:10px;}
+.storeList_title02 b{width:5px; height:5px;border-radius:50%; background:#fff; display:inline-block; margin-right:5px;vertical-align:middle;}
+.storeList_title02 a:hover{text-decoration:none;}
+.factoryName{min-width:150px; background:#f60; color:#fff; height:40px; line-height:40px; display:inline-block;*display:inline;zoom:1; padding-right:10px; border-top-left-radius:10px;}
+.factoryName a{color:#fff;}
+.storeList_title02 .link-more{position:absolute;right:15px;bottom:0;display:inline-block;height:40px;line-height:40px;font-weight:normal;color:#666;}
+.storeList_title02 .link-more:hover{text-decoration:none;}
+.storeList_title{position:relative;height:40px;line-height:40px;background:#fff;border-bottom:2px solid #f60;padding-left:10px;}
+.storeList_title b{width:10px; height:10px; border-radius:50%; background:#fe6603; display:inline-block; margin-right:10px;}
+/*****店铺相关页banner部分*****/
+.store_banner{position:relative;width:100%;max-width:1920px;height:140px;margin:0 auto;*overflow:hidden;}
+.store_banner img{position:absolute;top:0;left:50%;margin:0 auto;margin-left:-960px;}
+/*****店铺商品搜索页列表部分*****/
+.srh-lists{overflow:hidden;}
+.srh-lists ul{overflow:hidden;margin-left:-20px;}
+.srh-lists ul li{float:left;width:588px;height:178px;margin:20px 0 0 20px;overflow:hidden;border:1px solid #E4E4E4;background:#fff;}
+.srh-lists ul li .item{padding:10px;overflow:hidden;}
+.srh-lists ul li .item a.item-con{display:inline-block;}
+.srh-lists ul li .item a:hover{text-decoration:none;}
+.srh-lists .pro-img{display:inline-block;float:left;}
+.srh-lists .pro-del{display:inline-block;float:left;margin-left:10px;width:410px;}
+.srh-lists .pro-name{height:38px;line-height:19px;overflow:hidden;font-size:14px;white-space:normal;}
+.srh-lists .pro-other{width:90%;max-height:34px;line-height:17px;font-size:12px;overflow:hidden;word-break:break-all;}
+.sku-items{overflow:hidden;}
+.sku-items .sku-item{float:left;width:48%;margin:5px 1% 0 1%;padding:0 !important;}
+/*****店铺简介*****/
+.table-com td{padding:5px;}
+.shop-intro{overflow:hidden;}
+.shop-logoCon{width:260px;height:260px;border:1px solid #ddd;padding:10px;margin-left:10px;background:#fff;}
+.shop-des{width:800px;font-size:14px;}
+.shop-brief{overflow:hidden;}
+.shop-brief-tit{width:125px;}
+.shop-brief-con{width:1000px;line-height:22px;}
+.shop-lists{height:303px;margin:-13px 0 0 -13px;overflow:hidden;}
+.shop-lists li{float:left;width:270px;height:270px;padding:9px;margin:13px 0 0 13px;border:1px solid #ddd;background:#fff;}
+.shop-lists li a{display:block;width:100%;height:100%;}
+.shop-lists li:hover{border:1px solid #fe6603;}
+/*****店铺联系方式*****/
+.user-intro{padding:25px;padding-left:50px;overflow:hidden;}
+.user-info{width:470px;}
+.user-imgCon,.user-link{display:inline-block;*display:inline;zoom:1;}
+.user-imgCon{width:160px;height:160px;padding:10px;border:1px solid #ddd;background:#fff;vertical-align:top;}
+.user-link{width:270px;}
+.user-delInfo{width:600px;border-left:3px solid #ddd;}
+.cmp-concat{padding:25px;}
+/****列表无商品时*****/
+.emptyList{padding:30px;margin-top:10px;margin-bottom:10px;background:#fff;text-align:center;font-weight:bold;font-size:14px;}
+#shopHeader{overflow: hidden; position: relative; width: 100%;}
+#shopHeader img{left: 50%; position: absolute; z-index: 2;}
+#shopNav{background-color: #c4d701; height: 40px; line-height: 40px; vertical-align: middle; width: 100%;}
+#shopNav ul li{float: left;}
+.shopInfo .onlineC b{background: rgba(0, 0, 0, 0) url("../images/sprite201411.png") no-repeat scroll 0 0;}
+.shopInfo .shopName{display: inline-block; height: 100%; overflow: hidden; padding-right: 10px; text-overflow: ellipsis; white-space: nowrap; width: 163px;}
+#shopExtra{background: #ffffff none repeat scroll 0 0; width: 100%;}
+.shopExtra{height: 30px; line-height: 30px;}
+.shopExtra .shopName{display: inline-block; position: relative; z-index: 20;}
+.shopExtra .hideCon{background: #ffffff none repeat scroll 0 0; border: 1px solid #e5e5e5; display: none; height: auto; left: 0; min-height: 100px; padding: 10px; position: absolute; top: 28px; width: 220px; z-index: 22;}
+.shopName:hover .hideCon{display: block;}
+.onlineServ{display: inline-block; padding-left: 20px; position: relative;}
+.onlineServ b{background: #008000 none repeat scroll 0 0; display: inline-block; height: 16px; left: 0; position: absolute; top: 7px; width: 16px;}
+.shopExtra .serviceOn{background: rgba(0, 0, 0, 0) url("../images/serviceOn.gif") no-repeat scroll right center; display: inline-block; height: 24px; overflow: hidden; padding-right: 26px; position: static; right: 10px; top: 5px;}
+.shopExtra .serviceOff{background: rgba(0, 0, 0, 0) url("../images/serviceOff.png") no-repeat scroll right center; display: inline-block; height: 24px; overflow: hidden; padding-right: 26px; position: static; right: 10px; top: 5px;}
+.adsBanner{margin: 0 auto; overflow: hidden; position: relative; width: 100%;}
+.adsBannerBd{height: 100%; position: relative;}
+.adsBannerBd ul{height: 100%; overflow: hidden;}
+.adsBannerBd ul li{display: block; height: 100%; width: 100%;}
+.adsBannerBd ul li a{display: block; height: 100%; margin: 0 auto;}
+.adsBannerBd ul li img{left: 50%; position: absolute; z-index: 2;}
+.adsBannerHd{bottom: 20px; height: 20px; left: 50%; margin-left: -500px; position: absolute; width: 1000px; z-index: 12;}
+.adsBannerHd ul{display: inline-block; position: absolute; right: 0;}
+.adsBannerHd li{background: #ffffff none repeat scroll 0 0; border-radius: 10px; color: #093d89; cursor: pointer; float: left; font-size: 14px; font-weight: bold; height: 18px; line-height: 20px; margin-right: 5px; text-align: center; text-indent: -9999px; width: 18px;}
+.adsBannerHd li.on{background-color: #3eb036; color: #ffffff;}
+#shop{padding-bottom: 10px; position: relative;}
+#shop .related-buy{background-color: #ffffff;}
+.picCon li{float: left; overflow: hidden;}
+.shopInfo{background-color: #ffffff; overflow: hidden;}
+.shopInfo .onlineC{margin-top: 5px; padding-left: 30px; position: relative;}
+.shopInfo .onlineC b{background-position: -20px -110px; display: block; height: 12px; left: 7px; position: absolute; top: 6px; width: 16px;}
+.shopInfo .addFavorite{margin-top: 5px;}
+.shopInfo table{line-height: 20px; margin: 10px auto 0; overflow: hidden; table-layout: fixed; width: 95%;}
+.shopInfo table td{padding: 2px 0;}
+.shopInfo table td span{line-height: 24px; position: absolute;}
+.shopInfo table td .starLevel{height: 20px; vertical-align: bottom;}
+.shop-search table{line-height: 30px; margin: 10px auto 0; overflow: hidden; table-layout: fixed; width: 90%;}
+.shop-search .searchText{height: 20px; line-height: 20px; vertical-align: middle;}
+.proTitle{margin-top: 10px; padding-right: 20px;}
+.proTitle span{float: left;}
+.proTitle a{float: right; font-size: 14px; margin-top: 5px;}
+#shop .itemsList{background-color: #ffffff; padding-left: 3px;}
+#shop #guess-you-like{background-color: #ffffff;}
+#shop .select{background-color: #ffffff;}
+.part{margin-top: 10px; overflow: hidden; padding-bottom: 20px;}
+.part .itemList{overflow: hidden;}
+.part .itemList li{float: left; margin-left: 12px; margin-top: 15px; overflow: hidden; padding: 15px; width: 252px;}
+.part .itemList li .pic{background-color: #ffffff; border: 1px solid #e4e4e4; height: 250px; overflow: hidden; width: 250px;}
+.part .itemList li .name{background-color: #ffffff; font-family: "微软雅黑","Microsoft YaHei"; font-size: 14px; height: 40px; line-height: 20px; overflow: hidden; padding: 5px;}
+.part .itemList li .price{background-color: #ffffff; height: 30px; overflow: hidden; padding: 0 5px; text-align: left;}
+.part .itemList li .btn{background-color: #ff5f3d; color: #ffffff; display: block; font-family: "微软雅黑","Microsoft YaHei"; font-size: 14px; font-weight: bold; height: 30px; line-height: 30px; overflow: hidden; text-align: center; vertical-align: middle;}
+.addFdp{background-color: #ffffff; border: 5px solid #cccccc; display: none; height: 120px; left: 500px; padding: 40px 40px 0 60px; position: absolute; top: 300px; width: 300px; z-index: 4;}
+.addFdp table{border: 0 none; border-collapse: collapse; border-spacing: 0;}
+.addFdp table td{vertical-align: middle;}
+.addFdp .closeMsg{background: rgba(0, 0, 0, 0) url("../images/sprite201411.png") no-repeat scroll -40px -160px; display: block; height: 40px; position: absolute; right: 5px; top: 5px; width: 40px; z-index: 5;}
+.addFdp .closeMsg:hover{background-position: -40px -200px;}
+.suc b, .fail b{background: rgba(0, 0, 0, 0) url("../images/sprite201411.png") no-repeat scroll 0 0; display: block; height: 40px; left: 15px; position: absolute; top: 38px; width: 40px; z-index: 5;}
+.fail b{background-position: 0 -200px;}
+.suc b{background-position: 0 -160px;}
+
+/****店铺等级*****/
+.shopLevel1,.shopLevel2,.shopLevel3,.shopLevel4,.shopLevel5,.shopLevel6,.shopLevel7,.shopLevel8,.shopLevel9,.shopLevel10,
+.shopLevel11,.shopLevel12,.shopLevel13,.shopLevel14,.shopLevel15{background: url(../images/shopLevel.png) no-repeat; width: 98px;height: 14px;margin-top: 3px;}
+.shopLevel1{background-position: 0 0px;}
+.shopLevel2{background-position: 0 -15px;}
+.shopLevel3{background-position: 0 -30px;}
+.shopLevel4{background-position: 0 -45px;}
+.shopLevel5{background-position: 0 -60px;}
+.shopLevel6{background-position: 0 -75px;}
+.shopLevel7{background-position: 0 -90px;}
+.shopLevel8{background-position: 0 -105px;}
+.shopLevel9{background-position: 0 -120px;}
+.shopLevel10{background-position: 0 -135px;}
+.shopLevel11{background-position: 0 -150px;}
+.shopLevel12{background-position: 0 -165px;}
+.shopLevel13{background-position: 0 -180px;}
+.shopLevel14{background-position: 0 -195px;}
+.shopLevel15{background-position: 0 -210px;}
+
+
+
+

@@ -1,0 +1,127 @@
+@charset "utf-8";
+/* CSS Document */
+
+.payMethod{
+	width:920px;
+	margin:0 auto;
+	overflow:hidden;
+	padding:25px 0;
+	letter-spacing:1px;
+	color:#666666;
+	border-bottom:2px solid #CCC;
+	}
+.payMethod .orderInfo{
+	line-height:25px;
+	font-family:"\5B8B\4F53","SimSun";
+	font-size:14px;
+	letter-spacing:1px;
+	}
+.payMethod .orderInfo td{
+	text-align:left;
+	}
+.payMethod .orderInfo td span{
+	font-size:14px;
+	font-family:"arial";
+	color:#f1890c;
+	font-weight:900;
+	}
+.payMethod .orderInfo caption{
+	height:35px;
+	text-align:left;
+	font-size:16px;
+	font-weight:900;
+	}
+ 
+.payMethod .orderInfo .titleW{
+	text-align:right;
+	font-weight:900;
+	}
+.payMethod .message{
+	text-align:right;
+	border-bottom:1px dashed #cdcdcd;
+	color:#666666;
+	width:920px;
+	margin:0 auto;
+	letter-spacing:1px;
+	padding:30px 0 20px 0;
+	}
+	.payMethod .message span{
+		font-size:16px;
+	font-family:"arial";
+	color:#f1890c;
+	font-weight:900;
+		}
+		
+.payMethodTitle{
+	height:35px;
+	text-align:left;
+	font-size:16px;
+	font-weight:900;
+	margin-top:30px;
+	}
+.payMethodTab{
+	width:920px;
+	overflow:hidden;
+	margin:0 auto;
+	}
+.payMethodTab .payMethodTabHd{
+	height:38px;
+	line-height:38px;
+	overflow:hidden;
+	vertical-align:middle;
+	background-color:#cccccc;
+	}
+.payMethodTab .payMethodTabHd li{
+	cursor:pointer;
+	color:#ffffff;
+	font-weight:normal;
+	font-size:14px;
+	padding:0 8px;
+	height:30px;
+	margin-top:8px;
+	float:left;
+	margin-left:10px;
+	line-height:30px;
+	vertical-align:middle;
+	font-weight:900;
+	}
+.payMethodTab .payMethodTabHd li.on{
+	color:#666666;
+	background-color:#ffffff;
+	}
+	
+.payMethodTab .payMethodTabBd ul{
+	overflow:hidden;
+	margin-top:10px;
+	}
+.payMethodTab .payMethodTabBd li{
+	line-height:45px;
+	vertical-align:middle;
+	padding:0 0 0 30px;
+	position:relative;
+	z-index:1;
+	height:45px;
+	margin-top:5px;
+	border-bottom:1px dotted #cdcdcd;
+	}
+.payMethodTab .payMethodTabBd  .txInfo{
+	margin-top:20px;
+	font-size:12px;
+	color:#f1890c;
+	border-bottom:none;
+	}
+.payMethodTab .payMethodTabBd li input{
+	position:absolute;
+	z-index:2;
+	top:12px;
+	left:10px;
+	}
+.payMethodTab .payMethodTabBd li img{
+	float:left;
+	}
+
+.payMethodTab .payMethodTabBd li span{
+	margin-left:20px;
+	float:left;
+	}
+ 

@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+.title-box{position:relative;height:40px;line-height:40px;background:#04a1e6;color:#fff;}
+.title-box h3{margin-left:5px;font-weight:bold;font-size:14px;}
+.title-box .title-box-act{position:absolute;top:0;right:5px;height:100%;vertical-align:middle;}
+.title-box .title-box-act .more{color:#fff;}
+
+
+
+

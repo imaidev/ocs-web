@@ -1,0 +1,47 @@
+@charset "utf-8";
+/*css reset*/
+
+*{ padding:0; margin:0; list-style:none; border:0;}
+body{font-family:"微软雅黑"; color:#616161; font-size:12px; background:no-repeat center 0;}
+a{ color:#fff; text-decoration:none;}
+/*main*/
+.main{width:1200px; margin:auto;overflow:hidden;}
+
+.ligon{width:295px; border:1px #f0f0f0 solid; float:left; margin-top:10px; height:180px;}
+.tip01{hight:30px; background-color:#f0f0f0; overflow:hidden;}
+.tip01 h2{ font-size:16px; font-weight:normal; color:#595959; float:left; margin-left:10px; line-height:30px;}
+.tip01 img{float:right; margin-right:10px; margin-top:10px;}
+.ligon .tex{margin-top:20px; margin-left:10px; margin-right:10px; text-indent:24px; margin-bottom:30px;}
+.ligon .enro{color:#666666; font-size:14px; padding-bottom:20px;}
+.enro .botn01{width:118px; height:28px; background-image:url(/static/zywl/skins/images/finance/finance_31.png); float:left; margin-left:20px; cursor:pointer;}
+.enro .enro01{float:left; color:#666666; margin-left:18px;  margin-top:10px;}
+.enro .code{float:left; color:#666666; float:right; margin-top:10px; margin-right:40px;}
+.enro a:hover{color:#ff0000; text-decoration:underline;}
+
+.indru{float:right; margin-top:10px; width:894px; margin-bottom:20px;}
+.tip02{hight:30px; background-color:#f0f0f0; overflow:hidden;}
+.tip02 h2{font-size:16px; font-weight:normal; color:#595959; float:left; margin-left:10px; line-height:30px;}
+.tip02 img{float:right; margin-right:10px; margin-top:10px;}
+.indru dl{margin-top:10px;}
+.indru dd{width:284px; float:left; margin-right:10px; height:358px; border:1px #f0f0f0 solid; }
+dd .colour01{height:10px; background-color:#f18088;}
+dd .icon{overflow:hidden; height:80px;}
+dd .icon01{float:left; margin-left:20px; overflow:hidden; margin-top:10px;}
+dd .text01{float:left; margin-top:28px; margin-left:20px;}
+dd p{margin:18px 18px 18px; line-height:20px;}
+
+.newS{width:300px; float:left; color:#4c4c4c; border:1px solid #f0f0f0; margin-top:10px;}
+.tip03{hight:30px; background-color:#f0f0f0; overflow:hidden;}
+.tip03 h2{font-size:16px; font-weight:normal; color:#595959; float:left; margin-left:10px; line-height:30px;}
+.tip03 img{float:right; margin-right:10px; margin-top:10px;}
+.newS ul{margin-top:10px; margin-bottom:20px;}
+.newS a{line-height:20px;color:#4c4c4c; background-image:url(/static/zywl/skins/images/finance/10_39.png); background-repeat:no-repeat; background-position:left; margin-left:10px; padding-left:10px;}
+.newS a:hover{color:#ff0000; text-decoration:underline; background-image:url(/static/zywl/skins/images/finance/102_39.png);}
+
+.oder{width:300px; float:left; color:#4c4c4c; border:1px solid #f0f0f0; margin-top:10px;}
+.tip04{hight:30px; background-color:#f0f0f0; overflow:hidden;}
+.tip04 h2{font-size:16px; font-weight:normal; color:#595959; float:left; margin-left:10px; line-height:30px;}
+.tip04 img{float:right; margin-right:10px; margin-top:10px;}
+.oder ul{margin-top:10px; margin-bottom:20px;}
+.oder a{line-height:20px;color:#4c4c4c; background-image:url(/static/zywl/skins/images/finance/10_39.png); background-repeat:no-repeat; background-position:left; margin-left:10px; padding-left:20px;}
+.oder a:hover{color:#ff0000; text-decoration:underline; background-image:url(/static/zywl/skins/images/finance/102_39.png);}

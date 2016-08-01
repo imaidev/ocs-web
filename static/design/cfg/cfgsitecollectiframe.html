@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="/static/design/css/editor.css" rel="stylesheet">
+
+		<script src="/static/design/js/jquery.min.js"></script>
+		<link href="/static/design/js/layer/skin/layer.css" rel="stylesheet">
+		<script src="/static/design/js/layer/layer.js"></script>
+		<link rel="stylesheet" href="/static/design/js/layer/skin/layer.css" id="layui_layer_skinlayercss">
+
+		<script>
+			$(function () {
+	            //加载标题栏数据
+	            $('#title').val(parent._$module.find('.title-box span').text().trim());
+	            if(parent._$module.find('.title-box').is(":hidden")){
+	            	$('input[name="showTitle"]').eq(0).attr("checked",true);	
+	            }
+	            else{
+	            	$('input[name="showTitle"]').eq(1).attr("checked",true);
+	            }
+	        })
+	        function cfgSet(){
+	        	//组件标题
+	        	parent._$module.find('.title-box span').text($('#title').val());
+	        	if($('input[name="showTitle"]:checked').val()=="true"){
+	        		parent._$module.find('.title-box').show();
+	        	}
+	        	else{
+	        		parent._$module.find('.title-box').hide();
+	        	}
+	        	//关闭配置框
+	        	parent.cfgClose(); 
+	        }
+		</script>
+	</head>
+
+	<body>
+		<div class="content fm1">
+			<div class="tab">
+				<!-- <ul class="nav clear-fix">
+					<li class="ks-switchable-trigger-internal6 selected"><span>编辑站点收藏模块</span></li>
+				</ul> -->
+				<form class="main-slide-form form-default" method="post" id="displaySetForm" novalidate="novalidate">
+					<div class="panels">
+						<div class="panel content-set ks-switchable-panel-internal7" id="tabOne">
+							<div class="edit-module">
+								<div class="edit-item  edit-head">
+		                            <span class="fl">显示标题：</span>
+		                            <div class="fl show-title" >
+		                                <input type="radio" class="J_TNotShowTitle  input-radio" name="showTitle" value="false" >不显示
+		                                <input type="radio" class="J_TShowTitle  show-title-true input-radio" name="showTitle" value="true" checked="checked">显示
+		                                <input class="J_TTitleInput input-box title-input" id="title" type="text" maxlength="30" name="title" value="站点收藏">
+		                            </div>
+		                        </div>
+							</div>
+						</div>
+					</div>
+			</div>
+			<p class="opt-footer ctset-opt-footer">
+				<a href="javascript:void(0);" class="btn-ok J_SubmitButton" onclick="cfgSet()">保存</a>
+				<a href="javascript:void(0);" class="btn-cancel J_CancelButton" onclick="parent.cfgClose();">取消</a>
+			</p>
+			</form>
+		</div>
+	</body>
+
+</html>

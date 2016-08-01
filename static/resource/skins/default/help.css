@@ -1,0 +1,171 @@
+@charset "utf-8";
+/* CSS Document */
+helpFont {
+	font-size: 16px;
+	font-family: "\9ED1\4F53 ", "SimHei";
+	font-weight: bold;
+	color: #000000;
+}
+
+.helpFont01 {
+	font-size: 16px;
+	font-family: "\9ED1\4F53 ", "SimHei";
+	font-weight: bold;
+	color: #3399cc !important;
+}
+
+.helpFont02 {
+	font-size: 14px;
+	font-family: "\5B8B\4F53", "SimSun";
+	font-weight: bold;
+	color: #666666;
+}
+
+.helpFont03 {
+	font-size: 14px;
+	font-family: "\5B8B\4F53", "SimSun";
+	color: #666666;
+}
+
+.helpFont04 {
+	font-size: 14px;
+	font-family: "\5B8B\4F53", "SimSun";
+	color: #3399cc !important;
+	font-weight: bold;
+}
+
+.subtitle {
+	border-bottom: 1px solid #cbcbcb;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin-bottom: 15px;
+}
+
+#mainContentTop {
+	width: 1200px;
+	height: 40px;
+	padding-top: 5px;
+	vertical-align: middle;
+	line-height: 40px;
+	border-bottom: 1px solid #cbcbcb;
+	overflow: hidden;
+}
+
+#mainContentLeft {
+	width: 188px;
+	border: 1px solid #cbcbcb;
+	overflow: hidden;
+	background-color: #ffffff;
+	margin-top: 5px;
+	float: left;
+	border-bottom: none !important;
+}
+
+#mainContentLeft h2 {
+	background: url(../images/help/title.jpg) no-repeat center center;
+	display: block;
+	float: left;
+	width: 163px;
+	border-bottom: 1px solid #cbcbcb;
+	height: 32px;
+	line-height: 32px;
+	vertical-align: middle;
+	padding-left: 35px;
+	cursor: pointer;
+	font-size: 16px;
+	color: #fefefe;
+}
+
+#mainContentLeft ul {
+	display: block;
+	width: 188px;
+	overflow: hidden;
+}
+
+#mainContentLeft li {
+	display: block;
+	float: left;
+	width: 153px;
+	border-bottom: 1px solid #cbcbcb;
+	height: 36px;
+	padding-left: 35px;
+	line-height: 35px;
+	vertical-align: middle;
+	color: #666666;
+	font-size: 14px;
+}
+
+#mainContentLeft li a {
+	color: #666666;
+	font-size: 14px;
+	font-family: "\5B8B\4F53", "SimSun";
+}
+
+#mainContentRight {
+	width: 993px;
+	overflow: hidden;
+	border: 1px solid #cbcbcb;
+	float: right;
+	margin-top: 5px;
+	background-color: #ffffff;
+	border-top: none !important;
+	color: #000;
+	font-size: 14px;
+}
+
+#mainContentRight .helpDt {
+	width: 985px;
+	height: 44px;
+	background: url(../images/help/helpDt.jpg) no-repeat center center;
+	line-height: 44px;
+	vertical-align: middle;
+	padding-left: 10px;
+	color: #3399cc;
+	font-size: 18px;
+}
+
+#mainContentRight .helpDd {
+	line-height: 1.5;
+	width: 950px;
+	margin: 20px auto 20px auto;
+	overflow: hidden;
+	color: #000;
+	font-size: 14px;
+}
+
+#mainContentRight .helpDd ul {
+	width: 950px;
+	display: block;
+}
+
+#mainContentRight .helpDd li {
+	width: 935px;
+	float: left;
+	display: block;
+	clear: both;
+}
+
+#mainContentRight .helpDd li a {
+	color: #098cc2;
+}
+
+#mainContentRight .helpDd table {
+	border-left: 1px solid #cbcbcb;
+	border-top: 1px solid #cbcbcb;
+}
+
+#mainContentRight .helpDd table td {
+	border-right: 1px solid #cbcbcb;
+	border-bottom: 1px solid #cbcbcb;
+}
+
+.helpFont01 {
+	font-family: "\5B8B\4F53", "SimSun";
+	font-weight: bold;
+	color: #666666;
+}
+
+.spanBold {
+	font-weight: bold;
+}
