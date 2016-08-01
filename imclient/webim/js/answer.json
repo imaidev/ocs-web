@@ -1,0 +1,8 @@
+{
+    "answer_201":
+        {"template_content":"${send_name}\u56de\u590d\u4e86\u4f60\u7684\u95ee\u9898\uff1a\"${param1}\"\uff0c\u70b9\u51fb\u67e5\u770b<\/a>",
+        "type_count":"1",
+        "type_name":"\u56de\u7b54\u95ee\u9898",
+        "list_address":"","type_id":"answer_201","parent_id":"answer"},
+    "answer_101":
+        {"template_content":"${send_name}\u63d0\u51fa\u4e86\u4e00\u4e2a\u65b0\u95ee\u9898\uff0c\u70b9\u51fb\u67e5\u770b<\/a>","type_count":"1","type_name":"\u65b0\u95ee\u9898","list_address":"","type_id":"answer_101","parent_id":"answer"}}

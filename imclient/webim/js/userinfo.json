@@ -1,0 +1,37 @@
+{
+    "userinfo":
+    {"uid":"3","userId":"zhanglch","user_type":"1000","uname":"张连超111","skill":"2","icon":"","app_id":"iop"},
+    "extinfo":
+    [
+        {"value":"22","name":"客服","type":"com"}
+    ],
+    "friends":
+    [
+        {"id":"slsman","gname":"客户经理分组","type":"slsman",
+            "gmember":[
+                        {"userId":"DLYC1306","uid":2,"uname":"谢娜","icon":"","type":"slsman"},
+                        {"userId":"DLYC1306","uid":28206111,"uname":"谢娜孩子","icon":"","type":"slsman"}
+                      ]
+        },
+        {"id":"service","gname":"在线客服分组","type":"service",
+            "gmember":[
+                        {"userId":"SDZY","uid":"20","uname":"机器人","icon":"","type":"system","skill":"3"},
+                         {"userId":"HBZY","uid":22,"uname":"新商盟","icon":"","type":"com","skill":"2"},
+                        {"userId":"HBZY","uid":1,"uname":"湖北中烟","icon":"","type":"mfr","skill":"2"},
+                        {"userId":"DLYC","uid":92,"uname":"大连烟草","icon":"","type":"com","skill":"2"},
+                        {"userId":"SXYC","uid":93,"uname":"陕西烟草","icon":"","type":"mfr","skill":"2"},
+                        {"userId":"SHYC","uid":94,"uname":"上海烟草","icon":"","type":"mfr","skill":"2"}
+                      ]
+        },
+        {"id":"test","gname":"测试用户分组","type":"test",
+            "gmember":[
+                        {"uid":"1","uname":"测试用户1","icon":"","type":"com"},
+                        {"uid":"2","uname":"测试用户2","icon":"","type":"mfr"},
+                        {"uid":"3","uname":"测试用户3","icon":"","type":"mfr"},
+                        {"uid":"7","uname":"测试用户7","icon":"","type":"com"},
+                        {"uid":"179","uname":"张连超","icon":"","type":"mfr"},
+                        {"uid":"9","uname":"我是测试用户终极管理员","icon":"","type":"mfr"}
+                      ]
+        }
+     ]
+}

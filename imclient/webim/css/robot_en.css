@@ -1,0 +1,301 @@
+	/*基本*/
+	.robot h1,.robot h3,.robot p,.robot ul,.robot li{
+	    margin:0;
+	    padding:0;
+	}
+	
+	.robot p,.robot ul,.robot li,.robot .chkinput{
+	    font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;
+	}
+	
+	.robot_chat_layout,.robot_chat_layout .input_count_box,.robot_chat_layout .input_text{
+		color: #4F6B72;
+		font-size: 12px;
+		font-family: 宋体,Arial;
+	}
+	
+	.robot h1, .robot h2, .robot h3{
+	    font-size: 100%;
+	}
+	
+	.robot em{
+	    font-family: Constantia,Georgia;
+	    font-size: 16px;
+	    font-weight: bold;
+	}
+	
+	.robot a{
+	    text-decoration:none;
+	}
+	.robot a:hover{
+	    text-decoration:underline;
+	}
+	
+	.robot a:link,.robot a:visited{
+	    color:#5382AA;
+	}
+	    
+	.robot .hidden {
+	    display:none;
+	}
+	
+	.robot .disabled {
+	    background-color: #eee!important;
+	}
+
+	/*总容器*/
+	.robot{
+		margin: 0;
+		position: fixed;
+		z-index:99999;
+		
+		/*IE6*/
+	    _position:absolute;
+	    _bottom:auto;
+	    _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+	}
+	
+	.robot_chat_layout:after, 
+	.main_wrap:after, .col_sub:after, .col-extra:after {
+	    content: '\20';
+	    display: block;
+	    height: 0;
+	    clear: both;
+	}
+    .robot_chat_layout, .main_wrap, .col_sub, .col-extra {
+        *zoom: 1;
+    }
+    
+    /*顶部*/
+    .robot .header{
+        -webkit-box-shadow:0px 3px 3px #ccc;
+	    -moz-box-shadow:0px 3px 3px #ccc;
+	    box-shadow:0px 3px 3px #ccc;
+	    background:url("../images/robot/header_bg.png") repeat-x #3C78C4;
+    }
+    .robot .appinfo {
+        float:left;
+        width:450px;
+        position:relative;
+        height:36px;
+        padding:4px 0 0 10px;
+    }
+    .robot .appinfo .header_box {
+        float:left;
+        padding:2px;
+        margin-right:10px;
+        background-color:#fff;
+        border:1px solid #335A8B;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    .robot .appinfo .header_box img{
+        display:block;
+        height: 30px;
+        width: 50px;
+    }
+    .robot .appinfo h1{
+    	margin: 3px;
+        line-height:120%;
+    }
+    .robot .appinfo h1 a,.robot .appinfo h1 a:visited{
+        font-size:14px;
+        color:#fff;
+    }
+    .robot .appinfo .welcomemsg{
+        line-height:100%;
+        color:#BDD4F0;
+    }
+    .robot .robot_icon_service,
+    .robot .robot_icon_max,
+    .robot .robot_icon_mid,
+    .robot .robot_icon_min,
+    .robot .robot_icon_close,
+    .robot .robot_icon_close:hover{
+        float: right;
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        margin: 6px 5px 0 5px;
+        *margin: 6px 5px 0 5px;
+        _margin: 6px 5px 0 5px;
+        background:url(../images/robot/close_icon.png) no-repeat;
+    }
+    .robot .robot_icon_max {
+        background-position:0px -24px;
+    }
+    .robot .robot_icon_mid {
+        background-position:-24px -24px;
+    }
+    .robot .robot_icon_min {
+    }
+	.robot .robot_icon_close:hover {
+	    background-position:-23px 0;
+	}
+	.robot .robot_icon_service {
+	    background:url(../images/industry.png) no-repeat;
+	}
+
+    /*聊天*/
+    .chat_box {
+        float: left;
+        min-height: 1px;
+    }
+    .chat_box .chatpanel {
+        background-color:#fff;
+    }
+    .chat_box .inputpanel {
+        position: absolute;
+        background-color:#D4DAE2;
+        box-shadow:0px -3px 8px #ddd;
+        -webkit-box-shadow:0px -3px 8px #ddd;
+        -moz-box-shadow:0px -3px 8px #ddd;
+
+    }
+    .robot .input_text{
+        float:left;
+        font-size:14px;
+        border-width:0px;
+        outline:none;
+        overflow:hidden;
+        background-color: #fff;
+        color: #000000;
+        background-color:#fff;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #D4DAE2;
+    }
+    .robot .input_count_box{
+        float: left;
+	    height: 25px;
+	    margin-left: 10px;
+	    width: 200px;
+    }
+    .robot .ask_icon{
+    	width:15px;
+    	height:15px;
+    	float:left;
+    	margin:5px 5px 5px 0;
+        background:url(../images/robot/ask_icon.png) no-repeat;
+    }
+    .robot .robot_icon_send, 
+    .robot .robot_icon_send:hover{
+        height:30px;
+        width: 66px;
+        float: right;
+        cursor: pointer;
+        background:url(../images/robot/send_icon_en.png) no-repeat;
+    }
+    .robot .robot_icon_send:hover {
+        background-position:0 -30px;
+    }
+    .robot .chatpanel .robot_msgl{
+    	clear: both;
+        display: inline;
+    }
+    .robot .chatpanel .robot_msgpos{
+        position: relative;
+        margin-bottom: 5px;
+    }
+    .robot .chatpanel .self_name{
+        color: green;
+    }
+    .robot .chatpanel .other_name{
+        color: #3268CC;
+    }
+    .robot .robot_msgl .self_name, .robot .robot_msgl .other_name{
+        padding-left: 10px;
+    }
+    .robot .robot_msgl .msg_box{
+        color: #333333;
+	    font: 12px/1.5 tahoma,arial,宋体;
+	    padding-left: 30px;
+	    white-space: pre-wrap;
+	    word-wrap: break-word;
+    }
+    
+    .robot .chatpanel .other_name,.robot .chatpanel .self_name{
+    	font-size: 12px;
+        font-family: 宋体,Arial;
+    }
+    
+    
+    
+    /*右侧*/
+     .robot_chat_layout .appside {
+        width:219px !important;
+        background-color:#E7ECF3;
+        border-left:1px solid #B9C1D1;
+        box-shadow:0px 0px 5px #aaa;
+        -webkit-box-shadow:0px 0px 5px #aaa;
+        -moz-box-shadow:0px 0px 5px #aaa;
+    }
+    
+    .robot_chat_layout .col_sub { 
+        float: left;
+        _overflow: hidden; 
+        *overflow: hidden;
+     }
+    
+    .skin_side .box {
+        border-bottom:1px solid #F4F6FA;
+    }
+    
+    .skin_side .hd{
+        height:32px;
+        border-bottom:1px solid #B9C1D1;
+        background-color:#E7ECF3;
+        cursor:pointer;
+    }
+    
+    .skin_side .hdext{
+        background-color:#D4DAE2;
+        border-top: 1px solid #B9C1D1;
+    }
+    
+    .skin_side .hd h3{
+        padding-left:19px;
+        line-height:30px;
+        font-size:14px;
+        font-weight:normal;
+    }
+    
+    .skin_side .bd{
+    	padding-top: 3px;
+        padding-left: 5px;
+        background-color:#F8FBFE;
+        border-bottom:1px solid #B9C1D1;
+    }
+    
+/*热点问题、相关内容*/
+    .robot .exthot {
+        overflow: hidden;
+    }
+    .robot .exthot li{
+        padding-left:7px;
+        line-height: 23px;
+        background:url(../images/robot/li_icon.png) no-repeat 0px 11px;
+    }
+    .robot .extabout ul{
+        overflow: hidden;
+    }
+    .robot .drag_icon{
+        width: 20px;
+        height: 20px;
+        float:right;
+        bottom:20px;
+        right:20px;
+        background:url(../images/robot/drag_icon.jpg) no-repeat;
+    }
+    
+
+
+
+
+
+
+
+
+
+
